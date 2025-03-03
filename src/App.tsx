@@ -14,22 +14,37 @@ const CategoryBody = styled.div`
 `;
 
 const CATEGORIES = [
-  'Office chairs',
-  'Gaming chairs',
-  'Dining chairs',
-  "Children's chairs",
-  'Soft chairs',
+  {
+    id: 1,
+    title: 'Office chairs',
+  },
+  {
+    id: 2,
+    title: 'Gaming chairs',
+  },
+  {
+    id: 3,
+    title: 'Dining chairs',
+  },
+  {
+    id: 4,
+    title: "Children's chairs",
+  },
+  {
+    id: 5,
+    title: 'Soft chairs',
+  },
 ];
 
 const App = () => {
   return (
     <CategoriesContainer>
       <h1>Chairs Store</h1>
-      {CATEGORIES.map((category) => (
-        <CategoryContainer>
+      {CATEGORIES.map(({ id, title }) => (
+        <CategoryContainer key={id}>
           <CategoryBody>
-            <h2>{category}</h2>
-            <a href="#">View</a>
+            <h2>{title}</h2>
+            <a href="#">Open</a>
           </CategoryBody>
         </CategoryContainer>
       ))}
