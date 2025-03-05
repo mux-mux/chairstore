@@ -33,7 +33,7 @@ const CATEGORIES = [
   },
 ];
 
-const App = () => {
+const App: React.FC = () => {
   return <Categories data={CATEGORIES} />;
 };
 
