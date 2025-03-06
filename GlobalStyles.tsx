@@ -1,3 +1,10 @@
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyles = createGlobalStyle`
+:root, body, #root {
+    height: 100%;
+}
+
 :root {
   font-family: 'Oswald', sans-serif;
   font-optical-sizing: auto;
@@ -20,9 +27,10 @@ a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+
+  &:hover {
+    color: #535bf2;
+  }
 }
 
 body {
@@ -46,13 +54,14 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+  &:hover {
+    border-color: #646cff;
+  }
+  &:focus,
+  &:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
 }
 
 @media (prefers-color-scheme: light) {
@@ -67,9 +76,6 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+`;
 
-:root,
-body,
-#root {
-  height: 100%;
-}
+export default GlobalStyles;
