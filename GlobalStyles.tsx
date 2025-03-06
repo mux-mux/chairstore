@@ -1,5 +1,15 @@
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyles = createGlobalStyle`
+:root, body, #root {
+    height: 100%;
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Oswald', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
   line-height: 1.5;
   font-weight: 400;
 
@@ -17,15 +27,15 @@ a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+
+  &:hover {
+    color: #535bf2;
+  }
 }
 
 body {
   margin: 0;
   min-width: 320px;
-  min-height: 100vh;
   text-align: center;
 }
 
@@ -44,13 +54,14 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+  &:hover {
+    border-color: #646cff;
+  }
+  &:focus,
+  &:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
 }
 
 @media (prefers-color-scheme: light) {
@@ -65,3 +76,6 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+`;
+
+export default GlobalStyles;

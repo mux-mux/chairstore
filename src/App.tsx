@@ -1,3 +1,4 @@
+import GlobalStyles from '../GlobalStyles';
 import Categories from './components/Categories/Categories';
 
 const CATEGORIES = [
@@ -34,7 +35,12 @@ const CATEGORIES = [
 ];
 
 const App: React.FC = () => {
-  return <Categories data={CATEGORIES} />;
+  return (
+    <>
+      <Categories data={CATEGORIES} />
+      <GlobalStyles />
+    </>
+  );
 };
 
 export default App;
