@@ -21,7 +21,6 @@ const Category: React.FC<CategoryProps> = ({ title, imagePath }) => {
 
 const CategoryContainer = styled.div`
   position: relative;
-  min-width: 30%;
   height: 240px;
   flex: 1 1 auto;
   display: flex;
@@ -29,7 +28,6 @@ const CategoryContainer = styled.div`
   justify-content: center;
   border: 1px solid lightgrey;
   border-radius: 5px;
-  margin: 0 7.5px 15px;
   overflow: hidden;
 
   &:hover {

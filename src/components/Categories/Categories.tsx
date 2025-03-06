@@ -17,9 +17,11 @@ const Categories: React.FC<CategoriesProps> = ({ data }) => {
 
 const CategoriesContainer = styled.div`
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  gap: 30px;
+  place-content: center;
   text-align: center;
 `;
 

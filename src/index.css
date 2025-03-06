@@ -28,7 +28,6 @@ a:hover {
 body {
   margin: 0;
   min-width: 320px;
-  min-height: 100vh;
   text-align: center;
 }
 
@@ -67,4 +66,10 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+:root,
+body,
+#root {
+  height: 100%;
 }
