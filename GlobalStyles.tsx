@@ -1,6 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
+* {
+  box-sizing: border-box;
+}
+
 :root, body, #root {
     height: 100%;
 }
@@ -23,10 +27,16 @@ const GlobalStyles = createGlobalStyle`
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
-  text-decoration: inherit;
+  text-decoration: none;
 
   &:hover {
     color: #535bf2;

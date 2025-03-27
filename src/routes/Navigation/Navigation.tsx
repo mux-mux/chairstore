@@ -1,12 +1,14 @@
 import { Outlet, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+import Logo from '../../components/Logo/Logo';
+
 const Navigation: React.FC = () => {
   return (
     <>
       <Nav>
         <LogoLink to="/">
-          <Logo>Logo</Logo>
+          <Logo size={50} />
         </LogoLink>
         <NavLinks>
           <NavLink to="/">Home</NavLink>
@@ -17,10 +19,32 @@ const Navigation: React.FC = () => {
   );
 };
 
-const Nav = styled.div``;
-const Logo = styled.div``;
-const NavLinks = styled.div``;
-const NavLink = styled(Link)``;
-const LogoLink = styled(Link)``;
+const Nav = styled.div`
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+`;
+const LogoLink = styled(Link)`
+  height: 100%;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+`;
+const NavLinks = styled.div`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+`;
+const NavLink = styled(Link)`
+  padding: 10px 15px;
+  cursor: pointer;
+`;
 
 export default Navigation;
