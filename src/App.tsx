@@ -1,16 +1,6 @@
-import { Routes, Route, Outlet } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Home from './routes/Home/Home';
-
-const Navigation = () => {
-  return (
-    <div>
-      <div>
-        <h1>Navigation bar</h1>
-      </div>
-      <Outlet />
-    </div>
-  );
-};
+import Navigation from './routes/Navigation/Navigation';
 
 const App: React.FC = () => {
   return (
