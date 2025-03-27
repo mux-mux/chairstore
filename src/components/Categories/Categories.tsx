@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import Category, { CategoryProps } from '../Category/Category';
 
-interface CategoriesProps {
+type CategoriesProps = {
   data: CategoryProps[];
-}
+};
 
 const Categories: React.FC<CategoriesProps> = ({ data }) => {
   return (

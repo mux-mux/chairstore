@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-export interface CategoryProps {
+export type CategoryProps = {
   id: number;
   title: string;
   imagePath: string;
-}
+};
 
 const Category: React.FC<CategoryProps> = ({ title, imagePath }) => {
   return (
