@@ -11,7 +11,8 @@ const Navigation: React.FC = () => {
           <Logo size={50} />
         </LogoLink>
         <NavLinks>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/">HOME</NavLink>
+          <NavLink to="/signIn">SIGN IN</NavLink>
         </NavLinks>
       </Nav>
       <Outlet />
@@ -44,6 +45,7 @@ const NavLinks = styled.div`
 `;
 const NavLink = styled(Link)`
   padding: 10px 15px;
+  text-transform: uppercase;
   cursor: pointer;
 `;
 
