@@ -2,6 +2,12 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
+export interface UserAuth {
+  uid: string;
+  displayName: string;
+  email: string;
+}
+
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: 'chairstore-db.firebaseapp.com',
@@ -12,25 +18,16 @@ const firebaseConfig = {
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
+export const auth = getAuth(firebaseApp);
+export const db = getFirestore(firebaseApp);
 
-const provider = new GoogleAuthProvider();
-
-provider.setCustomParameters({
+const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({
   prompt: 'select_account',
 });
 
-console.log(firebaseApp);
-
-export const auth = getAuth();
-export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
-
-export const db = getFirestore();
-
-interface UserAuth {
-  uid: string;
-  displayName: string | null;
-  email: string | null;
-}
+export const signInWithGooglePopup = () =>
+  signInWithPopup(auth, googleProvider);
 
 export const createUserDocument = async (userAuth: UserAuth) => {
   const userDocRef = doc(db, 'users', userAuth.uid);
