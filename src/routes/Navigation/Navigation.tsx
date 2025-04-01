@@ -12,7 +12,7 @@ const Navigation: React.FC = () => {
         </LogoLink>
         <NavLinks>
           <NavLink to="/">HOME</NavLink>
-          <NavLink to="/signIn">SIGN IN</NavLink>
+          <NavLink to="/sign-in">SIGN IN</NavLink>
         </NavLinks>
       </Nav>
       <Outlet />
