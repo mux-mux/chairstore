@@ -1,6 +1,5 @@
 import { Outlet } from 'react-router-dom';
 
-import GlobalStyles from '../../../GlobalStyles';
 import Categories from '../../components/Categories/Categories';
 
 const CATEGORIES = [
@@ -41,7 +40,6 @@ const Home: React.FC = () => {
     <>
       <Outlet />
       <Categories data={CATEGORIES} />
-      <GlobalStyles />
     </>
   );
 };
