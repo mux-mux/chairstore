@@ -2,6 +2,7 @@ import { useState, useCallback, FormEvent, ChangeEvent } from 'react';
 import { FirebaseError } from 'firebase/app';
 import { createAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase';
 import { UserAuth, createUserDocument } from '../../utils/firebase/firebase';
+import FormInput from '../FormInput/FormInput';
 
 const INITIAL_FORM_FIELDS = {
   displayName: '',
@@ -48,8 +49,7 @@ const SignUp = () => {
           email: user.email || '',
         };
 
-        const userDocRef = await createUserDocument(userAuth, { displayName });
-        console.log(userDocRef);
+        await createUserDocument(userAuth, { displayName });
         resetForm();
       } catch (error) {
         if (error instanceof FirebaseError) {
@@ -68,33 +68,33 @@ const SignUp = () => {
   return (
     <div>
       <form onSubmit={handleOnSubmit}>
-        <label htmlFor="">Name</label>
-        <input
+        <FormInput
+          label="Name"
           type="text"
           name="displayName"
+          placeholder=""
           value={displayName}
           onChange={handleChange}
           required
         />
-
-        <label htmlFor="">Email</label>
-        <input
+        <FormInput
+          label="Email"
           type="email"
           name="email"
+          placeholder=""
           value={email}
           onChange={handleChange}
           required
         />
-
-        <label htmlFor="">Password</label>
-        <input
+        <FormInput
+          label="Password"
           type="password"
           name="password"
+          placeholder=""
           value={password}
           onChange={handleChange}
           required
         />
-
         <button>Sign Up</button>
       </form>
     </div>
