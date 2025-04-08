@@ -1,5 +1,5 @@
-import { UserAuth } from '../../utils/firebase/firebase';
 import {
+  UserAuth,
   signInWithGooglePopup,
   createUserDocument,
 } from '../../utils/firebase/firebase';
@@ -16,7 +16,7 @@ const SignIn = () => {
       email: user.email || '',
     };
 
-    const userDocRef = await createUserDocument(userAuth);
+    const userDocRef = await createUserDocument(userAuth, {});
     console.log(userDocRef);
   };
 

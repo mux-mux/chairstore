@@ -1,5 +1,10 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+} from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
 export interface UserAuth {
@@ -7,6 +12,7 @@ export interface UserAuth {
   displayName: string;
   email: string;
 }
+export type AdditionalInfo = Record<string, string | number | boolean | null>;
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -29,7 +35,12 @@ googleProvider.setCustomParameters({
 export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleProvider);
 
-export const createUserDocument = async (userAuth: UserAuth) => {
+export const createUserDocument = async (
+  userAuth: UserAuth,
+  additionalInfo: AdditionalInfo
+) => {
+  if (!userAuth) return;
+
   const userDocRef = doc(db, 'users', userAuth.uid);
 
   const userSnapshot = await getDoc(userDocRef);
@@ -43,6 +54,7 @@ export const createUserDocument = async (userAuth: UserAuth) => {
         displayName,
         email,
         createdAt,
+        ...additionalInfo,
       });
     } catch (error) {
       console.log('error creating the user', error);
@@ -50,4 +62,13 @@ export const createUserDocument = async (userAuth: UserAuth) => {
   }
 
   return userDocRef;
+};
+
+export const createAuthUserWithEmailAndPassword = async (
+  email: string,
+  password: string
+) => {
+  if (!email.trim() || !password.trim()) return;
+
+  return await createUserWithEmailAndPassword(auth, email, password);
 };
