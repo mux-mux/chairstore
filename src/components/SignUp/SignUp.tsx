@@ -1,8 +1,13 @@
 import { useState, useCallback, FormEvent, ChangeEvent } from 'react';
 import styled from 'styled-components';
+
 import { FirebaseError } from 'firebase/app';
-import { createAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase';
-import { UserAuth, createUserDocument } from '../../utils/firebase/firebase';
+import {
+  UserAuth,
+  createUserDocument,
+  createAuthUserWithEmailAndPassword,
+} from '../../utils/firebase/firebase';
+
 import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
 
