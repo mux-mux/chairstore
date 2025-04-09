@@ -1,6 +1,7 @@
 import { useState, useCallback, FormEvent, ChangeEvent } from 'react';
 import styled from 'styled-components';
 
+import { FirebaseError } from 'firebase/app';
 import {
   UserAuth,
   signInWithGooglePopup,
@@ -54,7 +55,20 @@ const SignIn = () => {
         console.log(response);
         resetForm();
       } catch (error) {
-        console.log(error);
+        if (error instanceof FirebaseError) {
+          switch (error.code) {
+            case 'auth/wrong-password': {
+              return alert('Incorrect password for email');
+            }
+            case 'auth/user-not-found': {
+              return alert('No user associated with this email');
+            }
+            default:
+              console.log('Firebase error code:', error.code);
+          }
+        } else if (error instanceof Error) {
+          console.log(error.message);
+        }
       }
     },
     [email, password]
@@ -64,7 +78,7 @@ const SignIn = () => {
     <SignInContainer>
       <SignInHeading>Already have an account?</SignInHeading>
       <span>Sign in with your email and password</span>
-      <form onSubmit={handleOnSubmit}>
+      <SignInForm onSubmit={handleOnSubmit}>
         <FormInput
           label="Email"
           type="email"
@@ -87,11 +101,11 @@ const SignIn = () => {
           <Button type="submit" variant="default">
             Sign In
           </Button>
-          <Button variant="google" onClick={signInWithGoogle}>
+          <Button type="button" variant="google" onClick={signInWithGoogle}>
             Google sign in
           </Button>
         </ButtonsContainer>
-      </form>
+      </SignInForm>
     </SignInContainer>
   );
 };
@@ -107,9 +121,14 @@ const SignInHeading = styled.h2`
   margin: 10px 0;
 `;
 
+const SignInForm = styled.form`
+  margin-top: auto;
+`;
+
 const ButtonsContainer = styled.div`
   display: flex;
   justify-content: space-around;
+  margin-top: auto;
 `;
 
 export default SignIn;

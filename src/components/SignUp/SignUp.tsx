@@ -60,10 +60,13 @@ const SignUp = () => {
         resetForm();
       } catch (error) {
         if (error instanceof FirebaseError) {
-          console.log('Firebase error code:', error.code);
-          console.log('Firebase error message:', error.message);
-          if (error.code === 'auth/email-already-in-use')
-            alert('Cannot create user. Email already in use');
+          switch (error.code) {
+            case 'auth/email-already-in-use': {
+              return alert('Cannot create user. Email already in use');
+            }
+            default:
+              console.log('Firebase error code:', error.code);
+          }
         } else if (error instanceof Error) {
           console.log(error.message);
         }
