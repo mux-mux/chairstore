@@ -4,25 +4,37 @@ import styled from 'styled-components';
 import { FirebaseError } from 'firebase/app';
 import {
   UserAuth,
+  signInWithGooglePopup,
+  signInUserWithEmailAndPassword,
   createUserDocument,
-  createAuthUserWithEmailAndPassword,
 } from '../../utils/firebase/firebase';
 
 import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
 
 const INITIAL_FORM_FIELDS = {
-  displayName: '',
   email: '',
   password: '',
 };
 
-const SignUp = () => {
+const SignIn = () => {
   const [formFields, setFormFields] = useState(INITIAL_FORM_FIELDS);
-  const { displayName, email, password } = formFields;
+  const { email, password } = formFields;
 
   const resetForm = () => {
     setFormFields(INITIAL_FORM_FIELDS);
+  };
+
+  const signInWithGoogle = async () => {
+    const { user } = await signInWithGooglePopup();
+
+    const userAuth: UserAuth = {
+      uid: user.uid,
+      displayName: user.displayName || '',
+      email: user.email || '',
+    };
+
+    await createUserDocument(userAuth, {});
   };
 
   const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
@@ -39,30 +51,17 @@ const SignUp = () => {
       event.preventDefault();
 
       try {
-        const userCredential = await createAuthUserWithEmailAndPassword(
-          email,
-          password
-        );
-
-        if (!userCredential) {
-          throw new Error('Failed to create user');
-        }
-
-        const { user } = userCredential;
-
-        const userAuth: UserAuth = {
-          uid: user.uid,
-          displayName: user.displayName || '',
-          email: user.email || '',
-        };
-
-        await createUserDocument(userAuth, { displayName });
+        const response = await signInUserWithEmailAndPassword(email, password);
+        console.log(response);
         resetForm();
       } catch (error) {
         if (error instanceof FirebaseError) {
           switch (error.code) {
-            case 'auth/email-already-in-use': {
-              return alert('Cannot create user. Email already in use');
+            case 'auth/wrong-password': {
+              return alert('Incorrect password for email');
+            }
+            case 'auth/user-not-found': {
+              return alert('No user associated with this email');
             }
             default:
               console.log('Firebase error code:', error.code);
@@ -72,23 +71,14 @@ const SignUp = () => {
         }
       }
     },
-    [email, password, displayName]
+    [email, password]
   );
 
   return (
-    <SignUpContainer>
-      <SignUpHeading>Don't have an account?</SignUpHeading>
-      <span>Sign up with your email and password</span>
-      <form onSubmit={handleOnSubmit}>
-        <FormInput
-          label="Name"
-          type="text"
-          name="displayName"
-          placeholder=""
-          value={displayName}
-          onChange={handleChange}
-          required
-        />
+    <SignInContainer>
+      <SignInHeading>Already have an account?</SignInHeading>
+      <span>Sign in with your email and password</span>
+      <SignInForm onSubmit={handleOnSubmit}>
         <FormInput
           label="Email"
           type="email"
@@ -107,23 +97,38 @@ const SignUp = () => {
           onChange={handleChange}
           required
         />
-        <Button type="submit" variant="default">
-          Sign Up
-        </Button>
-      </form>
-    </SignUpContainer>
+        <ButtonsContainer>
+          <Button type="submit" variant="default">
+            Sign In
+          </Button>
+          <Button type="button" variant="google" onClick={signInWithGoogle}>
+            Google sign in
+          </Button>
+        </ButtonsContainer>
+      </SignInForm>
+    </SignInContainer>
   );
 };
 
-const SignUpContainer = styled.div`
+const SignInContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 380px;
   margin: 0 auto;
 `;
 
-const SignUpHeading = styled.h2`
+const SignInHeading = styled.h2`
   margin: 10px 0;
 `;
 
-export default SignUp;
+const SignInForm = styled.form`
+  margin-top: auto;
+`;
+
+const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-top: auto;
+`;
+
+export default SignIn;
