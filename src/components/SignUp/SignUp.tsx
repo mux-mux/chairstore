@@ -1,8 +1,10 @@
 import { useState, useCallback, FormEvent, ChangeEvent } from 'react';
+import styled from 'styled-components';
 import { FirebaseError } from 'firebase/app';
 import { createAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase';
 import { UserAuth, createUserDocument } from '../../utils/firebase/firebase';
 import FormInput from '../FormInput/FormInput';
+import Button from '../Button/Button';
 
 const INITIAL_FORM_FIELDS = {
   displayName: '',
@@ -66,7 +68,9 @@ const SignUp = () => {
   );
 
   return (
-    <div>
+    <SignUpContainer>
+      <SignUpHeading>Don't have an account?</SignUpHeading>
+      <span>Sign up with your email and password</span>
       <form onSubmit={handleOnSubmit}>
         <FormInput
           label="Name"
@@ -95,10 +99,23 @@ const SignUp = () => {
           onChange={handleChange}
           required
         />
-        <button>Sign Up</button>
+        <Button type="submit" variant="default">
+          Sign Up
+        </Button>
       </form>
-    </div>
+    </SignUpContainer>
   );
 };
+
+const SignUpContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  margin: 0 auto;
+`;
+
+const SignUpHeading = styled.h2`
+  margin: 10px 0;
+`;
 
 export default SignUp;
