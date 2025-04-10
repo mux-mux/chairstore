@@ -1,9 +1,14 @@
+import { useContext } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import styled from 'styled-components';
+
+import UserContext from '../../contexts/user';
 
 import Logo from '../../components/Logo/Logo';
 
 const Navigation: React.FC = () => {
+  const { currentUser } = useContext(UserContext);
+  console.log(currentUser);
   return (
     <>
       <Nav>
