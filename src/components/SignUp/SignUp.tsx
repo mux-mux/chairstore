@@ -17,7 +17,7 @@ const INITIAL_FORM_FIELDS = {
   password: '',
 };
 
-const SignUp = () => {
+const SignUp: React.FC = () => {
   const [formFields, setFormFields] = useState(INITIAL_FORM_FIELDS);
   const { displayName, email, password } = formFields;
 
@@ -55,8 +55,8 @@ const SignUp = () => {
           displayName: user.displayName || '',
           email: user.email || '',
         };
-
         await createUserDocument(userAuth, { displayName });
+
         resetForm();
       } catch (error) {
         if (error instanceof FirebaseError) {

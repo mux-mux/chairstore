@@ -8,11 +8,11 @@ import {
 } from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
-export interface UserAuth {
+export type UserAuth = {
   uid: string;
   displayName: string;
   email: string;
-}
+};
 export type AdditionalInfo = Record<string, string | number | boolean | null>;
 
 const firebaseConfig = {
