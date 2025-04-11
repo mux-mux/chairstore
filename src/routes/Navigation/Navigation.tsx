@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { signOutUser } from '../../utils/firebase/firebase';
 import UserContext from '../../contexts/user';
@@ -8,6 +8,14 @@ import Logo from '../../components/Logo/Logo';
 
 const Navigation: React.FC = () => {
   const { currentUser, setCurrentUser } = useContext(UserContext);
+  const location = useLocation();
+
+  const isAuthRoute = location.pathname.startsWith('/auth');
+  const homeOrSignin = isAuthRoute ? (
+    <NavLink to="/">HOME</NavLink>
+  ) : (
+    <NavLink to="/auth">SIGN IN</NavLink>
+  );
 
   const signOutHandler = async () => {
     await signOutUser();
@@ -26,7 +34,7 @@ const Navigation: React.FC = () => {
               SIGN OUT
             </NavLink>
           ) : (
-            <NavLink to="/auth">SIGN IN</NavLink>
+            homeOrSignin
           )}
         </NavLinks>
       </Nav>
