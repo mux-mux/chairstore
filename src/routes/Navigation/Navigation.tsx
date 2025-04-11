@@ -1,14 +1,19 @@
 import { useContext } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import styled from 'styled-components';
-
+import { signOutUser } from '../../utils/firebase/firebase';
 import UserContext from '../../contexts/user';
 
 import Logo from '../../components/Logo/Logo';
 
 const Navigation: React.FC = () => {
-  const { currentUser } = useContext(UserContext);
-  console.log(currentUser);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+
+  const signOutHandler = async () => {
+    await signOutUser();
+    setCurrentUser(null);
+  };
+
   return (
     <>
       <Nav>
@@ -16,8 +21,13 @@ const Navigation: React.FC = () => {
           <Logo size={50} />
         </LogoLink>
         <NavLinks>
-          <NavLink to="/">HOME</NavLink>
-          <NavLink to="/auth">SIGN IN</NavLink>
+          {currentUser ? (
+            <NavLink to="/" onClick={signOutHandler}>
+              SIGN OUT
+            </NavLink>
+          ) : (
+            <NavLink to="/auth">SIGN IN</NavLink>
+          )}
         </NavLinks>
       </Nav>
       <Outlet />
