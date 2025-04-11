@@ -5,16 +5,11 @@ import {
   Dispatch,
   SetStateAction,
 } from 'react';
-
-export type User = {
-  uid: string;
-  displayName: string;
-  email: string;
-};
+import { UserAuth } from '../utils/firebase/firebase';
 
 type UserContextType = {
-  currentUser: User | null;
-  setCurrentUser: Dispatch<SetStateAction<User | null>>;
+  currentUser: UserAuth | null;
+  setCurrentUser: Dispatch<SetStateAction<UserAuth | null>>;
 };
 
 const UserContext = createContext<UserContextType>({
@@ -23,7 +18,7 @@ const UserContext = createContext<UserContextType>({
 });
 
 export const UserProvider = ({ children }: { children: ReactNode }) => {
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [currentUser, setCurrentUser] = useState<UserAuth | null>(null);
 
   return (
     <UserContext.Provider value={{ currentUser, setCurrentUser }}>

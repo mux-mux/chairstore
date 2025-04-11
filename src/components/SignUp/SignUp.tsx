@@ -1,4 +1,10 @@
-import { useState, useCallback, FormEvent, ChangeEvent } from 'react';
+import {
+  useState,
+  useCallback,
+  useContext,
+  FormEvent,
+  ChangeEvent,
+} from 'react';
 import styled from 'styled-components';
 
 import { FirebaseError } from 'firebase/app';
@@ -10,6 +16,7 @@ import {
 
 import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
+import UserContext from '../../contexts/user';
 
 const INITIAL_FORM_FIELDS = {
   displayName: '',
@@ -20,6 +27,8 @@ const INITIAL_FORM_FIELDS = {
 const SignUp: React.FC = () => {
   const [formFields, setFormFields] = useState(INITIAL_FORM_FIELDS);
   const { displayName, email, password } = formFields;
+
+  const { setCurrentUser } = useContext(UserContext);
 
   const resetForm = () => {
     setFormFields(INITIAL_FORM_FIELDS);
@@ -55,6 +64,9 @@ const SignUp: React.FC = () => {
           displayName: user.displayName || '',
           email: user.email || '',
         };
+
+        setCurrentUser(userAuth);
+
         await createUserDocument(userAuth, { displayName });
 
         resetForm();
