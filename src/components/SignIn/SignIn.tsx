@@ -1,20 +1,11 @@
-import {
-  useState,
-  useCallback,
-  useContext,
-  FormEvent,
-  ChangeEvent,
-} from 'react';
+import { useState, useCallback, FormEvent, ChangeEvent } from 'react';
 import styled from 'styled-components';
 
 import { FirebaseError } from 'firebase/app';
 import {
-  UserAuth,
   signInWithGooglePopup,
   signInUserWithEmailAndPassword,
-  createUserDocument,
 } from '../../utils/firebase/firebase';
-import UserContext from '../../contexts/user';
 
 import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
@@ -26,7 +17,6 @@ const INITIAL_FORM_FIELDS = {
 
 const SignIn: React.FC = () => {
   const [formFields, setFormFields] = useState(INITIAL_FORM_FIELDS);
-  const { setCurrentUser } = useContext(UserContext);
 
   const { email, password } = formFields;
 
@@ -35,15 +25,7 @@ const SignIn: React.FC = () => {
   };
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-
-    const userAuth: UserAuth = {
-      uid: user.uid,
-      displayName: user.displayName || '',
-      email: user.email || '',
-    };
-
-    await createUserDocument(userAuth, {});
+    await signInWithGooglePopup();
   };
 
   const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
@@ -67,14 +49,6 @@ const SignIn: React.FC = () => {
         if (!userCredential) {
           throw new Error('Failed to sign in user');
         }
-        const { user } = userCredential;
-
-        const userAuth: UserAuth = {
-          uid: user.uid,
-          displayName: user.displayName || '',
-          email: user.email || '',
-        };
-        setCurrentUser(userAuth);
 
         resetForm();
       } catch (error) {
@@ -94,7 +68,7 @@ const SignIn: React.FC = () => {
         }
       }
     },
-    [email, password, setCurrentUser]
+    [email, password]
   );
 
   return (
