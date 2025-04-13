@@ -9,6 +9,7 @@ import {
 import {
   UserAuth,
   onAuthStateChangedListener,
+  createUserDocument,
 } from '../utils/firebase/firebase';
 
 type UserContextType = {
@@ -26,7 +27,17 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((user) => {
-      console.log(user);
+      if (user) {
+        const userAuth: UserAuth = {
+          uid: user.uid,
+          email: user.email || '',
+          displayName: user.displayName || '',
+        };
+        createUserDocument(userAuth, {});
+        setCurrentUser(userAuth);
+      } else {
+        setCurrentUser(null);
+      }
     });
 
     return unsubscribe;

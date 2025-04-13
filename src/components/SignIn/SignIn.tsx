@@ -3,10 +3,8 @@ import styled from 'styled-components';
 
 import { FirebaseError } from 'firebase/app';
 import {
-  UserAuth,
   signInWithGooglePopup,
   signInUserWithEmailAndPassword,
-  createUserDocument,
 } from '../../utils/firebase/firebase';
 
 import FormInput from '../FormInput/FormInput';
@@ -27,15 +25,7 @@ const SignIn: React.FC = () => {
   };
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-
-    const userAuth: UserAuth = {
-      uid: user.uid,
-      displayName: user.displayName || '',
-      email: user.email || '',
-    };
-
-    await createUserDocument(userAuth, {});
+    await signInWithGooglePopup();
   };
 
   const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
