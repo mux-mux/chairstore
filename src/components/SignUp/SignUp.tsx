@@ -84,7 +84,7 @@ const SignUp: React.FC = () => {
         }
       }
     },
-    [email, password, displayName]
+    [email, password, displayName, setCurrentUser]
   );
 
   return (
