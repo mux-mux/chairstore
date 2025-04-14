@@ -1,9 +1,12 @@
-import PRODUCTS from '../../data.json';
+import { useContext } from 'react';
+import ProductsContext from '../../contexts/products';
 
 const Shop = () => {
+  const { products } = useContext(ProductsContext);
+
   return (
     <div>
-      {PRODUCTS.map(({ id, name, imageUrl, price }) => (
+      {products?.map(({ id, name, imageUrl, price }) => (
         <div key={id}>
           <h1>{name}</h1>
           <img src={imageUrl} alt={name} />
