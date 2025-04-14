@@ -17,6 +17,7 @@ const Navigation: React.FC = () => {
         </LogoLink>
         <NavLinks>
           <NavLink to="/">CATEGORIES</NavLink>
+          <NavLink to="/shop">SHOP</NavLink>
           {currentUser ? (
             <NavLink to="/" onClick={signOutUser}>
               SIGN OUT

@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Q-118R",
+    "imageUrl": "./img/products/q-118r.jpg",
+    "price": 25
+  },
+  {
+    "id": 2,
+    "name": "Q-080",
+    "imageUrl": "./img/products/q-080.jpg",
+    "price": 18
+  },
+  {
+    "id": 3,
+    "name": "Winner Lux",
+    "imageUrl": "./img/products/winner-lux.jpg",
+    "price": 35
+  },
+  {
+    "id": 4,
+    "name": "Servio Brego",
+    "imageUrl": "./img/products/servio-brego.jpg",
+    "price": 25
+  },
+  {
+    "id": 5,
+    "name": "Vico Wind",
+    "imageUrl": "./img/products/vico-wind.jpg",
+    "price": 18
+  },
+  {
+    "id": 6,
+    "name": "Wind Brego",
+    "imageUrl": "./img/products/wind-brego.jpg",
+    "price": 14
+  },
+  {
+    "id": 7,
+    "name": "Mila H-2 Velvet",
+    "imageUrl": "./img/products/mila-h2-velvet.jpg",
+    "price": 18
+  },
+  {
+    "id": 8,
+    "name": "Colin B Velvet H-2",
+    "imageUrl": "./img/products/colin-b-h2-velvet.jpg",
+    "price": 14
+  },
+  {
+    "id": 9,
+    "name": "Mike Velvet",
+    "imageUrl": "./img/products/mike-velvet.jpg",
+    "price": 16
+  }
+]
