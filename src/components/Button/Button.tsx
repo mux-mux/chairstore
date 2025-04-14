@@ -35,6 +35,7 @@ const ButtonBase = styled.button`
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
+  text-transform: uppercase;
   cursor: pointer;
   transition: all 0.25s;
 

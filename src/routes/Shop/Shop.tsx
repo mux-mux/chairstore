@@ -1,20 +1,26 @@
 import { useContext } from 'react';
+import styled from 'styled-components';
 import ProductsContext from '../../contexts/products';
+import ProductCard from '../../components/ProductCard/ProductCard';
 
 const Shop = () => {
   const { products } = useContext(ProductsContext);
 
   return (
-    <div>
-      {products?.map(({ id, name, imageUrl, price }) => (
-        <div key={id}>
-          <h1>{name}</h1>
-          <img src={imageUrl} alt={name} />
-          <div>{price}</div>
-        </div>
+    <ProductsContainer>
+      {products?.map((product) => (
+        <ProductCard key={product.id} product={product} />
       ))}
-    </div>
+    </ProductsContainer>
   );
 };
 
 export default Shop;
+
+const ProductsContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  gap: 30px;
+  place-content: center;
+  text-align: center;
+`;

@@ -7,7 +7,7 @@ import {
 } from 'react';
 import PRODUCTS from '../data.json';
 
-type ProductsType = {
+export type ProductsType = {
   id: number;
   name: string;
   imageUrl: string;
