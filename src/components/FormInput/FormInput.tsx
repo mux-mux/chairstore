@@ -56,6 +56,7 @@ const InputLabel = styled.label`
   font-size: 16px;
   font-weight: normal;
   cursor: text;
+  will-change: auto;
   transition: 300ms ease all;
 `;
 

@@ -5,6 +5,8 @@ import { signOutUser } from '../../utils/firebase/firebase';
 import UserContext from '../../contexts/user';
 
 import Logo from '../../components/Logo/Logo';
+import CartIcon from '../../components/CartIcon/CartIcon';
+import CartDropdown from '../../components/CartDropdown/CartDropdown';
 
 const Navigation: React.FC = () => {
   const { currentUser } = useContext(UserContext);
@@ -25,7 +27,9 @@ const Navigation: React.FC = () => {
           ) : (
             <NavLink to="/auth">SIGN IN</NavLink>
           )}
+          <CartIcon />
         </NavLinks>
+        <CartDropdown />
       </Nav>
       <Outlet />
     </>
