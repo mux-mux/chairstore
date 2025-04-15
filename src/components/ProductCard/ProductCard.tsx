@@ -11,7 +11,7 @@ const ProductCard: React.FC<{ product: ProductsType }> = ({ product }) => {
       <ProductImage src={imageUrl} alt={name} />
       <Footer>
         <Name>{name}</Name>
-        <span>{price}</span>
+        <span>{price}$</span>
       </Footer>
       <ProductButton variant="inverted">ADD TO CART</ProductButton>
     </ProductCardContainer>
@@ -44,7 +44,7 @@ const ProductButton = styled(Button)`
   justify-content: center;
   width: 80%;
   opacity: 0.7;
-  top: 265px;
+  top: 245px;
   opacity: 0;
   transition: opacity 200ms ease-in-out;
 
@@ -55,8 +55,10 @@ const ProductButton = styled(Button)`
 
 const Footer = styled.div`
   width: 100%;
+  min-height: 55px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 30px;
   padding: 0 20px;
   border-top: 1px solid ${COLORS.borderPrimary};
@@ -64,7 +66,8 @@ const Footer = styled.div`
 `;
 
 const Name = styled.span`
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
 `;
