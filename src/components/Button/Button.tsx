@@ -37,6 +37,7 @@ const ButtonBase = styled.button`
   font-family: inherit;
   text-transform: uppercase;
   cursor: pointer;
+  will-change: auto;
   transition: all 0.25s;
 
   &:focus,
@@ -61,6 +62,7 @@ const InvertedButton = styled(ButtonBase)`
   &:hover {
     background-color: ${COLORS.primary};
     color: ${COLORS.secondary};
+    border-color: ${COLORS.thertiary};
   }
 `;
 
