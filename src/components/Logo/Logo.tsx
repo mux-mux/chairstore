@@ -1,8 +1,4 @@
-export type LogoProps = {
-  size: number;
-};
-
-const Logo: React.FC<LogoProps> = ({ size }) => {
+const Logo = ({ size }: { size: number }) => {
   return <img src="./logo.svg" alt="Logo" width={size} height="auto" />;
 };
 

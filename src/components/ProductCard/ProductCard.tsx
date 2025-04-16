@@ -1,10 +1,13 @@
+import { useContext } from 'react';
 import styled from 'styled-components';
+import CartContext from '../../contexts/cart';
+import { ProductType } from '../../contexts/products';
 import Button from '../Button/Button';
-import { ProductsType } from '../../contexts/products';
 import { COLORS } from '../../constants';
 
-const ProductCard: React.FC<{ product: ProductsType }> = ({ product }) => {
+const ProductCard = ({ product }: { product: ProductType }) => {
   const { name, imageUrl, price } = product;
+  const { addItemToCart } = useContext(CartContext);
 
   return (
     <ProductCardContainer>
@@ -13,12 +16,12 @@ const ProductCard: React.FC<{ product: ProductsType }> = ({ product }) => {
         <Name>{name}</Name>
         <span>{price}$</span>
       </Footer>
-      <ProductButton variant="inverted">ADD TO CART</ProductButton>
+      <ProductButton variant="inverted" onClick={() => addItemToCart(product)}>
+        ADD TO CART
+      </ProductButton>
     </ProductCardContainer>
   );
 };
-
-export default ProductCard;
 
 const ProductCardContainer = styled.div`
   width: 100%;
@@ -71,3 +74,5 @@ const Name = styled.span`
   line-clamp: 2;
   -webkit-box-orient: vertical;
 `;
+
+export default ProductCard;

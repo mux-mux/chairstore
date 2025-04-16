@@ -1,9 +1,7 @@
 import { useContext } from 'react';
 import styled from 'styled-components';
 import Icon from '../../assets/shopping-bag.svg?react';
-
 import CartContext from '../../contexts/cart';
-
 import { COLORS } from '../../constants';
 
 const CartIcon = () => {
@@ -21,8 +19,6 @@ const CartIcon = () => {
     </CartIconContainer>
   );
 };
-
-export default CartIcon;
 
 const CartIconContainer = styled.button`
   position: relative;
@@ -44,3 +40,5 @@ const CartCount = styled.span`
   color: currentColor;
   bottom: 12px;
 `;
+
+export default CartIcon;
