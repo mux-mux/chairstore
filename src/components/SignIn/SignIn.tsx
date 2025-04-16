@@ -15,7 +15,7 @@ const INITIAL_FORM_FIELDS = {
   password: '',
 };
 
-const SignIn: React.FC = () => {
+const SignIn = () => {
   const [formFields, setFormFields] = useState(INITIAL_FORM_FIELDS);
 
   const { email, password } = formFields;

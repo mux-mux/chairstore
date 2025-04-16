@@ -6,7 +6,7 @@ export type CategoryProps = {
   imagePath: string;
 };
 
-const Category: React.FC<CategoryProps> = ({ title, imagePath }) => {
+const Category = ({ title, imagePath }: CategoryProps) => {
   return (
     <CategoryContainer>
       <CategoryImage

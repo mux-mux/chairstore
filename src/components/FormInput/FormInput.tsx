@@ -1,7 +1,7 @@
-import { useId } from 'react';
+import { useId, InputHTMLAttributes } from 'react';
 import styled from 'styled-components';
 
-interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
 }
 

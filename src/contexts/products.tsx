@@ -7,16 +7,17 @@ import {
 } from 'react';
 import PRODUCTS from '../data.json';
 
-export type ProductsType = {
+export type ProductType = {
   id: number;
   name: string;
   imageUrl: string;
   price: number;
+  quantity?: number;
 };
 
 type ProductsContextType = {
-  products: ProductsType[] | null;
-  setProducts: Dispatch<SetStateAction<ProductsType[] | null>>;
+  products: ProductType[] | null;
+  setProducts: Dispatch<SetStateAction<ProductType[] | null>>;
 };
 
 const ProductsContext = createContext<ProductsContextType>({
@@ -25,7 +26,7 @@ const ProductsContext = createContext<ProductsContextType>({
 });
 
 export const ProductsProvider = ({ children }: { children: ReactNode }) => {
-  const [products, setProducts] = useState<ProductsType[] | null>(PRODUCTS);
+  const [products, setProducts] = useState<ProductType[] | null>(PRODUCTS);
 
   return (
     <ProductsContext.Provider value={{ products, setProducts }}>

@@ -1,18 +1,24 @@
+import { useContext } from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
-
+import CartItem from '../CartItem/CartItem';
+import CartContext from '../../contexts/cart';
 import { COLORS } from '../../constants';
 
 const CartDropdown = () => {
+  const { cartItems } = useContext(CartContext);
+
   return (
     <CartDropdownContainer>
-      <CartItems></CartItems>
+      <CartItems>
+        {cartItems.map((cartItem) => (
+          <CartItem key={cartItem.id} cartItem={cartItem} />
+        ))}
+      </CartItems>
       <CartButton variant="default">GO TO CHECKOUT</CartButton>
     </CartDropdownContainer>
   );
 };
-
-export default CartDropdown;
 
 const CartDropdownContainer = styled.div`
   position: absolute;
@@ -37,3 +43,5 @@ const CartItems = styled.div`
 const CartButton = styled(Button)`
   margin-top: auto;
 `;
+
+export default CartDropdown;

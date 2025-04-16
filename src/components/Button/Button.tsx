@@ -9,11 +9,11 @@ type ButtonProps = {
   onClick?: () => void;
 };
 
-const Button: React.FC<ButtonProps> = ({
+const Button = ({
   children,
   variant = 'default',
   ...delegated
-}) => {
+}: ButtonProps) => {
   let Component;
   if (variant === 'default') {
     Component = DefaultButton;

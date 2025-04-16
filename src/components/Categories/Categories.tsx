@@ -5,7 +5,7 @@ type CategoriesProps = {
   data: CategoryProps[];
 };
 
-const Categories: React.FC<CategoriesProps> = ({ data }) => {
+const Categories = ({ data }: CategoriesProps) => {
   return (
     <CategoriesContainer>
       {data.map((category) => (

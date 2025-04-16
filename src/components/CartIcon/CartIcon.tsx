@@ -1,14 +1,17 @@
+import { useContext } from 'react';
 import styled from 'styled-components';
 import Icon from '../../assets/shopping-bag.svg?react';
-
+import CartContext from '../../contexts/cart';
 import { COLORS } from '../../constants';
 
 const CartIcon = () => {
+  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+
   return (
-    <CartIconContainer>
+    <CartIconContainer onClick={() => setIsCartOpen(!isCartOpen)}>
       <Icon
-        width={28}
-        height={28}
+        width={32}
+        height={32}
         aria-label="Shopping Bag"
         fill="currentColor"
       />
@@ -17,23 +20,25 @@ const CartIcon = () => {
   );
 };
 
-export default CartIcon;
-
-const CartIconContainer = styled.div`
+const CartIconContainer = styled.button`
+  position: relative;
   width: 45px;
   height: 45px;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
+  background-color: transparent;
   color: ${COLORS.thertiary};
   cursor: pointer;
 `;
 
 const CartCount = styled.span`
   position: absolute;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: bold;
   color: currentColor;
-  bottom: 10px;
+  bottom: 12px;
 `;
+
+export default CartIcon;
