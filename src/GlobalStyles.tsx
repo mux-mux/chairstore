@@ -28,6 +28,7 @@ const GlobalStyles = createGlobalStyle`
 }
 
 #root {
+  position: relative;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
