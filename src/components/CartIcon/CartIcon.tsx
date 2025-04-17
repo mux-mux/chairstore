@@ -5,7 +5,8 @@ import CartContext from '../../contexts/cart';
 import { COLORS } from '../../constants';
 
 const CartIcon = () => {
-  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+  const { isCartOpen, setIsCartOpen, getCartTotalCount } =
+    useContext(CartContext);
 
   return (
     <CartIconContainer onClick={() => setIsCartOpen(!isCartOpen)}>
@@ -15,7 +16,7 @@ const CartIcon = () => {
         aria-label="Shopping Bag"
         fill="currentColor"
       />
-      <CartCount>0</CartCount>
+      <CartCount>{getCartTotalCount()}</CartCount>
     </CartIconContainer>
   );
 };

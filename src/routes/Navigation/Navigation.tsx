@@ -53,7 +53,7 @@ const LogoLink = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 25px;
+  padding: 10px;
 `;
 const NavLinks = styled.div`
   width: 50%;
