@@ -56,6 +56,11 @@ h1 {
   line-height: 1.1;
 }
 
+img {
+  width: 100%;
+    object-fit: cover;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
