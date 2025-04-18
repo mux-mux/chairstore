@@ -32,8 +32,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const getCartTotalCount = () =>
     cartItems.reduce(
-      (total: number, cartItem: ProductType) =>
-        total + (cartItem.quantity || 0),
+      (total: number, cartItem: ProductType) => total + cartItem.quantity!,
       0
     );
 
@@ -46,7 +45,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       setCartItems(
         cartItems.map((cartItem) =>
           cartItem.id === itemToAdd.id
-            ? { ...cartItem, quantity: (cartItem.quantity || 1) + 1 }
+            ? { ...cartItem, quantity: cartItem.quantity! + 1 }
             : cartItem
         )
       );
@@ -68,7 +67,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       setCartItems(
         cartItems.map((cartItem) =>
           cartItem.id === itemToRemove.id
-            ? { ...cartItem, quantity: (cartItem.quantity || 2) - 1 }
+            ? { ...cartItem, quantity: cartItem.quantity! - 1 }
             : cartItem
         )
       );
