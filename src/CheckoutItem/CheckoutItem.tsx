@@ -1,7 +1,11 @@
+import { useContext } from 'react';
 import styled, { css } from 'styled-components';
 import { ProductType } from '../contexts/products';
+import CartContext from '../contexts/cart';
 
 const CheckoutItem = ({ cartItem }: { cartItem: ProductType }) => {
+  const { clearItemFromCart, addItemToCart, removeItemFromCart } =
+    useContext(CartContext);
   const { name, imageUrl, price, quantity } = cartItem;
 
   return (
@@ -11,9 +15,19 @@ const CheckoutItem = ({ cartItem }: { cartItem: ProductType }) => {
           <img src={imageUrl} alt={name} />
         </ImageContainer>
         <Name>{name}</Name>
-        <Quantity>{quantity}</Quantity>
+        <QuantityContainer>
+          <BaseButton onClick={() => removeItemFromCart(cartItem)}>
+            &#10094;
+          </BaseButton>
+          <Quantity>{quantity}</Quantity>
+          <BaseButton onClick={() => addItemToCart(cartItem)}>
+            &#10095;
+          </BaseButton>
+        </QuantityContainer>
         <Price>{price}</Price>
-        <RemoveButton>&#10006;</RemoveButton>
+        <RemoveButton onClick={() => clearItemFromCart(cartItem)}>
+          &#10006;
+        </RemoveButton>
       </>
     </CheckoutItemContainer>
   );
@@ -29,6 +43,13 @@ const CheckoutItemContainer = styled.div`
   align-items: center;
 `;
 
+const BaseButton = styled.button`
+  padding: 10px 15px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+`;
+
 const commonWidth = css`
   width: 23%;
 `;
@@ -39,18 +60,21 @@ const ImageContainer = styled.div`
 const Name = styled.span`
   ${commonWidth}
 `;
-const Quantity = styled.span`
+const QuantityContainer = styled.span`
   ${commonWidth}
+  display: flex;
+  justify-content: center;
+  align-items: anchor-center;
+`;
+const Quantity = styled.span`
+  flex-basis: 30px;
 `;
 const Price = styled.span`
   ${commonWidth}
 `;
-const RemoveButton = styled.button`
-  border: none;
-  background-color: transparent;
+
+const RemoveButton = styled(BaseButton)`
   margin: 0 auto;
-  padding: 10px 15px;
-  cursor: pointer;
 `;
 
 export default CheckoutItem;

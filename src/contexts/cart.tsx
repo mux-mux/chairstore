@@ -14,6 +14,7 @@ type CartContextType = {
   cartItems: ProductType[];
   addItemToCart: (itemToAdd: ProductType) => void;
   removeItemFromCart: (itemToRemove: ProductType) => void;
+  clearItemFromCart: (itemToClear: ProductType) => void;
   getCartTotalCount: () => number;
 };
 
@@ -23,13 +24,13 @@ const CartContext = createContext<CartContextType>({
   cartItems: [],
   addItemToCart: () => {},
   removeItemFromCart: () => {},
+  clearItemFromCart: () => {},
   getCartTotalCount: () => 0,
 });
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
   const [cartItems, setCartItems] = useState<ProductType[]>([]);
-
   const getCartTotalCount = () =>
     cartItems.reduce(
       (total: number, cartItem: ProductType) => total + cartItem.quantity!,
@@ -74,6 +75,12 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
+  const clearItemFromCart = (itemToClear: ProductType) => {
+    setCartItems(
+      cartItems.filter((cartItem) => cartItem.id !== itemToClear.id)
+    );
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -82,6 +89,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         cartItems,
         addItemToCart,
         removeItemFromCart,
+        clearItemFromCart,
         getCartTotalCount,
       }}
     >
