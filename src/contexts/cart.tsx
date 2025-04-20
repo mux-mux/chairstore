@@ -16,6 +16,7 @@ type CartContextType = {
   removeItemFromCart: (itemToRemove: ProductType) => void;
   clearItemFromCart: (itemToClear: ProductType) => void;
   getCartTotalCount: () => number;
+  getCartTotalPrice: () => number;
 };
 
 const CartContext = createContext<CartContextType>({
@@ -26,14 +27,23 @@ const CartContext = createContext<CartContextType>({
   removeItemFromCart: () => {},
   clearItemFromCart: () => {},
   getCartTotalCount: () => 0,
+  getCartTotalPrice: () => 0,
 });
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
   const [cartItems, setCartItems] = useState<ProductType[]>([]);
+
   const getCartTotalCount = () =>
     cartItems.reduce(
       (total: number, cartItem: ProductType) => total + cartItem.quantity!,
+      0
+    );
+
+  const getCartTotalPrice = () =>
+    cartItems.reduce(
+      (total: number, cartItem: ProductType) =>
+        total + cartItem.quantity! * cartItem.price,
       0
     );
 
@@ -91,6 +101,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         removeItemFromCart,
         clearItemFromCart,
         getCartTotalCount,
+        getCartTotalPrice,
       }}
     >
       {children}

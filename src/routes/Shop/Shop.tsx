@@ -19,8 +19,8 @@ export default Shop;
 
 const ProductsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, 300px);
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, 250px);
+  gap: 10px;
   place-content: center;
   text-align: center;
 `;
