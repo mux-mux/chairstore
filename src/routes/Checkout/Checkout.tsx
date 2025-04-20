@@ -6,7 +6,7 @@ import CheckoutItem from '../../CheckoutItem/CheckoutItem';
 import { COLORS } from '../../constants';
 
 const Checkout = () => {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, getCartTotalPrice } = useContext(CartContext);
 
   return (
     <CheckoutContainer>
@@ -31,7 +31,7 @@ const Checkout = () => {
       {cartItems.map((cartItem) => (
         <CheckoutItem key={cartItem.id} cartItem={cartItem} />
       ))}
-      <CheckoutTotal>Total: 0</CheckoutTotal>
+      <CheckoutTotal>Total: {getCartTotalPrice()}$</CheckoutTotal>
     </CheckoutContainer>
   );
 };
