@@ -5,6 +5,7 @@ import {
   Dispatch,
   SetStateAction,
 } from 'react';
+
 import DATA from '../data';
 
 export type ProductType = {

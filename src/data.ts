@@ -5,7 +5,7 @@ export type DataType = {
   items: ProductType[];
 };
 
-const DATA = [
+const DATA: DataType[] = [
   {
     title: 'Office chairs',
     items: [
