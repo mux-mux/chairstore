@@ -10,7 +10,15 @@ import {
   NextOrObserver,
   User,
 } from 'firebase/auth';
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  collection,
+  writeBatch,
+} from 'firebase/firestore';
+import { DataType } from '../../data';
 
 export type UserAuth = {
   uid: string;
@@ -31,6 +39,22 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 export const auth = getAuth(firebaseApp);
 export const db = getFirestore(firebaseApp);
+
+export const addCollectionsAndDocuments = async (
+  collectionKey: string,
+  docsToAdd: DataType[]
+) => {
+  const collectionRef = collection(db, collectionKey);
+  const batch = writeBatch(db);
+
+  docsToAdd.forEach((document: DataType) => {
+    const docRef = doc(collectionRef, document.title.toLowerCase());
+    batch.set(docRef, document);
+  });
+
+  await batch.commit();
+  console.log('done batch commitiing');
+};
 
 const googleProvider = new GoogleAuthProvider();
 googleProvider.setCustomParameters({
