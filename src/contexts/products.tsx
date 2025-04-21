@@ -5,7 +5,7 @@ import {
   Dispatch,
   SetStateAction,
 } from 'react';
-import PRODUCTS from '../data.json';
+import DATA from '../data';
 
 export type ProductType = {
   id: number;
@@ -26,7 +26,9 @@ const ProductsContext = createContext<ProductsContextType>({
 });
 
 export const ProductsProvider = ({ children }: { children: ReactNode }) => {
-  const [products, setProducts] = useState<ProductType[] | null>(PRODUCTS);
+  const [products, setProducts] = useState<ProductType[] | null>(
+    DATA.flatMap((category) => category.items)
+  );
 
   return (
     <ProductsContext.Provider value={{ products, setProducts }}>
