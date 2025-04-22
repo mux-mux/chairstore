@@ -4,7 +4,10 @@ import {
   ReactNode,
   Dispatch,
   SetStateAction,
+  useEffect,
 } from 'react';
+
+import { getCollectionsAndDocuments } from '../utils/firebase/firebase';
 
 import DATA from '../data';
 
@@ -30,6 +33,15 @@ export const ProductsProvider = ({ children }: { children: ReactNode }) => {
   const [products, setProducts] = useState<ProductType[] | null>(
     DATA.flatMap((category) => category.items)
   );
+
+  useEffect(() => {
+    const getCategoriesMap = async () => {
+      const categoryMap = await getCollectionsAndDocuments();
+      console.log(categoryMap);
+    };
+
+    getCategoriesMap();
+  }, []);
 
   return (
     <ProductsContext.Provider value={{ products, setProducts }}>

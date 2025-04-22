@@ -14,11 +14,14 @@ import {
   getFirestore,
   doc,
   getDoc,
+  getDocs,
   setDoc,
   collection,
+  query,
   writeBatch,
 } from 'firebase/firestore';
 import { DataType } from '../../data';
+import { ProductType } from '../../contexts/products';
 
 export type UserAuth = {
   uid: string;
@@ -54,6 +57,25 @@ export const addCollectionsAndDocuments = async (
 
   await batch.commit();
   console.log('done batch commitiing');
+};
+
+export const getCollectionsAndDocuments = async () => {
+  const collectionRef = collection(db, 'category');
+  const queryObj = query(collectionRef);
+
+  const querySnapshot = await getDocs(queryObj);
+  const categoryMap = querySnapshot.docs.reduce<Record<string, ProductType[]>>(
+    (accum, docSnapshot) => {
+      const { title, items } = docSnapshot.data() as DataType;
+
+      accum[title.toLowerCase()] = items;
+
+      return accum;
+    },
+    {}
+  );
+
+  return categoryMap;
 };
 
 const googleProvider = new GoogleAuthProvider();
