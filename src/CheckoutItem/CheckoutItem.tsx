@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import styled, { css } from 'styled-components';
-import { ProductType } from '../contexts/products';
+import { ProductType } from '../contexts/categories';
 import CartContext from '../contexts/cart';
 
 const CheckoutItem = ({ cartItem }: { cartItem: ProductType }) => {

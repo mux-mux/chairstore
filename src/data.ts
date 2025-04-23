@@ -1,4 +1,4 @@
-import { ProductType } from './contexts/products';
+import { ProductType } from './contexts/categories';
 
 export type DataType = {
   title: string;
