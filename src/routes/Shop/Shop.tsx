@@ -1,7 +1,6 @@
-import { useContext, Fragment } from 'react';
-import styled from 'styled-components';
+import { useContext } from 'react';
 import CategoriesContext, { CategoriesType } from '../../contexts/categories';
-import ProductCard from '../../components/ProductCard/ProductCard';
+import CategoryPreview from '../../components/CategoryPreview/CategoryPreview';
 
 const Shop = () => {
   const { categories } = useContext(CategoriesContext) as {
@@ -10,27 +9,19 @@ const Shop = () => {
   console.log(categories);
 
   return (
-    <Fragment>
-      {Object.keys(categories).map((title, index) => (
-        <Fragment key={index}>
-          <h2>{title}</h2>
-          <CategoriesContainer>
-            {categories[title]?.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </CategoriesContainer>
-        </Fragment>
-      ))}
-    </Fragment>
+    <>
+      {Object.keys(categories).map((title, index) => {
+        const products = categories[title];
+        return (
+          <CategoryPreview
+            key={index}
+            title={title}
+            products={products}
+          ></CategoryPreview>
+        );
+      })}
+    </>
   );
 };
 
 export default Shop;
-
-const CategoriesContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 250px);
-  gap: 10px;
-  place-content: center;
-  text-align: center;
-`;
