@@ -21,7 +21,7 @@ import {
   writeBatch,
 } from 'firebase/firestore';
 import { DataType } from '../../data';
-import { ProductType } from '../../contexts/products';
+import { ProductType } from '../../contexts/categories';
 
 export type UserAuth = {
   uid: string;

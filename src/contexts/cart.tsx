@@ -6,7 +6,7 @@ import {
   SetStateAction,
 } from 'react';
 
-import { ProductType } from './products';
+import { ProductType } from './categories';
 
 type CartContextType = {
   isCartOpen: boolean;

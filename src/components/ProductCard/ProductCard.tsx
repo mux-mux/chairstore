@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import styled from 'styled-components';
 import CartContext from '../../contexts/cart';
-import { ProductType } from '../../contexts/products';
+import { ProductType } from '../../contexts/categories';
 import Button from '../Button/Button';
 import { COLORS } from '../../constants';
 
