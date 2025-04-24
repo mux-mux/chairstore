@@ -22,8 +22,8 @@ export type CategoriesType = {
 };
 
 type CategoriesContextType = {
-  categories: CategoriesType | object;
-  setCategories: Dispatch<SetStateAction<CategoriesType | object>>;
+  categories: CategoriesType;
+  setCategories: Dispatch<SetStateAction<CategoriesType>>;
 };
 
 const CategoriesContext = createContext<CategoriesContextType>({
@@ -32,7 +32,7 @@ const CategoriesContext = createContext<CategoriesContextType>({
 });
 
 export const CategoriesProvider = ({ children }: { children: ReactNode }) => {
-  const [categories, setCategories] = useState<CategoriesType | object>({});
+  const [categories, setCategories] = useState<CategoriesType>({});
 
   useEffect(() => {
     const getCategories = async () => {

@@ -25,6 +25,7 @@ const GlobalStyles = createGlobalStyle`
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-y: scroll;
 }
 
 #root {
@@ -49,6 +50,7 @@ body {
   min-width: 320px;
   padding: 10px;
   text-align: center;
+  scrollbar-gutter: stable;
 }
 
 h1 {
