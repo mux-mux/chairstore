@@ -13,9 +13,13 @@ const CartDropdown = () => {
   return (
     <CartDropdownContainer>
       <CartItems>
-        {cartItems.map((cartItem) => (
-          <CartItem key={cartItem.id} cartItem={cartItem} />
-        ))}
+        {cartItems.length ? (
+          cartItems.map((cartItem) => (
+            <CartItem key={cartItem.id} cartItem={cartItem} />
+          ))
+        ) : (
+          <EmptyMessage>Your cart is empty</EmptyMessage>
+        )}
       </CartItems>
       <CartButton variant="default" onClick={() => navigate('/checkout')}>
         GO TO CHECKOUT
@@ -42,6 +46,11 @@ const CartItems = styled.div`
   display: flex;
   flex-direction: column;
   overflow: auto;
+`;
+
+const EmptyMessage = styled.span`
+  font-size: 18px;
+  margin: auto;
 `;
 
 const CartButton = styled(Button)`
