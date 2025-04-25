@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import CategoriesContext, { CategoriesType } from '../../contexts/categories';
-import CategoryPreview from '../../components/CategoryPreview/CategoryPreview';
+import DirectoryPreview from '../../components/DirectoryPreview/DirectoryPreview';
 
-const CategoriesPreview = () => {
+const Categories = () => {
   const { categories } = useContext(CategoriesContext) as {
     categories: CategoriesType;
   };
@@ -12,15 +12,15 @@ const CategoriesPreview = () => {
       {Object.keys(categories).map((title, index) => {
         const products = categories[title];
         return (
-          <CategoryPreview
+          <DirectoryPreview
             key={index}
             title={title}
             products={products}
-          ></CategoryPreview>
+          ></DirectoryPreview>
         );
       })}
     </>
   );
 };
 
-export default CategoriesPreview;
+export default Categories;
