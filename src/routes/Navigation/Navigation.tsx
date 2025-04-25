@@ -10,13 +10,13 @@ import Logo from '../../components/Logo/Logo';
 import CartIcon from '../../components/CartIcon/CartIcon';
 import CartDropdown from '../../components/CartDropdown/CartDropdown';
 
-const Navigation: React.FC = () => {
+const Navigation = () => {
   const { currentUser } = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
 
   return (
     <>
-      <Nav>
+      <NavContainer>
         <LogoLink to="/">
           <Logo size={50} />
         </LogoLink>
@@ -33,13 +33,13 @@ const Navigation: React.FC = () => {
           <CartIcon />
         </NavLinks>
         {isCartOpen && <CartDropdown />}
-      </Nav>
+      </NavContainer>
       <Outlet />
     </>
   );
 };
 
-const Nav = styled.div`
+const NavContainer = styled.div`
   height: 70px;
   width: 100%;
   display: flex;

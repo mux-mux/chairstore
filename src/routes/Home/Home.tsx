@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom';
 
-import Categories from '../../components/Directories/Directories';
+import Directories from '../../components/Directories/Directories';
 
-const CATEGORIES = [
+const DIRECTORIES = [
   {
     id: 1,
     title: 'Office chairs',
@@ -35,11 +35,11 @@ const CATEGORIES = [
   },
 ];
 
-const Home: React.FC = () => {
+const Home = () => {
   return (
     <>
       <Outlet />
-      <Categories data={CATEGORIES} />
+      <Directories data={DIRECTORIES} />
     </>
   );
 };
