@@ -18,12 +18,15 @@ const Category = () => {
   }, [categories, category]);
 
   return (
-    <CategoryContainer>
-      {products &&
-        products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-    </CategoryContainer>
+    <>
+      <Title>{category}</Title>
+      <CategoryContainer>
+        {products &&
+          products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+      </CategoryContainer>
+    </>
   );
 };
 
@@ -33,4 +36,10 @@ const CategoryContainer = styled.div`
   column-gap: 20px;
   row-gap: 50px;
 `;
+const Title = styled.h2`
+  text-transform: uppercase;
+  font-size: 38px;
+  margin-bottom: 25px;
+`;
+
 export default Category;

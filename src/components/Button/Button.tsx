@@ -9,21 +9,25 @@ type ButtonProps = {
   onClick?: () => void;
 };
 
+const getButtonType = (variant: string) => {
+  switch (variant) {
+    case 'default':
+      return DefaultButton;
+    case 'inverted':
+      return InvertedButton;
+    case 'google':
+      return GoogleButton;
+    default:
+      throw new Error(`Unsupported button variant: ${variant}`);
+  }
+};
+
 const Button = ({
   children,
   variant = 'default',
   ...delegated
 }: ButtonProps) => {
-  let Component;
-  if (variant === 'default') {
-    Component = DefaultButton;
-  } else if (variant === 'inverted') {
-    Component = InvertedButton;
-  } else if (variant === 'google') {
-    Component = GoogleButton;
-  } else {
-    throw new Error(`Unsupported button variant: ${variant}`);
-  }
+  const Component = getButtonType(variant);
 
   return <Component {...delegated}>{children}</Component>;
 };

@@ -1,25 +1,25 @@
 import styled from 'styled-components';
 
-export type CategoryProps = {
+export type DirectoryProps = {
   id: number;
   title: string;
   imagePath: string;
 };
 
-const Category = ({ title, imagePath }: CategoryProps) => {
+const Directory = ({ title, imagePath }: DirectoryProps) => {
   return (
-    <CategoryContainer>
-      <CategoryImage
+    <DirectoryContainer>
+      <DirectoryImage
         style={{ backgroundImage: `url(${imagePath})` }}
-      ></CategoryImage>
-      <CategoryBody>
-        <CategoryLink href="#">{title}</CategoryLink>
-      </CategoryBody>
-    </CategoryContainer>
+      ></DirectoryImage>
+      <DirectoryBody>
+        <DirectoryLink href="#">{title}</DirectoryLink>
+      </DirectoryBody>
+    </DirectoryContainer>
   );
 };
 
-const CategoryContainer = styled.div`
+const DirectoryContainer = styled.div`
   position: relative;
   height: 240px;
   flex: 1 1 auto;
@@ -34,7 +34,7 @@ const CategoryContainer = styled.div`
     cursor: pointer;
   }
 `;
-const CategoryBody = styled.div`
+const DirectoryBody = styled.div`
   position: absolute;
   bottom: 10px;
   display: flex;
@@ -48,12 +48,12 @@ const CategoryBody = styled.div`
   will-change: opacity;
   transition: 500ms ease-in-out;
 
-  ${CategoryContainer}:hover & {
+  ${DirectoryContainer}:hover & {
     opacity: 0.95;
   }
 `;
 
-const CategoryImage = styled.div`
+const DirectoryImage = styled.div`
   width: 100%;
   height: 100%;
   background-size: contain;
@@ -62,17 +62,17 @@ const CategoryImage = styled.div`
   will-change: transform;
   transition: transform 500ms ease-in;
 
-  ${CategoryContainer}:hover & {
+  ${DirectoryContainer}:hover & {
     transform: scale(1.1);
     transition: transform 700ms ease-in;
   }
 `;
 
-const CategoryLink = styled.a`
+const DirectoryLink = styled.a`
   padding: 0 5px;
   text-transform: uppercase;
   font-weight: 500;
   font-size: 16px;
 `;
 
-export default Category;
+export default Directory;

@@ -2,12 +2,14 @@ import { ProductType } from './contexts/categories';
 
 export type DataType = {
   title: string;
+  url: string;
   items: ProductType[];
 };
 
 const DATA: DataType[] = [
   {
     title: 'Office chairs',
+    url: 'office',
     items: [
       {
         id: 1,
@@ -25,6 +27,7 @@ const DATA: DataType[] = [
   },
   {
     title: 'Gaming chairs',
+    url: 'gaming',
     items: [
       {
         id: 3,
@@ -36,6 +39,7 @@ const DATA: DataType[] = [
   },
   {
     title: 'Dining chairs',
+    url: 'dining',
     items: [
       {
         id: 4,
@@ -47,6 +51,7 @@ const DATA: DataType[] = [
   },
   {
     title: 'Soft chairs',
+    url: 'soft',
     items: [
       {
         id: 5,
@@ -64,6 +69,7 @@ const DATA: DataType[] = [
   },
   {
     title: 'Bar chairs',
+    url: 'bar',
     items: [
       {
         id: 7,
@@ -81,6 +87,7 @@ const DATA: DataType[] = [
   },
   {
     title: "Children's chairs",
+    url: 'children',
     items: [
       {
         id: 9,

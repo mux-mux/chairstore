@@ -1,17 +1,19 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import ProductCard from '../ProductCard/ProductCard';
 import { ProductType } from '../../contexts/categories';
 
-type CategoryProps = {
+type DirectoryProps = {
   title: string;
   products: ProductType[];
 };
 
-const CategoryPreview = ({ title, products }: CategoryProps) => {
+const DirectoryPreview = ({ title, products }: DirectoryProps) => {
+  const formattedTitle = decodeURIComponent(title).replace(/\s+/g, '-');
   return (
-    <CategoryPreviewContainer>
+    <DirectoryPreviewContainer>
       <h2>
-        <Title>{title}</Title>
+        <Title to={formattedTitle}>{title}</Title>
       </h2>
       <Preview>
         {products
@@ -20,16 +22,16 @@ const CategoryPreview = ({ title, products }: CategoryProps) => {
             <ProductCard key={product.id} product={product}></ProductCard>
           ))}
       </Preview>
-    </CategoryPreviewContainer>
+    </DirectoryPreviewContainer>
   );
 };
 
-const CategoryPreviewContainer = styled.div`
+const DirectoryPreviewContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
 `;
-const Title = styled.span`
+const Title = styled(Link)`
   text-transform: uppercase;
   font-size: 28px;
   margin-bottom: 25px;
@@ -41,4 +43,4 @@ const Preview = styled.div`
   column-gap: 20px;
 `;
 
-export default CategoryPreview;
+export default DirectoryPreview;
