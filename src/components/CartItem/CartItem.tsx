@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { ProductType } from '../../contexts/categories';
 
 const CartItem = ({ cartItem }: { cartItem: ProductType }) => {
-  const { name, imageUrl, price, quantity } = cartItem;
+  const { name, imageSrc, price, quantity } = cartItem;
   return (
     <CartItemContainer>
       <ImageContainer>
-        <Image src={imageUrl} alt={name} />
+        <Image src={imageSrc} alt={name} />
       </ImageContainer>
       <Details>
         <Name>{name}</Name>

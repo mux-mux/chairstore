@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { signOutUser } from '../../utils/firebase/firebase';
 
@@ -13,6 +13,8 @@ import CartDropdown from '../../components/CartDropdown/CartDropdown';
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
+  const location = useLocation();
+  const isRoot = location.pathname === '/';
 
   return (
     <>
@@ -21,8 +23,7 @@ const Navigation = () => {
           <Logo size={50} />
         </LogoLink>
         <NavLinks>
-          <NavLink to="/">CATEGORIES</NavLink>
-          <NavLink to="/shop">SHOP</NavLink>
+          {!isRoot && <NavLink to="/">CATEGORIES</NavLink>}
           {currentUser ? (
             <NavLink to="/" onClick={signOutUser}>
               SIGN OUT

@@ -1,104 +1,118 @@
 import { ProductType } from './contexts/categories';
 
-export type DataType = {
+export type CategoryType = {
+  id: number;
   title: string;
-  url: string;
+  path: string;
+  imageSrc: string;
   items: ProductType[];
 };
 
-const DATA: DataType[] = [
+const DATA: CategoryType[] = [
   {
+    id: 1,
     title: 'Office chairs',
-    url: 'office',
+    path: '/office',
+    imageSrc: './img/category/office-chair.jpg',
     items: [
       {
         id: 1,
         name: 'Q-118R',
-        imageUrl: './img/products/q-118r.jpg',
+        imageSrc: './img/products/q-118r.jpg',
         price: 25,
       },
       {
         id: 2,
         name: 'Q-080',
-        imageUrl: './img/products/q-080.jpg',
+        imageSrc: './img/products/q-080.jpg',
         price: 18,
       },
     ],
   },
   {
+    id: 2,
     title: 'Gaming chairs',
-    url: 'gaming',
+    path: '/gaming',
+    imageSrc: './img/category/gaming-chair.jpg',
     items: [
       {
         id: 3,
         name: 'Winner Lux',
-        imageUrl: './img/products/winner-lux.jpg',
+        imageSrc: './img/products/winner-lux.jpg',
         price: 35,
       },
     ],
   },
   {
+    id: 3,
     title: 'Dining chairs',
-    url: 'dining',
+    path: '/dining',
+    imageSrc: './img/category/dining-chair.jpg',
     items: [
       {
         id: 4,
         name: 'Mike Velvet',
-        imageUrl: './img/products/mike-velvet.jpg',
+        imageSrc: './img/products/mike-velvet.jpg',
         price: 16,
       },
     ],
   },
   {
+    id: 4,
     title: 'Soft chairs',
-    url: 'soft',
+    path: '/soft',
+    imageSrc: './img/category/soft-chair.jpg',
     items: [
       {
         id: 5,
         name: 'Servio Brego',
-        imageUrl: './img/products/servio-brego.jpg',
+        imageSrc: './img/products/servio-brego.jpg',
         price: 25,
       },
       {
         id: 6,
         name: 'Wind Brego',
-        imageUrl: './img/products/wind-brego.jpg',
+        imageSrc: './img/products/wind-brego.jpg',
         price: 14,
       },
     ],
   },
   {
+    id: 5,
     title: 'Bar chairs',
-    url: 'bar',
+    path: '/bar',
+    imageSrc: './img/category/bar-chair.jpg',
     items: [
       {
         id: 7,
         name: 'Mila H-2 Velvet',
-        imageUrl: './img/products/mila-h2-velvet.jpg',
+        imageSrc: './img/products/mila-h2-velvet.jpg',
         price: 18,
       },
       {
         id: 8,
         name: 'Colin B Velvet H-2',
-        imageUrl: './img/products/colin-b-h2-velvet.jpg',
+        imageSrc: './img/products/colin-b-h2-velvet.jpg',
         price: 14,
       },
     ],
   },
   {
+    id: 6,
     title: "Children's chairs",
-    url: 'children',
+    path: '/children',
+    imageSrc: './img/category/childrens-chair.jpg',
     items: [
       {
         id: 9,
         name: 'Q-333',
-        imageUrl: './img/products/q-333.jpg',
+        imageSrc: './img/products/q-333.jpg',
         price: 20,
       },
       {
         id: 10,
         name: 'Q-G2',
-        imageUrl: './img/products/q-g2.jpg',
+        imageSrc: './img/products/q-g2.jpg',
         price: 12,
       },
     ],

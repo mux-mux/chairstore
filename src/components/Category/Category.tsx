@@ -2,25 +2,25 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { COLORS } from '../../constants';
 
-export type DirectoryProps = {
+export type CategoryProps = {
   id: number;
   title: string;
-  url: string;
-  imagePath: string;
+  path: string;
+  imageSrc: string;
 };
 
-const Directory = ({ title, url, imagePath }: DirectoryProps) => {
+const Category = ({ title, path, imageSrc }: CategoryProps) => {
   return (
-    <DirectoryLink to={url}>
-      <Image imagePath={imagePath}></Image>
+    <CategoryLink to={path}>
+      <Image src={imageSrc}></Image>
       <Box>
         <Name>{title}</Name>
       </Box>
-    </DirectoryLink>
+    </CategoryLink>
   );
 };
 
-const DirectoryLink = styled(Link)`
+const CategoryLink = styled(Link)`
   position: relative;
   height: 240px;
   border: 1px solid ${COLORS.borderPrimary};
@@ -44,23 +44,19 @@ const Box = styled.div`
   will-change: opacity;
   transition: 500ms ease-in-out;
 
-  ${DirectoryLink}:hover & {
+  ${CategoryLink}:hover & {
     opacity: 0.95;
   }
 `;
 
-const Image = styled.div<{ imagePath: string }>`
+const Image = styled.img`
   width: 100%;
   height: 100%;
-  background-image: ${({ imagePath }) => `url(${imagePath})`};
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
   will-change: transform;
   transition: transform 500ms ease-in;
 
-  ${DirectoryLink}:hover & {
-    transform: scale(1.1);
+  ${CategoryLink}:hover & {
+    transform: scale(1.05);
     transition: transform 700ms ease-in;
   }
 `;
@@ -72,4 +68,4 @@ const Name = styled.span`
   font-size: 16px;
 `;
 
-export default Directory;
+export default Category;

@@ -7,13 +7,13 @@ import { COLORS } from '../constants';
 const CheckoutItem = ({ cartItem }: { cartItem: ProductType }) => {
   const { clearItemFromCart, addItemToCart, removeItemFromCart } =
     useContext(CartContext);
-  const { name, imageUrl, price, quantity } = cartItem;
+  const { name, imageSrc, price, quantity } = cartItem;
 
   return (
     <CheckoutItemContainer>
       <>
         <ImageContainer>
-          <img src={imageUrl} alt={name} />
+          <img src={imageSrc} alt={name} />
         </ImageContainer>
         <Name>{name}</Name>
         <QuantityContainer>

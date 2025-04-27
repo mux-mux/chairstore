@@ -20,8 +20,7 @@ import {
   query,
   writeBatch,
 } from 'firebase/firestore';
-import { DataType } from '../../data';
-import { ProductType } from '../../contexts/categories';
+import { CategoryType } from '../../data';
 
 export type UserAuth = {
   uid: string;
@@ -45,12 +44,12 @@ export const db = getFirestore(firebaseApp);
 
 export const addCollectionsAndDocuments = async (
   collectionKey: string,
-  docsToAdd: DataType[]
+  docsToAdd: CategoryType[]
 ) => {
   const collectionRef = collection(db, collectionKey);
   const batch = writeBatch(db);
 
-  docsToAdd.forEach((document: DataType) => {
+  docsToAdd.forEach((document: CategoryType) => {
     const docRef = doc(collectionRef, document.title.toLowerCase());
     batch.set(docRef, document);
   });
@@ -59,23 +58,16 @@ export const addCollectionsAndDocuments = async (
   console.log('done batch commitiing');
 };
 
-export const getCollectionsAndDocuments = async () => {
-  const collectionRef = collection(db, 'category');
+export const getCollectionsAndDocuments = async (): Promise<CategoryType[]> => {
+  const collectionRef = collection(db, 'categories');
   const queryObj = query(collectionRef);
-
   const querySnapshot = await getDocs(queryObj);
-  const categoryMap = querySnapshot.docs.reduce<Record<string, ProductType[]>>(
-    (accum, docSnapshot) => {
-      const { title, items } = docSnapshot.data() as DataType;
 
-      accum[title.toLowerCase()] = items;
-
-      return accum;
-    },
-    {}
+  const categories = querySnapshot.docs.map(
+    (doc) => doc.data() as CategoryType
   );
 
-  return categoryMap;
+  return categories;
 };
 
 const googleProvider = new GoogleAuthProvider();

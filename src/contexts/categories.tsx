@@ -7,32 +7,40 @@ import {
   useEffect,
 } from 'react';
 
-import { getCollectionsAndDocuments } from '../utils/firebase/firebase';
+import {
+  getCollectionsAndDocuments,
+  // addCollectionsAndDocuments,
+} from '../utils/firebase/firebase';
+
+// import DATA from '../data';
+
+import { CategoryType } from '../data';
 
 export type ProductType = {
   id: number;
   name: string;
-  imageUrl: string;
+  imageSrc: string;
   price: number;
   quantity?: number;
 };
 
-export type CategoriesType = {
-  [key: string]: ProductType[];
-};
-
 type CategoriesContextType = {
-  categories: CategoriesType;
-  setCategories: Dispatch<SetStateAction<CategoriesType>>;
+  categories: CategoryType[];
+  setCategories: Dispatch<SetStateAction<CategoryType[]>>;
 };
 
 const CategoriesContext = createContext<CategoriesContextType>({
-  categories: {},
+  categories: [],
   setCategories: () => {},
 });
 
 export const CategoriesProvider = ({ children }: { children: ReactNode }) => {
-  const [categories, setCategories] = useState<CategoriesType>({});
+  const [categories, setCategories] = useState<CategoryType[]>([]);
+
+  //For adding firestore data
+  // useEffect(() => {
+  //   addCollectionsAndDocuments('categories', DATA);
+  // }, []);
 
   useEffect(() => {
     const getCategories = async () => {
