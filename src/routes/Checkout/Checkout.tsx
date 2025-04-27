@@ -49,7 +49,7 @@ const CheckoutHeader = styled.div`
   padding: 10px 0;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid ${COLORS.secondary};
+  border-bottom: 1px solid ${COLORS.borderSecondary};
 `;
 const HeaderColumn = styled.div`
   text-transform: capitalize;

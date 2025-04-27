@@ -3,4 +3,7 @@ export const COLORS = {
   secondary: '#444',
   thertiary: '#646cff',
   borderPrimary: '#ccc',
+  borderSecondary: '#898989',
+  textColorPrimary: '#808080',
+  bgColorPrimary: '#fff',
 };

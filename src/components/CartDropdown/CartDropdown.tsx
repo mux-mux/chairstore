@@ -36,7 +36,7 @@ const CartDropdownContainer = styled.div`
   flex-direction: column;
   padding: 20px;
   border: 1px solid ${COLORS.borderPrimary};
-  background-color: white;
+  background-color: ${COLORS.bgColorPrimary};
   top: 65px;
   right: 20px;
   z-index: 5;

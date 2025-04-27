@@ -6,12 +6,12 @@ import Button from '../Button/Button';
 import { COLORS } from '../../constants';
 
 const ProductCard = ({ product }: { product: ProductType }) => {
-  const { name, imageUrl, price } = product;
+  const { name, imageSrc, price } = product;
   const { addItemToCart } = useContext(CartContext);
 
   return (
     <ProductCardContainer>
-      <ProductImage src={imageUrl} alt={name} />
+      <ProductImage src={imageSrc} alt={name} />
       <Footer>
         <Name>{name}</Name>
         <span>{price}$</span>

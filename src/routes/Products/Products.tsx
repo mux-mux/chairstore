@@ -1,38 +1,48 @@
 import { useContext, useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import { ProductType } from '../../contexts/categories';
 import styled from 'styled-components';
 
 import CategoriesContext from '../../contexts/categories';
 
-const Category = () => {
+const Products = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
   const { category } = useParams();
   const { categories } = useContext(CategoriesContext);
 
+  const categoryData = categories.find(
+    (cat) =>
+      cat.path.replace(/^\/|\/$/g, '').toLowerCase() ===
+      (category || '').toLowerCase()
+  );
+
   useEffect(() => {
-    if (category && categories[category]) {
-      setProducts(categories[category]);
+    if (categoryData) {
+      setProducts(categoryData.items || []);
     }
-  }, [categories, category]);
+  }, [categoryData]);
+
+  if (!categoryData) {
+    return <Navigate to="/404" replace />;
+  }
 
   return (
     <>
-      <Title>{category}</Title>
-      <CategoryContainer>
+      <Title>{categoryData.title}</Title>
+      <ProductsContainer>
         {products &&
           products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
-      </CategoryContainer>
+      </ProductsContainer>
     </>
   );
 };
 
-const CategoryContainer = styled.div`
+const ProductsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, 250px);
   column-gap: 20px;
   row-gap: 50px;
 `;
@@ -42,4 +52,4 @@ const Title = styled.h2`
   margin-bottom: 25px;
 `;
 
-export default Category;
+export default Products;
