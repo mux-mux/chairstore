@@ -1,31 +1,27 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export type DirectoryProps = {
   id: number;
   title: string;
+  url: string;
   imagePath: string;
 };
 
-const Directory = ({ title, imagePath }: DirectoryProps) => {
+const Directory = ({ title, url, imagePath }: DirectoryProps) => {
   return (
-    <DirectoryContainer>
-      <DirectoryImage
-        style={{ backgroundImage: `url(${imagePath})` }}
-      ></DirectoryImage>
-      <DirectoryBody>
-        <DirectoryLink href="#">{title}</DirectoryLink>
-      </DirectoryBody>
-    </DirectoryContainer>
+    <DirectoryLink to={url}>
+      <Image imagePath={imagePath}></Image>
+      <Box>
+        <Name>{title}</Name>
+      </Box>
+    </DirectoryLink>
   );
 };
 
-const DirectoryContainer = styled.div`
+const DirectoryLink = styled(Link)`
   position: relative;
   height: 240px;
-  flex: 1 1 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border: 1px solid lightgrey;
   border-radius: 5px;
   overflow: hidden;
@@ -34,13 +30,12 @@ const DirectoryContainer = styled.div`
     cursor: pointer;
   }
 `;
-const DirectoryBody = styled.div`
+
+const Box = styled.div`
   position: absolute;
   bottom: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  left: 50%;
+  transform: translateX(-50%);
   border-radius: 10px;
   border: 1px solid lightgrey;
   background-color: white;
@@ -48,27 +43,28 @@ const DirectoryBody = styled.div`
   will-change: opacity;
   transition: 500ms ease-in-out;
 
-  ${DirectoryContainer}:hover & {
+  ${DirectoryLink}:hover & {
     opacity: 0.95;
   }
 `;
 
-const DirectoryImage = styled.div`
+const Image = styled.div<{ imagePath: string }>`
   width: 100%;
   height: 100%;
+  background-image: ${({ imagePath }) => `url(${imagePath})`};
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   will-change: transform;
   transition: transform 500ms ease-in;
 
-  ${DirectoryContainer}:hover & {
+  ${DirectoryLink}:hover & {
     transform: scale(1.1);
     transition: transform 700ms ease-in;
   }
 `;
 
-const DirectoryLink = styled.a`
+const Name = styled.span`
   padding: 0 5px;
   text-transform: uppercase;
   font-weight: 500;
