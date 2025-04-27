@@ -1,5 +1,6 @@
 import { useId, InputHTMLAttributes } from 'react';
 import styled from 'styled-components';
+import { COLORS } from '../../constants';
 
 interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
@@ -26,13 +27,13 @@ const InputField = styled.input`
   width: 100%;
   margin: 0 auto;
   background: none;
-  background-color: white;
-  color: grey;
+  background-color: transparent;
+  color: ${COLORS.textColorPrimary};
   font-size: 18px;
   padding: 10px 10px 10px 5px;
   border: none;
   border-radius: 0;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid ${COLORS.borderSecondary};
   margin: 25px 0;
 
   &:focus {
@@ -43,7 +44,7 @@ const InputField = styled.input`
   &:not(:placeholder-shown) + label {
     top: -14px;
     font-size: 12px;
-    color: black;
+    color: initial;
     cursor: default;
   }
 `;
@@ -52,7 +53,7 @@ const InputLabel = styled.label`
   position: absolute;
   top: 10px;
   left: 5px;
-  color: grey;
+  color: ${COLORS.textColorPrimary};
   font-size: 16px;
   font-weight: normal;
   cursor: text;

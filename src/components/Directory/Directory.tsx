@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { COLORS } from '../../constants';
 
 export type DirectoryProps = {
   id: number;
@@ -22,7 +23,7 @@ const Directory = ({ title, url, imagePath }: DirectoryProps) => {
 const DirectoryLink = styled(Link)`
   position: relative;
   height: 240px;
-  border: 1px solid lightgrey;
+  border: 1px solid ${COLORS.borderPrimary};
   border-radius: 5px;
   overflow: hidden;
 
@@ -37,8 +38,8 @@ const Box = styled.div`
   left: 50%;
   transform: translateX(-50%);
   border-radius: 10px;
-  border: 1px solid lightgrey;
-  background-color: white;
+  border: 1px solid ${COLORS.borderPrimary};
+  background-color: ${COLORS.bgColorPrimary};
   opacity: 0.85;
   will-change: opacity;
   transition: 500ms ease-in-out;

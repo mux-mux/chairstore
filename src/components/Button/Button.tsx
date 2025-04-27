@@ -54,7 +54,7 @@ const DefaultButton = styled(ButtonBase)`
   background-color: ${COLORS.primary};
 
   &:hover {
-    border-color: #646cff;
+    border-color: ${COLORS.thertiary};
   }
 `;
 

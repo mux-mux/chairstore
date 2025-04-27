@@ -40,8 +40,8 @@ const CartCount = styled.span`
   font-weight: bold;
   color: currentColor;
   bottom: 12px;
-  //optical aligning
-  transform: translateX(-5%);
+  left: 50%;
+  transform: translateX(-50%);
 `;
 
 export default CartIcon;

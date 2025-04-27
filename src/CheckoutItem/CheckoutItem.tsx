@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import styled, { css } from 'styled-components';
 import { ProductType } from '../contexts/categories';
 import CartContext from '../contexts/cart';
+import { COLORS } from '../constants';
 
 const CheckoutItem = ({ cartItem }: { cartItem: ProductType }) => {
   const { clearItemFromCart, addItemToCart, removeItemFromCart } =
@@ -37,7 +38,7 @@ const CheckoutItemContainer = styled.div`
   width: 100%;
   display: flex;
   min-height: 100px;
-  border-bottom: 1px solid darkgrey;
+  border-bottom: 1px solid ${COLORS.borderSecondary};
   padding: 15px 0;
   font-size: 20px;
   align-items: center;
