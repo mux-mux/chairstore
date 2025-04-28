@@ -17,7 +17,9 @@ const CartIcon = () => {
         aria-label="Shopping Bag"
         fill="currentColor"
       />
-      <CartCount>{itemsCount > 99 ? '99+' : itemsCount}</CartCount>
+      <CartCount style={{ fontSize: itemsCount > 99 ? '11px' : '12px' }}>
+        {itemsCount > 99 ? '99+' : itemsCount}
+      </CartCount>
     </CartIconContainer>
   );
 };
@@ -36,12 +38,11 @@ const CartIconContainer = styled.button`
 
 const CartCount = styled.span`
   position: absolute;
-  font-size: 11px;
   font-weight: bold;
   color: currentColor;
   bottom: 12px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-55%);
 `;
 
 export default CartIcon;
