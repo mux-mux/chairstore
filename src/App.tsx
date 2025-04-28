@@ -18,6 +18,7 @@ const App = () => {
           <Route path="checkout" element={<Checkout />} />
           <Route path=":category" element={<Products />} />
           <Route path="404" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
 

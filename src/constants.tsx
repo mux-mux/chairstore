@@ -5,5 +5,7 @@ export const COLORS = {
   borderPrimary: '#ccc',
   borderSecondary: '#898989',
   textColorPrimary: '#808080',
+  textColorSecondary: '#f3f3f3',
   bgColorPrimary: '#fff',
+  bgColorSecondary: '#333',
 };
