@@ -1,20 +1,14 @@
-import {
-  createContext,
-  useState,
-  useEffect,
-  ReactNode,
-  Dispatch,
-  SetStateAction,
-} from 'react';
+import { createContext, useEffect, useReducer, ReactNode } from 'react';
 import {
   UserAuth,
   onAuthStateChangedListener,
   createUserDocument,
 } from '../utils/firebase/firebase';
+import userReducer, { USER_ACTION_TYPES } from '../store/user';
 
 type UserContextType = {
   currentUser: UserAuth | null;
-  setCurrentUser: Dispatch<SetStateAction<UserAuth | null>>;
+  setCurrentUser: (user: UserAuth | null) => void;
 };
 
 const UserContext = createContext<UserContextType>({
@@ -22,8 +16,23 @@ const UserContext = createContext<UserContextType>({
   setCurrentUser: () => {},
 });
 
+const INITIAL_STATE = {
+  currentUser: {
+    uid: '',
+    email: '',
+    displayName: '',
+  },
+};
+
 export const UserProvider = ({ children }: { children: ReactNode }) => {
-  const [currentUser, setCurrentUser] = useState<UserAuth | null>(null);
+  const [{ currentUser }, dispatch] = useReducer(userReducer, INITIAL_STATE);
+
+  const setCurrentUser = (user: UserAuth | null) => {
+    dispatch({
+      type: USER_ACTION_TYPES.SET_CURRENT_USER,
+      payload: user,
+    });
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((user) => {
