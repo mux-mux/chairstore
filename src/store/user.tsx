@@ -21,7 +21,7 @@ const userReducer = (
       };
 
     default:
-      throw new Error(`Unknown type ${type} in userReducer`);
+      throw new Error(`Unknown type of ${type} in userReducer`);
   }
 };
 
