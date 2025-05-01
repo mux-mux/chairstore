@@ -4,8 +4,16 @@ export const USER_ACTION_TYPES = {
   SET_CURRENT_USER: 'SET_CURRENT_USER',
 };
 
+const INITIAL_STATE = {
+  currentUser: {
+    uid: '',
+    email: '',
+    displayName: '',
+  },
+};
+
 const userReducer = (
-  state: { currentUser: UserAuth | null },
+  state = INITIAL_STATE,
   action: {
     type: string;
     payload: UserAuth | null;
@@ -21,7 +29,7 @@ const userReducer = (
       };
 
     default:
-      throw new Error(`Unknown type of ${type} in userReducer`);
+      return state;
   }
 };
 
