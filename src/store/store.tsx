@@ -8,6 +8,14 @@ import logger from 'redux-logger';
 
 import userReducer from './user';
 
+import { UserAuth } from '../utils/firebase/firebase';
+
+export type stateType = {
+  user: {
+    currentUser: UserAuth;
+  };
+};
+
 const rootReduer = combineReducers({
   user: userReducer,
 });
