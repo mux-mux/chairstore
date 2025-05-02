@@ -1,10 +1,10 @@
-import { UserAuth } from '../utils/firebase/firebase';
+import { UserType } from '../types/user';
 
 export const USER_ACTION_TYPES = {
   SET_CURRENT_USER: 'SET_CURRENT_USER',
 };
 
-export const setCurrentUser = (user: UserAuth | null) => {
+export const setCurrentUser = (user: UserType | null) => {
   return {
     type: USER_ACTION_TYPES.SET_CURRENT_USER,
     payload: user,
@@ -23,7 +23,7 @@ const userReducer = (
   state = INITIAL_STATE,
   action: {
     type: string;
-    payload: UserAuth | null;
+    payload: UserType | null;
   }
 ) => {
   const { type, payload } = action;

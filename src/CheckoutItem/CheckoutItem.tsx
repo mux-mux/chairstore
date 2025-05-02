@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import styled, { css } from 'styled-components';
-import { ProductType } from '../contexts/categories';
 import CartContext from '../contexts/cart';
 import { COLORS } from '../constants';
+import { ProductType } from '../types/product';
 
 const CheckoutItem = ({ cartItem }: { cartItem: ProductType }) => {
   const { clearItemFromCart, addItemToCart, removeItemFromCart } =

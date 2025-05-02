@@ -1,7 +1,14 @@
-import { ProductType } from '../contexts/categories';
+import { CategoryType } from '../types/category';
 
 export const CATEGORIES_ACTION_TYPES = {
   SET_CATEGORIES: 'SET_CATEGORIES',
+};
+
+export const setCategories = (categories: CategoryType[] | null) => {
+  return {
+    type: CATEGORIES_ACTION_TYPES.SET_CATEGORIES,
+    payload: categories,
+  };
 };
 
 const INITIAL_STATE = {
@@ -18,7 +25,7 @@ const categoriesReducer = (
   state = INITIAL_STATE,
   action: {
     type: string;
-    payload: ProductType | null;
+    payload: CategoryType | null;
   }
 ) => {
   const { type, payload } = action;

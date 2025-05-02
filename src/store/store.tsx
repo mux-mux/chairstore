@@ -9,18 +9,6 @@ import logger from 'redux-logger';
 import userReducer from './user';
 import categoriesReducer from './categories';
 
-import { UserAuth } from '../utils/firebase/firebase';
-import { CategoryType } from '../data';
-
-export type stateType = {
-  user: {
-    currentUser: UserAuth;
-  };
-  categories: {
-    categories: CategoryType;
-  };
-};
-
 const rootReduer = combineReducers({
   user: userReducer,
   categories: categoriesReducer,
