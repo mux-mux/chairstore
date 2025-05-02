@@ -1,12 +1,4 @@
-import { ProductType } from './contexts/categories';
-
-export type CategoryType = {
-  id: number;
-  title: string;
-  path: string;
-  imageSrc: string;
-  items: ProductType[];
-};
+import { CategoryType } from './types/category';
 
 const DATA: CategoryType[] = [
   {
@@ -118,5 +110,10 @@ const DATA: CategoryType[] = [
     ],
   },
 ];
+
+//For adding firestore data
+// useEffect(() => {
+//   addCollectionsAndDocuments('categories', DATA);
+// }, []);
 
 export default DATA;

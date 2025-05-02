@@ -2,7 +2,7 @@ import { createContext, useReducer, ReactNode } from 'react';
 
 import cartReducer, { CART_ACTION_TYPES } from '../store/cart';
 
-import { ProductType } from './categories';
+import { ProductType } from '../types/product';
 
 type CartContextType = {
   isCartOpen: boolean;

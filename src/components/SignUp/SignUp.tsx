@@ -3,13 +3,14 @@ import styled from 'styled-components';
 
 import { FirebaseError } from 'firebase/app';
 import {
-  UserAuth,
   createUserDocument,
   createAuthUserWithEmailAndPassword,
 } from '../../utils/firebase/firebase';
 
 import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
+
+import { UserType } from '../../types/user';
 
 const INITIAL_FORM_FIELDS = {
   displayName: '',
@@ -50,7 +51,7 @@ const SignUp = () => {
 
         const { user } = userCredential;
 
-        const userAuth: UserAuth = {
+        const userAuth: UserType = {
           uid: user.uid,
           displayName: user.displayName || '',
           email: user.email || '',

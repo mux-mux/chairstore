@@ -1,15 +1,9 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { COLORS } from '../../constants';
+import { CategoryType } from '../../types/category';
 
-export type CategoryProps = {
-  id: number;
-  title: string;
-  path: string;
-  imageSrc: string;
-};
-
-const Category = ({ title, path, imageSrc }: CategoryProps) => {
+const Category = ({ title, path, imageSrc }: CategoryType) => {
   return (
     <CategoryLink to={path}>
       <Image src={imageSrc}></Image>

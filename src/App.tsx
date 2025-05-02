@@ -1,14 +1,17 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {
-  UserAuth,
   onAuthStateChangedListener,
   createUserDocument,
+  getCollectionsAndDocuments,
 } from './utils/firebase/firebase';
 
 import { Routes, Route } from 'react-router-dom';
 import GlobalStyles from './GlobalStyles';
 import { setCurrentUser } from './store/user';
+import { setCategories } from './store/categories';
+
+import { UserType } from './types/user';
 
 import Home from './routes/Home/Home';
 import Navigation from './routes/Navigation/Navigation';
@@ -23,7 +26,7 @@ const App = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((user) => {
       if (user) {
-        const userAuth: UserAuth = {
+        const userAuth: UserType = {
           uid: user.uid,
           email: user.email || '',
           displayName: user.displayName || '',
@@ -36,6 +39,14 @@ const App = () => {
     });
 
     return unsubscribe;
+  }, [dispatch]);
+
+  useEffect(() => {
+    const getCategories = async () => {
+      const categoriesMap = await getCollectionsAndDocuments();
+      dispatch(setCategories(categoriesMap));
+    };
+    getCategories();
   }, [dispatch]);
 
   return (

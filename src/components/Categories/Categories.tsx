@@ -1,17 +1,24 @@
 import styled from 'styled-components';
-import { useContext } from 'react';
+import { useSelector } from 'react-redux';
+
 import Category from '../Category/Category';
-import CategoriesContext from '../../contexts/categories';
-import { CategoryType } from '../../data';
+import { CategoryType } from '../../types/category';
+import { StoreType } from '../../types/store';
 
 const Categories = () => {
-  const { categories } = useContext(CategoriesContext);
+  const categories = useSelector(
+    (state: StoreType) => state.categories.categories
+  );
 
   return (
     <CategoriesContainer>
-      {categories.map((category: CategoryType) => (
-        <Category key={category.id} {...category} />
-      ))}
+      {categories && categories.length > 0 ? (
+        categories.map((category: CategoryType) => (
+          <Category key={category.id} {...category} />
+        ))
+      ) : (
+        <p>Loading categories...</p>
+      )}
     </CategoriesContainer>
   );
 };

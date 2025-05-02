@@ -7,17 +7,11 @@ import {
 import logger from 'redux-logger';
 
 import userReducer from './user';
-
-import { UserAuth } from '../utils/firebase/firebase';
-
-export type stateType = {
-  user: {
-    currentUser: UserAuth;
-  };
-};
+import categoriesReducer from './categories';
 
 const rootReduer = combineReducers({
   user: userReducer,
+  categories: categoriesReducer,
 });
 
 const middlewares = compose(applyMiddleware(logger));

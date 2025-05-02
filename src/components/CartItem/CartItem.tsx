@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ProductType } from '../../contexts/categories';
+import { ProductType } from '../../types/product';
 
 const CartItem = ({ cartItem }: { cartItem: ProductType }) => {
   const { name, imageSrc, price, quantity } = cartItem;

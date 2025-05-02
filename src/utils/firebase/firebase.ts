@@ -20,13 +20,9 @@ import {
   query,
   writeBatch,
 } from 'firebase/firestore';
-import { CategoryType } from '../../data';
+import { CategoryType } from '../../types/category';
+import { UserType } from '../../types/user';
 
-export type UserAuth = {
-  uid: string;
-  displayName: string;
-  email: string;
-};
 export type AdditionalInfo = Record<string, string | number | boolean | null>;
 
 const firebaseConfig = {
@@ -79,7 +75,7 @@ export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleProvider);
 
 export const createUserDocument = async (
-  userAuth: UserAuth,
+  userAuth: UserType,
   additionalInfo: AdditionalInfo
 ) => {
   if (!userAuth) return;
