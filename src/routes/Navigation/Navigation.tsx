@@ -1,18 +1,17 @@
-import { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { signOutUser } from '../../utils/firebase/firebase';
 import { StoreType } from '../../types/store';
-import CartContext from '../../contexts/cart';
-
+import { selectIsCartOpen } from '../../store/cart';
 import Logo from '../../components/Logo/Logo';
 import CartIcon from '../../components/CartIcon/CartIcon';
 import CartDropdown from '../../components/CartDropdown/CartDropdown';
 
 const Navigation = () => {
   const currentUser = useSelector((state: StoreType) => state.user.currentUser);
-  const { isCartOpen } = useContext(CartContext);
+  const isCartOpen = useSelector(selectIsCartOpen);
+
   const location = useLocation();
   const isRoot = location.pathname === '/';
 
