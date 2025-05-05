@@ -3,12 +3,10 @@ import { useSelector } from 'react-redux';
 
 import Category from '../Category/Category';
 import { CategoryType } from '../../types/category';
-import { StoreType } from '../../types/store';
+import { selectCategories } from '../../store/categories';
 
 const Categories = () => {
-  const categories = useSelector(
-    (state: StoreType) => state.categories.categories
-  );
+  const categories = useSelector(selectCategories);
 
   return (
     <CategoriesContainer>

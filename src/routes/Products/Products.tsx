@@ -4,14 +4,12 @@ import { useSelector } from 'react-redux';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import styled from 'styled-components';
 import { ProductType } from '../../types/product';
-import { StoreType } from '../../types/store';
+import { selectCategories } from '../../store/categories';
 
 const Products = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
   const { category } = useParams();
-  const categories = useSelector(
-    (state: StoreType) => state.categories.categories
-  );
+  const categories = useSelector(selectCategories);
 
   const categoryData = categories.find(
     (cat) =>
