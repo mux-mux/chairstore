@@ -1,4 +1,6 @@
+import { createSelector } from 'reselect';
 import { CategoryType } from '../types/category';
+import { StoreType } from '../types/store';
 
 export const CATEGORIES_ACTION_TYPES = {
   SET_CATEGORIES: 'SET_CATEGORIES',
@@ -38,5 +40,12 @@ const categoriesReducer = (
       return state;
   }
 };
+
+const selectCategoriesReducer = (state: StoreType) => state.categories;
+
+export const selectCategories = createSelector(
+  [selectCategoriesReducer],
+  (categoriesSlice) => categoriesSlice.categories
+);
 
 export default categoriesReducer;
