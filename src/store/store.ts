@@ -2,6 +2,7 @@ import {
   compose,
   legacy_createStore as createStore,
   applyMiddleware,
+  Reducer,
 } from 'redux';
 import rootReducer, { RootState } from './reducer';
 import { persistStore, persistReducer, PersistConfig } from 'redux-persist';
@@ -14,8 +15,10 @@ const persistConfig: PersistConfig<RootState> = {
   blacklist: ['user'],
 };
 
-const persistedReducer = persistReducer<RootState>(persistConfig, rootReducer);
-
+const persistedReducer = persistReducer<RootState>(
+  persistConfig,
+  rootReducer as unknown as Reducer<RootState>
+);
 const middlewares = compose(applyMiddleware(logger));
 
 const store = createStore(persistedReducer, undefined, middlewares);
