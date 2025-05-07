@@ -1,0 +1,17 @@
+import { Reducer } from 'redux';
+import rootReducer, { RootState } from './reducer';
+import storage from 'redux-persist/lib/storage';
+import { persistReducer, PersistConfig } from 'redux-persist';
+
+const persistConfig: PersistConfig<RootState> = {
+  key: 'root',
+  storage,
+  blacklist: ['user'],
+};
+
+const persistedReducer = persistReducer<RootState>(
+  persistConfig,
+  rootReducer as unknown as Reducer<RootState>
+);
+
+export default persistedReducer;
