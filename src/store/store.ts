@@ -12,7 +12,19 @@ if (process.env.NODE_ENV !== 'production') {
   middlewareList.push(logger);
 }
 
-const middlewares = compose(applyMiddleware(...middlewareList));
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+  }
+}
+
+const composeEnhancer =
+  (process.env.NODE_ENV !== 'production' &&
+    window &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  compose;
+
+const middlewares = composeEnhancer(applyMiddleware(...middlewareList));
 
 const store = createStore(persistedReducer, undefined, middlewares);
 
