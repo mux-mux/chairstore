@@ -4,12 +4,17 @@ import { useSelector } from 'react-redux';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import styled from 'styled-components';
 import { ProductType } from '../../types/product';
-import { selectCategories } from '../../store/categories';
+import Spinner from '../../Spinner/Spinner';
+import {
+  selectCategories,
+  selectCategoriesIsLoading,
+} from '../../store/categories';
 
 const Products = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
   const { category } = useParams();
   const categories = useSelector(selectCategories);
+  const isLoading = useSelector(selectCategoriesIsLoading);
 
   const categoryData = categories.find(
     (cat) =>
@@ -30,12 +35,16 @@ const Products = () => {
   return (
     <>
       <Title>{categoryData.title}</Title>
-      <ProductsContainer>
-        {products &&
-          products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-      </ProductsContainer>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <ProductsContainer>
+          {products &&
+            products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+        </ProductsContainer>
+      )}
     </>
   );
 };

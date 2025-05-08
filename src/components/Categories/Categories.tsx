@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import Category from '../Category/Category';
 import { CategoryType } from '../../types/category';
 import { selectCategories } from '../../store/categories';
+import Spinner from '../../Spinner/Spinner';
 
 const Categories = () => {
   const categories = useSelector(selectCategories);
@@ -15,7 +16,7 @@ const Categories = () => {
           <Category key={category.id} {...category} />
         ))
       ) : (
-        <p>Loading categories...</p>
+        <Spinner />
       )}
     </CategoriesContainer>
   );

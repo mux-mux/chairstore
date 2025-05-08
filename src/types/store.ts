@@ -8,6 +8,8 @@ export type StoreType = {
   };
   categories: {
     categories: CategoryType[];
+    isLoading: boolean;
+    error: Error | null;
   };
   cart: {
     isCartOpen: boolean;
