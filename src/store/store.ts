@@ -3,14 +3,18 @@ import {
   legacy_createStore as createStore,
   applyMiddleware,
 } from 'redux';
+import { thunk } from 'redux-thunk';
 import persistedReducer from './persistedReducer';
 import logger from 'redux-logger';
+import { Middleware } from 'redux';
 
-const middlewareList = [];
+const middlewareList: Middleware[] = [];
 
 if (process.env.NODE_ENV !== 'production') {
   middlewareList.push(logger);
 }
+
+middlewareList.push(thunk);
 
 declare global {
   interface Window {
@@ -29,3 +33,4 @@ const middlewares = composeEnhancer(applyMiddleware(...middlewareList));
 const store = createStore(persistedReducer, undefined, middlewares);
 
 export default store;
+export type AppDispatch = typeof store.dispatch;

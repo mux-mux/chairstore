@@ -3,13 +3,13 @@ import { useDispatch } from 'react-redux';
 import {
   onAuthStateChangedListener,
   createUserDocument,
-  getCollectionsAndDocuments,
 } from './utils/firebase/firebase';
 
 import { Routes, Route } from 'react-router-dom';
 import GlobalStyles from './GlobalStyles';
 import { setCurrentUser } from './store/user';
-import { setCategories } from './store/categories';
+import { fetchCategoriesAsync } from './store/categories';
+import type { AppDispatch } from './store/store';
 
 import { UserType } from './types/user';
 
@@ -21,7 +21,7 @@ import Checkout from './routes/Checkout/Checkout';
 import NotFound from './routes/NotFound/NotFound';
 
 const App = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((user) => {
@@ -42,11 +42,7 @@ const App = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    const getCategories = async () => {
-      const categoriesMap = await getCollectionsAndDocuments();
-      dispatch(setCategories(categoriesMap));
-    };
-    getCategories();
+    dispatch(fetchCategoriesAsync());
   }, [dispatch]);
 
   return (
