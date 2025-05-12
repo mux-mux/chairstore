@@ -3,10 +3,11 @@ import {
   legacy_createStore as createStore,
   applyMiddleware,
 } from 'redux';
-import { thunk } from 'redux-thunk';
+import { thunk, ThunkDispatch } from 'redux-thunk';
 import persistedReducer from './persistedReducer';
 import logger from 'redux-logger';
-import { Middleware } from 'redux';
+import { UnknownAction, Middleware } from 'redux';
+import { StoreType } from '../types/store';
 
 const middlewareList: Middleware[] = [];
 
@@ -33,4 +34,4 @@ const middlewares = composeEnhancer(applyMiddleware(...middlewareList));
 const store = createStore(persistedReducer, undefined, middlewares);
 
 export default store;
-export type AppDispatch = typeof store.dispatch;
+export type AppDispatch = ThunkDispatch<StoreType, unknown, UnknownAction>;
