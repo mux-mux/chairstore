@@ -8,7 +8,7 @@ import {
 import { Routes, Route } from 'react-router-dom';
 import GlobalStyles from './GlobalStyles';
 import { setCurrentUser } from './store/user';
-import { fetchCategoriesAsync } from './store/categories';
+import { fetchCategoriesStart } from './store/categories';
 import type { AppDispatch } from './store/store';
 
 import { UserType } from './types/user';
@@ -42,7 +42,7 @@ const App = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(fetchCategoriesAsync());
+    dispatch(fetchCategoriesStart());
   }, [dispatch]);
 
   return (
