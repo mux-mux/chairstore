@@ -1,0 +1,42 @@
+import { UserType } from '../../types/user';
+import { USER_ACTION_TYPES } from './actionTypes';
+
+export const setCurrentUser = (user: UserType | null) => {
+  return {
+    type: USER_ACTION_TYPES.SET_CURRENT_USER,
+    payload: user,
+  };
+};
+
+export const checkUserSession = () => {
+  return {
+    type: USER_ACTION_TYPES.CHECK_USER_SESSION,
+  };
+};
+
+export const googleSignInStart = () => {
+  return {
+    type: USER_ACTION_TYPES.GOOGLE_SIGNIN_START,
+  };
+};
+
+export const emailSignInStart = (email: string, password: string) => {
+  return {
+    type: USER_ACTION_TYPES.EMAIL_SIGNIN_START,
+    payload: { email, password },
+  };
+};
+
+export const signInSuccess = (user: UserType) => {
+  return {
+    type: USER_ACTION_TYPES.SIGNIN_SUCCESS,
+    payload: user,
+  };
+};
+
+export const signInFailed = (error: Error | unknown) => {
+  return {
+    type: USER_ACTION_TYPES.SIGNIN_FAILED,
+    payload: error,
+  };
+};

@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
-import { getCurrentUser } from './utils/firebase/firebase';
-import { fetchCategoriesStart } from './store/categories';
+import { fetchCategoriesStart } from './store/categories/actions';
 import type { AppDispatch } from './store/store';
 import GlobalStyles from './GlobalStyles';
+import { checkUserSession } from './store/user/actions';
 
 import Home from './routes/Home/Home';
 import Navigation from './routes/Navigation/Navigation';
@@ -17,8 +17,8 @@ const App = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    getCurrentUser().then((user) => console.log(user));
-  }, []);
+    dispatch(checkUserSession());
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(fetchCategoriesStart());

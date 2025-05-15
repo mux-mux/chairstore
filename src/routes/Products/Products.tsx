@@ -8,7 +8,7 @@ import Spinner from '../../Spinner/Spinner';
 import {
   selectCategories,
   selectCategoriesIsLoading,
-} from '../../store/categories';
+} from '../../store/categories/selector';
 
 const Products = () => {
   const [products, setProducts] = useState<ProductType[]>([]);

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import Category from '../Category/Category';
 import { CategoryType } from '../../types/category';
-import { selectCategories } from '../../store/categories';
+import { selectCategories } from '../../store/categories/selector';
 import Spinner from '../../Spinner/Spinner';
 
 const Categories = () => {

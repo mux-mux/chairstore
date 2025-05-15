@@ -1,15 +1,5 @@
-import { UserType } from '../types/user';
-
-export const USER_ACTION_TYPES = {
-  SET_CURRENT_USER: 'SET_CURRENT_USER',
-};
-
-export const setCurrentUser = (user: UserType | null) => {
-  return {
-    type: USER_ACTION_TYPES.SET_CURRENT_USER,
-    payload: user,
-  };
-};
+import { UserType } from '../../types/user';
+import { USER_ACTION_TYPES } from './actionTypes';
 
 const INITIAL_STATE = {
   currentUser: {
@@ -17,6 +7,8 @@ const INITIAL_STATE = {
     email: '',
     displayName: '',
   },
+  isLoading: false,
+  error: null,
 };
 
 const userReducer = (
@@ -29,12 +21,13 @@ const userReducer = (
   const { type, payload } = action;
 
   switch (type) {
-    case USER_ACTION_TYPES.SET_CURRENT_USER:
+    case USER_ACTION_TYPES.SIGNIN_SUCCESS:
       return {
         ...state,
         currentUser: payload,
       };
-
+    case USER_ACTION_TYPES.SIGNIN_FAILED:
+      return { ...state, error: payload };
     default:
       return state;
   }

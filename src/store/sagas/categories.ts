@@ -1,7 +1,10 @@
 import { takeLatest, all, call, put } from 'redux-saga/effects';
 import { getCollectionsAndDocuments } from '../../utils/firebase/firebase';
-import { fetchCategoriesSuccess, fetchCategoriesFailed } from '../categories';
-import { CATEGORIES_ACTION_TYPES } from '../categories';
+import {
+  fetchCategoriesSuccess,
+  fetchCategoriesFailed,
+} from '../categories/actions';
+import { CATEGORIES_ACTION_TYPES } from '../categories/actionTypes';
 import { CategoryType } from '../../types/category';
 
 export function* fetchCategoriesAsync(): Generator<
