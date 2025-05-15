@@ -100,7 +100,7 @@ export const createUserDocument = async (
     }
   }
 
-  return userDocRef;
+  return userSnapshot;
 };
 
 export const createAuthUserWithEmailAndPassword = async (

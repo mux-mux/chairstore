@@ -7,7 +7,7 @@ import {
 } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
-import { rootSaga } from './sagas/root-saga';
+import { rootSaga } from './sagas/rootSaga';
 import persistedReducer from './persistors/persistedReducer';
 import logger from 'redux-logger';
 import { StoreType } from '../types/store';
