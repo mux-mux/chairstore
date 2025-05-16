@@ -5,8 +5,10 @@ import { DocumentSnapshot, DocumentData } from 'firebase/firestore';
 import {
   getCurrentUser,
   createUserDocument,
+  signInWithGooglePopup,
+  signInUserWithEmailAndPassword,
 } from '../../utils/firebase/firebase';
-import { UserType } from '../../types/user';
+import { UserType, SignInWithEmailAction } from '../../types/user';
 
 export type ParamsType = Record<string, string | number | boolean | null>;
 
@@ -35,6 +37,29 @@ export function* getUserSnapshot(
   }
 }
 
+export function* signInWithGoogle() {
+  try {
+    const { user } = yield call(signInWithGooglePopup);
+    yield call(getUserSnapshot, user, {});
+  } catch (error: Error | unknown) {
+    yield put(signInFailed(error));
+  }
+}
+
+export function* signInWithEmail(action: SignInWithEmailAction) {
+  try {
+    const { email, password } = action.payload;
+    const { user } = yield call(
+      signInUserWithEmailAndPassword,
+      email,
+      password
+    );
+    yield call(getUserSnapshot, user, {});
+  } catch (error: Error | unknown) {
+    yield put(signInFailed(error));
+  }
+}
+
 export function* isUserAuth(): Generator<unknown, void, UserType> {
   try {
     const userAuth = yield call(getCurrentUser);
@@ -45,10 +70,22 @@ export function* isUserAuth(): Generator<unknown, void, UserType> {
   }
 }
 
+export function* onGoogleSignInStart() {
+  yield takeLatest(USER_ACTION_TYPES.GOOGLE_SIGNIN_START, signInWithGoogle);
+}
+
+export function* onEmailSignInStart() {
+  yield takeLatest(USER_ACTION_TYPES.EMAIL_SIGNIN_START, signInWithEmail);
+}
+
 export function* onCheckUserSession() {
   yield takeLatest(USER_ACTION_TYPES.CHECK_USER_SESSION, isUserAuth);
 }
 
 export function* userSaga() {
-  yield all([call(onCheckUserSession)]);
+  yield all([
+    call(onCheckUserSession),
+    call(onGoogleSignInStart),
+    call(onEmailSignInStart),
+  ]);
 }
