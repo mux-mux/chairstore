@@ -40,3 +40,28 @@ export const signInFailed = (error: Error | unknown) => {
     payload: error,
   };
 };
+
+export const signUpStart = (
+  email: string,
+  password: string,
+  displayName: string
+) => {
+  return {
+    type: USER_ACTION_TYPES.SIGNUP_START,
+    payload: { email, password, displayName },
+  };
+};
+
+export const signUpSuccess = (user: UserType, params: object) => {
+  return {
+    type: USER_ACTION_TYPES.SIGNUP_SUCCESS,
+    payload: { user, params },
+  };
+};
+
+export const signUpFailed = (error: Error | unknown) => {
+  return {
+    type: USER_ACTION_TYPES.SIGNUP_FAILED,
+    payload: error,
+  };
+};

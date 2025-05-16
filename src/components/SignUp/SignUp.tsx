@@ -1,16 +1,12 @@
 import { useState, useCallback, FormEvent, ChangeEvent } from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
 import { FirebaseError } from 'firebase/app';
-import {
-  createUserDocument,
-  createAuthUserWithEmailAndPassword,
-} from '../../utils/firebase/firebase';
+import { signUpStart } from '../../store/user/actions';
 
 import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
-
-import { UserType } from '../../types/user';
 
 const INITIAL_FORM_FIELDS = {
   displayName: '',
@@ -19,6 +15,7 @@ const INITIAL_FORM_FIELDS = {
 };
 
 const SignUp = () => {
+  const dispatch = useDispatch();
   const [formFields, setFormFields] = useState(INITIAL_FORM_FIELDS);
   const { displayName, email, password } = formFields;
 
@@ -40,25 +37,7 @@ const SignUp = () => {
       event.preventDefault();
 
       try {
-        const userCredential = await createAuthUserWithEmailAndPassword(
-          email,
-          password
-        );
-
-        if (!userCredential) {
-          throw new Error('Failed to create user');
-        }
-
-        const { user } = userCredential;
-
-        const userAuth: UserType = {
-          uid: user.uid,
-          displayName: user.displayName || '',
-          email: user.email || '',
-        };
-
-        await createUserDocument(userAuth, { displayName });
-
+        dispatch(signUpStart(email, password, displayName));
         resetForm();
       } catch (error) {
         if (error instanceof FirebaseError) {
@@ -74,7 +53,7 @@ const SignUp = () => {
         }
       }
     },
-    [email, password, displayName]
+    [email, password, displayName, dispatch]
   );
 
   return (
