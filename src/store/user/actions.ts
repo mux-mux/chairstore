@@ -65,3 +65,21 @@ export const signUpFailed = (error: Error | unknown) => {
     payload: error,
   };
 };
+
+export const signOutStart = () => {
+  return {
+    type: USER_ACTION_TYPES.SIGNOUT_START,
+  };
+};
+
+export const signOutSuccess = () => {
+  return {
+    type: USER_ACTION_TYPES.SIGNOUT_SUCCESS,
+  };
+};
+export const signOutFailed = (error: Error | unknown) => {
+  return {
+    type: USER_ACTION_TYPES.SIGNOUT_FAILED,
+    payload: error,
+  };
+};

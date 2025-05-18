@@ -5,6 +5,8 @@ import {
   signInFailed,
   signUpSuccess,
   signUpFailed,
+  signOutSuccess,
+  signOutFailed,
 } from '../user/actions';
 import { DocumentSnapshot, DocumentData } from 'firebase/firestore';
 import {
@@ -12,6 +14,7 @@ import {
   createUserDocument,
   signInWithGooglePopup,
   signInUserWithEmailAndPassword,
+  signOutUser,
   createAuthUserWithEmailAndPassword,
 } from '../../utils/firebase/firebase';
 import {
@@ -85,6 +88,15 @@ export function* signUp(action: SignUpAction) {
   }
 }
 
+export function* signOut() {
+  try {
+    yield call(signOutUser);
+    yield put(signOutSuccess());
+  } catch (error: Error | unknown) {
+    yield put(signOutFailed(error));
+  }
+}
+
 export function* signInAfterSignUp(action: SignInAfterSignUpAction) {
   const { user, params } = action.payload;
   yield* getUserSnapshot(user, params as ParamsType);
@@ -116,6 +128,10 @@ export function* onSignUpStart() {
   yield takeLatest(USER_ACTION_TYPES.SIGNUP_START, signUp);
 }
 
+export function* onSignOutStart() {
+  yield takeLatest(USER_ACTION_TYPES.SIGNOUT_START, signOut);
+}
+
 export function* onSignUpSuccess() {
   yield takeLatest(USER_ACTION_TYPES.SIGNUP_SUCCESS, signInAfterSignUp);
 }
@@ -126,6 +142,7 @@ export function* userSaga() {
     call(onGoogleSignInStart),
     call(onEmailSignInStart),
     call(onSignUpStart),
+    call(onSignOutStart),
     call(onSignUpSuccess),
   ]);
 }

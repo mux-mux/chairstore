@@ -26,7 +26,14 @@ const userReducer = (
         ...state,
         currentUser: payload,
       };
+    case USER_ACTION_TYPES.SIGNOUT_SUCCESS:
+      return {
+        ...state,
+        currentUser: null,
+      };
+    case USER_ACTION_TYPES.SIGNOUT_FAILED:
     case USER_ACTION_TYPES.SIGNIN_FAILED:
+    case USER_ACTION_TYPES.SIGNUP_FAILED:
       return { ...state, error: payload };
     default:
       return state;

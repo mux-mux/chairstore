@@ -1,8 +1,8 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { signOutUser } from '../../utils/firebase/firebase';
 import { StoreType } from '../../types/store';
+import { signOutStart } from '../../store/user/actions';
 import { selectIsCartOpen } from '../../store/cart';
 import Logo from '../../components/Logo/Logo';
 import CartIcon from '../../components/CartIcon/CartIcon';
@@ -11,6 +11,7 @@ import CartDropdown from '../../components/CartDropdown/CartDropdown';
 const Navigation = () => {
   const currentUser = useSelector((state: StoreType) => state.user.currentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
+  const dispatch = useDispatch();
 
   const location = useLocation();
   const isRoot = location.pathname === '/';
@@ -24,7 +25,7 @@ const Navigation = () => {
         <NavLinks>
           {!isRoot && <NavLink to="/">CATEGORIES</NavLink>}
           {currentUser ? (
-            <NavLink to="/" onClick={signOutUser}>
+            <NavLink to="/" onClick={() => dispatch(signOutStart())}>
               SIGN OUT
             </NavLink>
           ) : (
