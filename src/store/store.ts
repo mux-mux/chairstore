@@ -1,16 +1,10 @@
-import {
-  compose,
-  legacy_createStore as createStore,
-  applyMiddleware,
-  UnknownAction,
-  Middleware,
-} from 'redux';
+import { configureStore, Middleware, UnknownAction } from '@reduxjs/toolkit';
 import { ThunkDispatch } from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 import { rootSaga } from './sagas/rootSaga';
-import persistedReducer from './persistors/persistedReducer';
 import logger from 'redux-logger';
 import { StoreType } from '../types/store';
+import rootReducer from './rootReducer/rootReducer';
 
 const middlewareList: Middleware[] = [];
 
@@ -22,21 +16,11 @@ const sagaMidlleware = createSagaMiddleware();
 
 middlewareList.push(sagaMidlleware);
 
-declare global {
-  interface Window {
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
-  }
-}
-
-const composeEnhancer =
-  (process.env.NODE_ENV !== 'production' &&
-    window &&
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
-  compose;
-
-const middlewares = composeEnhancer(applyMiddleware(...middlewareList));
-
-const store = createStore(persistedReducer, undefined, middlewares);
+const store = configureStore({
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(middlewareList),
+});
 
 sagaMidlleware.run(rootSaga);
 

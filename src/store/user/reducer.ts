@@ -1,5 +1,4 @@
-import { UserType } from '../../types/user';
-import { USER_ACTION_TYPES } from './actionTypes';
+import { createSlice } from '@reduxjs/toolkit';
 
 const INITIAL_STATE = {
   currentUser: {
@@ -11,33 +10,21 @@ const INITIAL_STATE = {
   error: null,
 };
 
-const userReducer = (
-  state = INITIAL_STATE,
-  action: {
-    type: string;
-    payload: UserType | null;
-  }
-) => {
-  const { type, payload } = action;
+export const userSlice = createSlice({
+  name: 'user',
+  initialState: INITIAL_STATE,
+  reducers: {
+    setCurrentUser(state, action) {
+      state.currentUser = action.payload;
+    },
+    setEmptyUser(state) {
+      state.currentUser = { uid: '', email: '', displayName: '' };
+    },
+    setError(state, action) {
+      state.error = action.payload;
+    },
+  },
+});
 
-  switch (type) {
-    case USER_ACTION_TYPES.SIGNIN_SUCCESS:
-      return {
-        ...state,
-        currentUser: payload,
-      };
-    case USER_ACTION_TYPES.SIGNOUT_SUCCESS:
-      return {
-        ...state,
-        currentUser: null,
-      };
-    case USER_ACTION_TYPES.SIGNOUT_FAILED:
-    case USER_ACTION_TYPES.SIGNIN_FAILED:
-    case USER_ACTION_TYPES.SIGNUP_FAILED:
-      return { ...state, error: payload };
-    default:
-      return state;
-  }
-};
-
-export default userReducer;
+export const { setCurrentUser, setEmptyUser, setError } = userSlice.actions;
+export const userReducer = userSlice.reducer;

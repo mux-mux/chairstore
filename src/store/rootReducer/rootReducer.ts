@@ -1,5 +1,6 @@
-import { combineReducers } from 'redux';
-import userReducer from '../user/reducer';
+// import { combineReducers } from 'redux';
+import { combineReducers } from '@reduxjs/toolkit';
+import { userReducer } from '../user/reducer';
 import categoryReducer from '../categories/reducer';
 import cartReducer from '../cart';
 
