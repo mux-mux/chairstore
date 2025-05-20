@@ -1,39 +1,20 @@
+import { createSlice } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
-import { CategoryType } from '../types/category';
 import { StoreType } from '../types/store';
 
-export const CATEGORIES_ACTION_TYPES = {
-  SET_CATEGORIES: 'SET_CATEGORIES',
-};
-
-export const setCategories = (categories: CategoryType[] | null) => {
-  return {
-    type: CATEGORIES_ACTION_TYPES.SET_CATEGORIES,
-    payload: categories,
-  };
-};
-
 const INITIAL_STATE = {
-  categories: [] as CategoryType[],
+  categories: [],
 };
 
-const categoriesReducer = (
-  state = INITIAL_STATE,
-  action: {
-    type: string;
-    payload: CategoryType[] | null;
-  }
-) => {
-  const { type, payload } = action;
-
-  switch (type) {
-    case CATEGORIES_ACTION_TYPES.SET_CATEGORIES:
-      return { ...state, categories: payload };
-
-    default:
-      return state;
-  }
-};
+const categoriesSlice = createSlice({
+  name: 'categories',
+  initialState: INITIAL_STATE,
+  reducers: {
+    setCategories(state, action) {
+      state.categories = action.payload;
+    },
+  },
+});
 
 const selectCategoriesReducer = (state: StoreType) => state.categories;
 
@@ -42,4 +23,5 @@ export const selectCategories = createSelector(
   (categoriesSlice) => categoriesSlice.categories
 );
 
-export default categoriesReducer;
+export const { setCategories } = categoriesSlice.actions;
+export const categoriesReducer = categoriesSlice.reducer;

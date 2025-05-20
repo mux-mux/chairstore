@@ -6,8 +6,6 @@ const INITIAL_STATE = {
     email: '',
     displayName: '',
   },
-  isLoading: false,
-  error: null,
 };
 
 export const userSlice = createSlice({
