@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 
 import Category from '../Category/Category';
+import Spinner from '../Spinner/Spinner';
 import { CategoryType } from '../../types/category';
 import { selectCategories } from '../../store/categories';
 
@@ -15,7 +16,7 @@ const Categories = () => {
           <Category key={category.id} {...category} />
         ))
       ) : (
-        <p>Loading categories...</p>
+        <Spinner />
       )}
     </CategoriesContainer>
   );

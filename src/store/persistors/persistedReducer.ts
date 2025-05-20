@@ -1,12 +1,12 @@
 import { Reducer } from 'redux';
-import rootReducer, { RootState } from './reducer';
+import rootReducer, { RootState } from '../reducer';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, PersistConfig } from 'redux-persist';
 
 const persistConfig: PersistConfig<RootState> = {
   key: 'root',
   storage,
-  blacklist: ['user'],
+  whitelist: ['cart'],
 };
 
 const persistedReducer = persistReducer<RootState>(

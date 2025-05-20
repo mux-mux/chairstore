@@ -1,19 +1,18 @@
-import {
-  compose,
-  legacy_createStore as createStore,
-  applyMiddleware,
-} from 'redux';
-import persistedReducer from './persistedReducer';
+import { configureStore, Middleware } from '@reduxjs/toolkit';
+// import persistedReducer from './persistedReducer';
+import rootReducer from './reducer';
 import logger from 'redux-logger';
 
-const middlewareList = [];
+const middlewareList: Middleware[] = [];
 
 if (process.env.NODE_ENV !== 'production') {
   middlewareList.push(logger);
 }
 
-const middlewares = compose(applyMiddleware(...middlewareList));
-
-const store = createStore(persistedReducer, undefined, middlewares);
+const store = configureStore({
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(middlewareList),
+});
 
 export default store;

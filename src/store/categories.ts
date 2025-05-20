@@ -14,20 +14,14 @@ export const setCategories = (categories: CategoryType[] | null) => {
 };
 
 const INITIAL_STATE = {
-  categories: {
-    id: 0,
-    title: '',
-    path: '',
-    imageSrc: '',
-    items: [],
-  },
+  categories: [] as CategoryType[],
 };
 
 const categoriesReducer = (
   state = INITIAL_STATE,
   action: {
     type: string;
-    payload: CategoryType | null;
+    payload: CategoryType[] | null;
   }
 ) => {
   const { type, payload } = action;
