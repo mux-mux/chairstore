@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import Category from '../Category/Category';
 import Spinner from '../Spinner/Spinner';
 import { CategoryType } from '../../types/category';
-import { selectCategories } from '../../store/categories';
+import { selectCategories } from '../../store/categories/selector';
 
 const Categories = () => {
   const categories = useSelector(selectCategories);

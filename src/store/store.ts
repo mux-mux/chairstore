@@ -1,6 +1,6 @@
 import { configureStore, Middleware } from '@reduxjs/toolkit';
 // import persistedReducer from './persistedReducer';
-import rootReducer from './reducer';
+import rootReducer from './rootReducer';
 import logger from 'redux-logger';
 
 const middlewareList: Middleware[] = [];

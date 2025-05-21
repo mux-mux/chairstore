@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import { ProductType } from '../../types/product';
-import { selectCategories } from '../../store/categories';
+import { selectCategories } from '../../store/categories/selector';
 import Spinner from '../../components/Spinner/Spinner';
 
 const Products = () => {

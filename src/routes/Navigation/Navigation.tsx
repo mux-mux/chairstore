@@ -2,14 +2,14 @@ import { useSelector } from 'react-redux';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { signOutUser } from '../../utils/firebase/firebase';
-import { StoreType } from '../../types/store';
-import { selectIsCartOpen } from '../../store/cart';
+import { selectIsCartOpen } from '../../store/cart/selector';
 import Logo from '../../components/Logo/Logo';
 import CartIcon from '../../components/CartIcon/CartIcon';
 import CartDropdown from '../../components/CartDropdown/CartDropdown';
+import { selectUser } from '../../store/user/selector';
 
 const Navigation = () => {
-  const currentUser = useSelector((state: StoreType) => state.user.currentUser);
+  const currentUser = useSelector(selectUser);
   const isCartOpen = useSelector(selectIsCartOpen);
 
   const location = useLocation();

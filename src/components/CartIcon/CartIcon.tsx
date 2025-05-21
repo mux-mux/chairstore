@@ -1,11 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Icon from '../../assets/shopping-bag.svg?react';
-import {
-  selectCartCount,
-  selectIsCartOpen,
-  setIsCartOpen,
-} from '../../store/cart';
+import { setIsCartOpen } from '../../store/cart/reducer';
+import { selectCartCount, selectIsCartOpen } from '../../store/cart/selector';
 import { COLORS } from '../../constants';
 
 const CartIcon = () => {

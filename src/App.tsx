@@ -8,8 +8,8 @@ import {
 
 import { Routes, Route } from 'react-router-dom';
 import GlobalStyles from './GlobalStyles';
-import { setCurrentUser } from './store/user';
-import { setCategories } from './store/categories';
+import { setCurrentUser } from './store/user/reducer';
+import { setCategories } from './store/categories/reducer';
 
 import { UserType } from './types/user';
 

@@ -1,4 +1,4 @@
-import { CART_ACTION_TYPES } from '../store/cart';
+import { CART_ACTION_TYPES } from '../store/cart/reducer';
 import { ProductType } from './product';
 
 type SetCartItemsAction = {

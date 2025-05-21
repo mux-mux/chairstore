@@ -1,11 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux';
 import styled, { css } from 'styled-components';
 import {
-  selectCartItems,
   addItemToCart,
   removeItemFromCart,
   clearItemFromCart,
-} from '../store/cart';
+} from '../store/cart/reducer';
+import { selectCartItems } from '../store/cart/selector';
 import { COLORS } from '../constants';
 import { ProductType } from '../types/product';
 

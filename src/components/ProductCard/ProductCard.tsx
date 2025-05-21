@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Button from '../Button/Button';
-import { addItemToCart, selectCartItems } from '../../store/cart';
+import { addItemToCart } from '../../store/cart/reducer';
+import { selectCartItems } from '../../store/cart/selector';
 import { COLORS } from '../../constants';
 import { ProductType } from '../../types/product';
 

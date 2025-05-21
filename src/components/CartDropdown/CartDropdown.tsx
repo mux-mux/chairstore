@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../Button/Button';
 import CartItem from '../CartItem/CartItem';
-import { selectCartItems } from '../../store/cart';
+import { selectCartItems } from '../../store/cart/selector';
 import { COLORS } from '../../constants';
 
 const CartDropdown = () => {
