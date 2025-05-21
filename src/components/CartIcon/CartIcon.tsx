@@ -10,8 +10,10 @@ const CartIcon = () => {
   const cartTotalCount = useSelector(selectCartCount);
   const isCartOpen = useSelector(selectIsCartOpen);
 
+  const toggleCartModal = () => dispatch(setIsCartOpen(!isCartOpen));
+
   return (
-    <CartIconContainer onClick={() => dispatch(setIsCartOpen(!isCartOpen))}>
+    <CartIconContainer onClick={toggleCartModal}>
       <Icon
         width={36}
         height={36}
