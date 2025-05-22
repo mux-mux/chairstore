@@ -1,7 +1,7 @@
 import { configureStore, Middleware } from '@reduxjs/toolkit';
-// import persistedReducer from './persistedReducer';
-import rootReducer from './rootReducer';
+import persistedReducer from './persistors/persistedReducer';
 import logger from 'redux-logger';
+import * as reduxPersistConstants from 'redux-persist/es/constants';
 
 const middlewareList: Middleware[] = [];
 
@@ -10,9 +10,15 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const store = configureStore({
-  reducer: rootReducer,
+  reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(middlewareList),
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: Object.values(reduxPersistConstants).map((action) =>
+          action.toString()
+        ),
+      },
+    }).concat(middlewareList),
 });
 
 export default store;
