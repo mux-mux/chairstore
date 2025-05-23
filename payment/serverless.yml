@@ -1,0 +1,18 @@
+service: stripe-payment-api
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  environment:
+    STRIPE_SECRET_KEY: ${env:STRIPE_SECRET_KEY}
+
+functions:
+  createPayment:
+    handler: handler.createPayment
+    events:
+      - http:
+          path: create-payment
+          method: post
+
+plugins:
+  - serverless-offline
