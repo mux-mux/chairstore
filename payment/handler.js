@@ -1,8 +1,10 @@
 'use strict';
 
-const stripe = require('stripe')(process.env.STRIPE_SECRTE_KEY);
+import Stripe from 'stripe';
 
-module.exports.createPayment = async (event) => {
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
+export const createPayment = async (event) => {
   try {
     const { amount } = JSON.parse(event.body);
 
