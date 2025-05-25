@@ -17,7 +17,7 @@ const SpinnerOverlay = styled.div`
   align-items: center;
 `;
 
-const SpinnerContainer = styled.div`
+export const SpinnerContainer = styled.div`
   width: 50px;
   height: 50px;
   border: 3px solid ${COLORS.borderPrimary};

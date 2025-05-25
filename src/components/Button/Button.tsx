@@ -1,12 +1,13 @@
-import { ReactNode } from 'react';
 import styled from 'styled-components';
+import { SpinnerContainer } from '../Spinner/Spinner';
 import { COLORS } from '../../constants';
 
 type ButtonProps = {
   type?: 'button' | 'submit' | 'reset';
-  children: ReactNode;
+  children: React.ReactNode;
   variant: string;
-  onClick?: () => void;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
 };
 
 const getButtonType = (variant: string) => {
@@ -29,7 +30,11 @@ const Button = ({
 }: ButtonProps) => {
   const Component = getButtonType(variant);
 
-  return <Component {...delegated}>{children}</Component>;
+  return (
+    <Component {...delegated}>
+      {delegated.disabled ? <ButtonSpinner /> : children}
+    </Component>
+  );
 };
 
 const ButtonBase = styled.button`
@@ -78,6 +83,11 @@ const GoogleButton = styled(ButtonBase)`
     background-color: ${COLORS.thertiary};
     border-color: ${COLORS.primary};
   }
+`;
+
+const ButtonSpinner = styled(SpinnerContainer)`
+  width: 30px;
+  height: 30px;
 `;
 
 export default Button;
