@@ -30,12 +30,13 @@ const PaymentForm = () => {
     );
     const data = await response.json();
 
-    const clientSecret = data.paymentIntent.client_secret;
+    const clientSecret = data.payment.client_secret;
 
     const cardElement = elements.getElement(CardElement);
 
     if (!cardElement) {
       alert('Card details not found.');
+      setIsProcessing(false);
       return;
     }
 

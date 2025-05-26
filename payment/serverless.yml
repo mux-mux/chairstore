@@ -13,6 +13,13 @@ functions:
       - http:
           path: create-payment
           method: post
+          cors: true
 
 plugins:
   - serverless-offline
+
+package:
+  individually: true
+
+build:
+  esbuild: true
