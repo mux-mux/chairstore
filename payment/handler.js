@@ -9,25 +9,33 @@ const allowedOrigins = [
   'https://chairsstore.vercel.app',
 ];
 
-export const createPayment = async (event) => {
+export async function createPayment(event) {
   const origin = event.headers.origin;
+  const isAllowedOrigin = allowedOrigins.includes(origin);
+
+  console.log('Request origin:', origin);
+  console.log('Event body:', event.body);
+  console.log('Allowed:', isAllowedOrigin);
+
+  const corsHeaders = isAllowedOrigin
+    ? {
+        'Access-Control-Allow-Origin': origin,
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'OPTIONS,POST',
+      }
+    : {};
 
   if (event.httpMethod === 'OPTIONS') {
     return {
       statusCode: 200,
-      headers: {
-        'Access-Control-Allow-Origin': allowedOrigins.includes(origin)
-          ? origin
-          : '',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'OPTIONS,POST',
-      },
+      headers: corsHeaders,
       body: '',
     };
   }
 
   try {
     const { amount } = JSON.parse(event.body);
+    console.log('Amount received:', amount);
 
     const payment = await stripe.paymentIntents.create({
       amount,
@@ -37,26 +45,16 @@ export const createPayment = async (event) => {
 
     return {
       statusCode: 200,
-      headers: {
-        'Access-Control-Allow-Origin': allowedOrigins.includes(origin)
-          ? origin
-          : '',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'OPTIONS,POST',
-      },
+      headers: corsHeaders,
       body: JSON.stringify({ payment }),
     };
   } catch (error) {
-    console.log({ error });
+    console.error('Payment error:', error);
 
     return {
       statusCode: 400,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'OPTIONS,POST',
-      },
-      body: JSON.stringify({ error }),
+      headers: corsHeaders,
+      body: JSON.stringify({ error: error.message }),
     };
   }
-};
+}
