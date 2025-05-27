@@ -7,3 +7,7 @@ export type CategoryType = {
   imageSrc: string;
   items: ProductType[];
 };
+
+export type CategoriesState = {
+  categories: CategoryType[];
+};
