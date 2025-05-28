@@ -6,25 +6,30 @@ const selectCartReducer = (state: StoreType) => state.cart;
 
 export const selectCartItems = createSelector(
   [selectCartReducer],
-  (cart) => cart.cartItems
+  (cart): ProductType[] => cart.cartItems
 );
 
 export const selectIsCartOpen = createSelector(
   [selectCartReducer],
-  (cart) => cart.isCartOpen
+  (cart): boolean => cart.isCartOpen
 );
 
-export const selectCartCount = createSelector([selectCartItems], (cartItems) =>
-  cartItems.reduce(
-    (total: number, cartItem: ProductType) => total + cartItem.quantity!,
-    0
-  )
+export const selectCartCount = createSelector(
+  [selectCartItems],
+  (cartItems): number =>
+    cartItems.reduce(
+      (total: number, cartItem: ProductType) =>
+        total + (cartItem.quantity ?? 1),
+      0
+    )
 );
 
-export const selectCartPrice = createSelector([selectCartItems], (cartItems) =>
-  cartItems.reduce(
-    (total: number, cartItem: ProductType) =>
-      total + cartItem.quantity! * cartItem.price,
-    0
-  )
+export const selectCartPrice = createSelector(
+  [selectCartItems],
+  (cartItems): number =>
+    cartItems.reduce(
+      (total: number, cartItem: ProductType) =>
+        total + cartItem.price * (cartItem.quantity ?? 1),
+      0
+    )
 );
