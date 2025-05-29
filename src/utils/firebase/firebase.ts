@@ -8,6 +8,7 @@ import {
   signOut,
   onAuthStateChanged,
   NextOrObserver,
+  UserCredential,
   User,
 } from 'firebase/auth';
 import {
@@ -21,7 +22,6 @@ import {
   writeBatch,
 } from 'firebase/firestore';
 import { CategoryType } from '../../types/category';
-import { UserType } from '../../types/user';
 
 export type AdditionalInfo = Record<string, string | number | boolean | null>;
 
@@ -75,13 +75,12 @@ export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleProvider);
 
 export const createUserDocument = async (
-  userAuth: UserType,
+  userAuth: User,
   additionalInfo: AdditionalInfo
-) => {
+): Promise<void | ReturnType<typeof doc>> => {
   if (!userAuth) return;
 
   const userDocRef = doc(db, 'users', userAuth.uid);
-
   const userSnapshot = await getDoc(userDocRef);
 
   if (!userSnapshot.exists()) {
@@ -106,7 +105,7 @@ export const createUserDocument = async (
 export const createAuthUserWithEmailAndPassword = async (
   email: string,
   password: string
-) => {
+): Promise<UserCredential | void> => {
   if (!email.trim() || !password) return;
 
   return await createUserWithEmailAndPassword(auth, email, password);
@@ -115,15 +114,16 @@ export const createAuthUserWithEmailAndPassword = async (
 export const signInUserWithEmailAndPassword = async (
   email: string,
   password: string
-) => {
+): Promise<UserCredential | void> => {
   if (!email.trim() || !password) return;
 
   return await signInWithEmailAndPassword(auth, email, password);
 };
 
-export const signOutUser = async () => {
+export const signOutUser = async (): Promise<void> => {
   await signOut(auth);
 };
 
-export const onAuthStateChangedListener = (callback: NextOrObserver<User>) =>
-  onAuthStateChanged(auth, callback);
+export const onAuthStateChangedListener = (
+  callback: NextOrObserver<User>
+): (() => void) => onAuthStateChanged(auth, callback);
