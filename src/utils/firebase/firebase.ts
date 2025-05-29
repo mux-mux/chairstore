@@ -22,6 +22,7 @@ import {
   writeBatch,
 } from 'firebase/firestore';
 import { CategoryType } from '../../types/category';
+import { UserType } from '../../types/user';
 
 export type AdditionalInfo = Record<string, string | number | boolean | null>;
 
@@ -75,7 +76,7 @@ export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleProvider);
 
 export const createUserDocument = async (
-  userAuth: User,
+  userAuth: UserType,
   additionalInfo: AdditionalInfo
 ): Promise<void | ReturnType<typeof doc>> => {
   if (!userAuth) return;
