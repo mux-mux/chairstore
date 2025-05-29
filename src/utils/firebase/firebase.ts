@@ -8,6 +8,7 @@ import {
   signOut,
   onAuthStateChanged,
   NextOrObserver,
+  UserCredential,
   User,
 } from 'firebase/auth';
 import {
@@ -77,11 +78,10 @@ export const signInWithGooglePopup = () =>
 export const createUserDocument = async (
   userAuth: UserType,
   additionalInfo: AdditionalInfo
-) => {
+): Promise<void | ReturnType<typeof doc>> => {
   if (!userAuth) return;
 
   const userDocRef = doc(db, 'users', userAuth.uid);
-
   const userSnapshot = await getDoc(userDocRef);
 
   if (!userSnapshot.exists()) {
@@ -106,7 +106,7 @@ export const createUserDocument = async (
 export const createAuthUserWithEmailAndPassword = async (
   email: string,
   password: string
-) => {
+): Promise<UserCredential | void> => {
   if (!email.trim() || !password) return;
 
   return await createUserWithEmailAndPassword(auth, email, password);
@@ -115,15 +115,16 @@ export const createAuthUserWithEmailAndPassword = async (
 export const signInUserWithEmailAndPassword = async (
   email: string,
   password: string
-) => {
+): Promise<UserCredential | void> => {
   if (!email.trim() || !password) return;
 
   return await signInWithEmailAndPassword(auth, email, password);
 };
 
-export const signOutUser = async () => {
+export const signOutUser = async (): Promise<void> => {
   await signOut(auth);
 };
 
-export const onAuthStateChangedListener = (callback: NextOrObserver<User>) =>
-  onAuthStateChanged(auth, callback);
+export const onAuthStateChangedListener = (
+  callback: NextOrObserver<User>
+): (() => void) => onAuthStateChanged(auth, callback);
