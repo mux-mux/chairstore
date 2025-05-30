@@ -22,9 +22,7 @@ import {
   writeBatch,
 } from 'firebase/firestore';
 import { CategoryType } from '../../types/category';
-import { UserType } from '../../types/user';
-
-export type AdditionalInfo = Record<string, string | number | boolean | null>;
+import { UserType, AdditionalInfo } from '../../types/user';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -77,7 +75,7 @@ export const signInWithGooglePopup = () =>
 
 export const createUserDocument = async (
   userAuth: UserType,
-  additionalInfo: AdditionalInfo
+  additionalInfo = {} as AdditionalInfo
 ): Promise<void | ReturnType<typeof doc>> => {
   if (!userAuth) return;
 
