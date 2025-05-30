@@ -4,4 +4,8 @@ export type UserType = {
   email: string;
 };
 
+export type UserState = {
+  currentUser: UserType | null;
+};
+
 export type AdditionalInfo = { displayName?: string };
