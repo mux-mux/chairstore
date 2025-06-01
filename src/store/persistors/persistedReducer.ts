@@ -1,5 +1,6 @@
 import { Reducer } from 'redux';
-import rootReducer, { RootState } from '../rootReducer';
+import rootReducer from '../rootReducer';
+import { RootState } from '../../types/rootReducer';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, PersistConfig } from 'redux-persist';
 
