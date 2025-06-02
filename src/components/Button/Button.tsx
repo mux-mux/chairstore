@@ -2,15 +2,14 @@ import styled from 'styled-components';
 import { SpinnerContainer } from '../Spinner/Spinner';
 import { COLORS } from '../../constants';
 
-type ButtonProps = {
-  type?: 'button' | 'submit' | 'reset';
-  children: React.ReactNode;
-  variant: string;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  disabled?: boolean;
-};
+type Variant = 'default' | 'inverted' | 'google';
 
-const getButtonType = (variant: string) => {
+type ButtonProps = {
+  variant?: Variant;
+  children: React.ReactNode;
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
+
+const getButtonType = (variant: Variant = 'default') => {
   switch (variant) {
     case 'default':
       return DefaultButton;
@@ -26,13 +25,14 @@ const getButtonType = (variant: string) => {
 const Button = ({
   children,
   variant = 'default',
+  disabled,
   ...delegated
 }: ButtonProps) => {
   const Component = getButtonType(variant);
 
   return (
-    <Component {...delegated}>
-      {delegated.disabled ? <ButtonSpinner /> : children}
+    <Component disabled={disabled} {...delegated}>
+      {disabled ? <ButtonSpinner /> : children}
     </Component>
   );
 };
