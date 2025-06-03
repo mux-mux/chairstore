@@ -6,18 +6,19 @@ import {
   signInWithGooglePopup,
   signInUserWithEmailAndPassword,
 } from '../../utils/firebase/firebase';
+import { FormFieldsType } from '../../types/form';
 
 import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
 
-const INITIAL_FORM_FIELDS = {
+const INITIAL_FORM_FIELDS: FormFieldsType = {
   email: '',
   password: '',
 };
 
 const SignIn = () => {
-  const [formFields, setFormFields] = useState(INITIAL_FORM_FIELDS);
-
+  const [formFields, setFormFields] =
+    useState<FormFieldsType>(INITIAL_FORM_FIELDS);
   const { email, password } = formFields;
 
   const resetForm = () => {
@@ -25,7 +26,11 @@ const SignIn = () => {
   };
 
   const signInWithGoogle = async () => {
-    await signInWithGooglePopup();
+    try {
+      await signInWithGooglePopup();
+    } catch (err) {
+      console.error('Google sign-in failed:', err);
+    }
   };
 
   const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {

@@ -10,16 +10,18 @@ import {
 import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
 
-import { UserType } from '../../types/user';
+import { AdditionalInfo, UserType } from '../../types/user';
+import { FormFieldsType } from '../../types/form';
 
-const INITIAL_FORM_FIELDS = {
+const INITIAL_FORM_FIELDS: FormFieldsType = {
   displayName: '',
   email: '',
   password: '',
 };
 
 const SignUp = () => {
-  const [formFields, setFormFields] = useState(INITIAL_FORM_FIELDS);
+  const [formFields, setFormFields] =
+    useState<FormFieldsType>(INITIAL_FORM_FIELDS);
   const { displayName, email, password } = formFields;
 
   const resetForm = () => {
@@ -56,8 +58,9 @@ const SignUp = () => {
           displayName: user.displayName || '',
           email: user.email || '',
         };
+        const additionalInfo: AdditionalInfo = { displayName };
 
-        await createUserDocument(userAuth, { displayName });
+        await createUserDocument(userAuth, additionalInfo);
 
         resetForm();
       } catch (error) {

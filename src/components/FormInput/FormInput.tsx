@@ -1,10 +1,7 @@
-import { useId, InputHTMLAttributes } from 'react';
+import { useId } from 'react';
 import styled from 'styled-components';
 import { COLORS } from '../../constants';
-
-interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  label: string;
-}
+import { FormInputProps } from '../../types/form';
 
 const FormInput = ({ label, ...delegated }: FormInputProps) => {
   const id = useId();
