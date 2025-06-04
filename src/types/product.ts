@@ -5,3 +5,7 @@ export type ProductType = {
   price: number;
   quantity?: number;
 };
+
+export type ProductsRouteParams = {
+  category?: string;
+};

@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { StripeCardElement } from '@stripe/stripe-js';
+import { PaymentResponseType } from '../../types/payment';
 import Button from '../Button/Button';
 import { selectCartPrice } from '../../store/cart/selector';
 import { selectUser } from '../../store/user/selector';
@@ -28,7 +30,7 @@ const PaymentForm = () => {
         body: JSON.stringify({ amount: amount * 100 }),
       }
     );
-    const data = await response.json();
+    const data: PaymentResponseType = await response.json();
 
     const clientSecret = data.payment.client_secret;
 
@@ -42,7 +44,7 @@ const PaymentForm = () => {
 
     const paymentResult = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
-        card: cardElement,
+        card: cardElement as StripeCardElement,
         billing_details: {
           name: user?.displayName || 'Guest',
           email: user?.email,
