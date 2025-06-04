@@ -3,13 +3,13 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProductCard from '../../components/ProductCard/ProductCard';
-import { ProductType } from '../../types/product';
+import { ProductType, ProductsRouteParams } from '../../types/product';
 import { selectCategories } from '../../store/categories/selector';
 import Spinner from '../../components/Spinner/Spinner';
 
 const Products = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
-  const { category } = useParams();
+  const { category } = useParams<ProductsRouteParams>();
   const categories = useSelector(selectCategories);
 
   const categoryData = categories.find(
