@@ -1,3 +1,4 @@
+import { useMemo, memo } from 'react';
 import styled from 'styled-components';
 import { SpinnerContainer } from '../Spinner/Spinner';
 import { COLORS } from '../../constants';
@@ -6,10 +7,11 @@ type Variant = 'default' | 'inverted' | 'google';
 
 type ButtonProps = {
   variant?: Variant;
+  loading?: boolean;
   children: React.ReactNode;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-const getButtonType = (variant: Variant = 'default') => {
+const getButtonType = (variant: Variant) => {
   switch (variant) {
     case 'default':
       return DefaultButton;
@@ -22,20 +24,23 @@ const getButtonType = (variant: Variant = 'default') => {
   }
 };
 
-const Button = ({
-  children,
-  variant = 'default',
-  disabled,
-  ...delegated
-}: ButtonProps) => {
-  const Component = getButtonType(variant);
+const Button = memo(
+  ({
+    children,
+    variant = 'default',
+    disabled,
+    loading = false,
+    ...delegated
+  }: ButtonProps) => {
+    const Component = useMemo(() => getButtonType(variant), [variant]);
 
-  return (
-    <Component disabled={disabled} {...delegated}>
-      {disabled ? <ButtonSpinner /> : children}
-    </Component>
-  );
-};
+    return (
+      <Component disabled={disabled || loading} {...delegated}>
+        {loading ? <ButtonSpinner /> : children}
+      </Component>
+    );
+  }
+);
 
 const ButtonBase = styled.button`
   border-radius: 8px;
