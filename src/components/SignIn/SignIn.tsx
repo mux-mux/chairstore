@@ -16,16 +16,16 @@ const INITIAL_FORM_FIELDS: FormFieldsType = {
   password: '',
 };
 
-const SignIn = () => {
+const SignIn = (): React.ReactElement => {
   const [formFields, setFormFields] =
     useState<FormFieldsType>(INITIAL_FORM_FIELDS);
   const { email, password } = formFields;
 
-  const resetForm = () => {
+  const resetForm = (): void => {
     setFormFields(INITIAL_FORM_FIELDS);
   };
 
-  const signInWithGoogle = async () => {
+  const signInWithGoogle = async (): Promise<void> => {
     try {
       await signInWithGooglePopup();
     } catch (err) {
@@ -33,17 +33,20 @@ const SignIn = () => {
     }
   };
 
-  const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
+  const handleChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>): void => {
+      const { name, value } = event.target;
 
-    setFormFields((prevFields) => ({
-      ...prevFields,
-      [name]: value,
-    }));
-  }, []);
+      setFormFields((prevFields) => ({
+        ...prevFields,
+        [name]: value,
+      }));
+    },
+    []
+  );
 
   const handleOnSubmit = useCallback(
-    async (event: FormEvent<HTMLFormElement>) => {
+    async (event: FormEvent<HTMLFormElement>): Promise<void> => {
       event.preventDefault();
 
       try {

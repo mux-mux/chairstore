@@ -11,7 +11,7 @@ type ButtonProps = {
   children: React.ReactNode;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-const getButtonType = (variant: Variant) => {
+const getButtonType = (variant: Variant): React.ElementType => {
   switch (variant) {
     case 'default':
       return DefaultButton;
@@ -31,7 +31,7 @@ const Button = memo(
     disabled,
     loading = false,
     ...delegated
-  }: ButtonProps) => {
+  }: ButtonProps): React.ReactElement => {
     const Component = useMemo(() => getButtonType(variant), [variant]);
 
     return (

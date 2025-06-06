@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { COLORS } from '../../constants';
 
-const Spinner = () => {
+const Spinner = (): React.ReactElement => {
   return (
     <SpinnerOverlay>
       <SpinnerContainer />

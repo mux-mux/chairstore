@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { ProductType } from '../../types/product';
 
-const CartItem = ({ cartItem }: { cartItem: ProductType }) => {
+const CartItem = ({ cartItem }: { cartItem: ProductType }): React.ReactElement => {
   const { name, imageSrc, price, quantity } = cartItem;
   return (
     <CartItemContainer>

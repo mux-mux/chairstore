@@ -6,7 +6,7 @@ import PaymentForm from '../../components/PaymentForm/PaymentForm';
 
 import { COLORS } from '../../constants';
 
-const Checkout = () => {
+const Checkout = (): React.ReactElement => {
   const cartItems = useSelector(selectCartItems);
   const cartTotalPrice = useSelector(selectCartPrice);
 

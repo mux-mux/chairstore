@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 
 import Categories from '../../components/Categories/Categories';
 
-const Home = () => {
+const Home = (): React.ReactElement => {
   return (
     <>
       <Outlet />

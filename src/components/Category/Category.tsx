@@ -4,7 +4,11 @@ import { COLORS } from '../../constants';
 import { CategoryType } from '../../types/category';
 import { memo } from 'react';
 
-const Category = ({ title, path, imageSrc }: CategoryType) => {
+const Category = ({
+  title,
+  path,
+  imageSrc,
+}: CategoryType): React.ReactElement => {
   return (
     <CategoryLink to={path}>
       <Image src={imageSrc}></Image>
