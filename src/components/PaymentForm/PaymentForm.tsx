@@ -8,7 +8,7 @@ import Button from '../Button/Button';
 import { selectCartPrice } from '../../store/cart/selector';
 import { selectUser } from '../../store/user/selector';
 
-const PaymentForm = () => {
+const PaymentForm = (): React.ReactElement => {
   const [isProcessing, setIsProcessing] = useState(false);
   const amount = useSelector(selectCartPrice);
   const user = useSelector(selectUser);

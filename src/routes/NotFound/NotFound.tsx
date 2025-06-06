@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { COLORS } from '../../constants';
 
-const NotFound = () => {
+const NotFound = (): React.ReactElement => {
   return (
     <Container>
       <Title>404</Title>

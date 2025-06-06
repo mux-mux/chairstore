@@ -3,7 +3,10 @@ import styled from 'styled-components';
 import { COLORS } from '../../constants';
 import { FormInputProps } from '../../types/form';
 
-const FormInput = ({ label, ...delegated }: FormInputProps) => {
+const FormInput = ({
+  label,
+  ...delegated
+}: FormInputProps): React.ReactElement => {
   const id = useId();
 
   return (

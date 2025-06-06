@@ -7,7 +7,7 @@ import { CategoryType } from '../../types/category';
 import { selectCategories } from '../../store/categories/selector';
 import { memo, useMemo } from 'react';
 
-const Categories = () => {
+const Categories = (): React.ReactElement => {
   const categories = useSelector(selectCategories);
 
   const renderedCategories = useMemo(() => {

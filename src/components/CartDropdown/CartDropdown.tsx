@@ -6,7 +6,7 @@ import CartItem from '../CartItem/CartItem';
 import { selectCartItems } from '../../store/cart/selector';
 import { COLORS } from '../../constants';
 
-const CartDropdown = () => {
+const CartDropdown = (): React.ReactElement => {
   const cartItems = useSelector(selectCartItems);
   const navigate = useNavigate();
 
