@@ -5,21 +5,21 @@ import Category from '../Category/Category';
 import Spinner from '../Spinner/Spinner';
 import { CategoryType } from '../../types/category';
 import { selectCategories } from '../../store/categories/selector';
+import { memo, useMemo } from 'react';
 
 const Categories = () => {
   const categories = useSelector(selectCategories);
 
-  return (
-    <CategoriesContainer>
-      {categories && categories.length > 0 ? (
-        categories.map((category: CategoryType) => (
-          <Category key={category.id} {...category} />
-        ))
-      ) : (
-        <Spinner />
-      )}
-    </CategoriesContainer>
-  );
+  const renderedCategories = useMemo(() => {
+    if (!categories || categories.length === 0) {
+      return <Spinner />;
+    }
+    return categories.map((category: CategoryType) => (
+      <Category key={category.id} {...category} />
+    ));
+  }, [categories]);
+
+  return <CategoriesContainer>{renderedCategories}</CategoriesContainer>;
 };
 
 const CategoriesContainer = styled.div`
@@ -31,4 +31,4 @@ const CategoriesContainer = styled.div`
   text-align: center;
 `;
 
-export default Categories;
+export default memo(Categories);

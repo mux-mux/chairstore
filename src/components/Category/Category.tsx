@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { COLORS } from '../../constants';
 import { CategoryType } from '../../types/category';
+import { memo } from 'react';
 
 const Category = ({ title, path, imageSrc }: CategoryType) => {
   return (
@@ -62,4 +63,4 @@ const Name = styled.span`
   font-size: 16px;
 `;
 
-export default Category;
+export default memo(Category);
