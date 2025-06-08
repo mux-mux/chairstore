@@ -1,8 +1,8 @@
+import { memo } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { COLORS } from '../../constants';
-import { CategoryType } from '../../types/category';
-import { memo } from 'react';
+import type { CategoryType } from '../../types/category';
 
 const Category = ({ title, path, imageSrc }: CategoryType) => {
   return (

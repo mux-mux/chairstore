@@ -6,7 +6,7 @@ import {
   clearItemFromCart,
 } from '../../store/cart/reducer';
 import { COLORS } from '../../constants';
-import { CartItemProps } from '../../types/cart';
+import type { CartItemProps } from '../../types/cart';
 
 const CheckoutItem = ({ cartItem }: CartItemProps) => {
   const dispatch = useDispatch();

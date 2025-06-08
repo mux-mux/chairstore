@@ -1,11 +1,11 @@
-import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
 import { useSelector } from 'react-redux';
-import ProductCard from '../../components/ProductCard/ProductCard';
-import { ProductType, ProductsRouteParams } from '../../types/product';
 import { selectCategories } from '../../store/categories/selector';
+import ProductCard from '../../components/ProductCard/ProductCard';
 import Spinner from '../../components/Spinner/Spinner';
+import type { ProductType, ProductsRouteParams } from '../../types/product';
 
 const Products = () => {
   const [products, setProducts] = useState<ProductType[]>([]);

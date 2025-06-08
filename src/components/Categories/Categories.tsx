@@ -1,11 +1,10 @@
+import { memo, useMemo } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
-
+import { selectCategories } from '../../store/categories/selector';
 import Category from '../Category/Category';
 import Spinner from '../Spinner/Spinner';
-import { CategoryType } from '../../types/category';
-import { selectCategories } from '../../store/categories/selector';
-import { memo, useMemo } from 'react';
+import type { CategoryType } from '../../types/category';
 
 const Categories = () => {
   const categories = useSelector(selectCategories);

@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { selectCartPrice } from '../../store/cart/selector';
+import { selectUser } from '../../store/user/selector';
 import styled from 'styled-components';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { StripeCardElement } from '@stripe/stripe-js';
-import { PaymentResponseType } from '../../types/payment';
 import Button from '../Button/Button';
-import { selectCartPrice } from '../../store/cart/selector';
-import { selectUser } from '../../store/user/selector';
+import type { PaymentResponseType } from '../../types/payment';
 
 const PaymentForm = () => {
   const [isProcessing, setIsProcessing] = useState(false);

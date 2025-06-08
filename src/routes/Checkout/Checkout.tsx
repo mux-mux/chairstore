@@ -1,9 +1,8 @@
-import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 import { selectCartItems, selectCartPrice } from '../../store/cart/selector';
 import CheckoutItem from '../../components/CheckoutItem/CheckoutItem';
 import PaymentForm from '../../components/PaymentForm/PaymentForm';
-
 import { COLORS } from '../../constants';
 
 const Checkout = () => {

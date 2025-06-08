@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { CartItemProps } from '../../types/cart';
+import type { CartItemProps } from '../../types/cart';
 
 const CartItem = ({ cartItem }: CartItemProps) => {
   const { name, imageSrc, price, quantity } = cartItem;
