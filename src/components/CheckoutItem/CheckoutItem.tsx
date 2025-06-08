@@ -6,9 +6,9 @@ import {
   clearItemFromCart,
 } from '../../store/cart/reducer';
 import { COLORS } from '../../constants';
-import { ProductType } from '../../types/product';
+import { CartItemProps } from '../../types/cart';
 
-const CheckoutItem = ({ cartItem }: { cartItem: ProductType }) => {
+const CheckoutItem = ({ cartItem }: CartItemProps) => {
   const dispatch = useDispatch();
   const { name, imageSrc, price, quantity } = cartItem;
 
