@@ -7,7 +7,7 @@ import { ProductType, ProductsRouteParams } from '../../types/product';
 import { selectCategories } from '../../store/categories/selector';
 import Spinner from '../../components/Spinner/Spinner';
 
-const Products = (): React.ReactElement => {
+const Products = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
   const { category } = useParams<ProductsRouteParams>();
   const categories = useSelector(selectCategories);

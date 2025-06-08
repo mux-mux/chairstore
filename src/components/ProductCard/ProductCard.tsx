@@ -5,11 +5,7 @@ import { addItemToCart } from '../../store/cart/reducer';
 import { COLORS } from '../../constants';
 import { ProductType } from '../../types/product';
 
-const ProductCard = ({
-  product,
-}: {
-  product: ProductType;
-}): React.ReactElement => {
+const ProductCard = ({ product }: { product: ProductType }) => {
   const dispatch = useDispatch();
   const { name, imageSrc, price } = product;
 

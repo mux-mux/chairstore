@@ -16,7 +16,7 @@ const INITIAL_FORM_FIELDS: FormFieldsType = {
   password: '',
 };
 
-const SignIn = (): React.ReactElement => {
+const SignIn = () => {
   const [formFields, setFormFields] =
     useState<FormFieldsType>(INITIAL_FORM_FIELDS);
   const { email, password } = formFields;

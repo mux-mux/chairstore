@@ -8,11 +8,7 @@ import {
 import { COLORS } from '../../constants';
 import { ProductType } from '../../types/product';
 
-const CheckoutItem = ({
-  cartItem,
-}: {
-  cartItem: ProductType;
-}): React.ReactElement => {
+const CheckoutItem = ({ cartItem }: { cartItem: ProductType }) => {
   const dispatch = useDispatch();
   const { name, imageSrc, price, quantity } = cartItem;
 

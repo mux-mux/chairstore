@@ -1,4 +1,4 @@
-const Logo = ({ size }: { size: number }): React.ReactElement => {
+const Logo = ({ size }: { size: number }) => {
   return <img src="./logo.svg" alt="Logo" width={size} height="auto" />;
 };
 

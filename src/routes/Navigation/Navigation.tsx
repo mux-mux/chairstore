@@ -8,7 +8,7 @@ import CartIcon from '../../components/CartIcon/CartIcon';
 import CartDropdown from '../../components/CartDropdown/CartDropdown';
 import { selectUser } from '../../store/user/selector';
 
-const Navigation = (): React.ReactElement => {
+const Navigation = () => {
   const currentUser = useSelector(selectUser);
   const isCartOpen = useSelector(selectIsCartOpen);
 
