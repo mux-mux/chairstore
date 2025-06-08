@@ -1,8 +1,8 @@
+import styled from 'styled-components';
 import SignUp from '../../components/SignUp/SignUp';
 import SignIn from '../../components/SignIn/SignIn';
-import styled from 'styled-components';
 
-const Authentication = (): React.ReactElement => {
+const Authentication = () => {
   return (
     <AuthenticationContainer>
       <SignIn />

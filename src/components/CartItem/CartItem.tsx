@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { ProductType } from '../../types/product';
+import type { CartItemProps } from '../../types/cart';
 
-const CartItem = ({ cartItem }: { cartItem: ProductType }): React.ReactElement => {
+const CartItem = ({ cartItem }: CartItemProps) => {
   const { name, imageSrc, price, quantity } = cartItem;
   return (
     <CartItemContainer>

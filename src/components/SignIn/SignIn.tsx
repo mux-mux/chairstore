@@ -1,22 +1,20 @@
 import { useState, useCallback, FormEvent, ChangeEvent } from 'react';
 import styled from 'styled-components';
-
 import { FirebaseError } from 'firebase/app';
 import {
   signInWithGooglePopup,
   signInUserWithEmailAndPassword,
 } from '../../utils/firebase/firebase';
-import { FormFieldsType } from '../../types/form';
-
 import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
+import type { FormFieldsType } from '../../types/form';
 
 const INITIAL_FORM_FIELDS: FormFieldsType = {
   email: '',
   password: '',
 };
 
-const SignIn = (): React.ReactElement => {
+const SignIn = () => {
   const [formFields, setFormFields] =
     useState<FormFieldsType>(INITIAL_FORM_FIELDS);
   const { email, password } = formFields;

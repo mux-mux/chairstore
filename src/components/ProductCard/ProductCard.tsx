@@ -1,15 +1,11 @@
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import Button from '../Button/Button';
 import { addItemToCart } from '../../store/cart/reducer';
+import Button from '../Button/Button';
 import { COLORS } from '../../constants';
-import { ProductType } from '../../types/product';
+import type { ProductType } from '../../types/product';
 
-const ProductCard = ({
-  product,
-}: {
-  product: ProductType;
-}): React.ReactElement => {
+const ProductCard = ({ product }: { product: ProductType }) => {
   const dispatch = useDispatch();
   const { name, imageSrc, price } = product;
 

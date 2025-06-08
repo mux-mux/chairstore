@@ -31,7 +31,7 @@ const Button = memo(
     disabled,
     loading = false,
     ...delegated
-  }: ButtonProps): React.ReactElement => {
+  }: ButtonProps) => {
     const Component = useMemo(() => getButtonType(variant), [variant]);
 
     return (

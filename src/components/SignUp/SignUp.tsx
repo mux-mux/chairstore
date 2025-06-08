@@ -1,17 +1,14 @@
 import { useState, useCallback, FormEvent, ChangeEvent } from 'react';
 import styled from 'styled-components';
-
 import { FirebaseError } from 'firebase/app';
 import {
   createUserDocument,
   createAuthUserWithEmailAndPassword,
 } from '../../utils/firebase/firebase';
-
 import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
-
-import { AdditionalInfo, UserType } from '../../types/user';
-import { FormFieldsType } from '../../types/form';
+import type { AdditionalInfo, UserType } from '../../types/user';
+import type { FormFieldsType } from '../../types/form';
 
 const INITIAL_FORM_FIELDS: FormFieldsType = {
   displayName: '',
@@ -19,7 +16,7 @@ const INITIAL_FORM_FIELDS: FormFieldsType = {
   password: '',
 };
 
-const SignUp = (): React.ReactElement => {
+const SignUp = () => {
   const [formFields, setFormFields] =
     useState<FormFieldsType>(INITIAL_FORM_FIELDS);
   const { displayName, email, password } = formFields;

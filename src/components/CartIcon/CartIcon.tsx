@@ -5,7 +5,7 @@ import { setIsCartOpen } from '../../store/cart/reducer';
 import { selectCartCount, selectIsCartOpen } from '../../store/cart/selector';
 import { COLORS } from '../../constants';
 
-const CartIcon = (): React.ReactElement => {
+const CartIcon = () => {
   const dispatch = useDispatch();
   const cartTotalCount = useSelector(selectCartCount);
   const isCartOpen = useSelector(selectIsCartOpen);
