@@ -1,3 +1,4 @@
+import { useCallback, memo } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { addItemToCart } from '../../store/cart/reducer';
@@ -9,7 +10,9 @@ const ProductCard = ({ product }: { product: ProductType }) => {
   const dispatch = useDispatch();
   const { name, imageSrc, price } = product;
 
-  const addProductHandler = () => dispatch(addItemToCart(product));
+  const addProductHandler = useCallback(() => {
+    dispatch(addItemToCart(product));
+  }, [dispatch, product]);
 
   return (
     <ProductCardContainer>
@@ -77,4 +80,4 @@ const Name = styled.span`
   -webkit-box-orient: vertical;
 `;
 
-export default ProductCard;
+export default memo(ProductCard);
