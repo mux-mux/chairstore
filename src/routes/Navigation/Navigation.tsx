@@ -1,3 +1,4 @@
+import { Suspense, lazy } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
@@ -6,7 +7,10 @@ import { selectUser } from '../../store/user/selector';
 import { signOutUser } from '../../utils/firebase/firebase';
 import Logo from '../../components/Logo/Logo';
 import CartIcon from '../../components/CartIcon/CartIcon';
-import CartDropdown from '../../components/CartDropdown/CartDropdown';
+import Spinner from '../../components/Spinner/Spinner';
+const CartDropdown = lazy(
+  () => import('../../components/CartDropdown/CartDropdown')
+);
 
 const Navigation = () => {
   const currentUser = useSelector(selectUser);
@@ -32,7 +36,17 @@ const Navigation = () => {
           )}
           <CartIcon />
         </NavLinks>
-        {isCartOpen && <CartDropdown />}
+        {isCartOpen && (
+          <Suspense
+            fallback={
+              <SpinnerContainer>
+                <Spinner />
+              </SpinnerContainer>
+            }
+          >
+            <CartDropdown />
+          </Suspense>
+        )}
       </NavContainer>
       <Outlet />
     </>
@@ -66,6 +80,11 @@ const NavLink = styled(Link)`
   padding: 10px 15px;
   text-transform: uppercase;
   cursor: pointer;
+`;
+
+const SpinnerContainer = styled.div`
+  position: absolute;
+  right: 0;
 `;
 
 export default Navigation;
