@@ -1,9 +1,15 @@
+import { Suspense, lazy } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { selectCartItems, selectCartPrice } from '../../store/cart/selector';
-import CheckoutItem from '../../components/CheckoutItem/CheckoutItem';
-import PaymentForm from '../../components/PaymentForm/PaymentForm';
+const CheckoutItem = lazy(
+  () => import('../../components/CheckoutItem/CheckoutItem')
+);
+const PaymentForm = lazy(
+  () => import('../../components/PaymentForm/PaymentForm')
+);
 import { COLORS } from '../../constants';
+import Spinner from '../../components/Spinner/Spinner';
 
 const Checkout = () => {
   const cartItems = useSelector(selectCartItems);
@@ -29,11 +35,13 @@ const Checkout = () => {
         </HeaderColumn>
       </CheckoutHeader>
 
-      {cartItems.map((cartItem) => (
-        <CheckoutItem key={cartItem.id} cartItem={cartItem} />
-      ))}
-      <CheckoutTotal>Total: {cartTotalPrice}$</CheckoutTotal>
-      <PaymentForm />
+      <Suspense fallback={<Spinner />}>
+        {cartItems.map((cartItem) => (
+          <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+        ))}
+        <CheckoutTotal>Total: {cartTotalPrice}$</CheckoutTotal>
+        <PaymentForm />
+      </Suspense>
     </CheckoutContainer>
   );
 };
