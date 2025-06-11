@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import {
   onAuthStateChangedListener,
@@ -10,15 +10,17 @@ import { Routes, Route } from 'react-router-dom';
 import GlobalStyles from './GlobalStyles';
 import { setCurrentUser } from './store/user/reducer';
 import { setCategories } from './store/categories/reducer';
-
-import { UserType } from './types/user';
+import type { UserType } from './types/user';
 
 import Home from './routes/Home/Home';
 import Navigation from './routes/Navigation/Navigation';
-import Authentication from './routes/Authentication/Authentication';
+import Spinner from './components/Spinner/Spinner';
 import Products from './routes/Products/Products';
-import Checkout from './routes/Checkout/Checkout';
-import NotFound from './routes/NotFound/NotFound';
+const Authentication = lazy(
+  () => import('./routes/Authentication/Authentication')
+);
+const Checkout = lazy(() => import('./routes/Checkout/Checkout'));
+const NotFound = lazy(() => import('./routes/NotFound/NotFound'));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -50,7 +52,7 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <Suspense fallback={<Spinner />}>
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<Home />} />
@@ -63,7 +65,7 @@ const App = () => {
       </Routes>
 
       <GlobalStyles />
-    </>
+    </Suspense>
   );
 };
 

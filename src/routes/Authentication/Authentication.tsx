@@ -1,16 +1,12 @@
-import { Suspense, lazy } from 'react';
 import styled from 'styled-components';
-const SignUp = lazy(() => import('../../components/SignUp/SignUp'));
-const SignIn = lazy(() => import('../../components/SignIn/SignIn'));
-import Spinner from '../../components/Spinner/Spinner';
+import SignUp from '../../components/SignUp/SignUp';
+import SignIn from '../../components/SignIn/SignIn';
 
 const Authentication = () => {
   return (
     <AuthenticationContainer>
-      <Suspense fallback={<Spinner />}>
-        <SignIn />
-        <SignUp />
-      </Suspense>
+      <SignIn />
+      <SignUp />
     </AuthenticationContainer>
   );
 };
