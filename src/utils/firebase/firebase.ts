@@ -7,9 +7,6 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
-  NextOrObserver,
-  UserCredential,
-  User,
 } from 'firebase/auth';
 import {
   getFirestore,
@@ -20,9 +17,10 @@ import {
   collection,
   query,
   writeBatch,
-} from 'firebase/firestore';
-import { CategoryType } from '../../types/category';
-import { UserType, AdditionalInfo } from '../../types/user';
+} from 'firebase/firestore/lite';
+import type { NextOrObserver, UserCredential, User } from 'firebase/auth';
+import type { CategoryType } from '../../types/category';
+import type { UserType, AdditionalInfo } from '../../types/user';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
