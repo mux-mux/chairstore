@@ -11,6 +11,7 @@ import Spinner from '../../components/Spinner/Spinner';
 const CartDropdown = lazy(
   () => import('../../components/CartDropdown/CartDropdown')
 );
+import { MEDIA_QUERIES } from '../../constants';
 
 const Navigation = () => {
   const currentUser = useSelector(selectUser);
@@ -60,6 +61,11 @@ const NavContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
+
+  @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
+    height: 60px;
+    margin-bottom: 15px;
+  }
 `;
 const LogoLink = styled(Link)`
   height: 100%;
@@ -75,6 +81,10 @@ const NavLinks = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
+    width: 80%;
+  }
 `;
 const NavLink = styled(Link)`
   padding: 10px 15px;

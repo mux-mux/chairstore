@@ -9,3 +9,9 @@ export const COLORS = {
   bgColorPrimary: '#fff',
   bgColorSecondary: '#333',
 };
+
+export const MEDIA_QUERIES = {
+  mobile: '576px',
+  tablet: '768px',
+  laptop: '1024px',
+};

@@ -44,6 +44,7 @@ const Products = () => {
 const ProductsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, 250px);
+  place-content: center;
   column-gap: 20px;
   row-gap: 50px;
 `;
