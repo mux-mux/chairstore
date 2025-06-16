@@ -39,8 +39,10 @@ const Box = styled.div`
   will-change: opacity;
   transition: 500ms ease-in-out;
 
-  ${CategoryLink}:hover & {
-    opacity: 0.95;
+  @media (hover: hover) and (pointer: fine) {
+    ${CategoryLink}:hover & {
+      opacity: 0.95;
+    }
   }
 `;
 
@@ -50,9 +52,11 @@ const Image = styled.img`
   will-change: transform;
   transition: transform 500ms ease-in;
 
-  ${CategoryLink}:hover & {
-    transform: scale(1.05);
-    transition: transform 700ms ease-in;
+  @media (hover: hover) and (pointer: fine) {
+    ${CategoryLink}:hover & {
+      transform: scale(1.05);
+      transition: transform 700ms ease-in;
+    }
   }
 `;
 

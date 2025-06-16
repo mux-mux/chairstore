@@ -59,6 +59,10 @@ const ProductButton = styled(Button)`
   ${ProductCardContainer}:hover & {
     opacity: 0.85;
   }
+
+  @media (hover: none) {
+    opacity: 0.85;
+  }
 `;
 
 const Footer = styled.div`
