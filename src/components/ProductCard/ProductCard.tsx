@@ -53,8 +53,12 @@ const ProductButton = styled(Button)`
   width: 80%;
   opacity: 0.7;
   top: 245px;
-  opacity: 0;
-  transition: opacity 200ms ease-in-out;
+
+  @media (prefers-reduced-motion: no-preference) {
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity 200ms ease-in-out;
+  }
 
   ${ProductCardContainer}:hover & {
     opacity: 0.85;
