@@ -40,8 +40,10 @@ a {
   color: #646cff;
   text-decoration: none;
 
-  &:hover {
-    color: #535bf2;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: #535bf2;
+    }
   }
 }
 
@@ -68,9 +70,11 @@ img {
     color: #213547;
     background-color: #ffffff;
   }
+  @media (hover: hover) and (pointer: fine) {
   a:hover {
     color: #747bff;
   }
+}
   button {
     background-color: #f9f9f9;
   }

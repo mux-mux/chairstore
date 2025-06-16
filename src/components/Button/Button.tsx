@@ -1,7 +1,7 @@
 import { useMemo, memo } from 'react';
 import styled from 'styled-components';
 import { SpinnerContainer } from '../Spinner/Spinner';
-import { COLORS } from '../../constants';
+import { COLORS, MEDIA_QUERIES } from '../../constants';
 
 type Variant = 'default' | 'inverted' | 'google';
 
@@ -58,13 +58,19 @@ const ButtonBase = styled.button`
   &:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
   }
+
+  @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
+    padding: 0.3em 0.6em;
+  }
 `;
 
 const DefaultButton = styled(ButtonBase)`
   background-color: ${COLORS.primary};
 
-  &:hover {
-    border-color: ${COLORS.thertiary};
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      border-color: ${COLORS.thertiary};
+    }
   }
 `;
 
@@ -73,10 +79,12 @@ const InvertedButton = styled(ButtonBase)`
   color: ${COLORS.primary};
   border: 1px solid ${COLORS.primary};
 
-  &:hover {
-    background-color: ${COLORS.primary};
-    color: ${COLORS.secondary};
-    border-color: ${COLORS.thertiary};
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: ${COLORS.primary};
+      color: ${COLORS.secondary};
+      border-color: ${COLORS.thertiary};
+    }
   }
 `;
 
@@ -84,9 +92,11 @@ const GoogleButton = styled(ButtonBase)`
   background-color: ${COLORS.thertiary};
   color: ${COLORS.primary};
 
-  &:hover {
-    background-color: ${COLORS.thertiary};
-    border-color: ${COLORS.primary};
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: ${COLORS.thertiary};
+      border-color: ${COLORS.primary};
+    }
   }
 `;
 
