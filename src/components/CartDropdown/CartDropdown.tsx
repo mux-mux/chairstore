@@ -25,23 +25,39 @@ const CartDropdown = () => {
   };
 
   return (
-    <CartDropdownContainer ref={cartRef}>
-      <CartItems>
-        {cartItems.length ? (
-          cartItems.map((cartItem) => (
-            <CartItem key={cartItem.id} cartItem={cartItem} />
-          ))
-        ) : (
-          <EmptyMessage>Your cart is empty</EmptyMessage>
-        )}
-      </CartItems>
-      <CartButton variant="default" onClick={handleClick}>
-        GO TO CHECKOUT
-      </CartButton>
-    </CartDropdownContainer>
+    <>
+      <CartDropdownContainer ref={cartRef}>
+        <CartItems>
+          {cartItems.length ? (
+            cartItems.map((cartItem) => (
+              <CartItem key={cartItem.id} cartItem={cartItem} />
+            ))
+          ) : (
+            <EmptyMessage>Your cart is empty</EmptyMessage>
+          )}
+        </CartItems>
+        <CartButton variant="default" onClick={handleClick}>
+          GO TO CHECKOUT
+        </CartButton>
+      </CartDropdownContainer>
+      <CartOverlay />
+    </>
   );
 };
 
+const CartOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  @supports (height: max(100%, 100vh)) {
+    height: max(100%, 100vh);
+  }
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  isolation: isolate;
+  z-index: 100;
+`;
 const CartDropdownContainer = styled.div`
   position: absolute;
   width: 240px;
@@ -53,7 +69,8 @@ const CartDropdownContainer = styled.div`
   background-color: ${COLORS.bgColorPrimary};
   top: 65px;
   right: 20px;
-  z-index: 5;
+  isolation: isolate;
+  z-index: 101;
 `;
 const CartItems = styled.div`
   height: 240px;
