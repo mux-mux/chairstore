@@ -45,8 +45,7 @@ const ProductsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, 250px);
   place-content: center;
-  column-gap: 20px;
-  row-gap: 50px;
+  gap: 20px;
 `;
 const Title = styled.h2`
   text-transform: uppercase;
