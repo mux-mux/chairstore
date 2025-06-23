@@ -4,6 +4,18 @@ export type ProductType = {
   imageSrc: string;
   price: number;
   quantity?: number;
+  filters: {
+    width: number;
+    height: number;
+    depth: number;
+    color: string;
+    material: string[];
+    legs: string;
+    seatHeight: number;
+    seatDepth: number;
+    maxWeight: number;
+    specs?: string[];
+  };
 };
 
 export type ProductsRouteParams = {
