@@ -21,3 +21,7 @@ export type ProductType = {
 export type ProductsRouteParams = {
   category?: string;
 };
+
+export type ProductRouteParams = {
+  product?: string;
+};
