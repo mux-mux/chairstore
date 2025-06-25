@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useCallback, memo } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
@@ -8,14 +9,17 @@ import type { ProductType } from '../../types/product';
 
 const ProductCard = ({ product }: { product: ProductType }) => {
   const dispatch = useDispatch();
-  const { name, imageSrc, price } = product;
+  const { id, name, imageSrc, price } = product;
+
+  const fileName = imageSrc.split('/').pop()?.split('.')[0];
+  if (!fileName) throw new Error('incorrect file name');
 
   const addProductHandler = useCallback(() => {
     dispatch(addItemToCart(product));
   }, [dispatch, product]);
 
   return (
-    <ProductCardContainer>
+    <ProductCardContainer to={id}>
       <ProductImage src={imageSrc} alt={name} />
       <Footer>
         <Name>{name}</Name>
@@ -28,7 +32,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
   );
 };
 
-const ProductCardContainer = styled.div`
+const ProductCardContainer = styled(Link)`
   width: 100%;
   display: flex;
   flex-direction: column;

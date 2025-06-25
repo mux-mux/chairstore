@@ -16,6 +16,7 @@ import Home from './routes/Home/Home';
 import Navigation from './routes/Navigation/Navigation';
 import Spinner from './components/Spinner/Spinner';
 import Products from './routes/Products/Products';
+import Product from './routes/Product/Product';
 const Authentication = lazy(
   () => import('./routes/Authentication/Authentication')
 );
@@ -59,6 +60,7 @@ const App = () => {
           <Route path="auth" element={<Authentication />} />
           <Route path="checkout" element={<Checkout />} />
           <Route path=":category" element={<Products />} />
+          <Route path=":category/:product" element={<Product />} />
           <Route path="404" element={<NotFound />} />
           <Route path="*" element={<NotFound />} />
         </Route>
