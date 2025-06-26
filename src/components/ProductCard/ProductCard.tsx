@@ -11,12 +11,14 @@ const ProductCard = ({ product }: { product: ProductType }) => {
   const dispatch = useDispatch();
   const { id, name, imageSrc, price } = product;
 
-  const fileName = imageSrc.split('/').pop()?.split('.')[0];
-  if (!fileName) throw new Error('incorrect file name');
-
-  const addProductHandler = useCallback(() => {
-    dispatch(addItemToCart(product));
-  }, [dispatch, product]);
+  const addProductHandler = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      e.stopPropagation();
+      e.preventDefault();
+      dispatch(addItemToCart(product));
+    },
+    [dispatch, product]
+  );
 
   return (
     <ProductCardContainer to={id}>
