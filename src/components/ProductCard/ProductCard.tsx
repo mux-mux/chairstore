@@ -1,22 +1,13 @@
 import { Link } from 'react-router-dom';
-import { useCallback, memo } from 'react';
-import { useDispatch } from 'react-redux';
+import { memo } from 'react';
 import styled from 'styled-components';
-import { addItemToCart } from '../../store/cart/reducer';
-import Button from '../Button/Button';
+import ButtonAddToCart from '../ButtonAddToCart/ButtonAddToCart';
+import AddToCartIcon from '../../assets/add-to-cart.svg?react';
 import { COLORS } from '../../constants';
 import type { ProductType } from '../../types/product';
 
 const ProductCard = ({ product }: { product: ProductType }) => {
-  const dispatch = useDispatch();
   const { id, name, imageSrc, price } = product;
-
-  const fileName = imageSrc.split('/').pop()?.split('.')[0];
-  if (!fileName) throw new Error('incorrect file name');
-
-  const addProductHandler = useCallback(() => {
-    dispatch(addItemToCart(product));
-  }, [dispatch, product]);
 
   return (
     <ProductCardContainer to={id}>
@@ -24,15 +15,20 @@ const ProductCard = ({ product }: { product: ProductType }) => {
       <Footer>
         <Name>{name}</Name>
         <span>{price}$</span>
+        <ButtonAddToCart product={product}>
+          <AddToCartIcon
+            width={18}
+            height={18}
+            aria-label="Add to Cart"
+            fill="currentColor"
+          />
+        </ButtonAddToCart>
       </Footer>
-      <ProductButton variant="inverted" onClick={addProductHandler}>
-        ADD TO CART
-      </ProductButton>
     </ProductCardContainer>
   );
 };
 
-const ProductCardContainer = styled(Link)`
+export const ProductCardContainer = styled(Link)`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -48,29 +44,6 @@ const ProductImage = styled.img`
   width: 100%;
   height: 95%;
   object-fit: cover;
-  margin-bottom: 5px;
-`;
-
-const ProductButton = styled(Button)`
-  position: absolute;
-  justify-content: center;
-  width: 80%;
-  opacity: 0.7;
-  top: 245px;
-
-  @media (prefers-reduced-motion: no-preference) {
-    opacity: 0;
-    will-change: opacity;
-    transition: opacity 200ms ease-in-out;
-  }
-
-  ${ProductCardContainer}:hover & {
-    opacity: 0.85;
-  }
-
-  @media (hover: none) {
-    opacity: 0.85;
-  }
 `;
 
 const Footer = styled.div`
@@ -80,7 +53,7 @@ const Footer = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 30px;
-  padding: 0 20px;
+  padding-left: 20px;
   border-top: 1px solid ${COLORS.borderPrimary};
   font-size: 18px;
 `;
