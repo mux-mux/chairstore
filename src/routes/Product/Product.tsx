@@ -17,17 +17,19 @@ const Product = () => {
   const productData = categoryData?.items.find(
     (item) => item.id.toLowerCase() === (product || '').toLowerCase()
   );
-
   if (!productData) return <div>Product not found</div>;
+
+  const { name, price, imageSrc, description } = productData;
 
   return (
     <ProductContainer>
-      <ProductImg src={`/${productData.imageSrc}`} alt={productData.name} />
-      <ProductDataBlock>
-        <h2>{productData.name}</h2>
-        <strong>${productData.price}</strong>
+      <Image src={`/${imageSrc}`} alt={name} />
+      <DataBlock>
+        <h2>{name}</h2>
+        <Description>{description}</Description>
+        <Price>${price}</Price>
         <ButtonAddToCart product={productData}>ADD TO CART</ButtonAddToCart>
-      </ProductDataBlock>
+      </DataBlock>
     </ProductContainer>
   );
 };
@@ -37,13 +39,22 @@ const ProductContainer = styled.div`
   text-align: center;
 `;
 
-const ProductImg = styled.img`
+const Image = styled.img`
   max-width: 800px;
 `;
 
-const ProductDataBlock = styled.div`
+const DataBlock = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 10px;
+`;
+
+const Description = styled.p`
+  text-align: left;
+`;
+
+const Price = styled.strong`
+  font-size: 1.6rem;
 `;
 
 export default Product;

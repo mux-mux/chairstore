@@ -52,8 +52,9 @@ const Footer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
   padding-left: 20px;
+  text-align: left;
   border-top: 1px solid ${COLORS.borderPrimary};
   font-size: 18px;
 `;
