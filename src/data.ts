@@ -11,6 +11,8 @@ const DATA: CategoryType[] = [
         id: 'office-item-1',
         name: 'Q-118R',
         imageSrc: './img/products/office/q-118r.jpg',
+        description:
+          "The Q-118R is a stylish office chair combining mesh and membrane fabric for breathable comfort. Its ergonomic design includes a multiblock mechanism, adjustable armrests, backrest height, and headrest to support long hours of sitting. With a sturdy metal frame and a modern gray finish, it fits seamlessly into any workspace. Built to support up to 100 kg, it's a reliable choice for daily office use.",
         price: 126.1,
         filters: {
           width: 60,
@@ -34,6 +36,8 @@ const DATA: CategoryType[] = [
         id: 'office-item-2',
         name: 'Q-080',
         imageSrc: './img/products/office/q-080.jpg',
+        description:
+          'The Q-080 office chair is designed for professionals seeking comfort and flexibility. It features fabric and membrane fabric materials, a tilt and multiblock mechanism, lumbar support, and both a headrest and adjustable armrests. With a bold black color and metal legs, it combines durability with sleek style. Its high back and deep seat enhance posture and productivity throughout the workday.',
         price: 153.2,
         filters: {
           width: 67,
@@ -58,6 +62,8 @@ const DATA: CategoryType[] = [
         id: 'office-item-3',
         name: 'Q-718',
         imageSrc: './img/products/office/q-718.jpg',
+        description:
+          'Combining functionality with minimalist aesthetics, the Q-718 features breathable mesh and membrane fabric upholstery. This chair is equipped with a multiblock system, tilt function, lumbar support, and adjustable armrests for personalized comfort. Its metal legs ensure stability, and a seat depth of 50 cm supports ergonomic alignment. Ideal for long working sessions, this black office chair is built to handle up to 110 kg.',
         price: 204.7,
         filters: {
           width: 63,
@@ -81,6 +87,8 @@ const DATA: CategoryType[] = [
         id: 'office-item-4',
         name: 'Q-080M',
         imageSrc: './img/products/office/q-080m.jpg',
+        description:
+          'Crafted with soft gray fabric and robust metal legs, the Q-080M blends ergonomic support and elegant design. It includes a tilt and multiblock mechanism, lumbar support, a headrest, and fully adjustable armrests. Designed for comfort and durability, the 125 cm height and wide 67 cm frame ensure ample space and support for daily tasks. Perfect for those who want a professional look with everyday comfort.',
         price: 153.8,
         filters: {
           width: 67,
@@ -105,6 +113,8 @@ const DATA: CategoryType[] = [
         id: 'office-item-5',
         name: 'Q-724',
         imageSrc: './img/products/office/q-724.jpg',
+        description:
+          'A sleek and supportive choice, the Q-724 features gray mesh and membrane fabric upholstery, combining breathability and resilience. With a multiblock system, tilt function, and lumbar support, it’s built for ergonomic efficiency. Adjustable armrests allow for custom positioning, while a durable metal frame provides stability. Ideal for demanding workspaces, it supports up to 110 kg.',
         price: 161.4,
         filters: {
           width: 62,
@@ -128,6 +138,8 @@ const DATA: CategoryType[] = [
         id: 'office-item-6',
         name: 'Q-744',
         imageSrc: './img/products/office/q-744.jpg',
+        description:
+          'The Q-744 office chair offers premium comfort with its brown fabric finish and durable metal frame. It supports up to 110 kg and includes a multiblock mechanism, tilt function, lumbar support, and adjustable armrests for ergonomic use. The 43 cm seat height and 50 cm seat depth ensure balanced seating posture. This model is perfect for professionals seeking a balance of luxury, comfort, and practicality.',
         price: 204.3,
         filters: {
           width: 62,
@@ -151,6 +163,8 @@ const DATA: CategoryType[] = [
         id: 'office-item-7',
         name: 'Q-320R',
         imageSrc: './img/products/office/q-320r.jpg',
+        description:
+          'Compact yet comfortable, the Q-320R blends mesh and fabric in a sleek gray-black color combo. It’s equipped with a tilt function and adjustable armrests, ideal for focused work. With a height of 103 cm and depth of 64 cm, it fits smaller workspaces without sacrificing support. Its metal legs provide a strong foundation, making it a budget-friendly ergonomic solution.',
         price: 107.1,
         filters: {
           width: 48,
@@ -169,6 +183,8 @@ const DATA: CategoryType[] = [
         id: 'office-item-8',
         name: 'Q-330R',
         imageSrc: './img/products/office/q-330r.jpg',
+        description:
+          'Perfect for modern office settings, the Q-330R combines a gray-black mesh and fabric seat with plastic legs for lightweight mobility. Features include tilt functionality and adjustable armrests, enhancing comfort during extended use. The 103 cm back height and 48 cm seat depth promote good posture. Designed to support up to 110 kg, this chair offers both affordability and functionality.',
         price: 115.3,
         filters: {
           width: 62,
@@ -187,6 +203,8 @@ const DATA: CategoryType[] = [
         id: 'office-item-9',
         name: 'Q-058',
         imageSrc: './img/products/office/q-058.jpg',
+        description:
+          'The Q-058 is a high-performance office chair with black mesh and membrane fabric upholstery. Built for heavy-duty use, it supports up to 136 kg. Key features include multiblock tilt, adjustable armrests, headrest, and lumbar support for maximum ergonomic benefit. Plastic legs reduce weight while maintaining stability. Ideal for professionals needing all-day comfort in a modern design.',
         price: 167.8,
         filters: {
           width: 65,
@@ -210,6 +228,8 @@ const DATA: CategoryType[] = [
         id: 'office-item-10',
         name: 'Q-345',
         imageSrc: './img/products/office/q-345.jpg',
+        description:
+          'With its clean gray mesh and fabric upholstery, the Q-345 delivers simplicity and comfort. This chair includes a tilt mechanism, wide 62 cm seat, and metal legs for support. Designed for up to 120 kg capacity, it’s a great entry-level ergonomic chair for casual or professional office use. The high 118 cm back and 49 cm seat height help keep your posture in check throughout the day.',
         price: 107.9,
         filters: {
           width: 62,
@@ -228,6 +248,8 @@ const DATA: CategoryType[] = [
         id: 'office-item-11',
         name: 'Q-035',
         imageSrc: './img/products/office/q-035.jpg',
+        description:
+          'Sleek and contemporary, the Q-035 offers gray-white aesthetics with a soft fabric and eco-leather blend. The tilt function promotes healthy movement, while metal legs ensure stability. The 121 cm backrest and 52 cm seat depth provide excellent support. Capable of holding up to 130 kg, this chair is perfect for users who want comfort and style in one refined design.',
         price: 140.2,
         filters: {
           width: 59,
@@ -246,6 +268,8 @@ const DATA: CategoryType[] = [
         id: 'office-item-12',
         name: 'Q-025',
         imageSrc: './img/products/office/q-025.jpg',
+        description:
+          'The Q-025 is an affordable yet ergonomic office chair upholstered in black-gray fabric and membrane fabric. It offers a tilt mechanism and metal legs for steady support. A 45 cm seat height and 50 cm depth give balanced seating, while the sturdy build can accommodate users up to 120 kg. Perfect for home offices or conference rooms where budget and comfort matter.',
         price: 91.1,
         filters: {
           width: 62,
@@ -272,6 +296,8 @@ const DATA: CategoryType[] = [
         id: 'gaming-item-1',
         name: 'Winner Lux',
         imageSrc: './img/products/gaming/winner-lux.jpg',
+        description:
+          "Winner Lux is a stylish gaming chair in black designed for maximum comfort and endurance. Built with premium materials like mesh, it supports up to 136 kg. The seat measures 51 cm in depth and 44 cm in height, ensuring ergonomic support. Equipped with features such as height sync mechanism, adjustable armrests, lumbar section, adjustable backrest height, headrest, it's perfect for long gaming sessions.",
         price: 450.2,
         filters: {
           width: 64,
@@ -296,6 +322,8 @@ const DATA: CategoryType[] = [
         id: 'gaming-item-2',
         name: 'Viper',
         imageSrc: './img/products/gaming/viper.jpg',
+        description:
+          "Viper is a stylish gaming chair in black-blue designed for maximum comfort and endurance. Built with premium materials like fabric, it supports up to 130 kg. The seat measures 49 cm in depth and 44 cm in height, ensuring ergonomic support. Equipped with features such as tilt, adjustable armrests, it's perfect for long gaming sessions.",
         price: 180.3,
         filters: {
           width: 70,
@@ -314,6 +342,8 @@ const DATA: CategoryType[] = [
         id: 'gaming-item-3',
         name: 'Revolt',
         imageSrc: './img/products/gaming/revolt.jpg',
+        description:
+          "Revolt is a stylish gaming chair in black-red designed for maximum comfort and endurance. Built with premium materials like eco-leather, mash, it supports up to 120 kg. The seat measures 51 cm in depth and 48 cm in height, ensuring ergonomic support. Equipped with features such as multiblock, adjustable armrests, rubber wheels, it's perfect for long gaming sessions.",
         price: 223.4,
         filters: {
           width: 67,
@@ -332,6 +362,8 @@ const DATA: CategoryType[] = [
         id: 'gaming-item-4',
         name: 'Q-229',
         imageSrc: './img/products/gaming/q-229.jpg',
+        description:
+          "Q-229 is a stylish gaming chair in gray-black designed for maximum comfort and endurance. Built with premium materials like membrane fabric, it supports up to 120 kg. The seat measures 50 cm in depth and 47 cm in height, ensuring ergonomic support. Equipped with features such as tilt, multiblock, adjustable armrests, it's perfect for long gaming sessions.",
         price: 185.8,
         filters: {
           width: 117,
@@ -350,6 +382,8 @@ const DATA: CategoryType[] = [
         id: 'gaming-item-5',
         name: 'Dakar',
         imageSrc: './img/products/gaming/dakar.jpg',
+        description:
+          "Dakar is a stylish gaming chair in black-red designed for maximum comfort and endurance. Built with premium materials like fabric, it supports up to 120 kg. The seat measures 48 cm in depth and 43 cm in height, ensuring ergonomic support. Equipped with features such as tilt, rubber wheels, it's perfect for long gaming sessions.",
         price: 33.9,
         filters: {
           width: 63,
@@ -368,6 +402,8 @@ const DATA: CategoryType[] = [
         id: 'gaming-item-6',
         name: 'Zenvo',
         imageSrc: './img/products/gaming/zenvo.jpg',
+        description:
+          "Zenvo is a stylish gaming chair in black-gray designed for maximum comfort and endurance. Built with premium materials like fabric, it supports up to 130 kg. The seat measures 48 cm in depth and 45 cm in height, ensuring ergonomic support. Equipped with features such as tilt, it's perfect for long gaming sessions.",
         price: 157.8,
         filters: {
           width: 66,
@@ -386,6 +422,8 @@ const DATA: CategoryType[] = [
         id: 'gaming-item-7',
         name: 'Q-939',
         imageSrc: './img/products/gaming/q-939.jpg',
+        description:
+          "Q-939 is a stylish gaming chair in black-gray designed for maximum comfort and endurance. Built with premium materials like mesh, fabric, it supports up to 120 kg. The seat measures 48 cm in depth and 44 cm in height, ensuring ergonomic support. Equipped with features such as tilt, multiblock, extendable footrest, it's perfect for long gaming sessions.",
         price: 134.2,
         filters: {
           width: 56,
@@ -404,6 +442,8 @@ const DATA: CategoryType[] = [
         id: 'gaming-item-8',
         name: 'Q-095',
         imageSrc: './img/products/gaming/q-095.jpg',
+        description:
+          "Q-095 is a stylish gaming chair in black-gray designed for maximum comfort and endurance. Built with premium materials like mesh, fabric, it supports up to 120 kg. The seat measures 50 cm in depth and 46 cm in height, ensuring ergonomic support. Equipped with features such as tilt, multiblock, rubber wheels, headrest, it's perfect for long gaming sessions.",
         price: 118.1,
         filters: {
           width: 60,
@@ -422,6 +462,8 @@ const DATA: CategoryType[] = [
         id: 'gaming-item-9',
         name: 'Q-019',
         imageSrc: './img/products/gaming/q-019.jpg',
+        description:
+          "Q-019 is a stylish gaming chair in black designed for maximum comfort and endurance. Built with premium materials like eco-leather, membrane fabric, it supports up to 120 kg. The seat measures 50 cm in depth and 40 cm in height, ensuring ergonomic support. Equipped with features such as tilt, it's perfect for long gaming sessions.",
         price: 115.2,
         filters: {
           width: 61,
@@ -440,6 +482,8 @@ const DATA: CategoryType[] = [
         id: 'gaming-item-10',
         name: 'Q-724H',
         imageSrc: './img/products/gaming/q-724h.jpg',
+        description:
+          "Q-724H is a stylish gaming chair in black designed for maximum comfort and endurance. Built with premium materials like fabric, membrane fabric, it supports up to 120 kg. The seat measures 49 cm in depth and 45 cm in height, ensuring ergonomic support. Equipped with features such as tilt, multiblock, adjustable armrests, lumbar section, headrest, it's perfect for long gaming sessions.",
         price: 185.4,
         filters: {
           width: 62,
@@ -464,6 +508,8 @@ const DATA: CategoryType[] = [
         id: 'gaming-item-11',
         name: 'Winner',
         imageSrc: './img/products/gaming/winner.jpg',
+        description:
+          "Winner is a stylish gaming chair in black designed for maximum comfort and endurance. Built with premium materials like mesh, it supports up to 136 kg. The seat measures 51 cm in depth and 44 cm in height, ensuring ergonomic support. Equipped with features such as height sync mechanism, multiblock, adjustable armrests, lumbar section, adjustable backrest depth, headrest, it's perfect for long gaming sessions.",
         price: 366.5,
         filters: {
           width: 64,
@@ -489,6 +535,8 @@ const DATA: CategoryType[] = [
         id: 'gaming-item-12',
         name: 'Devon',
         imageSrc: './img/products/gaming/devon.jpg',
+        description:
+          "Devon is a stylish gaming chair in gray designed for maximum comfort and endurance. Built with premium materials like mesh, it supports up to 120 kg. The seat measures 50 cm in depth and 44 cm in height, ensuring ergonomic support. Equipped with features such as multiblock, adjustable armrests, lumbar section, headrest, it's perfect for long gaming sessions.",
         price: 276.5,
         filters: {
           width: 68,
@@ -520,6 +568,8 @@ const DATA: CategoryType[] = [
         id: 'dining-item-1',
         name: 'Mike Velvet',
         imageSrc: './img/products/dining/mike-velvet.jpg',
+        description:
+          'Mike Velvet is a sleek dining chair in black featuring soft velvet fabric and sturdy metal legs. With a seat height of 47 cm and depth of 41 cm, it provides comfortable seating and supports up to 100 kg. Ideal for elegant yet modern dining spaces.',
         price: 45.6,
         filters: {
           width: 48,
@@ -537,6 +587,8 @@ const DATA: CategoryType[] = [
         id: 'dining-item-2',
         name: 'CD-56',
         imageSrc: './img/products/dining/cd-56.jpg',
+        description:
+          'CD-56 is a minimalistic white dining chair crafted entirely from wood. With a seat height of 45 cm and depth of 37 cm, it combines timeless simplicity with reliable structure, supporting up to 130 kg for everyday dining comfort.',
         price: 64.5,
         filters: {
           width: 40,
@@ -554,6 +606,8 @@ const DATA: CategoryType[] = [
         id: 'dining-item-3',
         name: 'Brando',
         imageSrc: './img/products/dining/brando.jpg',
+        description:
+          'Brando is a cozy gray dining chair upholstered in soft fabric with durable wooden legs. Its ergonomic seat height of 45 cm and depth of 40 cm ensure both comfort and stability, supporting up to 130 kg with ease.',
         price: 69.9,
         filters: {
           width: 45,
@@ -571,6 +625,8 @@ const DATA: CategoryType[] = [
         id: 'dining-item-4',
         name: 'CD-61',
         imageSrc: './img/products/dining/cd-61.jpg',
+        description:
+          'CD-61 offers a refined dining experience with its gray fabric upholstery and solid wooden legs. Designed for support and style, it features a 47 cm seat height and 42 cm seat depth, comfortably holding up to 120 kg.',
         price: 87.7,
         filters: {
           width: 43,
@@ -588,6 +644,8 @@ const DATA: CategoryType[] = [
         id: 'dining-item-5',
         name: 'Fox',
         imageSrc: './img/products/dining/fox.jpg',
+        description:
+          'Fox is a stylish gray dining chair made from fabric and set on wooden legs. It combines comfort and aesthetics with a 48 cm seat height and 40 cm depth, providing reliable support up to 120 kg.',
         price: 40.2,
         filters: {
           width: 44,
@@ -605,6 +663,8 @@ const DATA: CategoryType[] = [
         id: 'dining-item-6',
         name: 'Ego',
         imageSrc: './img/products/dining/ego.jpg',
+        description:
+          'Ego is a modern white dining chair made of high-quality plastic and accented with metal legs. With a comfortable seat height of 45 cm and depth of 42 cm, it’s ideal for contemporary dining spaces and supports up to 130 kg.',
         price: 53.7,
         filters: {
           width: 58,
@@ -622,6 +682,8 @@ const DATA: CategoryType[] = [
         id: 'dining-item-7',
         name: 'Corral-A',
         imageSrc: './img/products/dining/corral-a.jpg',
+        description:
+          'Corral-A is a versatile black dining chair crafted from durable plastic with sleek metal legs. Offering a seat height of 46 cm and depth of 44 cm, it’s both practical and supportive, with a maximum capacity of 120 kg.',
         price: 42.9,
         filters: {
           width: 46,
@@ -639,6 +701,8 @@ const DATA: CategoryType[] = [
         id: 'dining-item-8',
         name: 'Karl',
         imageSrc: './img/products/dining/karl.jpg',
+        description:
+          'Karl is a sophisticated gray dining chair with plush fabric upholstery and wooden legs. It offers a supportive seat height of 47 cm and depth of 40 cm, making it perfect for both formal and casual dining, supporting up to 120 kg.',
         price: 94.2,
         filters: {
           width: 49,
@@ -656,6 +720,8 @@ const DATA: CategoryType[] = [
         id: 'dining-item-9',
         name: 'Kris',
         imageSrc: './img/products/dining/kris.jpg',
+        description:
+          'Kris is a modern gray dining chair combining eco-leather and plastic materials with elegant wooden legs. Its ergonomic design includes a 46 cm seat height and 41 cm depth, comfortably holding up to 130 kg.',
         price: 45.6,
         filters: {
           width: 49,
@@ -673,6 +739,8 @@ const DATA: CategoryType[] = [
         id: 'dining-item-10',
         name: 'MN-SC',
         imageSrc: './img/products/dining/mn-sc.jpg',
+        description:
+          'MN-SC is a distinguished brown dining chair featuring fabric upholstery and sturdy wooden legs. With a seat height of 48 cm and depth of 42 cm, it provides a luxurious yet functional addition to your dining area, supporting up to 120 kg.',
         price: 88.8,
         filters: {
           width: 45,
@@ -690,6 +758,8 @@ const DATA: CategoryType[] = [
         id: 'dining-item-11',
         name: 'Mosso',
         imageSrc: './img/products/dining/mosso.jpg',
+        description:
+          'Mosso is a charming white dining chair made from MDF with wooden legs. Its simple yet effective design features a 45 cm seat height and 43 cm depth, offering solid support up to 120 kg.',
         price: 64.5,
         filters: {
           width: 41,
@@ -707,6 +777,8 @@ const DATA: CategoryType[] = [
         id: 'dining-item-12',
         name: 'Moris',
         imageSrc: './img/products/dining/moris.jpg',
+        description:
+          'Moris is a sleek black dining chair molded from plastic and paired with wooden legs. It offers a compact seat height of 44 cm and depth of 37 cm, perfect for space-saving setups while supporting up to 130 kg.',
         price: 40.2,
         filters: {
           width: 46,
@@ -724,6 +796,8 @@ const DATA: CategoryType[] = [
         id: 'dining-item-13',
         name: 'Smart-II',
         imageSrc: './img/products/dining/smart-ii.jpg',
+        description:
+          'Smart-II is a classic white wooden dining chair designed with comfort and simplicity in mind. With a 47 cm seat height and 40 cm depth, it offers practical seating and supports up to 100 kg with ease.',
         price: 37.5,
         filters: {
           width: 43,
@@ -741,6 +815,8 @@ const DATA: CategoryType[] = [
         id: 'dining-item-14',
         name: 'Glis-II',
         imageSrc: './img/products/dining/glis-ii.jpg',
+        description:
+          'Glis-II is a beige dining chair made entirely of plastic, combining contemporary design with durability. Featuring a 45 cm seat height and 43 cm depth, it supports up to 150 kg and fits seamlessly in modern dining environments.',
         price: 56.4,
         filters: {
           width: 52,
@@ -766,6 +842,8 @@ const DATA: CategoryType[] = [
         id: 'soft-item-1',
         name: 'Servio Brego',
         imageSrc: './img/products/soft/servio-brego.jpg',
+        description:
+          'The Servio Brego chair in beige fabric offers a soft, supportive experience with pocket springs and 180° auto-return functionality. Its metal legs ensure stability, while the 50 cm seat height and 45 cm depth add ergonomic comfort, supporting up to 100 kg.',
         price: 91.5,
         filters: {
           width: 55,
@@ -784,6 +862,8 @@ const DATA: CategoryType[] = [
         id: 'soft-item-2',
         name: 'Wind Brego',
         imageSrc: './img/products/soft/wind-brego.jpg',
+        description:
+          'Wind Brego blends elegance and functionality in light beige fabric with sturdy metal legs. It features pocket springs, a 180° auto-return swivel, and a balanced seat height of 45 cm and depth of 45 cm, comfortably supporting 120 kg.',
         price: 161.6,
         filters: {
           width: 66,
@@ -802,6 +882,8 @@ const DATA: CategoryType[] = [
         id: 'soft-item-3',
         name: 'Nuvo Velvet',
         imageSrc: './img/products/soft/nuvo-velvet.jpg',
+        description:
+          'Nuvo Velvet in dark beige velvet fabric brings luxury and coziness with a soft pillow included. Its metal legs and a high seat height of 50 cm with 47 cm depth offer plush seating support for up to 120 kg.',
         price: 174.1,
         filters: {
           width: 62,
@@ -820,6 +902,8 @@ const DATA: CategoryType[] = [
         id: 'soft-item-4',
         name: 'Hugo Brego',
         imageSrc: './img/products/soft/hugo-brego.jpg',
+        description:
+          'Hugo Brego features beige fabric upholstery with metal legs, offering 180° auto return and pocket spring support. With a seat height of 49 cm and depth of 46 cm, it ensures ergonomic seating for up to 120 kg.',
         price: 129.3,
         filters: {
           width: 58,
@@ -838,6 +922,8 @@ const DATA: CategoryType[] = [
         id: 'soft-item-5',
         name: 'Borgo Raven',
         imageSrc: './img/products/soft/borgo-raven.jpg',
+        description:
+          'The Borgo Raven chair, upholstered in dark gray fabric, is engineered for comfort with a 180° auto return function and solid metal legs. Its 50 cm seat height and 45 cm depth make it ideal for relaxing support up to 120 kg.',
         price: 129.3,
         filters: {
           width: 58,
@@ -856,6 +942,8 @@ const DATA: CategoryType[] = [
         id: 'soft-item-6',
         name: 'Cherry Velvet',
         imageSrc: './img/products/soft/cherry-velvet.jpg',
+        description:
+          'Cherry Velvet in cappuccino fabric delivers soft, inviting comfort with a balanced seat height of 48 cm and depth of 43 cm. Supported by strong metal legs, it offers a cozy, stable seating solution up to 120 kg.',
         price: 91.5,
         filters: {
           width: 57,
@@ -873,6 +961,8 @@ const DATA: CategoryType[] = [
         id: 'soft-item-7',
         name: 'Azalia D Brego',
         imageSrc: './img/products/soft/azalia-d-brego.jpg',
+        description:
+          'Azalia D Brego in light beige fabric is elegantly supported by wood legs and equipped with a 180° auto-return mechanism. It features a 50 cm seat height and 44 cm depth, offering balanced support for users up to 110 kg.',
         price: 142.7,
         filters: {
           width: 61,
@@ -891,6 +981,8 @@ const DATA: CategoryType[] = [
         id: 'soft-item-8',
         name: 'Remo Brego',
         imageSrc: './img/products/soft/remo-brego.jpg',
+        description:
+          'Remo Brego blends style and practicality with light beige fabric, a 180° auto return, and metal legs. Designed for daily use, its 48 cm seat height and 40 cm depth provide firm support for up to 120 kg.',
         price: 123.9,
         filters: {
           width: 60,
@@ -909,6 +1001,8 @@ const DATA: CategoryType[] = [
         id: 'soft-item-9',
         name: 'Metro Bjorn',
         imageSrc: './img/products/soft/metro-bjorn.jpg',
+        description:
+          'Metro Bjorn stands out with a navy fabric finish, pocket springs, and 180° auto return. Metal legs enhance stability, while the 49 cm seat height and 45 cm depth offer tailored support for users up to 120 kg.',
         price: 134.7,
         filters: {
           width: 57,
@@ -927,6 +1021,8 @@ const DATA: CategoryType[] = [
         id: 'soft-item-10',
         name: 'Basil Vardo',
         imageSrc: './img/products/soft/basil-vardo.jpg',
+        description:
+          'Basil Vardo in beige fabric is a luxurious soft chair equipped with 180° auto return and pocket springs for enhanced comfort. With a seat height of 49 cm and depth of 43 cm, it rests on sturdy metal legs and supports up to 120 kg.',
         price: 148.1,
         filters: {
           width: 61,
@@ -945,6 +1041,8 @@ const DATA: CategoryType[] = [
         id: 'soft-item-11',
         name: 'Mango Velvet',
         imageSrc: './img/products/soft/mango-velvet.jpg',
+        description:
+          'Mango Velvet brings modern charm in gray fabric with 180° auto return and metal legs. The 49 cm seat height and 45 cm depth offer a balanced and comfortable seating solution for up to 120 kg.',
         price: 76.9,
         filters: {
           width: 57,
@@ -963,6 +1061,8 @@ const DATA: CategoryType[] = [
         id: 'soft-item-12',
         name: 'Monte Sztruks',
         imageSrc: './img/products/soft/monte-sztruks.jpg',
+        description:
+          'Monte Sztruks is a vibrant green corduroy chair with a smooth tactile feel and durable metal legs. With a 50 cm seat height and 46 cm depth, it’s designed to provide plush comfort while supporting up to 120 kg.',
         price: 129.3,
         filters: {
           width: 59,
@@ -988,6 +1088,8 @@ const DATA: CategoryType[] = [
         id: 'bar-item-1',
         name: 'Mila H-2 Velvet',
         imageSrc: './img/products/bar/mila-h2-velvet.jpg',
+        description:
+          'A sleek bar chair in black velvet fabric, the Mila H-2 Velvet offers comfort with a seat height of 60 cm and depth of 40 cm. Supported by metal legs, it’s a compact, durable choice that holds up to 110 kg.',
         price: 64.5,
         filters: {
           width: 43,
@@ -1005,6 +1107,8 @@ const DATA: CategoryType[] = [
         id: 'bar-item-2',
         name: 'Colin B Velvet H-2',
         imageSrc: './img/products/bar/colin-b-h2-velvet.jpg',
+        description:
+          'The Colin B combines plush gray velvet with strong metal legs, offering a generous 60 cm seat height and 42 cm depth. Built for comfort and durability, it supports up to 140 kg.',
         price: 107.7,
         filters: {
           width: 48,
@@ -1022,6 +1126,8 @@ const DATA: CategoryType[] = [
         id: 'bar-item-3',
         name: 'C-105',
         imageSrc: './img/products/bar/c-105.jpg',
+        description:
+          'A minimalist bar chair in black fabric with metal legs, the C-105 features a 65 cm seat height and compact 39 cm depth. Its lightweight design supports up to 90 kg, perfect for modern spaces.',
         price: 58.8,
         filters: {
           width: 42,
@@ -1039,6 +1145,8 @@ const DATA: CategoryType[] = [
         id: 'bar-item-4',
         name: 'C-617',
         imageSrc: './img/products/bar/c-617.jpg',
+        description:
+          'The C-617 bar chair features black eco-leather for easy maintenance and a sleek look. With a 65 cm seat height and 42 cm depth, it combines comfort with a solid build that supports up to 110 kg.',
         price: 96.9,
         filters: {
           width: 42,
@@ -1056,6 +1164,8 @@ const DATA: CategoryType[] = [
         id: 'bar-item-5',
         name: 'Chic H-2 Velvet',
         imageSrc: './img/products/bar/chic-h2-velvet.jpg',
+        description:
+          'Chic H-2 in green velvet delivers style and support with a seat height of 60 cm and depth of 37 cm. Metal legs provide stability while the velvet finish adds elegance, supporting up to 120 kg.',
         price: 69.9,
         filters: {
           width: 45,
@@ -1073,6 +1183,8 @@ const DATA: CategoryType[] = [
         id: 'bar-item-6',
         name: 'Cherry H-2 Velvet',
         imageSrc: './img/products/bar/cherry-h2-velvet.jpg',
+        description:
+          'This beige velvet bar chair combines soft texture with strong metal legs. The 60 cm seat height and 42 cm depth make it ideal for comfortable, stylish seating with a 110 kg weight capacity.',
         price: 102.3,
         filters: {
           width: 56,
@@ -1090,6 +1202,8 @@ const DATA: CategoryType[] = [
         id: 'bar-item-7',
         name: 'Chic H-1 Velvet',
         imageSrc: './img/products/bar/chic-h1-velvet.jpg',
+        description:
+          'With a taller profile, the Chic H-1 in gray velvet features a 77 cm seat height and 37 cm depth, designed for elevated countertops. Metal legs add strength, holding up to 120 kg.',
         price: 75.3,
         filters: {
           width: 45,
@@ -1107,6 +1221,8 @@ const DATA: CategoryType[] = [
         id: 'bar-item-8',
         name: 'Cherry H-1 Velvet',
         imageSrc: './img/products/bar/cherry-h1-velvet.jpg',
+        description:
+          'The Cherry H-1 Velvet in gray is a sophisticated high bar chair with a 76 cm seat height and 40 cm depth. Supported by sturdy metal legs, it suits elegant spaces and supports up to 110 kg.',
         price: 107.7,
         filters: {
           width: 56,
@@ -1124,6 +1240,8 @@ const DATA: CategoryType[] = [
         id: 'bar-item-9',
         name: 'C-105 Velvet',
         imageSrc: './img/products/bar/c-105-velvet.jpg',
+        description:
+          'A variation of the C-105, this green velvet edition adds a soft, textured finish to its 65 cm seat height and 39 cm depth. With metal legs and a 90 kg capacity, it balances function and flair.',
         price: 61.8,
         filters: {
           width: 42,
@@ -1141,6 +1259,8 @@ const DATA: CategoryType[] = [
         id: 'bar-item-10',
         name: 'Piano B H-2 Velvet',
         imageSrc: './img/products/bar/piano-b-h2-velvet.jpg',
+        description:
+          'This stylish black velvet bar chair stands out with a wider 56 cm depth and 60 cm seat height. Its metal frame supports up to 110 kg, ideal for modern bar setups.',
         price: 78.0,
         filters: {
           width: 47,
@@ -1158,6 +1278,8 @@ const DATA: CategoryType[] = [
         id: 'bar-item-11',
         name: 'Sting',
         imageSrc: './img/products/bar/sting.jpg',
+        description:
+          'A minimalist white plastic bar chair, Sting is lightweight yet strong. It features a high 75 cm seat height and 42 cm depth, with metal legs and a surprising capacity of 130 kg.',
         price: 59.1,
         filters: {
           width: 49,
@@ -1175,6 +1297,8 @@ const DATA: CategoryType[] = [
         id: 'bar-item-12',
         name: 'Trix H-1',
         imageSrc: './img/products/bar/trix-h1.jpg',
+        description:
+          'Trix H-1 in gray fabric brings comfort to tall seating with a 78 cm seat height and 42 cm depth. Supported by metal legs and capable of holding up to 120 kg, it fits perfectly in modern bar interiors.',
         price: 118.5,
         filters: {
           width: 46,
@@ -1200,6 +1324,8 @@ const DATA: CategoryType[] = [
         id: 'children-item-1',
         name: 'Q-333',
         imageSrc: './img/products/children/q-333.jpg',
+        description:
+          "A functional blue and black children's chair with fabric and mesh materials. Features include tilt, adjustable armrests, and lumbar support. The seat sits at 44 cm high with a 47 cm depth, supported by plastic legs and designed to hold up to 100 kg.",
         price: 93.1,
         filters: {
           width: 65,
@@ -1218,6 +1344,8 @@ const DATA: CategoryType[] = [
         id: 'children-item-2',
         name: 'Q-G2',
         imageSrc: './img/products/children/q-g2.jpg',
+        description:
+          'Compact and comfortable, the Q-G2 is made of membrane fabric in a blue-black finish. Its 38 cm seat height and 41 cm depth make it ideal for younger users, supported by a durable plastic base with an 80 kg capacity.',
         price: 60.7,
         filters: {
           width: 48,
@@ -1235,6 +1363,8 @@ const DATA: CategoryType[] = [
         id: 'children-item-3',
         name: 'Q-118R',
         imageSrc: './img/products/children/q-118r.jpg',
+        description:
+          'Built for growing children, the Q-118R in gray combines mesh and membrane fabric with a strong metal frame. It includes a multiblock mechanism, headrest, and adjustable backrest height. The seat is 47 cm high with 44 cm depth, supporting up to 100 kg.',
         price: 126.6,
         filters: {
           width: 60,
@@ -1253,6 +1383,8 @@ const DATA: CategoryType[] = [
         id: 'children-item-4',
         name: 'Q-330',
         imageSrc: './img/products/children/q-330.jpg',
+        description:
+          "This cheerful yellow chair blends fabric and mesh for breathability and support. With a tilt function and a seat height of 47 cm and depth of 48 cm, it's built on a sturdy plastic base for users up to 110 kg.",
         price: 102.3,
         filters: {
           width: 62,
@@ -1271,6 +1403,8 @@ const DATA: CategoryType[] = [
         id: 'children-item-5',
         name: 'Q-328H',
         imageSrc: './img/products/children/q-328h.jpg',
+        description:
+          'An ergonomic orange model made of fabric and mesh, the Q-328H includes a multiblock mechanism and headrest. With a 44 cm high and 48 cm deep seat, it’s designed to support up to 136 kg on a plastic frame.',
         price: 129.3,
         filters: {
           width: 62,
@@ -1289,6 +1423,8 @@ const DATA: CategoryType[] = [
         id: 'children-item-6',
         name: 'Q-328',
         imageSrc: './img/products/children/q-328.jpg',
+        description:
+          'This blue variation of the Q-328H maintains the same dimensions and material build. Featuring tilt functionality and a 136 kg weight capacity, it offers a balance of comfort and durability for school or study use.',
         price: 102.3,
         filters: {
           width: 62,
@@ -1307,6 +1443,8 @@ const DATA: CategoryType[] = [
         id: 'children-item-7',
         name: 'Q-320',
         imageSrc: './img/products/children/q-320.jpg',
+        description:
+          'A pink membrane fabric chair with tilt support and a 44 cm seat height. With 44 cm depth and plastic legs, it provides both color and comfort for children up to 100 kg.',
         price: 91.5,
         filters: {
           width: 60,
@@ -1325,6 +1463,8 @@ const DATA: CategoryType[] = [
         id: 'children-item-8',
         name: 'Q-026',
         imageSrc: './img/products/children/q-026.jpg',
+        description:
+          'The Q-026 in pink features a breathable mix of membrane fabric and mesh. Tilt functionality and a roomy 48 cm seat depth make it ideal for long sitting sessions, supporting up to 100 kg.',
         price: 88.8,
         filters: {
           width: 59,
@@ -1343,6 +1483,8 @@ const DATA: CategoryType[] = [
         id: 'children-item-9',
         name: 'Q-639',
         imageSrc: './img/products/children/q-639.jpg',
+        description:
+          'Sleek and ergonomic, this gray chair is made of membrane fabric with a metal base. Features include tilt, headrest, and adjustable armrests. A 48 cm seat height and 43 cm depth accommodate children up to 120 kg.',
         price: 129.3,
         filters: {
           width: 64,
@@ -1361,6 +1503,8 @@ const DATA: CategoryType[] = [
         id: 'children-item-10',
         name: 'Q-121',
         imageSrc: './img/products/children/q-121.jpg',
+        description:
+          'A simple and efficient black chair in membrane fabric. It comes with tilt, adjustable armrests, and lumbar support. The seat stands at 43 cm high and 41 cm deep, supported by plastic legs and a 100 kg weight limit.',
         price: 58,
         filters: {
           width: 41,
@@ -1379,6 +1523,8 @@ const DATA: CategoryType[] = [
         id: 'children-item-11',
         name: 'Q-025',
         imageSrc: './img/products/children/q-025.jpg',
+        description:
+          'This yellow and black model features membrane fabric and a strong metal base. It includes a tilt mechanism, with a 45 cm high and 50 cm deep seat, offering support for up to 120 kg.',
         price: 91.5,
         filters: {
           width: 62,
@@ -1397,6 +1543,8 @@ const DATA: CategoryType[] = [
         id: 'children-item-12',
         name: 'Q-022',
         imageSrc: './img/products/children/q-022.jpg',
+        description:
+          'The Q-022 brings a soft pink eco-leather finish and a minimal look. It features a 45 cm seat height and 40 cm depth, supported by metal legs and a maximum capacity of 100 kg.',
         price: 96.9,
         filters: {
           width: 51,
