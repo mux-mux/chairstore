@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { selectCategories } from '../../store/categories/selector';
 import styled from 'styled-components';
 import ButtonAddToCart from '../../components/ButtonAddToCart/ButtonAddToCart';
+import ProductAttributes from '../../components/ProductAttributes/ProductAttributes';
 
 const Product = () => {
   const { category, product } = useParams();
@@ -27,6 +28,7 @@ const Product = () => {
       <DataBlock>
         <h2>{name}</h2>
         <Description>{description}</Description>
+        <ProductAttributes product={productData} />
         <Price>${price}</Price>
         <ButtonAddToCart product={productData}>ADD TO CART</ButtonAddToCart>
       </DataBlock>
