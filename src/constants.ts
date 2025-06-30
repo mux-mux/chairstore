@@ -8,6 +8,7 @@ export const COLORS = {
   textColorSecondary: '#f3f3f3',
   bgColorPrimary: '#fff',
   bgColorSecondary: '#333',
+  bgColorTertiary: '#f3f4f6',
 };
 
 export const MEDIA_QUERIES = {
