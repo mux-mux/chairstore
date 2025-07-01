@@ -20,7 +20,7 @@ const CheckoutItem = ({ cartItem }: CartItemProps) => {
     <CheckoutItemContainer>
       <>
         <ImageContainer>
-          <img src={imageSrc} alt={name} />
+          <img src={`/${imageSrc}`} alt={name} />
         </ImageContainer>
         <Name>{name}</Name>
         <QuantityContainer>

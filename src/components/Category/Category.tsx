@@ -7,7 +7,7 @@ import type { CategoryType } from '../../types/category';
 const Category = ({ title, path, imageSrc }: CategoryType) => {
   return (
     <CategoryLink to={path}>
-      <Image src={imageSrc}></Image>
+      <Image src={`/${imageSrc}`}></Image>
       <Box>
         <Name>{title}</Name>
       </Box>

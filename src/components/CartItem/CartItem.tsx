@@ -3,10 +3,11 @@ import type { CartItemProps } from '../../types/cart';
 
 const CartItem = ({ cartItem }: CartItemProps) => {
   const { name, imageSrc, price, quantity } = cartItem;
+  console.log(imageSrc);
   return (
     <CartItemContainer>
       <ImageContainer>
-        <Image src={imageSrc} alt={name} />
+        <Image src={`/${imageSrc}`} alt={name} />
       </ImageContainer>
       <Details>
         <Name>{name}</Name>
