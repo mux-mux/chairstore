@@ -4,6 +4,7 @@ import { selectCategories } from '../../store/categories/selector';
 import styled from 'styled-components';
 import ButtonAddToCart from '../../components/ButtonAddToCart/ButtonAddToCart';
 import ProductAttributes from '../../components/ProductAttributes/ProductAttributes';
+import Spinner from '../../components/Spinner/Spinner';
 
 const Product = () => {
   const { category, product } = useParams();
@@ -18,7 +19,7 @@ const Product = () => {
   const productData = categoryData?.items.find(
     (item) => item.id.toLowerCase() === (product || '').toLowerCase()
   );
-  if (!productData) return <div>Product not found</div>;
+  if (!productData) return <Spinner />;
 
   const { name, price, imageSrc, description } = productData;
 

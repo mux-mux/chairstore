@@ -11,7 +11,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
 
   return (
     <ProductCardContainer to={id}>
-      <ProductImage src={imageSrc} alt={name} />
+      <ProductImage src={`/${imageSrc}`} alt={name} />
       <Footer>
         <Name>{name}</Name>
         <span>{price}$</span>
