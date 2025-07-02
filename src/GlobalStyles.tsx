@@ -47,6 +47,10 @@ a {
   }
 }
 
+input[type="checkbox"] {
+  vertical-align: middle;
+}
+
 body {
   margin: 0;
   min-width: 320px;

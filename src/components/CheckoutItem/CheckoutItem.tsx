@@ -45,7 +45,7 @@ const CheckoutItemContainer = styled.div`
   align-items: center;
 `;
 
-const BaseButton = styled.button`
+export const BaseButton = styled.button`
   padding: 10px 15px;
   border: none;
   background-color: transparent;
