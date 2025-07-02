@@ -1,9 +1,15 @@
 import styled from 'styled-components';
 import type { CartItemProps } from '../../types/cart';
+import { useDispatch } from 'react-redux';
+import { clearItemFromCart } from '../../store/cart/reducer';
+import { BaseButton } from '../CheckoutItem/CheckoutItem';
 
 const CartItem = ({ cartItem }: CartItemProps) => {
+  const dispatch = useDispatch();
   const { name, imageSrc, price, quantity } = cartItem;
-  console.log(imageSrc);
+
+  const clearItemHandler = () => dispatch(clearItemFromCart(cartItem));
+
   return (
     <CartItemContainer>
       <ImageContainer>
@@ -15,6 +21,7 @@ const CartItem = ({ cartItem }: CartItemProps) => {
           {quantity} x ${price}
         </span>
       </Details>
+      <BaseButton onClick={clearItemHandler}>&#10006;</BaseButton>
     </CartItemContainer>
   );
 };
