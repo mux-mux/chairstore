@@ -1,14 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { selectCategories } from '../../store/categories/selector';
 import ProductCard from '../../components/ProductCard/ProductCard';
+import SidebarFilters from '../../components/SidebarFilters/SidebarFilters';
 import Spinner from '../../components/Spinner/Spinner';
 import type { ProductType, ProductsRouteParams } from '../../types/product';
 
 const Products = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
+  const [filtered, setFiltered] = useState<ProductType[]>([]);
   const { category } = useParams<ProductsRouteParams>();
   const categories = useSelector(selectCategories);
 
@@ -21,8 +23,40 @@ const Products = () => {
   useEffect(() => {
     if (categoryData) {
       setProducts(categoryData.items || []);
+      setFiltered(categoryData.items || []);
     }
   }, [categoryData]);
+
+  const handleFilterChange = useCallback(
+    (filters: {
+      color?: string | null;
+      material?: string | null;
+      spec?: string | null;
+    }) => {
+      let filteredProducts = products;
+
+      if (filters.color) {
+        filteredProducts = filteredProducts.filter(
+          (p) => p.filters.color === filters.color
+        );
+      }
+
+      if (filters.material) {
+        filteredProducts = filteredProducts.filter((p) =>
+          p.filters.material.includes(filters.material!)
+        );
+      }
+
+      if (filters.spec) {
+        filteredProducts = filteredProducts.filter((p) =>
+          p.filters.specs?.includes(filters.spec!)
+        );
+      }
+
+      setFiltered(filteredProducts);
+    },
+    [products]
+  );
 
   return (
     <>
@@ -30,22 +64,33 @@ const Products = () => {
       {!categories || categories.length === 0 ? (
         <Spinner />
       ) : (
-        <ProductsContainer>
-          {products &&
-            products.map((product) => (
+        <MainContainer>
+          <SidebarFilters
+            products={products}
+            handleFilterChange={handleFilterChange}
+          />
+
+          <ProductsContainer>
+            {filtered.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
-        </ProductsContainer>
+          </ProductsContainer>
+        </MainContainer>
       )}
     </>
   );
 };
 
+const MainContainer = styled.div`
+  display: flex;
+`;
+
 const ProductsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, 250px);
-  place-content: center;
+  padding: 0 20px;
   gap: 20px;
+  flex: 1;
 `;
 const Title = styled.h2`
   text-transform: uppercase;
