@@ -30,7 +30,7 @@ const Products = () => {
   const handleFilterChange = useCallback(
     (filters: {
       color?: string | null;
-      material?: string | null;
+      seat?: string | null;
       spec?: string | null;
     }) => {
       let filteredProducts = products;
@@ -41,9 +41,9 @@ const Products = () => {
         );
       }
 
-      if (filters.material) {
+      if (filters.seat) {
         filteredProducts = filteredProducts.filter((p) =>
-          p.filters.material.includes(filters.material!)
+          p.filters.seat.includes(filters.seat!)
         );
       }
 

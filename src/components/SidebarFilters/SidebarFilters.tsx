@@ -5,7 +5,7 @@ import { COLORS } from '../../constants';
 
 type FiltersTypes = {
   color: string | null;
-  material: string | null;
+  seat: string | null;
   spec: string | null;
 };
 
@@ -19,15 +19,15 @@ const SidebarFilters = ({
   handleFilterChange,
 }: SidebarFiltersProps) => {
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
-  const [selectedMaterial, setSelectedMaterial] = useState<string | null>(null);
+  const [selectedSeat, setSelectedSeat] = useState<string | null>(null);
   const [selectedSpec, setSelectedSpec] = useState<string | null>(null);
 
-  const allMaterials = new Set<string>();
+  const allSeats = new Set<string>();
   const allColors = new Set<string>();
   const allSpecs = new Set<string>();
 
   products.forEach((p) => {
-    p.filters.material.forEach((m) => allMaterials.add(m));
+    p.filters.seat.forEach((m) => allSeats.add(m));
     allColors.add(p.filters.color);
     p.filters.specs?.forEach((s) => allSpecs.add(s));
   });
@@ -35,10 +35,10 @@ const SidebarFilters = ({
   useEffect(() => {
     handleFilterChange({
       color: selectedColor,
-      material: selectedMaterial,
+      seat: selectedSeat,
       spec: selectedSpec,
     });
-  }, [selectedColor, selectedMaterial, selectedSpec, handleFilterChange]);
+  }, [selectedColor, selectedSeat, selectedSpec, handleFilterChange]);
 
   return (
     <Sidebar>
@@ -59,20 +59,18 @@ const SidebarFilters = ({
         </Label>
       ))}
 
-      <FilterGroup>Material:</FilterGroup>
-      {[...allMaterials].map((material) => (
-        <Label key={material}>
+      <FilterGroup>Seat:</FilterGroup>
+      {[...allSeats].map((seat) => (
+        <Label key={seat}>
           <input
             type="checkbox"
-            name="material"
-            checked={selectedMaterial === material}
+            name="seat"
+            checked={selectedSeat === seat}
             onChange={() => {
-              setSelectedMaterial(
-                material === selectedMaterial ? null : material
-              );
+              setSelectedSeat(seat === selectedSeat ? null : seat);
             }}
           />
-          {material}
+          {seat}
         </Label>
       ))}
 
