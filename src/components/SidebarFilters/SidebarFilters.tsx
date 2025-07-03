@@ -73,7 +73,7 @@ const SidebarFilters = ({
         </div>
       ))}
 
-      <Label>Specs:</Label>
+      {[...allSpecs].length > 0 ? <Label>Specs:</Label> : ''}
       {[...allSpecs].map((spec) => (
         <div key={spec}>
           <input
