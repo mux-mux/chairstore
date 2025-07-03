@@ -92,7 +92,7 @@ const ProductsContainer = styled.div`
   gap: 20px;
   flex: 1;
 `;
-const Title = styled.h2`
+const Title = styled.h1`
   text-transform: uppercase;
   font-size: 38px;
   margin-bottom: 25px;

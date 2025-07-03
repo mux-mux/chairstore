@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import type { ProductType } from '../../types/product';
+import { COLORS } from '../../constants';
 
 type FiltersTypes = {
   color: string | null;
@@ -43,9 +44,9 @@ const SidebarFilters = ({
     <Sidebar>
       <Header>Filters</Header>
 
-      <Label>Color:</Label>
+      <FilterGroup>Color:</FilterGroup>
       {[...allColors].map((color) => (
-        <div key={color}>
+        <Label key={color}>
           <input
             type="checkbox"
             name="color"
@@ -55,27 +56,29 @@ const SidebarFilters = ({
             }}
           />
           {color}
-        </div>
+        </Label>
       ))}
 
-      <Label>Material:</Label>
-      {[...allMaterials].map((mat) => (
-        <div key={mat}>
+      <FilterGroup>Material:</FilterGroup>
+      {[...allMaterials].map((material) => (
+        <Label key={material}>
           <input
             type="checkbox"
             name="material"
-            checked={selectedMaterial === mat}
+            checked={selectedMaterial === material}
             onChange={() => {
-              setSelectedMaterial(mat === selectedMaterial ? null : mat);
+              setSelectedMaterial(
+                material === selectedMaterial ? null : material
+              );
             }}
           />
-          {mat}
-        </div>
+          {material}
+        </Label>
       ))}
 
-      {[...allSpecs].length > 0 ? <Label>Specs:</Label> : ''}
+      {[...allSpecs].length > 0 ? <FilterGroup>Specs:</FilterGroup> : ''}
       {[...allSpecs].map((spec) => (
-        <div key={spec}>
+        <Label key={spec}>
           <input
             type="checkbox"
             name="spec"
@@ -85,7 +88,7 @@ const SidebarFilters = ({
             }}
           />
           {spec}
-        </div>
+        </Label>
       ))}
     </Sidebar>
   );
@@ -95,17 +98,21 @@ const Sidebar = styled.div`
   min-width: 200px;
   padding: 0 20px;
   text-align: left;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid ${COLORS.borderPrimary};
 `;
 
-const Header = styled.h3`
+const Header = styled.h2`
   position: relative;
   top: -5px;
   margin-top: 0;
 `;
 
+const FilterGroup = styled.h3`
+  margin: 0;
+`;
+
 const Label = styled.label`
-  font-weight: bold;
+  display: block;
 `;
 
 export default SidebarFilters;
