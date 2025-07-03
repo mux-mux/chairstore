@@ -30,7 +30,8 @@ const Products = () => {
   const handleFilterChange = useCallback(
     (filters: {
       color?: string | null;
-      material?: string | null;
+      seat?: string | null;
+      legs?: string | null;
       spec?: string | null;
     }) => {
       let filteredProducts = products;
@@ -41,9 +42,15 @@ const Products = () => {
         );
       }
 
-      if (filters.material) {
+      if (filters.seat) {
         filteredProducts = filteredProducts.filter((p) =>
-          p.filters.material.includes(filters.material!)
+          p.filters.seat.includes(filters.seat!)
+        );
+      }
+
+      if (filters.legs) {
+        filteredProducts = filteredProducts.filter(
+          (p) => p.filters.legs === filters.legs
         );
       }
 
@@ -92,7 +99,7 @@ const ProductsContainer = styled.div`
   gap: 20px;
   flex: 1;
 `;
-const Title = styled.h2`
+const Title = styled.h1`
   text-transform: uppercase;
   font-size: 38px;
   margin-bottom: 25px;

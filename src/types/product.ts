@@ -10,7 +10,7 @@ export type ProductType = {
     height: number;
     depth: number;
     color: string;
-    material: string[];
+    seat: string[];
     legs: string;
     seatHeight: number;
     seatDepth: number;

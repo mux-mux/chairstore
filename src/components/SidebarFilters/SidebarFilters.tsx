@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import type { ProductType } from '../../types/product';
+import { COLORS } from '../../constants';
 
 type FiltersTypes = {
   color: string | null;
-  material: string | null;
+  seat: string | null;
+  legs: string | null;
   spec: string | null;
 };
 
@@ -18,34 +20,44 @@ const SidebarFilters = ({
   handleFilterChange,
 }: SidebarFiltersProps) => {
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
-  const [selectedMaterial, setSelectedMaterial] = useState<string | null>(null);
+  const [selectedSeat, setSelectedSeat] = useState<string | null>(null);
+  const [selectedLegs, setSelectedLegs] = useState<string | null>(null);
   const [selectedSpec, setSelectedSpec] = useState<string | null>(null);
 
-  const allMaterials = new Set<string>();
+  const allSeats = new Set<string>();
+  const allLegs = new Set<string>();
   const allColors = new Set<string>();
   const allSpecs = new Set<string>();
 
   products.forEach((p) => {
-    p.filters.material.forEach((m) => allMaterials.add(m));
+    p.filters.seat.forEach((m) => allSeats.add(m));
     allColors.add(p.filters.color);
+    allLegs.add(p.filters.legs);
     p.filters.specs?.forEach((s) => allSpecs.add(s));
   });
 
   useEffect(() => {
     handleFilterChange({
       color: selectedColor,
-      material: selectedMaterial,
+      seat: selectedSeat,
+      legs: selectedLegs,
       spec: selectedSpec,
     });
-  }, [selectedColor, selectedMaterial, selectedSpec, handleFilterChange]);
+  }, [
+    selectedColor,
+    selectedSeat,
+    selectedLegs,
+    selectedSpec,
+    handleFilterChange,
+  ]);
 
   return (
     <Sidebar>
       <Header>Filters</Header>
 
-      <Label>Color:</Label>
+      <FilterGroup>Color:</FilterGroup>
       {[...allColors].map((color) => (
-        <div key={color}>
+        <Label key={color}>
           <input
             type="checkbox"
             name="color"
@@ -55,27 +67,42 @@ const SidebarFilters = ({
             }}
           />
           {color}
-        </div>
+        </Label>
       ))}
 
-      <Label>Material:</Label>
-      {[...allMaterials].map((mat) => (
-        <div key={mat}>
+      <FilterGroup>Seat:</FilterGroup>
+      {[...allSeats].map((seat) => (
+        <Label key={seat}>
           <input
             type="checkbox"
-            name="material"
-            checked={selectedMaterial === mat}
+            name="seat"
+            checked={selectedSeat === seat}
             onChange={() => {
-              setSelectedMaterial(mat === selectedMaterial ? null : mat);
+              setSelectedSeat(seat === selectedSeat ? null : seat);
             }}
           />
-          {mat}
-        </div>
+          {seat}
+        </Label>
       ))}
 
-      <Label>Specs:</Label>
+      <FilterGroup>Legs:</FilterGroup>
+      {[...allLegs].map((legs) => (
+        <Label key={legs}>
+          <input
+            type="checkbox"
+            name="legs"
+            checked={selectedLegs === legs}
+            onChange={() => {
+              setSelectedLegs(legs === selectedLegs ? null : legs);
+            }}
+          />
+          {legs}
+        </Label>
+      ))}
+
+      {[...allSpecs].length > 0 ? <FilterGroup>Specs:</FilterGroup> : ''}
       {[...allSpecs].map((spec) => (
-        <div key={spec}>
+        <Label key={spec}>
           <input
             type="checkbox"
             name="spec"
@@ -85,7 +112,7 @@ const SidebarFilters = ({
             }}
           />
           {spec}
-        </div>
+        </Label>
       ))}
     </Sidebar>
   );
@@ -95,17 +122,21 @@ const Sidebar = styled.div`
   min-width: 200px;
   padding: 0 20px;
   text-align: left;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid ${COLORS.borderPrimary};
 `;
 
-const Header = styled.h3`
+const Header = styled.h2`
   position: relative;
   top: -5px;
   margin-top: 0;
 `;
 
+const FilterGroup = styled.h3`
+  margin: 0;
+`;
+
 const Label = styled.label`
-  font-weight: bold;
+  display: block;
 `;
 
 export default SidebarFilters;
