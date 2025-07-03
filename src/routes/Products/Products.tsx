@@ -31,6 +31,7 @@ const Products = () => {
     (filters: {
       color?: string | null;
       seat?: string | null;
+      legs?: string | null;
       spec?: string | null;
     }) => {
       let filteredProducts = products;
@@ -44,6 +45,12 @@ const Products = () => {
       if (filters.seat) {
         filteredProducts = filteredProducts.filter((p) =>
           p.filters.seat.includes(filters.seat!)
+        );
+      }
+
+      if (filters.legs) {
+        filteredProducts = filteredProducts.filter(
+          (p) => p.filters.legs === filters.legs
         );
       }
 

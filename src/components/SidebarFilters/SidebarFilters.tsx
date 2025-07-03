@@ -6,6 +6,7 @@ import { COLORS } from '../../constants';
 type FiltersTypes = {
   color: string | null;
   seat: string | null;
+  legs: string | null;
   spec: string | null;
 };
 
@@ -20,15 +21,18 @@ const SidebarFilters = ({
 }: SidebarFiltersProps) => {
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
   const [selectedSeat, setSelectedSeat] = useState<string | null>(null);
+  const [selectedLegs, setSelectedLegs] = useState<string | null>(null);
   const [selectedSpec, setSelectedSpec] = useState<string | null>(null);
 
   const allSeats = new Set<string>();
+  const allLegs = new Set<string>();
   const allColors = new Set<string>();
   const allSpecs = new Set<string>();
 
   products.forEach((p) => {
     p.filters.seat.forEach((m) => allSeats.add(m));
     allColors.add(p.filters.color);
+    allLegs.add(p.filters.legs);
     p.filters.specs?.forEach((s) => allSpecs.add(s));
   });
 
@@ -36,9 +40,16 @@ const SidebarFilters = ({
     handleFilterChange({
       color: selectedColor,
       seat: selectedSeat,
+      legs: selectedLegs,
       spec: selectedSpec,
     });
-  }, [selectedColor, selectedSeat, selectedSpec, handleFilterChange]);
+  }, [
+    selectedColor,
+    selectedSeat,
+    selectedLegs,
+    selectedSpec,
+    handleFilterChange,
+  ]);
 
   return (
     <Sidebar>
@@ -71,6 +82,21 @@ const SidebarFilters = ({
             }}
           />
           {seat}
+        </Label>
+      ))}
+
+      <FilterGroup>Legs:</FilterGroup>
+      {[...allLegs].map((legs) => (
+        <Label key={legs}>
+          <input
+            type="checkbox"
+            name="legs"
+            checked={selectedLegs === legs}
+            onChange={() => {
+              setSelectedLegs(legs === selectedLegs ? null : legs);
+            }}
+          />
+          {legs}
         </Label>
       ))}
 
