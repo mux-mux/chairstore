@@ -8,7 +8,7 @@ const DATA: CategoryType[] = [
     imageSrc: 'img/category/office-chair.jpg',
     items: [
       {
-        id: 'office-item-1',
+        id: 'q-118r',
         name: 'Q-118R',
         imageSrc: 'img/products/office/q-118r.jpg',
         description:
@@ -33,7 +33,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'office-item-2',
+        id: 'q-080',
         name: 'Q-080',
         imageSrc: 'img/products/office/q-080.jpg',
         description:
@@ -59,7 +59,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'office-item-3',
+        id: 'q-718',
         name: 'Q-718',
         imageSrc: 'img/products/office/q-718.jpg',
         description:
@@ -84,7 +84,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'office-item-4',
+        id: 'q-080m',
         name: 'Q-080M',
         imageSrc: 'img/products/office/q-080m.jpg',
         description:
@@ -110,7 +110,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'office-item-5',
+        id: 'q-724',
         name: 'Q-724',
         imageSrc: 'img/products/office/q-724.jpg',
         description:
@@ -135,7 +135,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'office-item-6',
+        id: 'q-744',
         name: 'Q-744',
         imageSrc: 'img/products/office/q-744.jpg',
         description:
@@ -160,7 +160,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'office-item-7',
+        id: 'q-320r',
         name: 'Q-320R',
         imageSrc: 'img/products/office/q-320r.jpg',
         description:
@@ -180,7 +180,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'office-item-8',
+        id: 'q-330r',
         name: 'Q-330R',
         imageSrc: 'img/products/office/q-330r.jpg',
         description:
@@ -200,7 +200,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'office-item-9',
+        id: 'q-058',
         name: 'Q-058',
         imageSrc: 'img/products/office/q-058.jpg',
         description:
@@ -225,7 +225,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'office-item-10',
+        id: 'q-345',
         name: 'Q-345',
         imageSrc: 'img/products/office/q-345.jpg',
         description:
@@ -245,7 +245,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'office-item-11',
+        id: 'q-035',
         name: 'Q-035',
         imageSrc: 'img/products/office/q-035.jpg',
         description:
@@ -265,7 +265,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'office-item-12',
+        id: 'q-025',
         name: 'Q-025',
         imageSrc: 'img/products/office/q-025.jpg',
         description:
@@ -293,7 +293,7 @@ const DATA: CategoryType[] = [
     imageSrc: 'img/category/gaming-chair.jpg',
     items: [
       {
-        id: 'gaming-item-1',
+        id: 'winner-lux',
         name: 'Winner Lux',
         imageSrc: 'img/products/gaming/winner-lux.jpg',
         description:
@@ -319,7 +319,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'gaming-item-2',
+        id: 'viper',
         name: 'Viper',
         imageSrc: 'img/products/gaming/viper.jpg',
         description:
@@ -339,7 +339,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'gaming-item-3',
+        id: 'revolt',
         name: 'Revolt',
         imageSrc: 'img/products/gaming/revolt.jpg',
         description:
@@ -359,7 +359,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'gaming-item-4',
+        id: 'q-229',
         name: 'Q-229',
         imageSrc: 'img/products/gaming/q-229.jpg',
         description:
@@ -379,7 +379,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'gaming-item-5',
+        id: 'dakar',
         name: 'Dakar',
         imageSrc: 'img/products/gaming/dakar.jpg',
         description:
@@ -399,7 +399,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'gaming-item-6',
+        id: 'zenvo',
         name: 'Zenvo',
         imageSrc: 'img/products/gaming/zenvo.jpg',
         description:
@@ -419,7 +419,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'gaming-item-7',
+        id: 'q-939',
         name: 'Q-939',
         imageSrc: 'img/products/gaming/q-939.jpg',
         description:
@@ -439,7 +439,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'gaming-item-8',
+        id: 'q-095',
         name: 'Q-095',
         imageSrc: 'img/products/gaming/q-095.jpg',
         description:
@@ -459,7 +459,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'gaming-item-9',
+        id: 'q-019',
         name: 'Q-019',
         imageSrc: 'img/products/gaming/q-019.jpg',
         description:
@@ -479,7 +479,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'gaming-item-10',
+        id: 'q-724h',
         name: 'Q-724H',
         imageSrc: 'img/products/gaming/q-724h.jpg',
         description:
@@ -505,7 +505,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'gaming-item-11',
+        id: 'winner',
         name: 'Winner',
         imageSrc: 'img/products/gaming/winner.jpg',
         description:
@@ -532,7 +532,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'gaming-item-12',
+        id: 'devon',
         name: 'Devon',
         imageSrc: 'img/products/gaming/devon.jpg',
         description:
@@ -565,7 +565,7 @@ const DATA: CategoryType[] = [
     imageSrc: 'img/category/dining-chair.jpg',
     items: [
       {
-        id: 'dining-item-1',
+        id: 'mike-velvet',
         name: 'Mike Velvet',
         imageSrc: 'img/products/dining/mike-velvet.jpg',
         description:
@@ -584,7 +584,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'dining-item-2',
+        id: 'cd-56',
         name: 'CD-56',
         imageSrc: 'img/products/dining/cd-56.jpg',
         description:
@@ -603,7 +603,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'dining-item-3',
+        id: 'brando',
         name: 'Brando',
         imageSrc: 'img/products/dining/brando.jpg',
         description:
@@ -622,7 +622,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'dining-item-4',
+        id: 'cd-61',
         name: 'CD-61',
         imageSrc: 'img/products/dining/cd-61.jpg',
         description:
@@ -641,7 +641,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'dining-item-5',
+        id: 'fox',
         name: 'Fox',
         imageSrc: 'img/products/dining/fox.jpg',
         description:
@@ -660,7 +660,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'dining-item-6',
+        id: 'ego',
         name: 'Ego',
         imageSrc: 'img/products/dining/ego.jpg',
         description:
@@ -679,7 +679,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'dining-item-7',
+        id: 'corral-a',
         name: 'Corral-A',
         imageSrc: 'img/products/dining/corral-a.jpg',
         description:
@@ -698,7 +698,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'dining-item-8',
+        id: 'karl',
         name: 'Karl',
         imageSrc: 'img/products/dining/karl.jpg',
         description:
@@ -717,7 +717,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'dining-item-9',
+        id: 'kris',
         name: 'Kris',
         imageSrc: 'img/products/dining/kris.jpg',
         description:
@@ -736,7 +736,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'dining-item-10',
+        id: 'mn-sc',
         name: 'MN-SC',
         imageSrc: 'img/products/dining/mn-sc.jpg',
         description:
@@ -755,7 +755,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'dining-item-11',
+        id: 'mosso',
         name: 'Mosso',
         imageSrc: 'img/products/dining/mosso.jpg',
         description:
@@ -774,7 +774,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'dining-item-12',
+        id: 'moris',
         name: 'Moris',
         imageSrc: 'img/products/dining/moris.jpg',
         description:
@@ -793,7 +793,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'dining-item-13',
+        id: 'smart-2',
         name: 'Smart-II',
         imageSrc: 'img/products/dining/smart-ii.jpg',
         description:
@@ -812,7 +812,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'dining-item-14',
+        id: 'glis-2',
         name: 'Glis-II',
         imageSrc: 'img/products/dining/glis-ii.jpg',
         description:
@@ -839,7 +839,7 @@ const DATA: CategoryType[] = [
     imageSrc: 'img/category/soft-chair.jpg',
     items: [
       {
-        id: 'soft-item-1',
+        id: 'servio-brego',
         name: 'Servio Brego',
         imageSrc: 'img/products/soft/servio-brego.jpg',
         description:
@@ -859,7 +859,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'soft-item-2',
+        id: 'wind-brego',
         name: 'Wind Brego',
         imageSrc: 'img/products/soft/wind-brego.jpg',
         description:
@@ -879,7 +879,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'soft-item-3',
+        id: 'nuvo-velvet',
         name: 'Nuvo Velvet',
         imageSrc: 'img/products/soft/nuvo-velvet.jpg',
         description:
@@ -899,7 +899,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'soft-item-4',
+        id: 'hugo-brego',
         name: 'Hugo Brego',
         imageSrc: 'img/products/soft/hugo-brego.jpg',
         description:
@@ -919,7 +919,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'soft-item-5',
+        id: 'borgo-raven',
         name: 'Borgo Raven',
         imageSrc: 'img/products/soft/borgo-raven.jpg',
         description:
@@ -939,7 +939,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'soft-item-6',
+        id: 'cherry-velvet',
         name: 'Cherry Velvet',
         imageSrc: 'img/products/soft/cherry-velvet.jpg',
         description:
@@ -958,7 +958,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'soft-item-7',
+        id: 'azalia-d-brego',
         name: 'Azalia D Brego',
         imageSrc: 'img/products/soft/azalia-d-brego.jpg',
         description:
@@ -978,7 +978,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'soft-item-8',
+        id: 'remo-brego',
         name: 'Remo Brego',
         imageSrc: 'img/products/soft/remo-brego.jpg',
         description:
@@ -998,7 +998,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'soft-item-9',
+        id: 'metro-bjorn',
         name: 'Metro Bjorn',
         imageSrc: 'img/products/soft/metro-bjorn.jpg',
         description:
@@ -1018,7 +1018,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'soft-item-10',
+        id: 'basil-vardo',
         name: 'Basil Vardo',
         imageSrc: 'img/products/soft/basil-vardo.jpg',
         description:
@@ -1038,7 +1038,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'soft-item-11',
+        id: 'mango-velvet',
         name: 'Mango Velvet',
         imageSrc: 'img/products/soft/mango-velvet.jpg',
         description:
@@ -1058,7 +1058,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'soft-item-12',
+        id: 'monte-sztruks',
         name: 'Monte Sztruks',
         imageSrc: 'img/products/soft/monte-sztruks.jpg',
         description:
@@ -1085,7 +1085,7 @@ const DATA: CategoryType[] = [
     imageSrc: 'img/category/bar-chair.jpg',
     items: [
       {
-        id: 'bar-item-1',
+        id: 'mila-h-2-velvet',
         name: 'Mila H-2 Velvet',
         imageSrc: 'img/products/bar/mila-h2-velvet.jpg',
         description:
@@ -1104,7 +1104,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'bar-item-2',
+        id: 'colin-b-velvet-h-2',
         name: 'Colin B Velvet H-2',
         imageSrc: 'img/products/bar/colin-b-h2-velvet.jpg',
         description:
@@ -1123,7 +1123,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'bar-item-3',
+        id: 'c-105',
         name: 'C-105',
         imageSrc: 'img/products/bar/c-105.jpg',
         description:
@@ -1142,7 +1142,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'bar-item-4',
+        id: 'c-617',
         name: 'C-617',
         imageSrc: 'img/products/bar/c-617.jpg',
         description:
@@ -1161,7 +1161,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'bar-item-5',
+        id: 'chic-h-2-velvet',
         name: 'Chic H-2 Velvet',
         imageSrc: 'img/products/bar/chic-h2-velvet.jpg',
         description:
@@ -1180,7 +1180,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'bar-item-6',
+        id: 'cherry-h-2-velvet',
         name: 'Cherry H-2 Velvet',
         imageSrc: 'img/products/bar/cherry-h2-velvet.jpg',
         description:
@@ -1199,7 +1199,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'bar-item-7',
+        id: 'chic-h-1-velvet',
         name: 'Chic H-1 Velvet',
         imageSrc: 'img/products/bar/chic-h1-velvet.jpg',
         description:
@@ -1218,7 +1218,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'bar-item-8',
+        id: 'cherry-h-1-velvet',
         name: 'Cherry H-1 Velvet',
         imageSrc: 'img/products/bar/cherry-h1-velvet.jpg',
         description:
@@ -1237,7 +1237,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'bar-item-9',
+        id: 'c-105-velvet',
         name: 'C-105 Velvet',
         imageSrc: 'img/products/bar/c-105-velvet.jpg',
         description:
@@ -1256,7 +1256,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'bar-item-10',
+        id: 'piano-b-h-2-velvet',
         name: 'Piano B H-2 Velvet',
         imageSrc: 'img/products/bar/piano-b-h2-velvet.jpg',
         description:
@@ -1275,7 +1275,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'bar-item-11',
+        id: 'sting',
         name: 'Sting',
         imageSrc: 'img/products/bar/sting.jpg',
         description:
@@ -1294,7 +1294,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'bar-item-12',
+        id: 'trix-h-1',
         name: 'Trix H-1',
         imageSrc: 'img/products/bar/trix-h1.jpg',
         description:
@@ -1321,7 +1321,7 @@ const DATA: CategoryType[] = [
     imageSrc: 'img/category/childrens-chair.jpg',
     items: [
       {
-        id: 'children-item-1',
+        id: 'q-333',
         name: 'Q-333',
         imageSrc: 'img/products/children/q-333.jpg',
         description:
@@ -1341,7 +1341,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'children-item-2',
+        id: 'q-g2',
         name: 'Q-G2',
         imageSrc: 'img/products/children/q-g2.jpg',
         description:
@@ -1360,7 +1360,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'children-item-3',
+        id: 'q-118r',
         name: 'Q-118R',
         imageSrc: 'img/products/children/q-118r.jpg',
         description:
@@ -1380,7 +1380,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'children-item-4',
+        id: 'q-330',
         name: 'Q-330',
         imageSrc: 'img/products/children/q-330.jpg',
         description:
@@ -1400,7 +1400,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'children-item-5',
+        id: 'q-328h',
         name: 'Q-328H',
         imageSrc: 'img/products/children/q-328h.jpg',
         description:
@@ -1420,7 +1420,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'children-item-6',
+        id: 'q-328',
         name: 'Q-328',
         imageSrc: 'img/products/children/q-328.jpg',
         description:
@@ -1440,7 +1440,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'children-item-7',
+        id: 'q-320',
         name: 'Q-320',
         imageSrc: 'img/products/children/q-320.jpg',
         description:
@@ -1460,7 +1460,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'children-item-8',
+        id: 'q-026',
         name: 'Q-026',
         imageSrc: 'img/products/children/q-026.jpg',
         description:
@@ -1480,7 +1480,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'children-item-9',
+        id: 'q-639',
         name: 'Q-639',
         imageSrc: 'img/products/children/q-639.jpg',
         description:
@@ -1500,7 +1500,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'children-item-10',
+        id: 'q-121',
         name: 'Q-121',
         imageSrc: 'img/products/children/q-121.jpg',
         description:
@@ -1520,7 +1520,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'children-item-11',
+        id: 'q-025',
         name: 'Q-025',
         imageSrc: 'img/products/children/q-025.jpg',
         description:
@@ -1540,7 +1540,7 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'children-item-12',
+        id: 'q-022',
         name: 'Q-022',
         imageSrc: 'img/products/children/q-022.jpg',
         description:
