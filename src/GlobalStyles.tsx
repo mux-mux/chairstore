@@ -5,8 +5,8 @@ const GlobalStyles = createGlobalStyle`
   box-sizing: border-box;
 }
 
-:root, body, #root {
-    height: 100%;
+:root, body {
+    min-height: 100%;
 }
 
 :root {
@@ -33,6 +33,7 @@ const GlobalStyles = createGlobalStyle`
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
 }
 
 a {
