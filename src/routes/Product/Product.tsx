@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import ButtonAddToCart from '../../components/ButtonAddToCart/ButtonAddToCart';
 import ProductAttributes from '../../components/ProductAttributes/ProductAttributes';
 import Spinner from '../../components/Spinner/Spinner';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 
 const Product = () => {
   const { category, product } = useParams();
@@ -24,16 +25,19 @@ const Product = () => {
   const { name, price, imageSrc, description } = productData;
 
   return (
-    <ProductContainer>
-      <Image src={`/${imageSrc}`} alt={name} />
-      <DataBlock>
-        <h2>{name}</h2>
-        <Description>{description}</Description>
-        <ProductAttributes product={productData} />
-        <Price>${price}</Price>
-        <ButtonAddToCart product={productData}>ADD TO CART</ButtonAddToCart>
-      </DataBlock>
-    </ProductContainer>
+    <>
+      <Breadcrumbs />
+      <ProductContainer>
+        <Image src={`/${imageSrc}`} alt={name} />
+        <DataBlock>
+          <h2>{name}</h2>
+          <Description>{description}</Description>
+          <ProductAttributes product={productData} />
+          <Price>${price}</Price>
+          <ButtonAddToCart product={productData}>ADD TO CART</ButtonAddToCart>
+        </DataBlock>
+      </ProductContainer>
+    </>
   );
 };
 

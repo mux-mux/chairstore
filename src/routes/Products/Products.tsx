@@ -7,6 +7,7 @@ import ProductCard from '../../components/ProductCard/ProductCard';
 import SidebarFilters from '../../components/SidebarFilters/SidebarFilters';
 import Spinner from '../../components/Spinner/Spinner';
 import type { ProductType, ProductsRouteParams } from '../../types/product';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 
 const Products = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
@@ -67,6 +68,7 @@ const Products = () => {
 
   return (
     <>
+      <Breadcrumbs />
       <Title>{categoryData?.title}</Title>
       {!categories || categories.length === 0 ? (
         <Spinner />
