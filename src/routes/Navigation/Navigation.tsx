@@ -8,6 +8,7 @@ import { signOutUser } from '../../utils/firebase/firebase';
 import Logo from '../../components/Logo/Logo';
 import CartIcon from '../../components/CartIcon/CartIcon';
 import Spinner from '../../components/Spinner/Spinner';
+import Search from '../../components/Search/Search';
 const CartDropdown = lazy(
   () => import('../../components/CartDropdown/CartDropdown')
 );
@@ -27,6 +28,7 @@ const Navigation = () => {
           <Logo size={50} />
         </LogoLink>
         <NavLinks>
+          <Search />
           {!isRoot && <NavLink to="/">CATEGORIES</NavLink>}
           {currentUser ? (
             <NavLink to="/" onClick={signOutUser}>
