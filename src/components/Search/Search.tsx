@@ -1,19 +1,27 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { styled } from 'styled-components';
 import {
   selectCategories,
   selectProducts,
 } from '../../store/categories/selector';
 import type { ProductType } from '../../types/product';
 import type { CategoryType } from '../../types/category';
-import { styled } from 'styled-components';
+import useOutsideClick from '../../hooks/useClickOutside';
 import { COLORS } from '../../constants';
 
 const Search = () => {
   const [query, setQuery] = useState('');
+  const searchRef = useRef(null);
   const allProducts = useSelector(selectProducts);
   const categories = useSelector(selectCategories);
+
+  const handleClickOutside = () => {
+    setQuery('');
+  };
+
+  useOutsideClick(searchRef, handleClickOutside);
 
   const filteredProducts = useMemo(() => {
     if (!query.trim()) return [];
@@ -32,7 +40,7 @@ const Search = () => {
   };
 
   return (
-    <SearchContainer>
+    <SearchContainer ref={searchRef}>
       <SearchInput
         type="text"
         placeholder="Search for a product..."
