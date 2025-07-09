@@ -1,13 +1,19 @@
 import { useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import { selectProducts } from '../../store/categories/selector';
+import { Link } from 'react-router-dom';
+import {
+  selectCategories,
+  selectProducts,
+} from '../../store/categories/selector';
 import type { ProductType } from '../../types/product';
+import type { CategoryType } from '../../types/category';
 import { styled } from 'styled-components';
 import { COLORS } from '../../constants';
 
 const Search = () => {
   const [query, setQuery] = useState('');
   const allProducts = useSelector(selectProducts);
+  const categories = useSelector(selectCategories);
 
   const filteredProducts = useMemo(() => {
     if (!query.trim()) return [];
@@ -15,6 +21,15 @@ const Search = () => {
       product.name.toLowerCase().includes(query.toLowerCase())
     );
   }, [query, allProducts]);
+
+  const findCategoryByProductId = (id: string, categories: CategoryType[]) => {
+    for (const category of categories) {
+      if (category.items.some((product) => product.id === id)) {
+        return category.path;
+      }
+    }
+    return null;
+  };
 
   return (
     <SearchContainer>
@@ -26,13 +41,21 @@ const Search = () => {
       />
       {query.trim() && filteredProducts.length > 0 && (
         <ResultsList>
-          {filteredProducts.map((product) => (
-            <ResultItem key={product.id}>
-              <ResultImage src={product.imageSrc} alt={product.name} />
-              <span>{product.name}</span>
-              <span>${product.price}</span>
-            </ResultItem>
-          ))}
+          {filteredProducts.map(({ id, name, imageSrc, price }) => {
+            const categoryPath = findCategoryByProductId(id, categories);
+            return (
+              <ResultItem key={id}>
+                <ResultLink
+                  to={`${categoryPath}/${id}`}
+                  onClick={() => setQuery('')}
+                >
+                  <ResultImage src={`/${imageSrc}`} alt={name} />
+                  <span>{name}</span>
+                  <span>${price}</span>
+                </ResultLink>
+              </ResultItem>
+            );
+          })}
         </ResultsList>
       )}
       {query.trim() && filteredProducts.length === 0 && (
@@ -82,10 +105,6 @@ const ResultsList = styled.ul`
 `;
 
 const ResultItem = styled.li`
-  display: grid;
-  grid-template-columns: 80px 1fr 40px;
-  gap: 5px;
-  align-items: center;
   padding: 5px 0;
   cursor: pointer;
   transition: background opacity 0.2s ease;
@@ -93,6 +112,13 @@ const ResultItem = styled.li`
   &:hover {
     opacity: 0.8;
   }
+`;
+
+const ResultLink = styled(Link)`
+  display: grid;
+  grid-template-columns: 80px 1fr 40px;
+  gap: 5px;
+  align-items: center;
 `;
 
 const ResultImage = styled.img`
