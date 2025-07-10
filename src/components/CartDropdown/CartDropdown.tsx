@@ -27,6 +27,7 @@ const CartDropdown = () => {
   return (
     <>
       <CartDropdownContainer ref={cartRef}>
+        <CloseCart onClick={toggleCartModal}>&#10006;</CloseCart>
         <CartItems>
           {cartItems.length ? (
             cartItems.map((cartItem) => (
@@ -65,12 +66,22 @@ const CartDropdownContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
-  border: 1px solid ${COLORS.borderPrimary};
+  border: none;
   background-color: ${COLORS.bgColorPrimary};
-  top: 65px;
-  right: 20px;
+  top: 60px;
+  right: 10px;
   isolation: isolate;
   z-index: 101;
+`;
+
+const CloseCart = styled.button`
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  background-color: #eb6a6a;
+  font-size: 1rem;
+  cursor: pointer;
 `;
 const CartItems = styled.div`
   height: 240px;

@@ -1360,26 +1360,6 @@ const DATA: CategoryType[] = [
         },
       },
       {
-        id: 'q-118r',
-        name: 'Q-118R',
-        imageSrc: 'img/products/children/q-118r.jpg',
-        description:
-          'Built for growing children, the Q-118R in gray combines mesh and membrane fabric with a strong metal frame. It includes a multiblock mechanism, headrest, and adjustable backrest height. The seat is 47 cm high with 44 cm depth, supporting up to 100 kg.',
-        price: 126.6,
-        filters: {
-          width: 60,
-          height: 115,
-          depth: 64,
-          color: 'gray',
-          seat: ['mesh', 'membrane fabric'],
-          legs: 'metal',
-          seatHeight: 47,
-          seatDepth: 44,
-          maxWeight: 100,
-          specs: ['multiblock', 'headrest', 'adjustable backrest height'],
-        },
-      },
-      {
         id: 'q-330',
         name: 'Q-330',
         imageSrc: 'img/products/children/q-330.jpg',
@@ -1517,26 +1497,6 @@ const DATA: CategoryType[] = [
           seatDepth: 41,
           maxWeight: 100,
           specs: ['tilt', 'lumbar section'],
-        },
-      },
-      {
-        id: 'q-025',
-        name: 'Q-025',
-        imageSrc: 'img/products/children/q-025.jpg',
-        description:
-          'This yellow and black model features membrane fabric and a strong metal base. It includes a tilt mechanism, with a 45 cm high and 50 cm deep seat, offering support for up to 120 kg.',
-        price: 91.5,
-        filters: {
-          width: 62,
-          height: 111,
-          depth: 64,
-          color: 'yellow',
-          seat: ['membrane fabric'],
-          legs: 'metal',
-          seatHeight: 45,
-          seatDepth: 50,
-          maxWeight: 120,
-          specs: ['tilt'],
         },
       },
       {
