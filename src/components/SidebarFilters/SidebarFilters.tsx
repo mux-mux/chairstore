@@ -19,10 +19,12 @@ const SidebarFilters = ({
   products,
   handleFilterChange,
 }: SidebarFiltersProps) => {
-  const [selectedColor, setSelectedColor] = useState<string | null>(null);
-  const [selectedSeat, setSelectedSeat] = useState<string | null>(null);
-  const [selectedLegs, setSelectedLegs] = useState<string | null>(null);
-  const [selectedSpec, setSelectedSpec] = useState<string | null>(null);
+  const [filters, setFilters] = useState<FiltersTypes>({
+    color: null,
+    seat: null,
+    legs: null,
+    spec: null,
+  });
 
   const allSeats = new Set<string>();
   const allLegs = new Set<string>();
@@ -30,26 +32,22 @@ const SidebarFilters = ({
   const allSpecs = new Set<string>();
 
   products.forEach((p) => {
-    p.filters.seat.forEach((m) => allSeats.add(m));
     allColors.add(p.filters.color);
     allLegs.add(p.filters.legs);
+    p.filters.seat.forEach((m) => allSeats.add(m));
     p.filters.specs?.forEach((s) => allSpecs.add(s));
   });
 
   useEffect(() => {
-    handleFilterChange({
-      color: selectedColor,
-      seat: selectedSeat,
-      legs: selectedLegs,
-      spec: selectedSpec,
-    });
-  }, [
-    selectedColor,
-    selectedSeat,
-    selectedLegs,
-    selectedSpec,
-    handleFilterChange,
-  ]);
+    handleFilterChange(filters);
+  }, [filters, handleFilterChange]);
+
+  const toggleFilter = (key: keyof FiltersTypes, value: string) => {
+    setFilters((prev) => ({
+      ...prev,
+      [key]: prev[key] === value ? null : value,
+    }));
+  };
 
   return (
     <Sidebar>
@@ -61,10 +59,8 @@ const SidebarFilters = ({
           <input
             type="checkbox"
             name="color"
-            checked={selectedColor === color}
-            onChange={() => {
-              setSelectedColor(color === selectedColor ? null : color);
-            }}
+            checked={filters.color === color}
+            onChange={() => toggleFilter('color', color)}
           />
           {color}
         </Label>
@@ -76,10 +72,8 @@ const SidebarFilters = ({
           <input
             type="checkbox"
             name="seat"
-            checked={selectedSeat === seat}
-            onChange={() => {
-              setSelectedSeat(seat === selectedSeat ? null : seat);
-            }}
+            checked={filters.seat === seat}
+            onChange={() => toggleFilter('seat', seat)}
           />
           {seat}
         </Label>
@@ -91,29 +85,29 @@ const SidebarFilters = ({
           <input
             type="checkbox"
             name="legs"
-            checked={selectedLegs === legs}
-            onChange={() => {
-              setSelectedLegs(legs === selectedLegs ? null : legs);
-            }}
+            checked={filters.legs === legs}
+            onChange={() => toggleFilter('legs', legs)}
           />
           {legs}
         </Label>
       ))}
 
-      {[...allSpecs].length > 0 ? <FilterGroup>Specs:</FilterGroup> : ''}
-      {[...allSpecs].map((spec) => (
-        <Label key={spec}>
-          <input
-            type="checkbox"
-            name="spec"
-            checked={selectedSpec === spec}
-            onChange={() => {
-              setSelectedSpec(spec === selectedSpec ? null : spec);
-            }}
-          />
-          {spec}
-        </Label>
-      ))}
+      {[...allSpecs].length > 0 && (
+        <>
+          <FilterGroup>Specs:</FilterGroup>
+          {[...allSpecs].map((spec) => (
+            <Label key={spec}>
+              <input
+                type="checkbox"
+                name="spec"
+                checked={filters.spec === spec}
+                onChange={() => toggleFilter('spec', spec)}
+              />
+              {spec}
+            </Label>
+          ))}
+        </>
+      )}
     </Sidebar>
   );
 };

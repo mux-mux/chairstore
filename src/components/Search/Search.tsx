@@ -52,7 +52,7 @@ const Search = () => {
           {filteredProducts.map(({ id, name, imageSrc, price }) => {
             const categoryPath = findCategoryByProductId(id, categories);
             return (
-              <ResultItem key={id}>
+              <ResultItem key={`${categoryPath}/${id}`}>
                 <ResultLink
                   to={`${categoryPath}/${id}`}
                   onClick={() => setQuery('')}
