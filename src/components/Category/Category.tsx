@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { COLORS } from '../../constants';
@@ -72,4 +71,4 @@ const Name = styled.span`
   font-size: 16px;
 `;
 
-export default memo(Category);
+export default Category;
