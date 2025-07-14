@@ -1,4 +1,3 @@
-import { memo, useMemo } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { selectCategories } from '../../store/categories/selector';
@@ -9,16 +8,17 @@ import type { CategoryType } from '../../types/category';
 const Categories = () => {
   const categories = useSelector(selectCategories);
 
-  const renderedCategories = useMemo(() => {
-    if (!categories || categories.length === 0) {
-      return <Spinner />;
-    }
-    return categories.map((category: CategoryType) => (
-      <Category key={category.id} {...category} />
-    ));
-  }, [categories]);
+  if (!categories || categories.length === 0) {
+    return <Spinner />;
+  }
 
-  return <CategoriesContainer>{renderedCategories}</CategoriesContainer>;
+  return (
+    <CategoriesContainer>
+      {categories.map((category: CategoryType) => (
+        <Category key={category.id} {...category} />
+      ))}
+    </CategoriesContainer>
+  );
 };
 
 const CategoriesContainer = styled.div`
@@ -30,4 +30,4 @@ const CategoriesContainer = styled.div`
   text-align: center;
 `;
 
-export default memo(Categories);
+export default Categories;
