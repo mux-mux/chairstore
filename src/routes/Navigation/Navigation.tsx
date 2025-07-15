@@ -37,6 +37,7 @@ const Navigation = () => {
           ) : (
             <NavLink to="/auth">SIGN IN</NavLink>
           )}
+          <NavLink to="/contact">CONTACT US</NavLink>
           <CartIcon />
         </NavLinks>
         {isCartOpen && (

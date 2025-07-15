@@ -1,14 +1,18 @@
 import { useId } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { COLORS } from '../../constants';
 import type { FormInputProps } from '../../types/form';
 
-const FormInput = ({ label, ...delegated }: FormInputProps) => {
+const FormInput = ({ label, type = 'text', ...delegated }: FormInputProps) => {
   const id = useId();
 
   return (
     <InputContainer>
-      <InputField id={id} {...delegated} />
+      {type === 'textarea' ? (
+        <TextareaField id={id} {...delegated} />
+      ) : (
+        <InputField id={id} {...delegated} />
+      )}
       {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
     </InputContainer>
   );
@@ -19,7 +23,7 @@ const InputContainer = styled.div`
   margin: 45px 0;
 `;
 
-const InputField = styled.input`
+const Field = css`
   display: block;
   width: 100%;
   margin: 0 auto;
@@ -31,7 +35,6 @@ const InputField = styled.input`
   border: none;
   border-radius: 0;
   border-bottom: 1px solid ${COLORS.borderSecondary};
-  margin: 25px 0;
 
   &:focus {
     outline: none;
@@ -44,6 +47,15 @@ const InputField = styled.input`
     color: initial;
     cursor: default;
   }
+`;
+
+const InputField = styled.input`
+  ${Field}
+`;
+
+const TextareaField = styled.textarea`
+  ${Field}
+  border: 1px solid;
 `;
 
 const InputLabel = styled.label`
