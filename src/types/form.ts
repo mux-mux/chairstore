@@ -8,4 +8,4 @@ export type FormFieldsType = {
 
 export type FormInputProps = {
   label: string;
-} & InputHTMLAttributes<HTMLInputElement>;
+} & InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>;
