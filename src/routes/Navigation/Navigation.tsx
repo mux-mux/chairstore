@@ -13,6 +13,7 @@ const CartDropdown = lazy(
   () => import('../../components/CartDropdown/CartDropdown')
 );
 import { MEDIA_QUERIES } from '../../constants';
+import Footer from '../../components/Footer/Footer';
 
 const Navigation = () => {
   const currentUser = useSelector(selectUser);
@@ -37,7 +38,6 @@ const Navigation = () => {
           ) : (
             <NavLink to="/auth">SIGN IN</NavLink>
           )}
-          <NavLink to="/contact">CONTACT US</NavLink>
           <CartIcon />
         </NavLinks>
         {isCartOpen && (
@@ -53,6 +53,7 @@ const Navigation = () => {
         )}
       </NavContainer>
       <Outlet />
+      <Footer />
     </>
   );
 };

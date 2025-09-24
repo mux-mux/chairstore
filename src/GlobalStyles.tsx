@@ -5,12 +5,12 @@ const GlobalStyles = createGlobalStyle`
   box-sizing: border-box;
 }
 
-:root, body {
+body {
     min-height: 100%;
 }
 
 :root {
-  font-family: 'Oswald', sans-serif;
+    font-family: 'Oswald', sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
@@ -30,10 +30,14 @@ const GlobalStyles = createGlobalStyle`
 
 #root {
   position: relative;
+  height: 100vh;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
+
+  display: flex;
+  flex-direction: column;
 }
 
 a {
