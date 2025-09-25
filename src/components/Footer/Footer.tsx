@@ -25,7 +25,7 @@ const Footer = () => {
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.footer`
   margin: 0 auto;
   margin-top: auto;
   display: flex;
