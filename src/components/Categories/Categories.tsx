@@ -27,6 +27,7 @@ const CategoriesContainer = styled.div`
   grid-template-columns: repeat(auto-fit, 300px);
   gap: 30px;
   place-content: center;
+  margin: auto;
   text-align: center;
 `;
 
