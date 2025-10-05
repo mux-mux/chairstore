@@ -13,9 +13,9 @@ const CartIcon = () => {
 
   return (
     <CartIconContainer onClick={toggleCartModal}>
-      <Icon
-        width={36}
-        height={36}
+      <CartSvg
+        width={40}
+        height={40}
         aria-label="Shopping Bag"
         fill="currentColor"
       />
@@ -38,13 +38,19 @@ const CartIconContainer = styled.button`
   cursor: pointer;
 `;
 
+const CartSvg = styled(Icon)`
+  transform: translateY(-4px);
+`;
 const CartCount = styled.span`
+  transform: translate(50%, -50%);
   position: absolute;
-  font-weight: bold;
-  color: currentColor;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-55%);
+  top: 50%;
+  right: 50%;
+  background: ${({ theme }) => theme.colors.secondary};
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.75rem;
 `;
 
 export default CartIcon;

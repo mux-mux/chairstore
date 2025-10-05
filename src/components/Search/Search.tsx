@@ -81,10 +81,10 @@ const SearchContainer = styled.div`
 
 const SearchInput = styled.input`
   max-width: 200px;
-  padding: 5px 10px;
   font-size: 0.8rem;
-  border-radius: 5px;
-  border: 1px solid ${COLORS.borderPrimary};
+  padding: ${({ theme }) => theme.space[2]}px ${({ theme }) => theme.space[3]}px;
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: ${({ theme }) => theme.radii.sm};
   outline: none;
   transition: border 0.2s;
 

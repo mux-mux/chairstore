@@ -3,7 +3,6 @@ import { memo } from 'react';
 import styled from 'styled-components';
 import ButtonAddToCart from '../ButtonAddToCart/ButtonAddToCart';
 import AddToCartIcon from '../../assets/add-to-cart.svg?react';
-import { COLORS } from '../../constants';
 import type { ProductType } from '../../types/product';
 
 const ProductCard = ({ product }: { product: ProductType }) => {
@@ -11,10 +10,10 @@ const ProductCard = ({ product }: { product: ProductType }) => {
 
   return (
     <ProductCardContainer to={id}>
-      <ProductImage src={`/${imageSrc}`} alt={name} />
+      <Title>{name}</Title>
+      <img src={`/${imageSrc}`} alt={name} />
       <Footer>
-        <Name>{name}</Name>
-        <span>{price}$</span>
+        <Price>${price}</Price>
         <ButtonAddToCart product={product}>
           <AddToCartIcon
             width={18}
@@ -29,21 +28,19 @@ const ProductCard = ({ product }: { product: ProductType }) => {
 };
 
 export const ProductCardContainer = styled(Link)`
-  width: 100%;
+  padding: ${({ theme }) => theme.space[2]}px;
+  background: ${({ theme }) => theme.colors.surface};
+  border-radius: ${({ theme }) => theme.radii.md};
+  box-shadow: ${({ theme }) => theme.shadows.low};
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: 350px;
-  align-items: center;
-  position: relative;
-  border: 1px solid ${COLORS.borderPrimary};
-  border-radius: 10px;
-  overflow: hidden;
-`;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 
-const ProductImage = styled.img`
-  width: 100%;
-  height: 95%;
-  object-fit: cover;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: ${({ theme }) => theme.shadows.mid};
+  }
 `;
 
 const Footer = styled.div`
@@ -55,15 +52,24 @@ const Footer = styled.div`
   gap: 20px;
   padding-left: 20px;
   text-align: left;
-  border-top: 1px solid ${COLORS.borderPrimary};
   font-size: 18px;
 `;
 
-const Name = styled.span`
+const Title = styled.h3`
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin: 0 0 ${({ theme }) => theme.space[2]}px;
+  color: ${({ theme }) => theme.colors.textPrimary};
   display: -webkit-box;
   -webkit-line-clamp: 2;
   line-clamp: 2;
   -webkit-box-orient: vertical;
+`;
+
+const Price = styled.span`
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 export default memo(ProductCard);

@@ -34,7 +34,9 @@ const Product = () => {
           <Description>{description}</Description>
           <ProductAttributes product={productData} />
           <Price>${price}</Price>
-          <ButtonAddToCart product={productData}>ADD TO CART</ButtonAddToCart>
+          <ButtonWrapper>
+            <ButtonAddToCart product={productData}>ADD TO CART</ButtonAddToCart>
+          </ButtonWrapper>
         </DataBlock>
       </ProductContainer>
     </>
@@ -44,10 +46,13 @@ const Product = () => {
 const ProductContainer = styled.div`
   display: flex;
   text-align: center;
+  gap: 16px;
 `;
 
 const Image = styled.img`
-  max-width: 800px;
+  max-width: 600px;
+  border-radius: ${({ theme }) => theme.radii.md};
+  box-shadow: ${({ theme }) => theme.shadows.low};
 `;
 
 const DataBlock = styled.div`
@@ -62,6 +67,11 @@ const Description = styled.p`
 
 const Price = styled.strong`
   font-size: 1.6rem;
+`;
+
+const ButtonWrapper = styled.div`
+  margin: 0 auto;
+  max-width: 240px;
 `;
 
 export default Product;

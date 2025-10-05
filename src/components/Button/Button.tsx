@@ -1,9 +1,8 @@
 import { useMemo, memo } from 'react';
 import styled from 'styled-components';
 import { SpinnerContainer } from '../Spinner/Spinner';
-import { COLORS, MEDIA_QUERIES } from '../../constants';
 
-type Variant = 'default' | 'inverted' | 'google';
+type Variant = 'primary' | 'secondary' | 'outline';
 
 type ButtonProps = {
   variant?: Variant;
@@ -13,12 +12,12 @@ type ButtonProps = {
 
 const getButtonType = (variant: Variant): React.ElementType => {
   switch (variant) {
-    case 'default':
-      return DefaultButton;
-    case 'inverted':
-      return InvertedButton;
-    case 'google':
-      return GoogleButton;
+    case 'primary':
+      return PrimaryButton;
+    case 'secondary':
+      return SecondaryButton;
+    case 'outline':
+      return OutlineButton;
     default:
       throw new Error(`Unsupported button variant: ${variant}`);
   }
@@ -27,7 +26,7 @@ const getButtonType = (variant: Variant): React.ElementType => {
 const Button = memo(
   ({
     children,
-    variant = 'default',
+    variant = 'primary',
     disabled,
     loading = false,
     ...delegated
@@ -42,67 +41,69 @@ const Button = memo(
   }
 );
 
+export default Button;
+
 const ButtonBase = styled.button`
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  border-radius: ${({ theme }) => theme.radii.sm};
+  border: none;
+  padding: ${({ theme }) => theme.space[2]}px ${({ theme }) => theme.space[4]}px;
+  font-size: 1rem;
+  font-weight: 600;
   font-family: inherit;
   text-transform: uppercase;
   cursor: pointer;
-  will-change: auto;
-  transition: all 0.25s;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-  &:focus,
-  &:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
   }
 
-  @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
-    padding: 0.3em 0.6em;
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
   }
-`;
 
-const DefaultButton = styled(ButtonBase)`
-  background-color: ${COLORS.primary};
-
-  @media (hover: hover) and (pointer: fine) {
-    &:hover {
-      border-color: ${COLORS.thertiary};
-    }
+  @media (max-width: 480px) {
+    padding: ${({ theme }) => theme.space[1]}px
+      ${({ theme }) => theme.space[2]}px;
   }
 `;
 
-const InvertedButton = styled(ButtonBase)`
-  background-color: ${COLORS.secondary};
-  color: ${COLORS.primary};
-  border: 1px solid ${COLORS.primary};
+const PrimaryButton = styled(ButtonBase)`
+  background: ${({ theme }) => theme.colors.primary};
+  color: white;
 
-  @media (hover: hover) and (pointer: fine) {
-    &:hover {
-      background-color: ${COLORS.primary};
-      color: ${COLORS.secondary};
-      border-color: ${COLORS.thertiary};
-    }
+  &:hover:not(:disabled) {
+    background: #4338ca;
   }
 `;
 
-const GoogleButton = styled(ButtonBase)`
-  background-color: ${COLORS.thertiary};
-  color: ${COLORS.primary};
+const SecondaryButton = styled(ButtonBase)`
+  background: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.surface};
 
-  @media (hover: hover) and (pointer: fine) {
-    &:hover {
-      background-color: ${COLORS.thertiary};
-      border-color: ${COLORS.primary};
-    }
+  &:hover:not(:disabled) {
+    background: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.surface};
+  }
+`;
+
+const OutlineButton = styled(ButtonBase)`
+  background: transparent;
+  border: 2px solid ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.primary};
+
+  &:hover:not(:disabled) {
+    background: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.surface};
   }
 `;
 
 const ButtonSpinner = styled(SpinnerContainer)`
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 `;
-
-export default Button;

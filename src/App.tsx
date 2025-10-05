@@ -7,7 +7,6 @@ import {
 } from './utils/firebase/firebase';
 
 import { Routes, Route } from 'react-router-dom';
-import GlobalStyles from './GlobalStyles';
 import { setCurrentUser } from './store/user/reducer';
 import { setCategories } from './store/categories/reducer';
 import type { UserType } from './types/user';
@@ -70,8 +69,6 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-
-      <GlobalStyles />
     </Suspense>
   );
 };

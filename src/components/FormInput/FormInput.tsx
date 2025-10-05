@@ -30,20 +30,22 @@ const Field = css`
   background: none;
   background-color: transparent;
   color: ${COLORS.textColorPrimary};
-  font-size: 18px;
-  padding: 10px 10px 10px 5px;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid ${COLORS.borderSecondary};
+  font-size: 1rem;
+  padding: ${({ theme }) => theme.space[2]}px ${({ theme }) => theme.space[3]}px;
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: ${({ theme }) => theme.radii.sm};
+  transition: border-color 0.2s ease;
 
   &:focus {
     outline: none;
+    border-color: ${({ theme }) => theme.colors.primary};
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
   }
 
   &:focus + label,
   &:not(:placeholder-shown) + label {
-    top: -14px;
-    font-size: 12px;
+    top: -22px;
+    font-size: 0.875rem;
     color: initial;
     cursor: default;
   }
@@ -60,10 +62,10 @@ const TextareaField = styled.textarea`
 
 const InputLabel = styled.label`
   position: absolute;
-  top: 10px;
-  left: 5px;
+  top: 6px;
+  left: 12px;
   color: ${COLORS.textColorPrimary};
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: normal;
   cursor: text;
 
