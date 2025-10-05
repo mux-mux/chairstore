@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { COLORS } from '../../constants';
 import type { CategoryType } from '../../types/category';
 
 const Category = ({ title, path, imageSrc }: CategoryType) => {
@@ -16,13 +15,18 @@ const Category = ({ title, path, imageSrc }: CategoryType) => {
 
 const CategoryLink = styled(Link)`
   position: relative;
-  height: 240px;
-  border: 1px solid ${COLORS.borderPrimary};
-  border-radius: 5px;
+  padding: ${({ theme }) => theme.space[2]}px;
+  background: ${({ theme }) => theme.colors.surface};
+  border-radius: ${({ theme }) => theme.radii.md};
+  box-shadow: ${({ theme }) => theme.shadows.low};
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   &:hover {
-    cursor: pointer;
+    transform: translateY(-3px);
+    box-shadow: ${({ theme }) => theme.shadows.mid};
   }
 `;
 
@@ -32,8 +36,8 @@ const Box = styled.div`
   left: 50%;
   transform: translateX(-50%);
   border-radius: 10px;
-  border: 1px solid ${COLORS.borderPrimary};
-  background-color: ${COLORS.bgColorPrimary};
+  background: ${({ theme }) => theme.colors.surface};
+  color: ${({ theme }) => theme.colors.textPrimary};
   opacity: 0.85;
   will-change: opacity;
   transition: 500ms ease-in-out;

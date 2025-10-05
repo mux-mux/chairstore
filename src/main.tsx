@@ -4,6 +4,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Elements } from '@stripe/react-stripe-js';
 import { stripePromise } from './utils/stripe/stripe.ts';
+import { ThemeProvider } from 'styled-components';
+import { theme } from './theme/theme.ts';
+import GlobalStyle from './GlobalStyle';
 
 import { Provider } from 'react-redux';
 
@@ -13,14 +16,17 @@ import persistor from './store/persistors/persistor.ts';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter>
-          <Elements stripe={stripePromise}>
-            <App />
-          </Elements>
-        </BrowserRouter>
-      </PersistGate>
-    </Provider>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <BrowserRouter>
+            <Elements stripe={stripePromise}>
+              <App />
+            </Elements>
+          </BrowserRouter>
+        </PersistGate>
+      </Provider>
+    </ThemeProvider>
   </StrictMode>
 );

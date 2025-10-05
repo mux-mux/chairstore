@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import type { ProductType } from '../../types/product';
-import { COLORS } from '../../constants';
 
 type FiltersTypes = {
   color: string | null;
@@ -53,9 +52,9 @@ const SidebarFilters = ({
     <Sidebar>
       <Header>Filters</Header>
 
-      <FilterGroup>Color:</FilterGroup>
+      <FilterName>Color:</FilterName>
       {[...allColors].map((color) => (
-        <Label key={color}>
+        <Checkbox key={color}>
           <input
             type="checkbox"
             name="color"
@@ -63,12 +62,12 @@ const SidebarFilters = ({
             onChange={() => toggleFilter('color', color)}
           />
           {color}
-        </Label>
+        </Checkbox>
       ))}
 
-      <FilterGroup>Seat:</FilterGroup>
+      <FilterName>Seat:</FilterName>
       {[...allSeats].map((seat) => (
-        <Label key={seat}>
+        <Checkbox key={seat}>
           <input
             type="checkbox"
             name="seat"
@@ -76,12 +75,12 @@ const SidebarFilters = ({
             onChange={() => toggleFilter('seat', seat)}
           />
           {seat}
-        </Label>
+        </Checkbox>
       ))}
 
-      <FilterGroup>Legs:</FilterGroup>
+      <FilterName>Legs:</FilterName>
       {[...allLegs].map((legs) => (
-        <Label key={legs}>
+        <Checkbox key={legs}>
           <input
             type="checkbox"
             name="legs"
@@ -89,14 +88,14 @@ const SidebarFilters = ({
             onChange={() => toggleFilter('legs', legs)}
           />
           {legs}
-        </Label>
+        </Checkbox>
       ))}
 
       {[...allSpecs].length > 0 && (
         <>
-          <FilterGroup>Specs:</FilterGroup>
+          <FilterName>Specs:</FilterName>
           {[...allSpecs].map((spec) => (
-            <Label key={spec}>
+            <Checkbox key={spec}>
               <input
                 type="checkbox"
                 name="spec"
@@ -104,7 +103,7 @@ const SidebarFilters = ({
                 onChange={() => toggleFilter('spec', spec)}
               />
               {spec}
-            </Label>
+            </Checkbox>
           ))}
         </>
       )}
@@ -113,24 +112,35 @@ const SidebarFilters = ({
 };
 
 const Sidebar = styled.div`
-  min-width: 200px;
-  padding: 0 20px;
+  background: ${({ theme }) => theme.colors.surface};
+  border-radius: ${({ theme }) => theme.radii.md};
+  box-shadow: ${({ theme }) => theme.shadows.low};
+  padding: ${({ theme }) => theme.space[4]}px;
+  min-width: 240px;
   text-align: left;
-  border-right: 1px solid ${COLORS.borderPrimary};
 `;
 
 const Header = styled.h2`
   position: relative;
-  top: -5px;
   margin-top: 0;
 `;
 
-const FilterGroup = styled.h3`
-  margin: 0;
+const FilterName = styled.h3`
+  font-size: 1rem;
+  margin-bottom: ${({ theme }) => theme.space[2]}px;
+  color: ${({ theme }) => theme.colors.textSecondary};
 `;
 
-const Label = styled.label`
-  display: block;
+const Checkbox = styled.label`
+  display: flex;
+  align-items: center;
+  gap: ${({ theme }) => theme.space[2]}px;
+  font-size: 0.95rem;
+  color: ${({ theme }) => theme.colors.textPrimary};
+
+  input {
+    accent-color: ${({ theme }) => theme.colors.primary};
+  }
 `;
 
 export default SidebarFilters;

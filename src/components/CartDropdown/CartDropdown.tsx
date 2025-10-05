@@ -37,9 +37,7 @@ const CartDropdown = () => {
             <EmptyMessage>Your cart is empty</EmptyMessage>
           )}
         </CartItems>
-        <CartButton variant="default" onClick={handleClick}>
-          GO TO CHECKOUT
-        </CartButton>
+        <CartButton onClick={handleClick}>GO TO CHECKOUT</CartButton>
       </CartDropdownContainer>
       <CartOverlay />
     </>

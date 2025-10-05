@@ -65,7 +65,7 @@ const Contact = () => {
           required
         />
 
-        <Button type="submit" variant="inverted">
+        <Button type="submit" variant="primary">
           Send Message
         </Button>
       </ContactForm>

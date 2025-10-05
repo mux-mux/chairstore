@@ -29,7 +29,7 @@ const ButtonAddToCart = ({ product, children }: ButtonAddToCartProps) => {
   );
 
   return (
-    <ProductButton variant="inverted" onClick={addProductHandler}>
+    <ProductButton variant="primary" onClick={addProductHandler}>
       {children}
       <CartQuantity>
         {cartItems.map((item) => {
@@ -49,10 +49,11 @@ const ProductButton = styled(Button)`
 const CartQuantity = styled.span`
   position: absolute;
   left: 50%;
-  bottom: -1px;
+  bottom: -15px;
   transform: translateX(-50%);
   width: 100%;
   font-size: 0.7rem;
+  color: ${({ theme }) => theme.colors.textPrimary};
 `;
 
 export default memo(ButtonAddToCart);

@@ -101,10 +101,8 @@ const SignIn = () => {
           required
         />
         <ButtonsContainer>
-          <Button type="submit" variant="default">
-            Sign In
-          </Button>
-          <Button type="button" variant="google" onClick={signInWithGoogle}>
+          <Button type="submit">Sign In</Button>
+          <Button type="button" variant="primary" onClick={signInWithGoogle}>
             Google sign in
           </Button>
         </ButtonsContainer>

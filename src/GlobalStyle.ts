@@ -1,12 +1,17 @@
 import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyles = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
 * {
   box-sizing: border-box;
 }
 
 body {
     min-height: 100%;
+    margin: 0;
+    min-width: 320px;
+    padding: 10px;
+    text-align: center;
+    scrollbar-gutter: stable;
 }
 
 :root {
@@ -18,8 +23,8 @@ body {
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.textPrimary};
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -41,27 +46,12 @@ body {
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
+  color: inherit;
   text-decoration: none;
-
-  @media (hover: hover) and (pointer: fine) {
-    &:hover {
-      color: #535bf2;
-    }
-  }
 }
 
 input[type="checkbox"] {
   vertical-align: middle;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  padding: 10px;
-  text-align: center;
-  scrollbar-gutter: stable;
 }
 
 h1 {
@@ -71,23 +61,8 @@ h1 {
 
 img {
   width: 100%;
-    object-fit: cover;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  @media (hover: hover) and (pointer: fine) {
-  a:hover {
-    color: #747bff;
-  }
-}
-  button {
-    background-color: #f9f9f9;
-  }
+  object-fit: cover;
 }
 `;
 
-export default GlobalStyles;
+export default GlobalStyle;

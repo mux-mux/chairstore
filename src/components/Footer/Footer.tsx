@@ -26,15 +26,16 @@ const Footer = () => {
 };
 
 const Wrapper = styled.footer`
-  margin: 0 auto;
-  margin-top: auto;
+  margin-top: ${({ theme }) => theme.space[6]}px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 64px;
-  width: 100%;
-  max-width: 55rem;
-  padding: 16px;
+  background: ${({ theme }) => theme.colors.surface};
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: ${({ theme }) => theme.radii.md};
+  padding: ${({ theme }) => theme.space[6]}px;
+  color: ${({ theme }) => theme.colors.textSecondary};
+  font-size: 0.9rem;
 `;
 
 const Attributes = styled.p`
