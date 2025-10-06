@@ -18,19 +18,17 @@ const CheckoutItem = ({ cartItem }: CartItemProps) => {
 
   return (
     <CheckoutItemContainer>
-      <>
-        <ImageContainer>
-          <img src={`/${imageSrc}`} alt={name} />
-        </ImageContainer>
-        <Name>{name}</Name>
-        <QuantityContainer>
-          <BaseButton onClick={removeItemHandler}>&#10094;</BaseButton>
-          <Quantity>{quantity}</Quantity>
-          <BaseButton onClick={addItemHandler}>&#10095;</BaseButton>
-        </QuantityContainer>
-        <Price>{price}</Price>
-        <RemoveButton onClick={clearItemHandler}>&#10006;</RemoveButton>
-      </>
+      <ImageContainer>
+        <img src={`/${imageSrc}`} alt={name} />
+      </ImageContainer>
+      <Name>{name}</Name>
+      <QuantityContainer>
+        <BaseButton onClick={removeItemHandler}>&#10094;</BaseButton>
+        <Quantity>{quantity}</Quantity>
+        <BaseButton onClick={addItemHandler}>&#10095;</BaseButton>
+      </QuantityContainer>
+      <Price>{price}</Price>
+      <RemoveButton onClick={clearItemHandler}>&#10006;</RemoveButton>
     </CheckoutItemContainer>
   );
 };
@@ -40,7 +38,6 @@ const CheckoutItemContainer = styled.div`
   display: flex;
   min-height: 100px;
   border-bottom: 1px solid ${COLORS.borderSecondary};
-  padding: 15px 0;
   font-size: 20px;
   align-items: center;
 `;

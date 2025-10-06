@@ -25,53 +25,170 @@ const Product = () => {
   const { name, price, imageSrc, description } = productData;
 
   return (
-    <>
+    <PageWrapper>
       <Breadcrumbs />
       <ProductContainer>
-        <Image src={`/${imageSrc}`} alt={name} />
+        <ImageWrapper>
+          <Image src={`/${imageSrc}`} alt={name} />
+        </ImageWrapper>
         <DataBlock>
-          <h2>{name}</h2>
+          <Title>{name}</Title>
           <Description>{description}</Description>
           <ProductAttributes product={productData} />
-          <Price>${price}</Price>
+          <PriceWrapper>
+            <Price>${price}</Price>
+          </PriceWrapper>
           <ButtonWrapper>
             <ButtonAddToCart product={productData}>ADD TO CART</ButtonAddToCart>
           </ButtonWrapper>
         </DataBlock>
       </ProductContainer>
-    </>
+    </PageWrapper>
   );
 };
 
+const PageWrapper = styled.div`
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 16px;
+
+  @media (max-width: 768px) {
+    padding: 0 12px;
+  }
+`;
+
 const ProductContainer = styled.div`
   display: flex;
-  text-align: center;
-  gap: 16px;
+  gap: 40px;
+  margin-top: 24px;
+
+  @media (max-width: 968px) {
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 16px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 16px;
+  }
+`;
+
+const ImageWrapper = styled.div`
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 968px) {
+    max-width: 100%;
+    align-items: center;
+  }
 `;
 
 const Image = styled.img`
+  width: 100%;
+  height: auto;
   max-width: 600px;
   border-radius: ${({ theme }) => theme.radii.md};
   box-shadow: ${({ theme }) => theme.shadows.low};
+  object-fit: cover;
+
+  @media (max-width: 968px) {
+    max-width: 500px;
+  }
+
+  @media (max-width: 640px) {
+    max-width: 100%;
+    border-radius: ${({ theme }) => theme.radii.sm};
+  }
 `;
 
 const DataBlock = styled.div`
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
+  min-width: 0;
+
+  @media (max-width: 968px) {
+    gap: 16px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 12px;
+  }
+`;
+
+const Title = styled.h2`
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  color: ${({ theme }) => theme.colors.textPrimary};
+
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const Description = styled.p`
   text-align: left;
+  line-height: 1.6;
+  color: ${({ theme }) => theme.colors.textSecondary};
+  margin: 0;
+  font-size: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.875rem;
+  }
+`;
+
+const PriceWrapper = styled.div`
+  margin-top: 8px;
+
+  @media (max-width: 968px) {
+    margin-top: 4px;
+  }
 `;
 
 const Price = styled.strong`
-  font-size: 1.6rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.primary};
+  display: block;
+
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const ButtonWrapper = styled.div`
-  margin: 0 auto;
-  max-width: 240px;
+  margin-top: 12px;
+
+  @media (max-width: 968px) {
+    max-width: 100%;
+    margin-top: 8px;
+  }
+
+  @media (max-width: 480px) {
+    button {
+      width: 100%;
+    }
+  }
 `;
 
 export default Product;

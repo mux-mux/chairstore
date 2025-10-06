@@ -1,13 +1,15 @@
-import { RefObject, useEffect } from 'react';
+import { Dispatch, RefObject, SetStateAction, useEffect } from 'react';
 
 const useClickOutside = (
   ref: RefObject<HTMLElement | null>,
-  onClose: () => void
+  onClose: (() => void) | Dispatch<SetStateAction<boolean>>
 ) => {
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node)) {
-        onClose();
+        if (typeof onClose === 'function') {
+          (onClose as Dispatch<SetStateAction<boolean>>)(false);
+        }
       }
     };
 

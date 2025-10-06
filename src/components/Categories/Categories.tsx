@@ -24,11 +24,11 @@ const Categories = () => {
 const CategoriesContainer = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 300px);
-  gap: 30px;
-  place-content: center;
-  margin: auto;
-  text-align: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: ${({ theme }) => theme.space[5]}px;
+  padding: ${({ theme }) => theme.space[5]}px ${({ theme }) => theme.space[4]}px;
+  margin: 0 auto;
+  max-width: 1200px;
 `;
 
 export default Categories;

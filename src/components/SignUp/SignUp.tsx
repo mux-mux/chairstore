@@ -121,8 +121,7 @@ const SignUp = () => {
 const SignUpContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 380px;
-  margin: 0 auto;
+  flex-basis: 380px;
 `;
 
 const SignUpHeading = styled.h2`

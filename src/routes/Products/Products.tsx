@@ -96,7 +96,8 @@ const MainContainer = styled.div`
 
 const ProductsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, 250px);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  align-items: flex-start;
   padding: 0 20px;
   gap: 20px;
   flex: 1;
