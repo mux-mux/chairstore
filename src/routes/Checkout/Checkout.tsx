@@ -25,7 +25,7 @@ const Checkout = () => {
           <span>Price</span>
         </HeaderColumn>
         <HeaderColumn>
-          <span>Remove</span>
+          <span></span>
         </HeaderColumn>
       </CheckoutHeader>
 
@@ -42,12 +42,19 @@ const Checkout = () => {
 };
 
 const CheckoutContainer = styled.div`
-  width: 55%;
-  min-height: 90vh;
+  width: 65%;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 50px auto 0;
+
+  @media (max-width: 768px) {
+    width: 85%;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
 `;
 const CheckoutHeader = styled.div`
   width: 100%;

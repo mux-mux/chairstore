@@ -28,6 +28,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
 };
 
 export const ProductCardContainer = styled(Link)`
+  position: relative;
   padding: ${({ theme }) => theme.space[2]}px;
   background: ${({ theme }) => theme.colors.surface};
   border-radius: ${({ theme }) => theme.radii.md};
@@ -35,10 +36,9 @@ export const ProductCardContainer = styled(Link)`
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: box-shadow 0.1s ease;
 
   &:hover {
-    transform: translateY(-3px);
     box-shadow: ${({ theme }) => theme.shadows.mid};
   }
 `;

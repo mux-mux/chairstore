@@ -12,7 +12,7 @@ import { setCategories } from './store/categories/reducer';
 import type { UserType } from './types/user';
 
 import Home from './routes/Home/Home';
-import Navigation from './routes/Navigation/Navigation';
+import Navigation from './components/Navigation/Navigation';
 import Spinner from './components/Spinner/Spinner';
 import Products from './routes/Products/Products';
 import Product from './routes/Product/Product';

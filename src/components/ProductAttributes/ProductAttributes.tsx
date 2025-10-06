@@ -58,6 +58,8 @@ const TableWrapper = styled.div`
 
 const Table = styled.table`
   width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
   border-collapse: collapse;
 `;
 

@@ -114,8 +114,7 @@ const SignIn = () => {
 const SignInContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 380px;
-  margin: 0 auto;
+  flex-basis: 380px;
 `;
 
 const SignInHeading = styled.h2`

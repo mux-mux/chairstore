@@ -65,28 +65,22 @@ const PaymentForm = () => {
 
   return (
     <PaymentFormContainer>
-      <FormContainer onSubmit={paymentHandler}>
+      <form onSubmit={paymentHandler}>
         <h2>Credit Card Payment:</h2>
         <CardElement />
         <PaymentButton variant="primary" loading={isProcessing}>
           Pay
         </PaymentButton>
-      </FormContainer>
+      </form>
     </PaymentFormContainer>
   );
 };
 
 const PaymentFormContainer = styled.div`
-  height: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`;
-
-const FormContainer = styled.form`
-  height: 100px;
-  min-width: 500px;
 `;
 
 const PaymentButton = styled(Button)`

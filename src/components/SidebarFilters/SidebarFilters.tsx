@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import type { ProductType } from '../../types/product';
+import { MEDIA_QUERIES } from '../../constants';
 
 type FiltersTypes = {
   color: string | null;
@@ -118,6 +119,10 @@ const Sidebar = styled.div`
   padding: ${({ theme }) => theme.space[4]}px;
   min-width: 240px;
   text-align: left;
+
+  @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
+    display: none;
+  }
 `;
 
 const Header = styled.h2`
