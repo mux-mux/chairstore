@@ -1,6 +1,6 @@
 import { useState, useRef, Suspense, lazy } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useSelector } from 'react-redux';
 import { selectIsCartOpen } from '../../store/cart/selector';
 import { selectUser } from '../../store/user/selector';
@@ -12,14 +12,15 @@ import Search from '../Search/Search';
 const CartDropdown = lazy(() => import('../CartDropdown/CartDropdown'));
 import { MEDIA_QUERIES } from '../../constants';
 import Footer from '../Footer/Footer';
-import useOutsideClick from '../../hooks/useClickOutside';
+import useClickOutside from '../../hooks/useClickOutside';
 
 const Navigation = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const mobileMenuRef = useRef(null);
   const currentUser = useSelector(selectUser);
   const isCartOpen = useSelector(selectIsCartOpen);
-  useOutsideClick(mobileMenuRef, setMenuOpen);
+
+  useClickOutside(mobileMenuRef, setMenuOpen);
 
   const location = useLocation();
   const isRoot = location.pathname === '/';
@@ -70,14 +71,30 @@ const Navigation = () => {
       </NavContainer>
 
       {menuOpen && (
-        <MobileMenu ref={mobileMenuRef}>
-          {!isRoot && <MobileLink to="/">CATEGORIES</MobileLink>}
-          {currentUser ? (
-            <MobileButton onClick={signOutUser}>SIGN OUT</MobileButton>
-          ) : (
-            <MobileLink to="/auth">SIGN IN</MobileLink>
-          )}
-        </MobileMenu>
+        <>
+          <MobileMenu ref={mobileMenuRef}>
+            {!isRoot && (
+              <MobileLink to="/" onClick={() => setMenuOpen(false)}>
+                CATEGORIES
+              </MobileLink>
+            )}
+            {currentUser ? (
+              <MobileButton
+                onClick={() => {
+                  signOutUser();
+                  setMenuOpen(false);
+                }}
+              >
+                SIGN OUT
+              </MobileButton>
+            ) : (
+              <MobileLink to="/auth" onClick={() => setMenuOpen(false)}>
+                SIGN IN
+              </MobileLink>
+            )}
+          </MobileMenu>
+          <MobileMenuOverlay />
+        </>
       )}
 
       <Outlet />
@@ -95,6 +112,7 @@ const NavContainer = styled.div`
   background: ${({ theme }) => theme.colors.surface};
   box-shadow: ${({ theme }) => theme.shadows.low};
   padding: ${({ theme }) => theme.space[3]}px ${({ theme }) => theme.space[4]}px;
+  border-radius: ${({ theme }) => theme.radii.md};
   position: sticky;
   top: 0;
   z-index: 20;
@@ -144,7 +162,8 @@ const NavLinks = styled.nav`
     display: none;
   }
 `;
-const NavLink = styled(Link)`
+
+const NavLinkStyles = css`
   padding: 10px 15px;
   text-transform: uppercase;
   font-weight: 500;
@@ -155,6 +174,18 @@ const NavLink = styled(Link)`
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
   }
+`;
+
+const NavLink = styled(Link)`
+  ${NavLinkStyles}
+`;
+
+const NavButton = styled.button`
+  ${NavLinkStyles}
+  font-size: 1rem;
+  font-family: inherit;
+  background: transparent;
+  border: none;
 `;
 
 const Hamburger = styled.button`
@@ -192,33 +223,33 @@ const MobileMenu = styled.div`
   right: 0;
   width: 200px;
   border-radius: ${({ theme }) => theme.radii.md};
-  z-index: 100;
+  z-index: 101;
 
   @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
     top: 60px;
   }
 `;
 
+const MobileMenuOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  @supports (height: max(100%, 100vh)) {
+    height: max(100%, 100vh);
+  }
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  isolation: isolate;
+  z-index: 100;
+`;
+
 const MobileLink = styled(Link)`
   font-weight: 500;
   text-transform: uppercase;
+  text-align: left;
   color: ${({ theme }) => theme.colors.textSecondary};
   padding: 8px 0;
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.primary};
-  }
-`;
-
-const NavButton = styled.button`
-  padding: 10px 15px;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: ${({ theme }) => theme.colors.textSecondary};
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: color 0.2s ease;
 
   &:hover {
     color: ${({ theme }) => theme.colors.primary};

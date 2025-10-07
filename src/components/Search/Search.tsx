@@ -108,7 +108,7 @@ const ResultsList = styled.ul`
   max-height: 350px;
   overflow-y: auto;
   z-index: 10;
-  box-shadow: 0 4px 12px ${COLORS.bgColorTertiary};
+  box-shadow: ${({ theme }) => theme.shadows.low};
   border-radius: 0 0 5px 5px;
 `;
 
@@ -136,10 +136,16 @@ const ResultImage = styled.img`
 const EmptyMessage = styled.div`
   position: absolute;
   left: 50%;
+  width: 100%;
+  padding: ${({ theme }) => theme.space[2]}px;
+  border-radius: ${({ theme }) => theme.radii.sm};
+  box-shadow: ${({ theme }) => theme.shadows.low};
+
   transform: translateX(-50%);
-  margin-top: 5px;
+  margin-top: ${({ theme }) => theme.space[1]}px;
   text-align: center;
   color: ${COLORS.textColorTertiary};
+  background-color: #fff;
   font-size: 0.875rem;
 `;
 

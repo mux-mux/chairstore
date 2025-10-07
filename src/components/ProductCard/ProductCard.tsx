@@ -67,7 +67,7 @@ const Title = styled.h3`
 `;
 
 const Price = styled.span`
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.primary};
 `;

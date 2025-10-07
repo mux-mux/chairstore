@@ -1,50 +1,75 @@
-# React + TypeScript + Vite
+# :seat: Chairstore - Modern E-Commerce :fire:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Build, browse, and buy with ease using this sleek full-stack E-commerce built on the React + Vite stack.
 
-Currently, two official plugins are available:
+## [Live Link](https://chairsstore.vercel.app/) :link:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<div align="center">
+  <img src="https://jsgo.pro/media/gif/chairstore.gif" alt="Chairstore Demo" />
+  <br>
+</div>
 
-## Expanding the ESLint configuration
+## Folder structure :open_file_folder:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+<div align="center">
+  <img src="https://jsgo.pro/media/structure/chairstore_project_structure.png" alt="Chairstore Folder structure" width="100%" />
+  <br>
+</div>
 
-- Configure the top-level `parserOptions` property like this:
+## How To Use :closed_lock_with_key:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### 1️⃣ Create Firebase and Stripe Accounts
+
+You'll need accounts for authentication and payment integration:
+
+🔗 [Firebase](https://firebase.google.com/)
+🔗 [Stripe](https://stripe.com/)
+
+### 2️⃣ Clone the Repository
+
+Open a terminal or command prompt and run:
+
+```sh
+git clone git@github.com:mux-mux/chairstore.git
+cd chairstore
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 3️⃣ Configure Environment Variables
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+In the project root, create a `.env` file with the following values:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```sh
+# App Config
+NODE_ENV=development
+
+# Firebase Config
+VITE_FIREBASE_API_KEY=YOUR_API_KEY
+VITE_FIREBASE_APP_ID=YOUR_APP_ID
+VITE_FIREBASE_MESSAGING_SENDER_ID=YOUR_MESSAGING_SENDER_ID
+
+# Stripe Config
+VITE_STRIPE_PUBLIC_KEY=YOUR_STRIPE_SANDBOX_PUBLIC_KEY
+STRIPE_SECRET_KEY=YOUR_STRIPE_SANDBOX_SECRET_KEY
 ```
+
+### 4️⃣ Install Dependencies & Start the App
+
+This will Open the browser & listen to files changes<br/>
+
+```sh
+npm install
+npm run dev
+```
+
+Your app should now be running!<br/>
+On: 🔗 http://localhost:5173
+
+### Tech Stack
+
+<ul>
+<li>⚛️ React + Vite</li>
+<li>🔥 Firebase (Auth, Database)</li>
+<li>💳 Stripe (Payments)</li>
+<li>🎨 Styled Components / CSS</li>
+<li>🚀 Deployed on Vercel</li>
+</ul>

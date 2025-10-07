@@ -36,8 +36,10 @@ const CartDropdown = () => {
           ) : (
             <EmptyMessage>Your cart is empty</EmptyMessage>
           )}
+          {cartItems.length > 0 && (
+            <CartButton onClick={handleClick}>GO TO CHECKOUT</CartButton>
+          )}
         </CartItems>
-        <CartButton onClick={handleClick}>GO TO CHECKOUT</CartButton>
       </CartDropdownContainer>
       <CartOverlay />
     </>
@@ -65,9 +67,12 @@ const CartDropdownContainer = styled.div`
   flex-direction: column;
   padding: 20px;
   border: none;
+  border-radius: ${({ theme }) => theme.radii.md};
+  box-shadow: ${({ theme }) => theme.shadows.low};
   background-color: ${COLORS.bgColorPrimary};
   top: 60px;
   right: 10px;
+  overflow: hidden;
   isolation: isolate;
   z-index: 101;
 `;
@@ -77,12 +82,13 @@ const CloseCart = styled.button`
   top: 0;
   right: 0;
   border: none;
+  border-radius: 0 0 0 5px;
   background-color: #eb6a6a;
   font-size: 1rem;
   cursor: pointer;
 `;
 const CartItems = styled.div`
-  height: 240px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   overflow: auto;

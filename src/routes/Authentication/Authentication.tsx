@@ -15,7 +15,7 @@ const AuthenticationContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: ${({ theme }) => theme.space[6]}px;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin: auto 0;
 `;
 
