@@ -22,7 +22,7 @@ const Checkout = () => {
           <span>Quantity</span>
         </HeaderColumn>
         <HeaderColumn>
-          <span>Price</span>
+          <span>Price/item</span>
         </HeaderColumn>
         <HeaderColumn>
           <span></span>
@@ -35,7 +35,7 @@ const Checkout = () => {
           cartItem={cartItem}
         />
       ))}
-      <CheckoutTotal>Total: {cartTotalPrice}$</CheckoutTotal>
+      <CheckoutTotal>Total: ${cartTotalPrice}</CheckoutTotal>
       <PaymentForm />
     </CheckoutContainer>
   );

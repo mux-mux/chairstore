@@ -66,11 +66,6 @@ const ButtonBase = styled.button`
     cursor: not-allowed;
     opacity: 0.6;
   }
-
-  @media (max-width: 480px) {
-    padding: ${({ theme }) => theme.space[1]}px
-      ${({ theme }) => theme.space[2]}px;
-  }
 `;
 
 const PrimaryButton = styled(ButtonBase)`

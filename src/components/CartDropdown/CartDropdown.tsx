@@ -36,8 +36,10 @@ const CartDropdown = () => {
           ) : (
             <EmptyMessage>Your cart is empty</EmptyMessage>
           )}
+          {cartItems.length > 0 && (
+            <CartButton onClick={handleClick}>GO TO CHECKOUT</CartButton>
+          )}
         </CartItems>
-        <CartButton onClick={handleClick}>GO TO CHECKOUT</CartButton>
       </CartDropdownContainer>
       <CartOverlay />
     </>
@@ -86,7 +88,7 @@ const CloseCart = styled.button`
   cursor: pointer;
 `;
 const CartItems = styled.div`
-  height: 240px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   overflow: auto;
