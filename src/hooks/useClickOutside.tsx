@@ -2,16 +2,11 @@ import { Dispatch, RefObject, SetStateAction, useEffect } from 'react';
 
 const useClickOutside = (
   ref: RefObject<HTMLElement | null>,
-  onClose: (() => void) | Dispatch<SetStateAction<boolean>>,
-  ignoreRef?: RefObject<HTMLElement | null>
+  onClose: (() => void) | Dispatch<SetStateAction<boolean>>
 ) => {
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (
-        ref.current &&
-        !ref.current.contains(e.target as Node) &&
-        !(ignoreRef?.current && ignoreRef.current.contains(e.target as Node))
-      ) {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
         if (typeof onClose === 'function') {
           (onClose as Dispatch<SetStateAction<boolean>>)(false);
         }
@@ -21,7 +16,7 @@ const useClickOutside = (
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [ref, onClose, ignoreRef]);
+  }, [ref, onClose]);
 };
 
 export default useClickOutside;

@@ -17,11 +17,10 @@ import useClickOutside from '../../hooks/useClickOutside';
 const Navigation = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const mobileMenuRef = useRef(null);
-  const hamburgerRef = useRef<HTMLButtonElement | null>(null);
   const currentUser = useSelector(selectUser);
   const isCartOpen = useSelector(selectIsCartOpen);
 
-  useClickOutside(mobileMenuRef, setMenuOpen, hamburgerRef);
+  useClickOutside(mobileMenuRef, setMenuOpen);
 
   const location = useLocation();
   const isRoot = location.pathname === '/';
@@ -50,7 +49,6 @@ const Navigation = () => {
           <CartIcon />
 
           <Hamburger
-            ref={hamburgerRef}
             onClick={() => setMenuOpen((prev: boolean) => !prev)}
             aria-label="Toggle menu"
           >
@@ -73,27 +71,30 @@ const Navigation = () => {
       </NavContainer>
 
       {menuOpen && (
-        <MobileMenu ref={mobileMenuRef}>
-          {!isRoot && (
-            <MobileLink to="/" onClick={() => setMenuOpen(false)}>
-              CATEGORIES
-            </MobileLink>
-          )}
-          {currentUser ? (
-            <MobileButton
-              onClick={() => {
-                signOutUser();
-                setMenuOpen(false);
-              }}
-            >
-              SIGN OUT
-            </MobileButton>
-          ) : (
-            <MobileLink to="/auth" onClick={() => setMenuOpen(false)}>
-              SIGN IN
-            </MobileLink>
-          )}
-        </MobileMenu>
+        <>
+          <MobileMenu ref={mobileMenuRef}>
+            {!isRoot && (
+              <MobileLink to="/" onClick={() => setMenuOpen(false)}>
+                CATEGORIES
+              </MobileLink>
+            )}
+            {currentUser ? (
+              <MobileButton
+                onClick={() => {
+                  signOutUser();
+                  setMenuOpen(false);
+                }}
+              >
+                SIGN OUT
+              </MobileButton>
+            ) : (
+              <MobileLink to="/auth" onClick={() => setMenuOpen(false)}>
+                SIGN IN
+              </MobileLink>
+            )}
+          </MobileMenu>
+          <MobileMenuOverlay />
+        </>
       )}
 
       <Outlet />
@@ -222,11 +223,25 @@ const MobileMenu = styled.div`
   right: 0;
   width: 200px;
   border-radius: ${({ theme }) => theme.radii.md};
-  z-index: 100;
+  z-index: 101;
 
   @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
     top: 60px;
   }
+`;
+
+const MobileMenuOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  @supports (height: max(100%, 100vh)) {
+    height: max(100%, 100vh);
+  }
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  isolation: isolate;
+  z-index: 100;
 `;
 
 const MobileLink = styled(Link)`

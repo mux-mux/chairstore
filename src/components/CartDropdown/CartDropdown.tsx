@@ -65,9 +65,12 @@ const CartDropdownContainer = styled.div`
   flex-direction: column;
   padding: 20px;
   border: none;
+  border-radius: ${({ theme }) => theme.radii.md};
+  box-shadow: ${({ theme }) => theme.shadows.low};
   background-color: ${COLORS.bgColorPrimary};
   top: 60px;
   right: 10px;
+  overflow: hidden;
   isolation: isolate;
   z-index: 101;
 `;
@@ -77,6 +80,7 @@ const CloseCart = styled.button`
   top: 0;
   right: 0;
   border: none;
+  border-radius: 0 0 0 5px;
   background-color: #eb6a6a;
   font-size: 1rem;
   cursor: pointer;

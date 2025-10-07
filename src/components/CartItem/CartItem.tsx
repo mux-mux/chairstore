@@ -31,6 +31,10 @@ const CartItemContainer = styled.div`
   display: flex;
   height: 80px;
   margin-bottom: 15px;
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+  }
 `;
 const ImageContainer = styled.div`
   width: 30%;
