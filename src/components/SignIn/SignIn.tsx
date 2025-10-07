@@ -77,7 +77,7 @@ const SignIn = () => {
         }
       }
     },
-    [email, password]
+    [email, password, navigate]
   );
 
   return (

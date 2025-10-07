@@ -12,14 +12,16 @@ import Search from '../Search/Search';
 const CartDropdown = lazy(() => import('../CartDropdown/CartDropdown'));
 import { MEDIA_QUERIES } from '../../constants';
 import Footer from '../Footer/Footer';
-import useOutsideClick from '../../hooks/useClickOutside';
+import useClickOutside from '../../hooks/useClickOutside';
 
 const Navigation = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const mobileMenuRef = useRef(null);
+  const hamburgerRef = useRef<HTMLButtonElement | null>(null);
   const currentUser = useSelector(selectUser);
   const isCartOpen = useSelector(selectIsCartOpen);
-  useOutsideClick(mobileMenuRef, setMenuOpen);
+
+  useClickOutside(mobileMenuRef, setMenuOpen, hamburgerRef);
 
   const location = useLocation();
   const isRoot = location.pathname === '/';
@@ -48,6 +50,7 @@ const Navigation = () => {
           <CartIcon />
 
           <Hamburger
+            ref={hamburgerRef}
             onClick={() => setMenuOpen((prev: boolean) => !prev)}
             aria-label="Toggle menu"
           >
@@ -71,11 +74,24 @@ const Navigation = () => {
 
       {menuOpen && (
         <MobileMenu ref={mobileMenuRef}>
-          {!isRoot && <MobileLink to="/">CATEGORIES</MobileLink>}
+          {!isRoot && (
+            <MobileLink to="/" onClick={() => setMenuOpen(false)}>
+              CATEGORIES
+            </MobileLink>
+          )}
           {currentUser ? (
-            <MobileButton onClick={signOutUser}>SIGN OUT</MobileButton>
+            <MobileButton
+              onClick={() => {
+                signOutUser();
+                setMenuOpen(false);
+              }}
+            >
+              SIGN OUT
+            </MobileButton>
           ) : (
-            <MobileLink to="/auth">SIGN IN</MobileLink>
+            <MobileLink to="/auth" onClick={() => setMenuOpen(false)}>
+              SIGN IN
+            </MobileLink>
           )}
         </MobileMenu>
       )}
@@ -216,6 +232,7 @@ const MobileMenu = styled.div`
 const MobileLink = styled(Link)`
   font-weight: 500;
   text-transform: uppercase;
+  text-align: left;
   color: ${({ theme }) => theme.colors.textSecondary};
   padding: 8px 0;
 
