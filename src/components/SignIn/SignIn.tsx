@@ -8,6 +8,7 @@ import {
 import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
 import type { FormFieldsType } from '../../types/form';
+import { useNavigate } from 'react-router-dom';
 
 const INITIAL_FORM_FIELDS: FormFieldsType = {
   email: '',
@@ -17,6 +18,7 @@ const INITIAL_FORM_FIELDS: FormFieldsType = {
 const SignIn = () => {
   const [formFields, setFormFields] =
     useState<FormFieldsType>(INITIAL_FORM_FIELDS);
+  const navigate = useNavigate();
   const { email, password } = formFields;
 
   const resetForm = (): void => {
@@ -57,6 +59,7 @@ const SignIn = () => {
         }
 
         resetForm();
+        navigate('/');
       } catch (error) {
         if (error instanceof FirebaseError) {
           switch (error.code) {

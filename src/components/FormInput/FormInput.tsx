@@ -11,7 +11,7 @@ const FormInput = ({ label, type = 'text', ...delegated }: FormInputProps) => {
       {type === 'textarea' ? (
         <TextareaField id={id} {...delegated} />
       ) : (
-        <InputField id={id} {...delegated} />
+        <InputField id={id} type={type} {...delegated} />
       )}
       {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
     </InputContainer>

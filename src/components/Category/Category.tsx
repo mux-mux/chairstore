@@ -41,12 +41,11 @@ const Image = styled.img`
 
 const Name = styled.span`
   position: absolute;
-  bottom: ${({ theme }) => theme.space[3]}px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  bottom: 0;
   color: white;
   background-color: rgba(0, 0, 0, 0.2);
-  border-radius: ${({ theme }) => theme.radii.sm};
   padding: ${({ theme }) => theme.space[1]}px;
   font-size: 1.25rem;
   font-weight: 600;

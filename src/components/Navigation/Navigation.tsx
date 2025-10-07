@@ -1,6 +1,6 @@
 import { useState, useRef, Suspense, lazy } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useSelector } from 'react-redux';
 import { selectIsCartOpen } from '../../store/cart/selector';
 import { selectUser } from '../../store/user/selector';
@@ -95,6 +95,7 @@ const NavContainer = styled.div`
   background: ${({ theme }) => theme.colors.surface};
   box-shadow: ${({ theme }) => theme.shadows.low};
   padding: ${({ theme }) => theme.space[3]}px ${({ theme }) => theme.space[4]}px;
+  border-radius: ${({ theme }) => theme.radii.md};
   position: sticky;
   top: 0;
   z-index: 20;
@@ -144,7 +145,8 @@ const NavLinks = styled.nav`
     display: none;
   }
 `;
-const NavLink = styled(Link)`
+
+const NavLinkStyles = css`
   padding: 10px 15px;
   text-transform: uppercase;
   font-weight: 500;
@@ -155,6 +157,18 @@ const NavLink = styled(Link)`
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
   }
+`;
+
+const NavLink = styled(Link)`
+  ${NavLinkStyles}
+`;
+
+const NavButton = styled.button`
+  ${NavLinkStyles}
+  font-size: 1rem;
+  font-family: inherit;
+  background: transparent;
+  border: none;
 `;
 
 const Hamburger = styled.button`
@@ -204,21 +218,6 @@ const MobileLink = styled(Link)`
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.textSecondary};
   padding: 8px 0;
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.primary};
-  }
-`;
-
-const NavButton = styled.button`
-  padding: 10px 15px;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: ${({ theme }) => theme.colors.textSecondary};
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: color 0.2s ease;
 
   &:hover {
     color: ${({ theme }) => theme.colors.primary};

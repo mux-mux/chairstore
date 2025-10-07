@@ -69,6 +69,9 @@ export const cartSlice = createSlice({
     clearItemFromCart(state, action: PayloadAction<ProductType>) {
       state.cartItems = clearCartItem(state.cartItems, action.payload);
     },
+    clearAllItemsFromCart(state) {
+      state.cartItems = [];
+    },
   },
 });
 
@@ -77,6 +80,7 @@ export const {
   addItemToCart,
   removeItemFromCart,
   clearItemFromCart,
+  clearAllItemsFromCart,
 } = cartSlice.actions;
 
 export const cartReducer = cartSlice.reducer;

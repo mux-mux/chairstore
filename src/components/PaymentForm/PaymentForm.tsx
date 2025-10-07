@@ -1,15 +1,37 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { selectCartPrice } from '../../store/cart/selector';
 import { selectUser } from '../../store/user/selector';
 import styled from 'styled-components';
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import { StripeCardElement } from '@stripe/stripe-js';
+import {
+  CardNumberElement,
+  CardExpiryElement,
+  CardCvcElement,
+  useStripe,
+  useElements,
+} from '@stripe/react-stripe-js';
 import Button from '../Button/Button';
 import type { PaymentResponseType } from '../../types/payment';
+import { clearAllItemsFromCart } from '../../store/cart/reducer';
+
+const CARD_OPTIONS = {
+  style: {
+    base: {
+      fontSize: '16px',
+      color: '#32325d',
+      '::placeholder': {
+        color: '#a0aec0',
+      },
+    },
+    invalid: {
+      color: '#e53e3e',
+    },
+  },
+};
 
 const PaymentForm = () => {
   const [isProcessing, setIsProcessing] = useState(false);
+  const dispatch = useDispatch();
   const amount = useSelector(selectCartPrice);
   const user = useSelector(selectUser);
   const stripe = useStripe();
@@ -33,10 +55,9 @@ const PaymentForm = () => {
     const data: PaymentResponseType = await response.json();
 
     const clientSecret = data.payment.client_secret;
+    const cardNumber = elements.getElement(CardNumberElement);
 
-    const cardElement = elements.getElement(CardElement);
-
-    if (!cardElement) {
+    if (!cardNumber) {
       alert('Card details not found.');
       setIsProcessing(false);
       return;
@@ -44,7 +65,7 @@ const PaymentForm = () => {
 
     const paymentResult = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
-        card: cardElement as StripeCardElement,
+        card: cardNumber,
         billing_details: {
           name: user?.displayName || 'Guest',
           email: user?.email,
@@ -58,20 +79,33 @@ const PaymentForm = () => {
       alert(paymentResult.error);
     } else {
       if (paymentResult.paymentIntent.status === 'succeeded') {
-        alert('Payment Successful');
+        alert('Payment Successful. We will contact you soon!');
+
+        cardNumber.clear();
+        elements.getElement(CardExpiryElement)?.clear();
+        elements.getElement(CardCvcElement)?.clear();
+        dispatch(clearAllItemsFromCart());
       }
     }
   };
 
   return (
     <PaymentFormContainer>
-      <form onSubmit={paymentHandler}>
+      <Form onSubmit={paymentHandler}>
         <h2>Credit Card Payment:</h2>
-        <CardElement />
+        <Label>Card Number</Label>
+        <CardNumberElement options={CARD_OPTIONS} />
+
+        <Label>Expiration Date</Label>
+        <CardExpiryElement options={CARD_OPTIONS} />
+
+        <Label>CVC</Label>
+        <CardCvcElement options={CARD_OPTIONS} />
+
         <PaymentButton variant="primary" loading={isProcessing}>
-          Pay
+          Pay Now
         </PaymentButton>
-      </form>
+      </Form>
     </PaymentFormContainer>
   );
 };
@@ -81,6 +115,17 @@ const PaymentFormContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;
+
+const Label = styled.label`
+  font-size: 14px;
+  font-weight: 600;
 `;
 
 const PaymentButton = styled(Button)`
