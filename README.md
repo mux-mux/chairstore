@@ -1,4 +1,4 @@
-# :seat: Chairstore - Modern E-Commerce :fire:
+# :seat: Chairstore - Modern E-Commerce app :fire:
 
 Build, browse, and buy with ease using this sleek full-stack E-commerce built on the React + Vite stack.
 
@@ -63,13 +63,3 @@ npm run dev
 
 Your app should now be running!<br/>
 On: 🔗 http://localhost:5173
-
-### Tech Stack
-
-<ul>
-<li>⚛️ React + Vite</li>
-<li>🔥 Firebase (Auth, Database)</li>
-<li>💳 Stripe (Payments)</li>
-<li>🎨 Styled Components / CSS</li>
-<li>🚀 Deployed on Vercel</li>
-</ul>

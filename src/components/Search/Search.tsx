@@ -10,9 +10,11 @@ import type { ProductType } from '../../types/product';
 import type { CategoryType } from '../../types/category';
 import useOutsideClick from '../../hooks/useClickOutside';
 import { COLORS } from '../../constants';
+import { useDebounce } from '../../hooks/useDebounce';
 
 const Search = () => {
   const [query, setQuery] = useState('');
+  const debouncedSearch = useDebounce(query, 300);
   const searchRef = useRef(null);
   const allProducts = useSelector(selectProducts);
   const categories = useSelector(selectCategories);
@@ -24,11 +26,11 @@ const Search = () => {
   useOutsideClick(searchRef, handleClickOutside);
 
   const filteredProducts = useMemo(() => {
-    if (!query.trim()) return [];
+    if (!debouncedSearch.trim()) return [];
     return allProducts.filter((product: ProductType) =>
-      product.name.toLowerCase().includes(query.toLowerCase())
+      product.name.toLowerCase().includes(debouncedSearch.toLowerCase())
     );
-  }, [query, allProducts]);
+  }, [debouncedSearch, allProducts]);
 
   const findCategoryByProductId = (id: string, categories: CategoryType[]) => {
     for (const category of categories) {
@@ -47,7 +49,7 @@ const Search = () => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
-      {query.trim() && filteredProducts.length > 0 && (
+      {debouncedSearch.trim() && filteredProducts.length > 0 && (
         <ResultsList>
           {filteredProducts.map(({ id, name, imageSrc, price }) => {
             const categoryPath = findCategoryByProductId(id, categories);
@@ -66,7 +68,7 @@ const Search = () => {
           })}
         </ResultsList>
       )}
-      {query.trim() && filteredProducts.length === 0 && (
+      {debouncedSearch.trim() && filteredProducts.length === 0 && (
         <EmptyMessage>No products found.</EmptyMessage>
       )}
     </SearchContainer>
