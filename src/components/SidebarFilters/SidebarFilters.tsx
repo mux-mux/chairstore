@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import type { ProductType } from '../../types/product';
 import { MEDIA_QUERIES } from '../../constants';
+import useClickOutside from '../../hooks/useClickOutside';
 
 type FiltersTypes = {
   color: string | null;
@@ -13,11 +14,15 @@ type FiltersTypes = {
 type SidebarFiltersProps = {
   products: ProductType[];
   handleFilterChange: (filters: FiltersTypes) => void;
+  isOpen: boolean;
+  onClose: () => void;
 };
 
 const SidebarFilters = ({
   products,
   handleFilterChange,
+  isOpen = false,
+  onClose,
 }: SidebarFiltersProps) => {
   const [filters, setFilters] = useState<FiltersTypes>({
     color: null,
@@ -25,6 +30,8 @@ const SidebarFilters = ({
     legs: null,
     spec: null,
   });
+  const sidebarRef = useRef(null);
+  useClickOutside(sidebarRef, onClose);
 
   const allSeats = new Set<string>();
   const allLegs = new Set<string>();
@@ -50,84 +57,131 @@ const SidebarFilters = ({
   };
 
   return (
-    <Sidebar>
-      <Header>Filters</Header>
+    <>
+      <Overlay $isOpen={isOpen} />
 
-      <FilterName>Color:</FilterName>
-      {[...allColors].map((color) => (
-        <Checkbox key={color}>
-          <input
-            type="checkbox"
-            name="color"
-            checked={filters.color === color}
-            onChange={() => toggleFilter('color', color)}
-          />
-          {color}
-        </Checkbox>
-      ))}
+      <Sidebar $isOpen={isOpen} ref={sidebarRef}>
+        <Header>
+          Filters
+          <CloseBtn onClick={onClose}>×</CloseBtn>
+        </Header>
 
-      <FilterName>Seat:</FilterName>
-      {[...allSeats].map((seat) => (
-        <Checkbox key={seat}>
-          <input
-            type="checkbox"
-            name="seat"
-            checked={filters.seat === seat}
-            onChange={() => toggleFilter('seat', seat)}
-          />
-          {seat}
-        </Checkbox>
-      ))}
+        <FilterName>Color:</FilterName>
+        {[...allColors].map((color) => (
+          <Checkbox key={color}>
+            <input
+              type="checkbox"
+              name="color"
+              checked={filters.color === color}
+              onChange={() => toggleFilter('color', color)}
+            />
+            {color}
+          </Checkbox>
+        ))}
 
-      <FilterName>Legs:</FilterName>
-      {[...allLegs].map((legs) => (
-        <Checkbox key={legs}>
-          <input
-            type="checkbox"
-            name="legs"
-            checked={filters.legs === legs}
-            onChange={() => toggleFilter('legs', legs)}
-          />
-          {legs}
-        </Checkbox>
-      ))}
+        <FilterName>Seat:</FilterName>
+        {[...allSeats].map((seat) => (
+          <Checkbox key={seat}>
+            <input
+              type="checkbox"
+              name="seat"
+              checked={filters.seat === seat}
+              onChange={() => toggleFilter('seat', seat)}
+            />
+            {seat}
+          </Checkbox>
+        ))}
 
-      {[...allSpecs].length > 0 && (
-        <>
-          <FilterName>Specs:</FilterName>
-          {[...allSpecs].map((spec) => (
-            <Checkbox key={spec}>
-              <input
-                type="checkbox"
-                name="spec"
-                checked={filters.spec === spec}
-                onChange={() => toggleFilter('spec', spec)}
-              />
-              {spec}
-            </Checkbox>
-          ))}
-        </>
-      )}
-    </Sidebar>
+        <FilterName>Legs:</FilterName>
+        {[...allLegs].map((legs) => (
+          <Checkbox key={legs}>
+            <input
+              type="checkbox"
+              name="legs"
+              checked={filters.legs === legs}
+              onChange={() => toggleFilter('legs', legs)}
+            />
+            {legs}
+          </Checkbox>
+        ))}
+
+        {[...allSpecs].length > 0 && (
+          <>
+            <FilterName>Specs:</FilterName>
+            {[...allSpecs].map((spec) => (
+              <Checkbox key={spec}>
+                <input
+                  type="checkbox"
+                  name="spec"
+                  checked={filters.spec === spec}
+                  onChange={() => toggleFilter('spec', spec)}
+                />
+                {spec}
+              </Checkbox>
+            ))}
+          </>
+        )}
+      </Sidebar>
+    </>
   );
 };
 
-const Sidebar = styled.div`
+const Sidebar = styled.div<{ $isOpen: boolean }>`
   background: ${({ theme }) => theme.colors.surface};
   border-radius: ${({ theme }) => theme.radii.md};
   box-shadow: ${({ theme }) => theme.shadows.low};
   padding: ${({ theme }) => theme.space[4]}px;
   min-width: 240px;
   text-align: left;
+  transition: transform 0.3s ease-in-out;
+  isolation: isolate;
+  z-index: 110;
 
   @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
-    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translateX(${(p) => (p.$isOpen ? '0' : '-100%')});
+    background: ${({ theme }) => theme.colors.surface};
+    border-radius: 0;
+    width: 70%;
+    display: block;
+  }
+`;
+
+const Overlay = styled.div<{ $isOpen: boolean }>`
+  display: none;
+
+  @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
+    display: ${(p) => (p.$isOpen ? 'block' : 'none')};
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 100;
   }
 `;
 
 const Header = styled.h2`
-  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 0;
+`;
+
+const CloseBtn = styled.button`
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+
+  @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
+    display: initial;
+  }
 `;
 
 const FilterName = styled.h3`
