@@ -8,10 +8,13 @@ import SidebarFilters from '../../components/SidebarFilters/SidebarFilters';
 import Spinner from '../../components/Spinner/Spinner';
 import type { ProductType, ProductsRouteParams } from '../../types/product';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+import { FiFilter } from 'react-icons/fi';
+import { MEDIA_QUERIES } from '../../constants';
 
 const Products = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
   const [filtered, setFiltered] = useState<ProductType[]>([]);
+  const [isFilterOpen, setFilterOpen] = useState(false);
   const { category } = useParams<ProductsRouteParams>();
   const categories = useSelector(selectCategories);
 
@@ -68,7 +71,12 @@ const Products = () => {
 
   return (
     <>
-      <Breadcrumbs />
+      <BreadcrumbsWrapper>
+        <Breadcrumbs />
+        <FilterButton onClick={() => setFilterOpen(true)}>
+          <FilterIcon size={24} />
+        </FilterButton>
+      </BreadcrumbsWrapper>
       <Title>{categoryData?.title}</Title>
       {!categories || categories.length === 0 ? (
         <Spinner />
@@ -77,6 +85,8 @@ const Products = () => {
           <SidebarFilters
             products={products}
             handleFilterChange={handleFilterChange}
+            isOpen={isFilterOpen}
+            onClose={() => setFilterOpen(false)}
           />
 
           <ProductsContainer>
@@ -94,6 +104,30 @@ const MainContainer = styled.div`
   display: flex;
 `;
 
+const BreadcrumbsWrapper = styled.div`
+  position: relative;
+`;
+
+const FilterButton = styled.button`
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  padding: ${({ theme }) => theme.space[2]}px;
+  border-radius: ${({ theme }) => theme.radii.md};
+  border: none;
+  width: 60px;
+
+  @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
+    display: initial;
+  }
+`;
+
+const FilterIcon = styled(FiFilter)`
+  transform: translateY(2px);
+`;
+
 const ProductsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, min-content));
@@ -103,6 +137,7 @@ const ProductsContainer = styled.div`
   gap: 20px;
   flex: 1;
 `;
+
 const Title = styled.h1`
   text-transform: uppercase;
   font-size: 38px;
