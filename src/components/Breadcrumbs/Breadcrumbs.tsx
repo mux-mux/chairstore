@@ -10,7 +10,7 @@ const Breadcrumbs = () => {
     <BreadcrumbNav>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <Link to="/">Home</Link>
+          <BreadcrumbLink to="/">Home</BreadcrumbLink>
         </BreadcrumbItem>
         {pathnames.map((segment, index) => {
           const to = '/' + pathnames.slice(0, index + 1).join('/');
@@ -19,7 +19,11 @@ const Breadcrumbs = () => {
 
           return (
             <BreadcrumbItem key={to}>
-              {isLast ? <span>{label}</span> : <Link to={to}>{label}</Link>}
+              {isLast ? (
+                <label>{label}</label>
+              ) : (
+                <BreadcrumbLink to={to}>{label}</BreadcrumbLink>
+              )}
             </BreadcrumbItem>
           );
         })}
@@ -48,6 +52,16 @@ const BreadcrumbItem = styled.li`
     content: '/';
     margin: 0 5px;
     color: ${COLORS.textColorTertiary};
+  }
+`;
+
+const BreadcrumbLink = styled(Link)`
+  text-decoration: underline;
+  color: inherit;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: ${COLORS.primary || '#007bff'};
   }
 `;
 
