@@ -8,6 +8,7 @@ import { setIsCartOpen } from '../../store/cart/reducer';
 import { selectCartItems, selectIsCartOpen } from '../../store/cart/selector';
 import useOutsideClick from '../../hooks/useClickOutside';
 import { COLORS } from '../../constants';
+import { overlayStyles } from '../../styles/shared';
 
 const CartDropdown = () => {
   const cartItems = useSelector(selectCartItems);
@@ -47,18 +48,9 @@ const CartDropdown = () => {
 };
 
 const CartOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  height: 100vh;
-  @supports (height: max(100%, 100vh)) {
-    height: max(100%, 100vh);
-  }
-  left: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  isolation: isolate;
-  z-index: 100;
+  ${overlayStyles}
 `;
+
 const CartDropdownContainer = styled.div`
   position: absolute;
   width: 240px;

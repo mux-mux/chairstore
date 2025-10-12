@@ -5,7 +5,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { Elements } from '@stripe/react-stripe-js';
 import { stripePromise } from './utils/stripe/stripe.ts';
 import { ThemeProvider } from 'styled-components';
-import { theme } from './theme/theme.ts';
+import { theme } from './styles/theme.ts';
 import GlobalStyle from './GlobalStyle';
 
 import { Provider } from 'react-redux';

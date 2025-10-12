@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import type { ProductType } from '../../types/product';
 import { MEDIA_QUERIES } from '../../constants';
 import useClickOutside from '../../hooks/useClickOutside';
+import { overlayStyles } from '../../styles/shared';
 
 type FiltersTypes = {
   color: string | null;
@@ -134,8 +135,6 @@ const Sidebar = styled.div<{ $isOpen: boolean }>`
   min-width: 240px;
   text-align: left;
   transition: transform 0.3s ease-in-out;
-  isolation: isolate;
-  z-index: 110;
 
   @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
     position: fixed;
@@ -147,6 +146,8 @@ const Sidebar = styled.div<{ $isOpen: boolean }>`
     border-radius: 0;
     width: 70%;
     display: block;
+    isolation: isolate;
+    z-index: 110;
   }
 `;
 
@@ -155,13 +156,7 @@ const Overlay = styled.div<{ $isOpen: boolean }>`
 
   @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
     display: ${(p) => (p.$isOpen ? 'block' : 'none')};
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 100;
+    ${overlayStyles}
   }
 `;
 

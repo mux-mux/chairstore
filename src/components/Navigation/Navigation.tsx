@@ -13,6 +13,7 @@ const CartDropdown = lazy(() => import('../CartDropdown/CartDropdown'));
 import { MEDIA_QUERIES } from '../../constants';
 import Footer from '../Footer/Footer';
 import useClickOutside from '../../hooks/useClickOutside';
+import { overlayStyles } from '../../styles/shared';
 
 const Navigation = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -236,17 +237,7 @@ const MobileMenu = styled.div`
 `;
 
 const MobileMenuOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  height: 100vh;
-  @supports (height: max(100%, 100vh)) {
-    height: max(100%, 100vh);
-  }
-  left: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  isolation: isolate;
-  z-index: 100;
+  ${overlayStyles}
 `;
 
 const MobileLink = styled(Link)`
