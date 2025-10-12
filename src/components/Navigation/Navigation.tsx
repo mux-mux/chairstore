@@ -119,6 +119,7 @@ const NavContainer = styled.div`
 
   @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
     height: 60px;
+    padding: ${({ theme }) => theme.space[2]}px;
     justify-content: space-between;
     position: unset;
   }
@@ -151,6 +152,10 @@ const RightSection = styled.div`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.space[4]}px;
+
+  @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
+    gap: ${({ theme }) => theme.space[2]}px;
+  }
 `;
 
 const NavLinks = styled.nav`
@@ -267,7 +272,7 @@ const SpinnerContainer = styled.div`
   right: 16px;
 
   @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
-    right: 54px;
+    right: 40px;
   }
 `;
 

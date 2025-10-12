@@ -130,7 +130,7 @@ const FilterIcon = styled(FiFilter)`
 
 const ProductsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, min-content));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   align-items: flex-start;
   place-content: flex-start;
   padding: 0 20px;
