@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import type { ProductType } from '../../types/product';
-import { MEDIA_QUERIES } from '../../constants';
 import useClickOutside from '../../hooks/useClickOutside';
 import { overlayStyles } from '../../styles/shared';
 
@@ -136,7 +135,7 @@ const Sidebar = styled.div<{ $isOpen: boolean }>`
   text-align: left;
   transition: transform 0.3s ease-in-out;
 
-  @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
+  @media screen and (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     position: fixed;
     top: 0;
     left: 0;
@@ -154,7 +153,7 @@ const Sidebar = styled.div<{ $isOpen: boolean }>`
 const Overlay = styled.div<{ $isOpen: boolean }>`
   display: none;
 
-  @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
+  @media screen and (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     display: ${(p) => (p.$isOpen ? 'block' : 'none')};
     ${overlayStyles}
   }
@@ -174,7 +173,7 @@ const CloseBtn = styled.button`
   font-size: 1.5rem;
   cursor: pointer;
 
-  @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
+  @media screen and (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     display: initial;
   }
 `;

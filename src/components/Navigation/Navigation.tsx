@@ -10,7 +10,6 @@ import CartIcon from '../CartIcon/CartIcon';
 import Spinner from '../Spinner/Spinner';
 import Search from '../Search/Search';
 const CartDropdown = lazy(() => import('../CartDropdown/CartDropdown'));
-import { MEDIA_QUERIES } from '../../constants';
 import Footer from '../Footer/Footer';
 import useClickOutside from '../../hooks/useClickOutside';
 import { overlayStyles } from '../../styles/shared';
@@ -118,7 +117,7 @@ const NavContainer = styled.div`
   top: 0;
   z-index: 20;
 
-  @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
+  @media screen and (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     height: 60px;
     padding: ${({ theme }) => theme.space[2]}px;
     justify-content: space-between;
@@ -134,7 +133,7 @@ const LogoLink = styled(Link)`
   padding: 10px;
   margin-right: auto;
 
-  @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
+  @media screen and (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     display: none;
   }
 `;
@@ -143,7 +142,7 @@ const SearchWrapper = styled.div`
   display: flex;
   justify-content: center;
 
-  @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
+  @media screen and (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     justify-content: flex-start;
     margin-left: ${({ theme }) => theme.space[2]}px;
   }
@@ -154,7 +153,7 @@ const RightSection = styled.div`
   align-items: center;
   gap: ${({ theme }) => theme.space[4]}px;
 
-  @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
+  @media screen and (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     gap: ${({ theme }) => theme.space[2]}px;
   }
 `;
@@ -164,7 +163,7 @@ const NavLinks = styled.nav`
   align-items: center;
   gap: ${({ theme }) => theme.space[4]}px;
 
-  @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
+  @media screen and (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     display: none;
   }
 `;
@@ -212,7 +211,7 @@ const Hamburger = styled.button`
     border-radius: 2px;
   }
 
-  @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
+  @media screen and (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     display: flex;
   }
 `;
@@ -231,7 +230,7 @@ const MobileMenu = styled.div`
   border-radius: ${({ theme }) => theme.radii.md};
   z-index: 101;
 
-  @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
+  @media screen and (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     top: 60px;
   }
 `;
@@ -262,7 +261,7 @@ const SpinnerContainer = styled.div`
   position: absolute;
   right: 16px;
 
-  @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
+  @media screen and (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     right: 40px;
   }
 `;
