@@ -9,7 +9,6 @@ import Spinner from '../../components/Spinner/Spinner';
 import type { ProductType, ProductsRouteParams } from '../../types/product';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import { FiFilter } from 'react-icons/fi';
-import { MEDIA_QUERIES } from '../../constants';
 
 const Products = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
@@ -119,7 +118,7 @@ const FilterButton = styled.button`
   border: none;
   width: 60px;
 
-  @media screen and (max-width: ${MEDIA_QUERIES.mobile}) {
+  @media screen and (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     display: initial;
   }
 `;
