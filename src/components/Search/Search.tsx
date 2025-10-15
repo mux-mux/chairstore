@@ -9,7 +9,6 @@ import {
 import type { ProductType } from '../../types/product';
 import type { CategoryType } from '../../types/category';
 import useOutsideClick from '../../hooks/useClickOutside';
-import { COLORS } from '../../constants';
 import { useDebounce } from '../../hooks/useDebounce';
 
 const Search = () => {
@@ -88,10 +87,10 @@ const SearchInput = styled.input`
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.radii.sm};
   outline: none;
-  transition: border 0.2s;
+  transition: border 0.2s, box-shadow 0.2s;
 
   &:focus {
-    border-color: ${COLORS.borderSecondary};
+    box-shadow: ${({ theme }) => theme.shadows.low};
   }
 `;
 
@@ -105,7 +104,7 @@ const ResultsList = styled.ul`
   list-style: none;
   font-size: 0.8rem;
   text-align: left;
-  background-color: ${COLORS.bgColorPrimary};
+  background-color: ${({ theme }) => theme.colors.surface};
   border-top: none;
   max-height: 350px;
   overflow-y: auto;
@@ -146,7 +145,7 @@ const EmptyMessage = styled.div`
   transform: translateX(-50%);
   margin-top: ${({ theme }) => theme.space[1]}px;
   text-align: center;
-  color: ${COLORS.textColorTertiary};
+  color: ${({ theme }) => theme.colors.textSecondary};
   background-color: #fff;
   font-size: 0.875rem;
 `;

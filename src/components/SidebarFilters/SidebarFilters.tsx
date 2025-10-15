@@ -181,7 +181,7 @@ const CloseBtn = styled.button`
 const FilterName = styled.h3`
   font-size: 1rem;
   margin-bottom: ${({ theme }) => theme.space[2]}px;
-  color: ${({ theme }) => theme.colors.textSecondary};
+  color: ${({ theme }) => theme.colors.textPrimary};
 `;
 
 const Checkbox = styled.label`

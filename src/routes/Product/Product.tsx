@@ -139,7 +139,7 @@ const Title = styled.h2`
 const Description = styled.p`
   text-align: left;
   line-height: 1.6;
-  color: ${({ theme }) => theme.colors.textSecondary};
+  color: ${({ theme }) => theme.colors.textPrimary};
   margin: 0;
   font-size: 1rem;
 

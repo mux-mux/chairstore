@@ -1,6 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { COLORS } from '../../constants';
 
 const Breadcrumbs = () => {
   const location = useLocation();
@@ -51,7 +50,7 @@ const BreadcrumbItem = styled.li`
   &:not(:last-child)::after {
     content: '/';
     margin: 0 5px;
-    color: ${COLORS.textColorTertiary};
+    color: ${({ theme }) => theme.colors.textSecondary};
   }
 `;
 
@@ -61,7 +60,7 @@ const BreadcrumbLink = styled(Link)`
   transition: color 0.2s ease;
 
   &:hover {
-    color: ${COLORS.primary || '#007bff'};
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 

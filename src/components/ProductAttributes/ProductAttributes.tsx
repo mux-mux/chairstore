@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import { ProductType } from '../../types/product';
-import { COLORS } from '../../constants';
 
 const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 
@@ -49,7 +48,7 @@ const ProductAttributes = ({ product }: { product: ProductType }) => {
 
 const cellStyles = css`
   padding: 5px;
-  border: 1px solid ${COLORS.borderPrimary};
+  border: 1px solid ${({ theme }) => theme.colors.border};
 `;
 
 const TableWrapper = styled.div`
@@ -65,7 +64,7 @@ const Table = styled.table`
 
 const Th = styled.th`
   ${cellStyles}
-  background-color: ${COLORS.bgColorTertiary};
+  background-color: ${({ theme }) => theme.colors.backgroundSecondary};
 `;
 
 const Td = styled.td`
@@ -74,7 +73,7 @@ const Td = styled.td`
 
 const Tr = styled.tr`
   &:nth-child(even) {
-    background-color: ${COLORS.bgColorTertiary};
+    background-color: ${({ theme }) => theme.colors.backgroundSecondary};
   }
 `;
 

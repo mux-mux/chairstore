@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Icon from '../../assets/shopping-bag.svg?react';
 import { setIsCartOpen } from '../../store/cart/reducer';
 import { selectCartCount } from '../../store/cart/selector';
-import { COLORS } from '../../constants';
 
 const CartIcon = () => {
   const dispatch = useDispatch();
@@ -34,7 +33,7 @@ const CartIconContainer = styled.button`
   justify-content: center;
   border: none;
   background-color: transparent;
-  color: ${COLORS.thertiary};
+  color: ${({ theme }) => theme.colors.primary};
   cursor: pointer;
 `;
 

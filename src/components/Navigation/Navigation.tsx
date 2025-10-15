@@ -172,7 +172,7 @@ const NavLinkStyles = css`
   padding: 10px 15px;
   text-transform: uppercase;
   font-weight: 500;
-  color: ${({ theme }) => theme.colors.textSecondary};
+  color: ${({ theme }) => theme.colors.textPrimary};
   transition: color 0.2s ease;
   cursor: pointer;
 
@@ -243,7 +243,7 @@ const MobileLink = styled(Link)`
   font-weight: 500;
   text-transform: uppercase;
   text-align: left;
-  color: ${({ theme }) => theme.colors.textSecondary};
+  color: ${({ theme }) => theme.colors.textPrimary};
   padding: 8px 0;
 
   &:hover {
