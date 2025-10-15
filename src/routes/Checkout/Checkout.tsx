@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { selectCartItems, selectCartPrice } from '../../store/cart/selector';
 import CheckoutItem from '../../components/CheckoutItem/CheckoutItem';
 import PaymentForm from '../../components/PaymentForm/PaymentForm';
-import { COLORS } from '../../constants';
 
 const Checkout = () => {
   const cartItems = useSelector(selectCartItems);
@@ -61,7 +60,7 @@ const CheckoutHeader = styled.div`
   padding: 10px 0;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid ${COLORS.borderSecondary};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
 `;
 const HeaderColumn = styled.div`
   text-transform: capitalize;

@@ -1,6 +1,5 @@
 import { useId } from 'react';
 import styled, { css } from 'styled-components';
-import { COLORS } from '../../constants';
 import type { FormInputProps } from '../../types/form';
 
 const FormInput = ({ label, type = 'text', ...delegated }: FormInputProps) => {
@@ -29,7 +28,7 @@ const Field = css`
   margin: 0 auto;
   background: none;
   background-color: transparent;
-  color: ${COLORS.textColorPrimary};
+  color: ${({ theme }) => theme.colors.textPrimary};
   font-size: 1rem;
   padding: ${({ theme }) => theme.space[2]}px ${({ theme }) => theme.space[3]}px;
   border: 1px solid ${({ theme }) => theme.colors.border};
@@ -64,14 +63,14 @@ const InputLabel = styled.label`
   position: absolute;
   top: 6px;
   left: 12px;
-  color: ${COLORS.textColorPrimary};
+  color: ${({ theme }) => theme.colors.textSecondary};
   font-size: 1rem;
   font-weight: normal;
   cursor: text;
 
   @media (prefers-reduced-motion: no-preference) {
     will-change: auto;
-    transition: 300ms ease all;
+    transition: all 300ms ease;
   }
 `;
 

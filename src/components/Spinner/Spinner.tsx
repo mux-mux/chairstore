@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { COLORS } from '../../constants';
 
 const Spinner = () => {
   return (
@@ -20,9 +19,9 @@ const SpinnerOverlay = styled.div`
 export const SpinnerContainer = styled.div`
   width: 50px;
   height: 50px;
-  border: 3px solid ${COLORS.borderPrimary};
+  border: 3px solid ${({ theme }) => theme.colors.border};
   border-radius: 50%;
-  border-top-color: ${COLORS.bgColorSecondary};
+  border-top-color: ${({ theme }) => theme.colors.primary};
   animation: spin 1s ease-in-out infinite;
   @keyframes spin {
     to {

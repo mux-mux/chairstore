@@ -34,7 +34,7 @@ const Wrapper = styled.footer`
   border-top: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.radii.md};
   padding: ${({ theme }) => theme.space[6]}px;
-  color: ${({ theme }) => theme.colors.textSecondary};
+  color: ${({ theme }) => theme.colors.textPrimary};
   font-size: 0.9rem;
 `;
 

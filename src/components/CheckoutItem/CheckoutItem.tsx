@@ -5,7 +5,6 @@ import {
   removeItemFromCart,
   clearItemFromCart,
 } from '../../store/cart/reducer';
-import { COLORS } from '../../constants';
 import type { CartItemProps } from '../../types/cart';
 
 const CheckoutItem = ({ cartItem }: CartItemProps) => {
@@ -37,7 +36,7 @@ const CheckoutItemContainer = styled.div`
   width: 100%;
   display: flex;
   min-height: 100px;
-  border-bottom: 1px solid ${COLORS.borderSecondary};
+  border-bottom: 1px solid ${({theme}) => theme.colors.border};
   font-size: 20px;
   align-items: center;
 `;

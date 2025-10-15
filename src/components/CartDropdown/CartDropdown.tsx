@@ -7,7 +7,6 @@ import CartItem from '../CartItem/CartItem';
 import { setIsCartOpen } from '../../store/cart/reducer';
 import { selectCartItems, selectIsCartOpen } from '../../store/cart/selector';
 import useOutsideClick from '../../hooks/useClickOutside';
-import { COLORS } from '../../constants';
 import { overlayStyles } from '../../styles/shared';
 
 const CartDropdown = () => {
@@ -61,7 +60,7 @@ const CartDropdownContainer = styled.div`
   border: none;
   border-radius: ${({ theme }) => theme.radii.md};
   box-shadow: ${({ theme }) => theme.shadows.low};
-  background-color: ${COLORS.bgColorPrimary};
+  background-color: ${({ theme }) => theme.colors.surface};
   top: 60px;
   right: 10px;
   overflow: hidden;
@@ -75,7 +74,7 @@ const CloseCart = styled.button`
   right: 0;
   border: none;
   border-radius: 0 0 0 5px;
-  background-color: #eb6a6a;
+  background-color: ${({ theme }) => theme.colors.secondary};
   font-size: 1rem;
   cursor: pointer;
 `;

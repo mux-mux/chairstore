@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { COLORS } from '../../constants';
 
 const NotFound = () => {
   return (
@@ -21,7 +20,7 @@ const Container = styled.div`
   align-items: center;
   text-align: center;
   padding: 20px;
-  color: ${COLORS.textColorPrimary};
+  color: ${({ theme }) => theme.colors.textSecondary};
 `;
 
 const Title = styled.h1`
@@ -42,7 +41,7 @@ const Message = styled.p`
 const HomeLink = styled(Link)`
   margin-top: 20px;
   padding: 12px 24px;
-  color: ${COLORS.textColorPrimary};
+  color: inherit;
   text-decoration: none;
   font-size: 16px;
   transition: color 0.3s ease;
