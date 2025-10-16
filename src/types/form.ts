@@ -8,4 +8,7 @@ export type FormFieldsType = {
 
 export type FormInputProps = {
   label: string;
+  error: string;
 } & InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>;
+
+export type FormErrorsType = { [key: string]: string };
