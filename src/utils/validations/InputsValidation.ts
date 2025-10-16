@@ -13,6 +13,9 @@ export const validateField = (name: string, value: string) => {
     case 'displayName':
       if (!value) return 'Name is required';
       return '';
+    case 'message':
+      if (!value) return 'Message is required';
+      return '';
     default:
       return '';
   }
