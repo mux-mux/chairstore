@@ -1,4 +1,5 @@
 import { useState, useCallback, FormEvent, ChangeEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { FirebaseError } from 'firebase/app';
 import {
@@ -7,8 +8,8 @@ import {
 } from '../../utils/firebase/firebase';
 import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
-import type { FormFieldsType } from '../../types/form';
-import { useNavigate } from 'react-router-dom';
+import { validateField } from '../../utils/validations/InputsValidation';
+import type { FormFieldsType, FormErrorsType } from '../../types/form';
 
 const INITIAL_FORM_FIELDS: FormFieldsType = {
   email: '',
@@ -18,6 +19,7 @@ const INITIAL_FORM_FIELDS: FormFieldsType = {
 const SignIn = () => {
   const [formFields, setFormFields] =
     useState<FormFieldsType>(INITIAL_FORM_FIELDS);
+  const [errors, setErrors] = useState<FormErrorsType>({});
   const navigate = useNavigate();
   const { email, password } = formFields;
 
@@ -41,6 +43,11 @@ const SignIn = () => {
         ...prevFields,
         [name]: value,
       }));
+
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        [name]: validateField(name, value),
+      }));
     },
     []
   );
@@ -48,6 +55,17 @@ const SignIn = () => {
   const handleOnSubmit = useCallback(
     async (event: FormEvent<HTMLFormElement>): Promise<void> => {
       event.preventDefault();
+
+      const newErrors: { [key: string]: string } = {};
+      Object.entries(formFields).forEach(([name, value]) => {
+        const error = validateField(name, value);
+        if (error) newErrors[name] = error;
+      });
+
+      if (Object.keys(newErrors).length > 0) {
+        setErrors(newErrors);
+        return;
+      }
 
       try {
         const userCredential = await signInUserWithEmailAndPassword(
@@ -77,7 +95,7 @@ const SignIn = () => {
         }
       }
     },
-    [email, password, navigate]
+    [email, password, formFields, navigate]
   );
 
   return (
@@ -92,7 +110,7 @@ const SignIn = () => {
           placeholder=""
           value={email}
           onChange={handleChange}
-          required
+          error={errors.email}
         />
         <FormInput
           label="Password"
@@ -101,7 +119,7 @@ const SignIn = () => {
           placeholder=""
           value={password}
           onChange={handleChange}
-          required
+          error={errors.password}
         />
         <ButtonsContainer>
           <Button type="submit">Sign In</Button>

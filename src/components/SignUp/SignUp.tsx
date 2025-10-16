@@ -8,7 +8,8 @@ import {
 import FormInput from '../FormInput/FormInput';
 import Button from '../Button/Button';
 import type { AdditionalInfo, UserType } from '../../types/user';
-import type { FormFieldsType } from '../../types/form';
+import type { FormFieldsType, FormErrorsType } from '../../types/form';
+import { validateField } from '../../utils/validations/InputsValidation';
 
 const INITIAL_FORM_FIELDS: FormFieldsType = {
   displayName: '',
@@ -19,6 +20,7 @@ const INITIAL_FORM_FIELDS: FormFieldsType = {
 const SignUp = () => {
   const [formFields, setFormFields] =
     useState<FormFieldsType>(INITIAL_FORM_FIELDS);
+  const [errors, setErrors] = useState<FormErrorsType>({});
   const { displayName, email, password } = formFields;
 
   const resetForm = (): void => {
@@ -33,6 +35,11 @@ const SignUp = () => {
         ...prevFields,
         [name]: value,
       }));
+
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        [name]: validateField(name, value),
+      }));
     },
     []
   );
@@ -40,6 +47,17 @@ const SignUp = () => {
   const handleOnSubmit = useCallback(
     async (event: FormEvent<HTMLFormElement>): Promise<void> => {
       event.preventDefault();
+
+      const newErrors: { [key: string]: string } = {};
+      Object.entries(formFields).forEach(([name, value]) => {
+        const error = validateField(name, value);
+        if (error) newErrors[name] = error;
+      });
+
+      if (Object.keys(newErrors).length > 0) {
+        setErrors(newErrors);
+        return;
+      }
 
       try {
         const userCredential = await createAuthUserWithEmailAndPassword(
@@ -77,7 +95,7 @@ const SignUp = () => {
         }
       }
     },
-    [email, password, displayName]
+    [email, password, displayName, formFields]
   );
 
   return (
@@ -92,7 +110,7 @@ const SignUp = () => {
           placeholder=""
           value={displayName}
           onChange={handleChange}
-          required
+          error={errors.displayName}
         />
         <FormInput
           label="Email"
@@ -101,7 +119,7 @@ const SignUp = () => {
           placeholder=""
           value={email}
           onChange={handleChange}
-          required
+          error={errors.email}
         />
         <FormInput
           label="Password"
@@ -110,7 +128,7 @@ const SignUp = () => {
           placeholder=""
           value={password}
           onChange={handleChange}
-          required
+          error={errors.password}
         />
         <Button type="submit">Sign Up</Button>
       </form>

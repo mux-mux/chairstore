@@ -2,7 +2,12 @@ import { useId } from 'react';
 import styled, { css } from 'styled-components';
 import type { FormInputProps } from '../../types/form';
 
-const FormInput = ({ label, type = 'text', ...delegated }: FormInputProps) => {
+const FormInput = ({
+  label,
+  type = 'text',
+  error,
+  ...delegated
+}: FormInputProps) => {
   const id = useId();
 
   return (
@@ -13,6 +18,7 @@ const FormInput = ({ label, type = 'text', ...delegated }: FormInputProps) => {
         <InputField id={id} type={type} {...delegated} />
       )}
       {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
+      {error && <ErrorMessage>{error}</ErrorMessage>}
     </InputContainer>
   );
 };
@@ -72,6 +78,14 @@ const InputLabel = styled.label`
     will-change: auto;
     transition: all 300ms ease;
   }
+`;
+
+const ErrorMessage = styled.span`
+  color: ${({ theme }) => theme.colors.error || 'red'};
+  font-size: 0.875rem;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
 `;
 
 export default FormInput;
