@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
-import type { FiltersTypes, SidebarFiltersProps } from '../../types/filters';
+import type { FiltersTypes, SidebarFiltersProps } from '../../types/filter';
 import useClickOutside from '../../hooks/useClickOutside';
 import { overlayStyles } from '../../styles/shared';
 
