@@ -62,7 +62,6 @@ const InputField = styled.input`
 
 const TextareaField = styled.textarea`
   ${Field}
-  border: 1px solid;
 `;
 
 const InputLabel = styled.label`

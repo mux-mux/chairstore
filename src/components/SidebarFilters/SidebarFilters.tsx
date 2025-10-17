@@ -1,22 +1,8 @@
 import { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
-import type { ProductType } from '../../types/product';
+import type { FiltersTypes, SidebarFiltersProps } from '../../types/filter';
 import useClickOutside from '../../hooks/useClickOutside';
 import { overlayStyles } from '../../styles/shared';
-
-type FiltersTypes = {
-  color: string | null;
-  seat: string | null;
-  legs: string | null;
-  spec: string | null;
-};
-
-type SidebarFiltersProps = {
-  products: ProductType[];
-  handleFilterChange: (filters: FiltersTypes) => void;
-  isOpen: boolean;
-  onClose: () => void;
-};
 
 const SidebarFilters = ({
   products,

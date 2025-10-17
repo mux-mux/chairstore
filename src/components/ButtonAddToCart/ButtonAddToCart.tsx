@@ -3,13 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { addItemToCart } from '../../store/cart/reducer';
 import Button from '../Button/Button';
-import type { ProductType } from '../../types/product';
+import type { ButtonAddToCartProps } from '../../types/button';
 import { selectCartItems } from '../../store/cart/selector';
-
-type ButtonAddToCartProps = {
-  product: ProductType;
-  children: React.ReactNode;
-};
 
 const ButtonAddToCart = ({ product, children }: ButtonAddToCartProps) => {
   const dispatch = useDispatch();
