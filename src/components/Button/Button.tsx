@@ -1,16 +1,9 @@
 import { useMemo, memo } from 'react';
 import styled from 'styled-components';
 import { SpinnerContainer } from '../Spinner/Spinner';
+import type { ButtonVariant, ButtonProps } from '../../types/button';
 
-type Variant = 'primary' | 'secondary' | 'outline';
-
-type ButtonProps = {
-  variant?: Variant;
-  loading?: boolean;
-  children: React.ReactNode;
-} & React.ButtonHTMLAttributes<HTMLButtonElement>;
-
-const getButtonType = (variant: Variant): React.ElementType => {
+const getButtonType = (variant: ButtonVariant): React.ElementType => {
   switch (variant) {
     case 'primary':
       return PrimaryButton;
