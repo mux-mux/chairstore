@@ -102,7 +102,7 @@ const ContactContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 480px;
-  margin: 0 auto;
+  margin: auto;
 `;
 
 const ContactForm = styled.form`
