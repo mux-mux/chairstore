@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Breadcrumbs = ({ name }: { name: string }) => {
+const Breadcrumbs = ({ name }: { name?: string }) => {
   const location = useLocation();
   const pathnames = location.pathname.split('/').filter(Boolean);
 
