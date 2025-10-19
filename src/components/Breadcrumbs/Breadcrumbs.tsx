@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Breadcrumbs = () => {
+const Breadcrumbs = ({ name }: { name: string }) => {
   const location = useLocation();
   const pathnames = location.pathname.split('/').filter(Boolean);
 
@@ -19,7 +19,7 @@ const Breadcrumbs = () => {
           return (
             <BreadcrumbItem key={to}>
               {isLast ? (
-                <label>{label}</label>
+                <label>{name ? name : label}</label>
               ) : (
                 <BreadcrumbLink to={to}>{label}</BreadcrumbLink>
               )}

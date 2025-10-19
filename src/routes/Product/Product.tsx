@@ -26,7 +26,7 @@ const Product = () => {
 
   return (
     <PageWrapper>
-      <Breadcrumbs />
+      <Breadcrumbs name={name} />
       <ProductContainer>
         <ImageWrapper>
           <Image src={`/${imageSrc}`} alt={name} />
