@@ -51,11 +51,6 @@ const PageWrapper = styled.div`
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 16px;
-
-  @media (max-width: 768px) {
-    padding: 0 12px;
-  }
 `;
 
 const ProductContainer = styled.div`
@@ -63,13 +58,13 @@ const ProductContainer = styled.div`
   gap: 40px;
   margin-top: 24px;
 
-  @media (max-width: 968px) {
+  @media (max-width: ${({ theme }) => theme.mediaQueries.laptop}) {
     flex-direction: column;
     gap: 24px;
     margin-top: 16px;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     gap: 16px;
   }
 `;
@@ -81,7 +76,7 @@ const ImageWrapper = styled.div`
   display: flex;
   justify-content: center;
 
-  @media (max-width: 968px) {
+  @media (max-width: ${({ theme }) => theme.mediaQueries.laptop}) {
     max-width: 100%;
     align-items: center;
   }
@@ -95,11 +90,11 @@ const Image = styled.img`
   box-shadow: ${({ theme }) => theme.shadows.low};
   object-fit: cover;
 
-  @media (max-width: 968px) {
+  @media (max-width: ${({ theme }) => theme.mediaQueries.laptop}) {
     max-width: 500px;
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: ${({ theme }) => theme.mediaQueries.tablet}) {
     max-width: 100%;
     border-radius: ${({ theme }) => theme.radii.sm};
   }
@@ -112,11 +107,11 @@ const DataBlock = styled.div`
   gap: 20px;
   min-width: 0;
 
-  @media (max-width: 968px) {
+  @media (max-width: ${({ theme }) => theme.mediaQueries.laptop}) {
     gap: 16px;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     gap: 12px;
   }
 `;
@@ -127,11 +122,11 @@ const Title = styled.h2`
   margin: 0;
   color: ${({ theme }) => theme.colors.textPrimary};
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.mediaQueries.tablet}) {
     font-size: 1.75rem;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     font-size: 1.5rem;
   }
 `;
@@ -143,12 +138,12 @@ const Description = styled.p`
   margin: 0;
   font-size: 1rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.mediaQueries.tablet}) {
     font-size: 0.9375rem;
     line-height: 1.5;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     font-size: 0.875rem;
   }
 `;
@@ -156,7 +151,7 @@ const Description = styled.p`
 const PriceWrapper = styled.div`
   margin-top: 8px;
 
-  @media (max-width: 968px) {
+  @media (max-width: ${({ theme }) => theme.mediaQueries.laptop}) {
     margin-top: 4px;
   }
 `;
@@ -167,11 +162,11 @@ const Price = styled.strong`
   color: ${({ theme }) => theme.colors.primary};
   display: block;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.mediaQueries.tablet}) {
     font-size: 1.75rem;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     font-size: 1.5rem;
   }
 `;
@@ -179,12 +174,12 @@ const Price = styled.strong`
 const ButtonWrapper = styled.div`
   margin-top: 12px;
 
-  @media (max-width: 968px) {
+  @media (max-width: ${({ theme }) => theme.mediaQueries.laptop}) {
     max-width: 100%;
     margin-top: 8px;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     button {
       width: 100%;
     }

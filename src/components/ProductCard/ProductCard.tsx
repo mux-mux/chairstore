@@ -52,7 +52,7 @@ const Footer = styled.div`
   gap: 20px;
   padding-left: 20px;
   text-align: left;
-  font-size: 18px;
+  font-size: 1.125rem;
 `;
 
 const Title = styled.h3`

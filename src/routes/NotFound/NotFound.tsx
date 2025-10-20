@@ -24,18 +24,18 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 120px;
+  font-size: 7.5rem;
   margin: 0;
 `;
 
 const Subtitle = styled.h2`
-  font-size: 32px;
+  font-size: 2rem;
   margin-top: -20px;
 `;
 
 const Message = styled.p`
   margin: 20px 0;
-  font-size: 18px;
+  font-size: 1.125rem;
 `;
 
 const HomeLink = styled(Link)`
@@ -43,7 +43,7 @@ const HomeLink = styled(Link)`
   padding: 12px 24px;
   color: inherit;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 1rem;
   transition: color 0.3s ease;
 `;
 

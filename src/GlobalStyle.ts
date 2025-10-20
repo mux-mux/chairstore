@@ -9,13 +9,17 @@ body {
     min-height: 100%;
     margin: 0;
     min-width: 320px;
-    padding: 10px;
+    padding: ${({ theme }) => theme.space[5]}px;
     text-align: center;
     scrollbar-gutter: stable;
+
+    @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
+      padding: ${({ theme }) => theme.space[3]}px;
+  }
 }
 
 :root {
-    font-family: 'Oswald', sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
@@ -24,7 +28,7 @@ body {
 
   color-scheme: light dark;
   background: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.textPrimary};
+  color: ${({ theme }) => theme.colors.textPrimary};
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
