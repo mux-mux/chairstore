@@ -53,7 +53,7 @@ const Details = styled.div`
   overflow: hidden;
 `;
 const Name = styled.span`
-  font-size: 16px;
+  font-size: 1rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   line-clamp: 2;

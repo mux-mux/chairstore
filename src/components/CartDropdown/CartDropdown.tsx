@@ -86,7 +86,7 @@ const CartItems = styled.div`
 `;
 
 const EmptyMessage = styled.span`
-  font-size: 18px;
+  font-size: 1.5rem;
   margin: auto;
 `;
 

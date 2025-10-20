@@ -124,7 +124,7 @@ const Form = styled.form`
 `;
 
 const Label = styled.label`
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
 `;
 
