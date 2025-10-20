@@ -9,12 +9,12 @@ body {
     min-height: 100%;
     margin: 0;
     min-width: 320px;
-    padding: ${({ theme }) => theme.space[3]}px;
+    padding: ${({ theme }) => theme.space[5]}px;
     text-align: center;
     scrollbar-gutter: stable;
 
-    @media (min-width: ${({ theme }) => theme.mediaQueries.mobile}) {
-      padding: ${({ theme }) => theme.space[5]}px;
+    @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
+      padding: ${({ theme }) => theme.space[3]}px;
   }
 }
 

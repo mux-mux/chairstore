@@ -47,11 +47,11 @@ const CheckoutContainer = styled.div`
   align-items: center;
   margin: 50px auto 0;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.mediaQueries.tablet}) {
     width: 85%;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     width: 100%;
   }
 `;
