@@ -39,7 +39,7 @@ export default Button;
 const ButtonBase = styled.button`
   border-radius: ${({ theme }) => theme.radius.sm};
   border: none;
-  padding: ${({ theme }) => theme.space[2]}px ${({ theme }) => theme.space[4]}px;
+  padding: ${({ theme }) => theme.space[2]} ${({ theme }) => theme.space[4]};
   font-size: ${({ theme }) => theme.fontSize[2]};
   font-weight: 600;
   font-family: inherit;

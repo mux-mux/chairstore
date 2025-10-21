@@ -30,7 +30,7 @@ const CartItemContainer = styled.div`
   width: 100%;
   display: flex;
   height: 80px;
-  margin-bottom: 15px;
+  margin-bottom: ${({ theme }) => theme.space[4]};
 
   &:not(:last-of-type) {
     border-bottom: 1px solid ${({ theme }) => theme.colors.border};
@@ -49,7 +49,7 @@ const Details = styled.div`
   align-items: flex-start;
   justify-content: center;
   text-align: left;
-  padding: 5px 20px;
+  padding: ${({ theme }) => theme.space[1]} ${({ theme }) => theme.space[5]};
   overflow: hidden;
 `;
 const Name = styled.span`

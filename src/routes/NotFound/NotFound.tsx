@@ -19,28 +19,28 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 20px;
+  padding: ${({ theme }) => theme.space[4]};
   color: ${({ theme }) => theme.colors.textSecondary};
 `;
 
 const Title = styled.h1`
   font-size: ${({ theme }) => theme.fontSize[8]};
-  margin: 0;
+  margin: ${({ theme }) => theme.space[0]};
 `;
 
 const Subtitle = styled.h2`
   font-size: ${({ theme }) => theme.fontSize[5]};
-  margin-top: -20px;
+  margin-top: -${({ theme }) => theme.space[4]};
 `;
 
 const Message = styled.p`
-  margin: 20px 0;
+  margin: ${({ theme }) => theme.space[4]} 0;
   font-size: ${({ theme }) => theme.fontSize[3]};
 `;
 
 const HomeLink = styled(Link)`
-  margin-top: 20px;
-  padding: 12px 24px;
+  margin-top: ${({ theme }) => theme.space[4]};
+  padding: ${({ theme }) => theme.space[3]} ${({ theme }) => theme.space[5]};
   color: inherit;
   text-decoration: none;
   font-size: ${({ theme }) => theme.fontSize[2]};

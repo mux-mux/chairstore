@@ -120,7 +120,7 @@ const PaymentFormContainer = styled.div`
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: ${({ theme }) => theme.space[4]};
 `;
 
 const Label = styled.label`

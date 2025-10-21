@@ -46,7 +46,7 @@ const Name = styled.span`
   bottom: 0;
   color: white;
   background-color: rgba(0, 0, 0, 0.2);
-  padding: ${({ theme }) => theme.space[1]}px;
+  padding: ${({ theme }) => theme.space[1]};
   font-size: ${({ theme }) => theme.fontSize[3]};
   font-weight: 600;
   text-transform: uppercase;

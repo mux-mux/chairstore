@@ -83,7 +83,7 @@ const SearchContainer = styled.div`
 const SearchInput = styled.input`
   max-width: 200px;
   font-size: ${({ theme }) => theme.fontSize[1]};
-  padding: ${({ theme }) => theme.space[2]}px ${({ theme }) => theme.space[3]}px;
+  padding: ${({ theme }) => theme.space[2]} ${({ theme }) => theme.space[3]};
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.radius.sm};
   outline: none;
@@ -99,8 +99,8 @@ const ResultsList = styled.ul`
   top: 100%;
   left: 0;
   right: 0;
-  padding: 0;
-  margin-top: 0;
+  padding: ${({ theme }) => theme.space[0]};
+  margin-top: ${({ theme }) => theme.space[0]};
   list-style: none;
   font-size: ${({ theme }) => theme.fontSize[1]};
   text-align: left;
@@ -114,7 +114,7 @@ const ResultsList = styled.ul`
 `;
 
 const ResultItem = styled.li`
-  padding: 5px 0;
+  padding: ${({ theme }) => theme.space[1]} ${({ theme }) => theme.space[0]};
   cursor: pointer;
   transition: background opacity 0.2s ease;
 
@@ -126,7 +126,7 @@ const ResultItem = styled.li`
 const ResultLink = styled(Link)`
   display: grid;
   grid-template-columns: 80px 1fr 40px;
-  gap: 5px;
+  gap: ${({ theme }) => theme.space[1]};
   align-items: center;
 `;
 
@@ -138,12 +138,12 @@ const EmptyMessage = styled.div`
   position: absolute;
   left: 50%;
   width: 100%;
-  padding: ${({ theme }) => theme.space[2]}px;
+  padding: ${({ theme }) => theme.space[2]};
   border-radius: ${({ theme }) => theme.radius.sm};
   box-shadow: ${({ theme }) => theme.shadows.low};
 
   transform: translateX(-50%);
-  margin-top: ${({ theme }) => theme.space[1]}px;
+  margin-top: ${({ theme }) => theme.space[1]};
   text-align: center;
   color: ${({ theme }) => theme.colors.textSecondary};
   background-color: #fff;

@@ -110,11 +110,11 @@ const ContactForm = styled.form`
 `;
 
 const ContactHeading = styled.h2`
-  margin: 10px 0;
+  margin: ${({ theme }) => theme.space[2]} 0;
 `;
 
 const SuccessMessage = styled.p`
-  margin-top: 1rem;
+  margin-top: ${({ theme }) => theme.space[4]};
   color: green;
 `;
 

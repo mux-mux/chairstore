@@ -18,7 +18,7 @@ const CheckoutItem = ({ cartItem }: CartItemProps) => {
   return (
     <CheckoutItemContainer>
       <ImageContainer>
-        <img src={`/${imageSrc}`} alt={name} />
+        <Image src={`/${imageSrc}`} alt={name} />
       </ImageContainer>
       <Name>{name}</Name>
       <QuantityContainer>
@@ -42,7 +42,7 @@ const CheckoutItemContainer = styled.div`
 `;
 
 export const BaseButton = styled.button`
-  padding: 10px 15px;
+  padding: ${({ theme }) => theme.space[3]} ${({ theme }) => theme.space[4]};
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -55,6 +55,11 @@ const commonWidth = css`
 const ImageContainer = styled.div`
   ${commonWidth}
 `;
+
+const Image = styled.img`
+  display: block;
+`;
+
 const Name = styled.span`
   ${commonWidth}
 `;
@@ -72,7 +77,7 @@ const Price = styled.span`
 `;
 
 const RemoveButton = styled(BaseButton)`
-  margin: 0 auto;
+  margin: ${({ theme }) => theme.space[0]} auto;
 `;
 
 export default CheckoutItem;

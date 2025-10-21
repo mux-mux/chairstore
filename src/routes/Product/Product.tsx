@@ -50,22 +50,22 @@ const Product = () => {
 const PageWrapper = styled.div`
   width: 100%;
   max-width: 1400px;
-  margin: 0 auto;
+  margin: ${({ theme }) => theme.space[0]} auto;
 `;
 
 const ProductContainer = styled.div`
   display: flex;
-  gap: 40px;
-  margin-top: 24px;
+  gap: ${({ theme }) => theme.space[7]};
+  margin-top: ${({ theme }) => theme.space[5]};
 
   @media (max-width: ${({ theme }) => theme.mediaQueries.laptop}) {
     flex-direction: column;
-    gap: 24px;
-    margin-top: 16px;
+    gap: ${({ theme }) => theme.space[5]};
+    margin-top: ${({ theme }) => theme.space[4]};
   }
 
   @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
-    gap: 16px;
+    gap: ${({ theme }) => theme.space[4]};
   }
 `;
 
@@ -104,22 +104,22 @@ const DataBlock = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: ${({ theme }) => theme.space[5]};
   min-width: 0;
 
   @media (max-width: ${({ theme }) => theme.mediaQueries.laptop}) {
-    gap: 16px;
+    gap: ${({ theme }) => theme.space[4]};
   }
 
   @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
-    gap: 12px;
+    gap: ${({ theme }) => theme.space[3]};
   }
 `;
 
 const Title = styled.h2`
   font-size: ${({ theme }) => theme.fontSize[5]};
   font-weight: 600;
-  margin: 0;
+  margin: ${({ theme }) => theme.space[0]};
   color: ${({ theme }) => theme.colors.textPrimary};
 
   @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
@@ -131,7 +131,7 @@ const Description = styled.p`
   text-align: left;
   line-height: 1.6;
   color: ${({ theme }) => theme.colors.textPrimary};
-  margin: 0;
+  margin: ${({ theme }) => theme.space[0]};
   font-size: ${({ theme }) => theme.fontSize[2]};
 
   @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
@@ -141,10 +141,10 @@ const Description = styled.p`
 `;
 
 const PriceWrapper = styled.div`
-  margin-top: 8px;
+  margin-top: ${({ theme }) => theme.space[2]};
 
   @media (max-width: ${({ theme }) => theme.mediaQueries.laptop}) {
-    margin-top: 4px;
+    margin-top: ${({ theme }) => theme.space[1]};
   }
 `;
 
@@ -160,11 +160,11 @@ const Price = styled.strong`
 `;
 
 const ButtonWrapper = styled.div`
-  margin-top: 12px;
+  margin-top: ${({ theme }) => theme.space[3]};
 
   @media (max-width: ${({ theme }) => theme.mediaQueries.laptop}) {
     max-width: 100%;
-    margin-top: 8px;
+    margin-top: ${({ theme }) => theme.space[2]};
   }
 
   @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {

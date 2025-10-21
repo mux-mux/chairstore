@@ -33,14 +33,14 @@ const Breadcrumbs = ({ name }: { name?: string }) => {
 
 const BreadcrumbNav = styled.nav`
   font-size: ${({ theme }) => theme.fontSize[2]};
-  margin-bottom: 10px;
+  margin-bottom: ${({ theme }) => theme.space[2]};
 `;
 
 const BreadcrumbList = styled.ul`
   display: flex;
   align-items: center;
-  padding: 0;
-  margin: 0;
+  padding: ${({ theme }) => theme.space[0]};
+  margin: ${({ theme }) => theme.space[0]};
 `;
 
 const BreadcrumbItem = styled.li`
@@ -49,7 +49,7 @@ const BreadcrumbItem = styled.li`
 
   &:not(:last-child)::after {
     content: '/';
-    margin: 0 5px;
+    margin: ${({ theme }) => theme.space[0]} ${({ theme }) => theme.space[1]};
     color: ${({ theme }) => theme.colors.textSecondary};
   }
 `;

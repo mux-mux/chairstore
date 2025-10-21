@@ -139,7 +139,7 @@ const SignInContainer = styled.div`
 `;
 
 const SignInHeading = styled.h2`
-  margin: 10px 0;
+  margin: ${({ theme }) => theme.space[2]} ${({ theme }) => theme.space[0]};
 `;
 
 const SignInForm = styled.form`

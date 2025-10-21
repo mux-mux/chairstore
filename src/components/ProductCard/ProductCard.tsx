@@ -29,7 +29,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
 
 export const ProductCardContainer = styled(Link)`
   position: relative;
-  padding: ${({ theme }) => theme.space[2]}px;
+  padding: ${({ theme }) => theme.space[2]};
   background: ${({ theme }) => theme.colors.surface};
   border-radius: ${({ theme }) => theme.radius.md};
   box-shadow: ${({ theme }) => theme.shadows.low};
@@ -49,8 +49,8 @@ const Footer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
-  padding-left: 20px;
+  gap: ${({ theme }) => theme.space[4]};
+  padding-left: ${({ theme }) => theme.space[4]};
   text-align: left;
   font-size: ${({ theme }) => theme.fontSize[3]};
 `;
@@ -58,7 +58,8 @@ const Footer = styled.div`
 const Title = styled.h3`
   font-size: ${({ theme }) => theme.fontSize[3]};
   font-weight: 500;
-  margin: 0 0 ${({ theme }) => theme.space[2]}px;
+  margin-top: ${({ theme }) => theme.space[0]};
+  margin-bottom: ${({ theme }) => theme.space[3]};
   color: ${({ theme }) => theme.colors.textPrimary};
   display: -webkit-box;
   -webkit-line-clamp: 2;

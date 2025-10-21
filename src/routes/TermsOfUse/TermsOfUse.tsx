@@ -68,9 +68,9 @@ const TermsOfUse = () => {
 };
 
 const Wrapper = styled.div`
-  margin: 0 auto;
+  margin: ${({ theme }) => theme.space[0]} auto;
   width: 100%;
-  max-width: 55rem;
+  max-width: 880px;
   text-align: left;
 `;
 

@@ -56,7 +56,7 @@ const CartDropdownContainer = styled.div`
   height: 340px;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: ${({ theme }) => theme.space[4]};
   border: none;
   border-radius: ${({ theme }) => theme.radius.md};
   box-shadow: ${({ theme }) => theme.shadows.low};
