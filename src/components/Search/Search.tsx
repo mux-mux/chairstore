@@ -85,7 +85,7 @@ const SearchInput = styled.input`
   font-size: 0.8rem;
   padding: ${({ theme }) => theme.space[2]}px ${({ theme }) => theme.space[3]}px;
   border: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: ${({ theme }) => theme.radii.sm};
+  border-radius: ${({ theme }) => theme.radius.sm};
   outline: none;
   transition: border 0.2s, box-shadow 0.2s;
 
@@ -139,7 +139,7 @@ const EmptyMessage = styled.div`
   left: 50%;
   width: 100%;
   padding: ${({ theme }) => theme.space[2]}px;
-  border-radius: ${({ theme }) => theme.radii.sm};
+  border-radius: ${({ theme }) => theme.radius.sm};
   box-shadow: ${({ theme }) => theme.shadows.low};
 
   transform: translateX(-50%);

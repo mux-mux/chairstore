@@ -15,7 +15,7 @@ const Category = ({ title, path, imageSrc }: CategoryType) => {
 
 const CategoryLink = styled(Link)`
   display: block;
-  border-radius: ${({ theme }) => theme.radii.md};
+  border-radius: ${({ theme }) => theme.radius.md};
   overflow: hidden;
   box-shadow: ${({ theme }) => theme.shadows.low};
   background: ${({ theme }) => theme.colors.surface};

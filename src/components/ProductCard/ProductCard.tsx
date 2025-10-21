@@ -31,7 +31,7 @@ export const ProductCardContainer = styled(Link)`
   position: relative;
   padding: ${({ theme }) => theme.space[2]}px;
   background: ${({ theme }) => theme.colors.surface};
-  border-radius: ${({ theme }) => theme.radii.md};
+  border-radius: ${({ theme }) => theme.radius.md};
   box-shadow: ${({ theme }) => theme.shadows.low};
   overflow: hidden;
   display: flex;

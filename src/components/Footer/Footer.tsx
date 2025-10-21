@@ -32,7 +32,7 @@ const Wrapper = styled.footer`
   align-items: center;
   background: ${({ theme }) => theme.colors.surface};
   border-top: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: ${({ theme }) => theme.radii.md};
+  border-radius: ${({ theme }) => theme.radius.md};
   padding: ${({ theme }) => theme.space[6]}px;
   color: ${({ theme }) => theme.colors.textPrimary};
   font-size: 0.9rem;

@@ -112,7 +112,7 @@ const NavContainer = styled.div`
   background: ${({ theme }) => theme.colors.surface};
   box-shadow: ${({ theme }) => theme.shadows.low};
   padding: ${({ theme }) => theme.space[3]}px ${({ theme }) => theme.space[4]}px;
-  border-radius: ${({ theme }) => theme.radii.md};
+  border-radius: ${({ theme }) => theme.radius.md};
   position: sticky;
   top: 0;
   z-index: 20;
@@ -227,7 +227,7 @@ const MobileMenu = styled.div`
   top: 70px;
   right: 0;
   width: 200px;
-  border-radius: ${({ theme }) => theme.radii.md};
+  border-radius: ${({ theme }) => theme.radius.md};
   z-index: 101;
 
   @media screen and (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {

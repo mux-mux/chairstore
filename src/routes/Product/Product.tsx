@@ -86,7 +86,7 @@ const Image = styled.img`
   width: 100%;
   height: auto;
   max-width: 600px;
-  border-radius: ${({ theme }) => theme.radii.md};
+  border-radius: ${({ theme }) => theme.radius.md};
   box-shadow: ${({ theme }) => theme.shadows.low};
   object-fit: cover;
 
@@ -96,7 +96,7 @@ const Image = styled.img`
 
   @media (max-width: ${({ theme }) => theme.mediaQueries.tablet}) {
     max-width: 100%;
-    border-radius: ${({ theme }) => theme.radii.sm};
+    border-radius: ${({ theme }) => theme.radius.sm};
   }
 `;
 

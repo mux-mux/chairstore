@@ -11,7 +11,7 @@ export const theme = {
     error: '#dc2626',
   },
   space: [0, 4, 8, 12, 16, 24, 32, 48],
-  radii: {
+  radius: {
     sm: '6px',
     md: '10px',
     lg: '16px',

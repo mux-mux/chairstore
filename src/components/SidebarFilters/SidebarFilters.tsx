@@ -114,7 +114,7 @@ const SidebarFilters = ({
 
 const Sidebar = styled.div<{ $isOpen: boolean }>`
   background: ${({ theme }) => theme.colors.surface};
-  border-radius: ${({ theme }) => theme.radii.md};
+  border-radius: ${({ theme }) => theme.radius.md};
   box-shadow: ${({ theme }) => theme.shadows.low};
   padding: ${({ theme }) => theme.space[4]}px;
   min-width: 240px;

@@ -114,7 +114,7 @@ const FilterButton = styled.button`
   right: 0;
   transform: translateY(-50%);
   padding: ${({ theme }) => theme.space[2]}px;
-  border-radius: ${({ theme }) => theme.radii.md};
+  border-radius: ${({ theme }) => theme.radius.md};
   border: none;
   width: 60px;
 

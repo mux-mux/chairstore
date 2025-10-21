@@ -37,7 +37,7 @@ const Button = memo(
 export default Button;
 
 const ButtonBase = styled.button`
-  border-radius: ${({ theme }) => theme.radii.sm};
+  border-radius: ${({ theme }) => theme.radius.sm};
   border: none;
   padding: ${({ theme }) => theme.space[2]}px ${({ theme }) => theme.space[4]}px;
   font-size: 1rem;

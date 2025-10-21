@@ -38,7 +38,7 @@ const Field = css`
   font-size: 1rem;
   padding: ${({ theme }) => theme.space[2]}px ${({ theme }) => theme.space[3]}px;
   border: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: ${({ theme }) => theme.radii.sm};
+  border-radius: ${({ theme }) => theme.radius.sm};
   transition: border-color 0.2s ease;
 
   &:focus {
