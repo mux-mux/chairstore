@@ -15,7 +15,7 @@ const Category = ({ title, path, imageSrc }: CategoryType) => {
 
 const CategoryLink = styled(Link)`
   display: block;
-  border-radius: ${({ theme }) => theme.radii.md};
+  border-radius: ${({ theme }) => theme.radius.md};
   overflow: hidden;
   box-shadow: ${({ theme }) => theme.shadows.low};
   background: ${({ theme }) => theme.colors.surface};
@@ -46,8 +46,8 @@ const Name = styled.span`
   bottom: 0;
   color: white;
   background-color: rgba(0, 0, 0, 0.2);
-  padding: ${({ theme }) => theme.space[1]}px;
-  font-size: 1.25rem;
+  padding: ${({ theme }) => theme.space[1]};
+  font-size: ${({ theme }) => theme.fontSize[3]};
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;

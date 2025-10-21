@@ -50,22 +50,22 @@ const Product = () => {
 const PageWrapper = styled.div`
   width: 100%;
   max-width: 1400px;
-  margin: 0 auto;
+  margin: ${({ theme }) => theme.space[0]} auto;
 `;
 
 const ProductContainer = styled.div`
   display: flex;
-  gap: 40px;
-  margin-top: 24px;
+  gap: ${({ theme }) => theme.space[7]};
+  margin-top: ${({ theme }) => theme.space[5]};
 
   @media (max-width: ${({ theme }) => theme.mediaQueries.laptop}) {
     flex-direction: column;
-    gap: 24px;
-    margin-top: 16px;
+    gap: ${({ theme }) => theme.space[5]};
+    margin-top: ${({ theme }) => theme.space[4]};
   }
 
   @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
-    gap: 16px;
+    gap: ${({ theme }) => theme.space[4]};
   }
 `;
 
@@ -86,7 +86,7 @@ const Image = styled.img`
   width: 100%;
   height: auto;
   max-width: 600px;
-  border-radius: ${({ theme }) => theme.radii.md};
+  border-radius: ${({ theme }) => theme.radius.md};
   box-shadow: ${({ theme }) => theme.shadows.low};
   object-fit: cover;
 
@@ -96,7 +96,7 @@ const Image = styled.img`
 
   @media (max-width: ${({ theme }) => theme.mediaQueries.tablet}) {
     max-width: 100%;
-    border-radius: ${({ theme }) => theme.radii.sm};
+    border-radius: ${({ theme }) => theme.radius.sm};
   }
 `;
 
@@ -104,30 +104,26 @@ const DataBlock = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: ${({ theme }) => theme.space[5]};
   min-width: 0;
 
   @media (max-width: ${({ theme }) => theme.mediaQueries.laptop}) {
-    gap: 16px;
+    gap: ${({ theme }) => theme.space[4]};
   }
 
   @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
-    gap: 12px;
+    gap: ${({ theme }) => theme.space[3]};
   }
 `;
 
 const Title = styled.h2`
-  font-size: 2rem;
+  font-size: ${({ theme }) => theme.fontSize[5]};
   font-weight: 600;
-  margin: 0;
+  margin: ${({ theme }) => theme.space[0]};
   color: ${({ theme }) => theme.colors.textPrimary};
 
-  @media (max-width: ${({ theme }) => theme.mediaQueries.tablet}) {
-    font-size: 1.75rem;
-  }
-
   @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
-    font-size: 1.5rem;
+    font-size: ${({ theme }) => theme.fontSize[4]};
   }
 `;
 
@@ -135,48 +131,40 @@ const Description = styled.p`
   text-align: left;
   line-height: 1.6;
   color: ${({ theme }) => theme.colors.textPrimary};
-  margin: 0;
-  font-size: 1rem;
-
-  @media (max-width: ${({ theme }) => theme.mediaQueries.tablet}) {
-    font-size: 0.9375rem;
-    line-height: 1.5;
-  }
+  margin: ${({ theme }) => theme.space[0]};
+  font-size: ${({ theme }) => theme.fontSize[2]};
 
   @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
-    font-size: 0.875rem;
+    line-height: 1.5;
+    font-size: ${({ theme }) => theme.fontSize[1]};
   }
 `;
 
 const PriceWrapper = styled.div`
-  margin-top: 8px;
+  margin-top: ${({ theme }) => theme.space[2]};
 
   @media (max-width: ${({ theme }) => theme.mediaQueries.laptop}) {
-    margin-top: 4px;
+    margin-top: ${({ theme }) => theme.space[1]};
   }
 `;
 
 const Price = styled.strong`
-  font-size: 2rem;
+  font-size: ${({ theme }) => theme.fontSize[5]};
   font-weight: 700;
   color: ${({ theme }) => theme.colors.primary};
   display: block;
 
-  @media (max-width: ${({ theme }) => theme.mediaQueries.tablet}) {
-    font-size: 1.75rem;
-  }
-
   @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
-    font-size: 1.5rem;
+    font-size: ${({ theme }) => theme.fontSize[4]};
   }
 `;
 
 const ButtonWrapper = styled.div`
-  margin-top: 12px;
+  margin-top: ${({ theme }) => theme.space[3]};
 
   @media (max-width: ${({ theme }) => theme.mediaQueries.laptop}) {
     max-width: 100%;
-    margin-top: 8px;
+    margin-top: ${({ theme }) => theme.space[2]};
   }
 
   @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {

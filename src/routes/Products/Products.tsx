@@ -113,8 +113,8 @@ const FilterButton = styled.button`
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  padding: ${({ theme }) => theme.space[2]}px;
-  border-radius: ${({ theme }) => theme.radii.md};
+  padding: ${({ theme }) => theme.space[2]};
+  border-radius: ${({ theme }) => theme.radius.md};
   border: none;
   width: 60px;
 
@@ -129,18 +129,22 @@ const FilterIcon = styled(FiFilter)`
 
 const ProductsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   align-items: flex-start;
   place-content: flex-start;
-  padding: 0 20px;
-  gap: 20px;
+  padding: ${({ theme }) => theme.space[0]} ${({ theme }) => theme.space[4]};
+  gap: ${({ theme }) => theme.space[4]};
   flex: 1;
+
+  @media screen and (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
+    padding: ${({ theme }) => theme.space[0]};
+  }
 `;
 
 const Title = styled.h1`
   text-transform: uppercase;
-  font-size: 2.375rem;
-  margin-bottom: 25px;
+  font-size: ${({ theme }) => theme.fontSize[6]};
+  margin-bottom: ${({ theme }) => theme.space[5]};
 `;
 
 export default Products;

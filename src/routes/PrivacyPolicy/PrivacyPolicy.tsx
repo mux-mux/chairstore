@@ -89,14 +89,14 @@ const PrivacyPolicy = () => {
 };
 
 const Wrapper = styled.div`
-  margin: 0 auto;
+  margin: ${({ theme }) => theme.space[0]} auto;
   width: 100%;
-  max-width: 55rem;
+  max-width: 880px;
   text-align: left;
 `;
 
 const Updated = styled.p`
-  font-size: 0.75rem;
+  font-size: ${({ theme }) => theme.fontSize[0]};
 `;
 
 const Heading = styled.h2`

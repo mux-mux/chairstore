@@ -108,18 +108,18 @@ const NavContainer = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  margin-bottom: 25px;
+  margin-bottom: ${({ theme }) => theme.space[4]};
   background: ${({ theme }) => theme.colors.surface};
   box-shadow: ${({ theme }) => theme.shadows.low};
-  padding: ${({ theme }) => theme.space[3]}px ${({ theme }) => theme.space[4]}px;
-  border-radius: ${({ theme }) => theme.radii.md};
+  padding: ${({ theme }) => theme.space[3]} ${({ theme }) => theme.space[4]};
+  border-radius: ${({ theme }) => theme.radius.md};
   position: sticky;
   top: 0;
   z-index: 20;
 
   @media screen and (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     height: 60px;
-    padding: ${({ theme }) => theme.space[2]}px;
+    padding: ${({ theme }) => theme.space[2]};
     justify-content: space-between;
     position: unset;
   }
@@ -130,7 +130,7 @@ const LogoLink = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: ${({ theme }) => theme.space[2]};
   margin-right: auto;
 
   @media screen and (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
@@ -144,24 +144,19 @@ const SearchWrapper = styled.div`
 
   @media screen and (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     justify-content: flex-start;
-    margin-left: ${({ theme }) => theme.space[2]}px;
+    margin-left: ${({ theme }) => theme.space[2]};
   }
 `;
 
 const RightSection = styled.div`
   display: flex;
   align-items: center;
-  gap: ${({ theme }) => theme.space[4]}px;
-
-  @media screen and (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
-    gap: ${({ theme }) => theme.space[2]}px;
-  }
 `;
 
 const NavLinks = styled.nav`
   display: flex;
   align-items: center;
-  gap: ${({ theme }) => theme.space[4]}px;
+  gap: ${({ theme }) => theme.space[2]};
 
   @media screen and (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     display: none;
@@ -169,7 +164,7 @@ const NavLinks = styled.nav`
 `;
 
 const NavLinkStyles = css`
-  padding: 10px 15px;
+  padding: ${({ theme }) => theme.space[2]} ${({ theme }) => theme.space[3]};
   text-transform: uppercase;
   font-weight: 500;
   color: ${({ theme }) => theme.colors.textPrimary};
@@ -187,7 +182,7 @@ const NavLink = styled(Link)`
 
 const NavButton = styled.button`
   ${NavLinkStyles}
-  font-size: 1rem;
+  font-size: ${({ theme }) => theme.fontSize[2]};
   font-family: inherit;
   background: transparent;
   border: none;
@@ -219,15 +214,15 @@ const Hamburger = styled.button`
 const MobileMenu = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.space[3]}px;
+  gap: ${({ theme }) => theme.space[3]};
   background: ${({ theme }) => theme.colors.surface};
-  padding: ${({ theme }) => theme.space[4]}px;
+  padding: ${({ theme }) => theme.space[4]};
   box-shadow: ${({ theme }) => theme.shadows.mid};
   position: absolute;
   top: 70px;
   right: 0;
   width: 200px;
-  border-radius: ${({ theme }) => theme.radii.md};
+  border-radius: ${({ theme }) => theme.radius.md};
   z-index: 101;
 
   @media screen and (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
@@ -244,7 +239,7 @@ const MobileLink = styled(Link)`
   text-transform: uppercase;
   text-align: left;
   color: ${({ theme }) => theme.colors.textPrimary};
-  padding: 8px 0;
+  padding: ${({ theme }) => theme.space[2]} ${({ theme }) => theme.space[0]};
 
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
@@ -254,7 +249,7 @@ const MobileLink = styled(Link)`
 const MobileButton = styled(NavButton)`
   width: 100%;
   text-align: left;
-  padding: 8px 0;
+  padding: ${({ theme }) => theme.space[2]} ${({ theme }) => theme.space[0]};
 `;
 
 const SpinnerContainer = styled.div`
@@ -262,7 +257,7 @@ const SpinnerContainer = styled.div`
   right: 16px;
 
   @media screen and (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
-    right: 40px;
+    right: 30px;
   }
 `;
 

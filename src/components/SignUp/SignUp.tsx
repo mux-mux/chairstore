@@ -143,7 +143,7 @@ const SignUpContainer = styled.div`
 `;
 
 const SignUpHeading = styled.h2`
-  margin: 10px 0;
+  margin: ${({ theme }) => theme.space[2]} ${({ theme }) => theme.space[0]};
 `;
 
 export default SignUp;

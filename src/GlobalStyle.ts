@@ -7,14 +7,14 @@ const GlobalStyle = createGlobalStyle`
 
 body {
     min-height: 100%;
-    margin: 0;
+    margin: ${({ theme }) => theme.space[0]};
     min-width: 320px;
-    padding: ${({ theme }) => theme.space[5]}px;
+    padding: ${({ theme }) => theme.space[5]};
     text-align: center;
     scrollbar-gutter: stable;
 
     @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
-      padding: ${({ theme }) => theme.space[3]}px;
+      padding: ${({ theme }) => theme.space[3]};
   }
 }
 
@@ -43,7 +43,7 @@ body {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20px;
+  margin-bottom: ${({ theme }) => theme.space[4]};
 
   display: flex;
   flex-direction: column;
@@ -59,7 +59,7 @@ input[type="checkbox"] {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: ${({ theme }) => theme.fontSize[7]};
   line-height: 1.1;
 }
 

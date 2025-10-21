@@ -56,9 +56,9 @@ const CartDropdownContainer = styled.div`
   height: 340px;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: ${({ theme }) => theme.space[4]};
   border: none;
-  border-radius: ${({ theme }) => theme.radii.md};
+  border-radius: ${({ theme }) => theme.radius.md};
   box-shadow: ${({ theme }) => theme.shadows.low};
   background-color: ${({ theme }) => theme.colors.surface};
   top: 60px;
@@ -75,7 +75,7 @@ const CloseCart = styled.button`
   border: none;
   border-radius: 0 0 0 5px;
   background-color: ${({ theme }) => theme.colors.secondary};
-  font-size: 1rem;
+  font-size: ${({ theme }) => theme.fontSize[2]};
   cursor: pointer;
 `;
 const CartItems = styled.div`
@@ -86,7 +86,7 @@ const CartItems = styled.div`
 `;
 
 const EmptyMessage = styled.span`
-  font-size: 1.5rem;
+  font-size: ${({ theme }) => theme.fontSize[4]};
   margin: auto;
 `;
 

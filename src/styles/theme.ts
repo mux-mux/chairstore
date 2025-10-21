@@ -10,8 +10,19 @@ export const theme = {
     border: '#E5E7EB',
     error: '#dc2626',
   },
-  space: [0, 4, 8, 12, 16, 24, 32, 48],
-  radii: {
+  space: [0, '4px', '8px', '12px', '16px', '24px', '32px', '48px'],
+  fontSize: [
+    '0.75rem',
+    '0.875rem',
+    '1rem',
+    '1.25rem',
+    '1.5rem',
+    '2rem',
+    '2.5rem',
+    '3rem',
+    '6rem',
+  ],
+  radius: {
     sm: '6px',
     md: '10px',
     lg: '16px',

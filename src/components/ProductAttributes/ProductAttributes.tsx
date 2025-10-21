@@ -47,7 +47,7 @@ const ProductAttributes = ({ product }: { product: ProductType }) => {
 };
 
 const cellStyles = css`
-  padding: 5px;
+  padding: ${({ theme }) => theme.space[1]};
   border: 1px solid ${({ theme }) => theme.colors.border};
 `;
 
@@ -58,7 +58,7 @@ const TableWrapper = styled.div`
 const Table = styled.table`
   width: 100%;
   max-width: 400px;
-  margin: 0 auto;
+  margin: ${({ theme }) => theme.space[0]} auto;
   border-collapse: collapse;
 `;
 

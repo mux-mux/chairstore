@@ -114,9 +114,9 @@ const SidebarFilters = ({
 
 const Sidebar = styled.div<{ $isOpen: boolean }>`
   background: ${({ theme }) => theme.colors.surface};
-  border-radius: ${({ theme }) => theme.radii.md};
+  border-radius: ${({ theme }) => theme.radius.md};
   box-shadow: ${({ theme }) => theme.shadows.low};
-  padding: ${({ theme }) => theme.space[4]}px;
+  padding: ${({ theme }) => theme.space[4]};
   min-width: 240px;
   text-align: left;
   transition: transform 0.3s ease-in-out;
@@ -149,14 +149,14 @@ const Header = styled.h2`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 0;
+  margin-top: ${({ theme }) => theme.space[0]};
 `;
 
 const CloseBtn = styled.button`
   display: none;
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: ${({ theme }) => theme.fontSize[4]};
   cursor: pointer;
 
   @media screen and (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
@@ -165,16 +165,16 @@ const CloseBtn = styled.button`
 `;
 
 const FilterName = styled.h3`
-  font-size: 1rem;
-  margin-bottom: ${({ theme }) => theme.space[2]}px;
+  font-size: ${({ theme }) => theme.fontSize[2]};
+  margin-bottom: ${({ theme }) => theme.space[2]};
   color: ${({ theme }) => theme.colors.textPrimary};
 `;
 
 const Checkbox = styled.label`
   display: flex;
   align-items: center;
-  gap: ${({ theme }) => theme.space[2]}px;
-  font-size: 0.95rem;
+  gap: ${({ theme }) => theme.space[2]};
+  font-size: ${({ theme }) => theme.fontSize[2]};
   color: ${({ theme }) => theme.colors.textPrimary};
 
   input {

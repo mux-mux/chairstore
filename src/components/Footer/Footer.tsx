@@ -26,40 +26,44 @@ const Footer = () => {
 };
 
 const Wrapper = styled.footer`
-  margin-top: ${({ theme }) => theme.space[6]}px;
+  margin-top: ${({ theme }) => theme.space[6]};
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: ${({ theme }) => theme.colors.surface};
   border-top: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: ${({ theme }) => theme.radii.md};
-  padding: ${({ theme }) => theme.space[6]}px;
+  border-radius: ${({ theme }) => theme.radius.md};
+  padding: ${({ theme }) => theme.space[6]};
   color: ${({ theme }) => theme.colors.textPrimary};
-  font-size: 0.9rem;
+  font-size: ${({ theme }) => theme.fontSize[1]};
+
+  @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
+    padding: ${({ theme }) => theme.space[3]};
+  }
 `;
 
 const Attributes = styled.p`
-  margin-top: 24px;
-  font-size: 0.875rem;
-  max-width: 18rem;
+  margin-top: ${({ theme }) => theme.space[5]};
+  font-size: ${({ theme }) => theme.fontSize[1]};
+  max-width: 280px;
 `;
 
 const LinksHeading = styled.h2`
-  font-size: 1.25rem;
+  font-size: ${({ theme }) => theme.fontSize[3]};
 `;
 
 const LinksList = styled.ul`
-  margin-top: 24px;
+  margin-top: ${({ theme }) => theme.space[5]};
   list-style-type: none;
-  padding: 0;
+  padding: ${({ theme }) => theme.space[0]};
 
   & li:not(:last-child) {
-    margin-bottom: 8px;
+    margin-bottom: ${({ theme }) => theme.space[2]};
   }
 
   & a {
     text-decoration: none;
-    font-size: 1rem;
+    font-size: ${({ theme }) => theme.fontSize[2]};
   }
 `;
 

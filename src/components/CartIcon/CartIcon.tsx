@@ -49,7 +49,7 @@ const CartCount = styled.span`
   color: white;
   border-radius: 50%;
   padding: 2px 6px;
-  font-size: 0.75rem;
+  font-size: ${({ theme }) => theme.fontSize[0]};
 `;
 
 export default CartIcon;

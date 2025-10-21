@@ -25,20 +25,20 @@ const FormInput = ({
 
 const InputContainer = styled.div`
   position: relative;
-  margin: 45px 0;
+  margin: ${({ theme }) => theme.space[7]} ${({ theme }) => theme.space[0]};
 `;
 
 const Field = css`
   display: block;
   width: 100%;
-  margin: 0 auto;
+  margin: ${({ theme }) => theme.space[0]} auto;
   background: none;
   background-color: transparent;
   color: ${({ theme }) => theme.colors.textPrimary};
-  font-size: 1rem;
-  padding: ${({ theme }) => theme.space[2]}px ${({ theme }) => theme.space[3]}px;
+  font-size: ${({ theme }) => theme.fontSize[2]};
+  padding: ${({ theme }) => theme.space[2]} ${({ theme }) => theme.space[3]};
   border: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: ${({ theme }) => theme.radii.sm};
+  border-radius: ${({ theme }) => theme.radius.sm};
   transition: border-color 0.2s ease;
 
   &:focus {
@@ -50,7 +50,7 @@ const Field = css`
   &:focus + label,
   &:not(:placeholder-shown) + label {
     top: -22px;
-    font-size: 0.875rem;
+    font-size: ${({ theme }) => theme.fontSize[1]};
     color: initial;
     cursor: default;
   }
@@ -69,7 +69,7 @@ const InputLabel = styled.label`
   top: 6px;
   left: 12px;
   color: ${({ theme }) => theme.colors.textSecondary};
-  font-size: 1rem;
+  font-size: ${({ theme }) => theme.fontSize[2]};
   font-weight: normal;
   cursor: text;
 
@@ -81,7 +81,7 @@ const InputLabel = styled.label`
 
 const ErrorMessage = styled.span`
   color: ${({ theme }) => theme.colors.error || 'red'};
-  font-size: 0.875rem;
+  font-size: ${({ theme }) => theme.fontSize[1]};
   position: absolute;
   bottom: -20px;
   left: 0;

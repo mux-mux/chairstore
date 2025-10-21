@@ -45,7 +45,7 @@ const CheckoutContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 50px auto 0;
+  margin: ${({ theme }) => theme.space[7]} auto ${({ theme }) => theme.space[0]};
 
   @media (max-width: ${({ theme }) => theme.mediaQueries.tablet}) {
     width: 85%;
@@ -57,7 +57,7 @@ const CheckoutContainer = styled.div`
 `;
 const CheckoutHeader = styled.div`
   width: 100%;
-  padding: 10px 0;
+  padding: ${({ theme }) => theme.space[2]} ${({ theme }) => theme.space[0]};
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
@@ -71,9 +71,9 @@ const HeaderColumn = styled.div`
   }
 `;
 const CheckoutTotal = styled.span`
-  margin-top: 30px;
+  margin-top: ${({ theme }) => theme.space[6]};
   margin-left: auto;
-  font-size: 2.25rem;
+  font-size: ${({ theme }) => theme.fontSize[5]};
 `;
 
 export default Checkout;
