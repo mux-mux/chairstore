@@ -73,7 +73,7 @@ const HeaderColumn = styled.div`
 const CheckoutTotal = styled.span`
   margin-top: 30px;
   margin-left: auto;
-  font-size: 2.25rem;
+  font-size: ${({ theme }) => theme.fontSize[6]};
 `;
 
 export default Checkout;

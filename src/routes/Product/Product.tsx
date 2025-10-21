@@ -117,17 +117,13 @@ const DataBlock = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 2rem;
+  font-size: ${({ theme }) => theme.fontSize[5]};
   font-weight: 600;
   margin: 0;
   color: ${({ theme }) => theme.colors.textPrimary};
 
-  @media (max-width: ${({ theme }) => theme.mediaQueries.tablet}) {
-    font-size: 1.75rem;
-  }
-
   @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
-    font-size: 1.5rem;
+    font-size: ${({ theme }) => theme.fontSize[4]};
   }
 `;
 
@@ -136,15 +132,11 @@ const Description = styled.p`
   line-height: 1.6;
   color: ${({ theme }) => theme.colors.textPrimary};
   margin: 0;
-  font-size: 1rem;
-
-  @media (max-width: ${({ theme }) => theme.mediaQueries.tablet}) {
-    font-size: 0.9375rem;
-    line-height: 1.5;
-  }
+  font-size: ${({ theme }) => theme.fontSize[2]};
 
   @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
-    font-size: 0.875rem;
+    line-height: 1.5;
+    font-size: ${({ theme }) => theme.fontSize[1]};
   }
 `;
 
@@ -157,17 +149,13 @@ const PriceWrapper = styled.div`
 `;
 
 const Price = styled.strong`
-  font-size: 2rem;
+  font-size: ${({ theme }) => theme.fontSize[5]};
   font-weight: 700;
   color: ${({ theme }) => theme.colors.primary};
   display: block;
 
-  @media (max-width: ${({ theme }) => theme.mediaQueries.tablet}) {
-    font-size: 1.75rem;
-  }
-
   @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
-    font-size: 1.5rem;
+    font-size: ${({ theme }) => theme.fontSize[4]};
   }
 `;
 

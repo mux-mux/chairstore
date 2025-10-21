@@ -37,7 +37,7 @@ const CheckoutItemContainer = styled.div`
   display: flex;
   min-height: 100px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-  font-size: 1.25rem;
+  font-size: ${({ theme }) => theme.fontSize[3]};
   align-items: center;
 `;
 

@@ -52,11 +52,11 @@ const Footer = styled.div`
   gap: 20px;
   padding-left: 20px;
   text-align: left;
-  font-size: 1.125rem;
+  font-size: ${({ theme }) => theme.fontSize[3]};
 `;
 
 const Title = styled.h3`
-  font-size: 1.125rem;
+  font-size: ${({ theme }) => theme.fontSize[3]};
   font-weight: 500;
   margin: 0 0 ${({ theme }) => theme.space[2]}px;
   color: ${({ theme }) => theme.colors.textPrimary};
@@ -67,7 +67,7 @@ const Title = styled.h3`
 `;
 
 const Price = styled.span`
-  font-size: 1.25rem;
+  font-size: ${({ theme }) => theme.fontSize[3]};
   font-weight: 700;
   color: ${({ theme }) => theme.colors.primary};
 `;

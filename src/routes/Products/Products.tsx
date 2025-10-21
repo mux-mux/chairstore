@@ -139,7 +139,7 @@ const ProductsContainer = styled.div`
 
 const Title = styled.h1`
   text-transform: uppercase;
-  font-size: 2.375rem;
+  font-size: ${({ theme }) => theme.fontSize[6]};
   margin-bottom: 25px;
 `;
 

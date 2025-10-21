@@ -24,18 +24,18 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 7.5rem;
+  font-size: ${({ theme }) => theme.fontSize[8]};
   margin: 0;
 `;
 
 const Subtitle = styled.h2`
-  font-size: 2rem;
+  font-size: ${({ theme }) => theme.fontSize[5]};
   margin-top: -20px;
 `;
 
 const Message = styled.p`
   margin: 20px 0;
-  font-size: 1.125rem;
+  font-size: ${({ theme }) => theme.fontSize[3]};
 `;
 
 const HomeLink = styled(Link)`
@@ -43,7 +43,7 @@ const HomeLink = styled(Link)`
   padding: 12px 24px;
   color: inherit;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: ${({ theme }) => theme.fontSize[2]};
   transition: color 0.3s ease;
 `;
 

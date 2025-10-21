@@ -11,6 +11,17 @@ export const theme = {
     error: '#dc2626',
   },
   space: [0, 4, 8, 12, 16, 24, 32, 48],
+  fontSize: [
+    '0.75rem',
+    '0.875rem',
+    '1rem',
+    '1.25rem',
+    '1.5rem',
+    '2rem',
+    '2.5rem',
+    '3rem',
+    '6rem',
+  ],
   radius: {
     sm: '6px',
     md: '10px',

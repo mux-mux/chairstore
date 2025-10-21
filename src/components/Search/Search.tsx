@@ -82,7 +82,7 @@ const SearchContainer = styled.div`
 
 const SearchInput = styled.input`
   max-width: 200px;
-  font-size: 0.8rem;
+  font-size: ${({ theme }) => theme.fontSize[1]};
   padding: ${({ theme }) => theme.space[2]}px ${({ theme }) => theme.space[3]}px;
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.radius.sm};
@@ -102,7 +102,7 @@ const ResultsList = styled.ul`
   padding: 0;
   margin-top: 0;
   list-style: none;
-  font-size: 0.8rem;
+  font-size: ${({ theme }) => theme.fontSize[1]};
   text-align: left;
   background-color: ${({ theme }) => theme.colors.surface};
   border-top: none;
@@ -147,7 +147,7 @@ const EmptyMessage = styled.div`
   text-align: center;
   color: ${({ theme }) => theme.colors.textSecondary};
   background-color: #fff;
-  font-size: 0.875rem;
+  font-size: ${({ theme }) => theme.fontSize[1]};
 `;
 
 export default Search;

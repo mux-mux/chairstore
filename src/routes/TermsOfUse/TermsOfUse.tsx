@@ -75,7 +75,7 @@ const Wrapper = styled.div`
 `;
 
 const Updated = styled.p`
-  font-size: 0.75rem;
+  font-size: ${({ theme }) => theme.fontSize[0]};
 `;
 
 const Heading = styled.h2`

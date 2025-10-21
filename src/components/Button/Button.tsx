@@ -40,7 +40,7 @@ const ButtonBase = styled.button`
   border-radius: ${({ theme }) => theme.radius.sm};
   border: none;
   padding: ${({ theme }) => theme.space[2]}px ${({ theme }) => theme.space[4]}px;
-  font-size: 1rem;
+  font-size: ${({ theme }) => theme.fontSize[2]};
   font-weight: 600;
   font-family: inherit;
   text-transform: uppercase;

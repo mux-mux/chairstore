@@ -75,7 +75,7 @@ const CloseCart = styled.button`
   border: none;
   border-radius: 0 0 0 5px;
   background-color: ${({ theme }) => theme.colors.secondary};
-  font-size: 1rem;
+  font-size: ${({ theme }) => theme.fontSize[2]};
   cursor: pointer;
 `;
 const CartItems = styled.div`
@@ -86,7 +86,7 @@ const CartItems = styled.div`
 `;
 
 const EmptyMessage = styled.span`
-  font-size: 1.5rem;
+  font-size: ${({ theme }) => theme.fontSize[4]};
   margin: auto;
 `;
 

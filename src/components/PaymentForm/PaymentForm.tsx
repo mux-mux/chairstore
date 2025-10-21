@@ -124,7 +124,7 @@ const Form = styled.form`
 `;
 
 const Label = styled.label`
-  font-size: 0.875rem;
+  font-size: ${({ theme }) => theme.fontSize[1]};
   font-weight: 600;
 `;
 

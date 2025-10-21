@@ -187,7 +187,7 @@ const NavLink = styled(Link)`
 
 const NavButton = styled.button`
   ${NavLinkStyles}
-  font-size: 1rem;
+  font-size: ${({ theme }) => theme.fontSize[2]};
   font-family: inherit;
   background: transparent;
   border: none;

@@ -156,7 +156,7 @@ const CloseBtn = styled.button`
   display: none;
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: ${({ theme }) => theme.fontSize[4]};
   cursor: pointer;
 
   @media screen and (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
@@ -165,7 +165,7 @@ const CloseBtn = styled.button`
 `;
 
 const FilterName = styled.h3`
-  font-size: 1rem;
+  font-size: ${({ theme }) => theme.fontSize[2]};
   margin-bottom: ${({ theme }) => theme.space[2]}px;
   color: ${({ theme }) => theme.colors.textPrimary};
 `;
@@ -174,7 +174,7 @@ const Checkbox = styled.label`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.space[2]}px;
-  font-size: 0.95rem;
+  font-size: ${({ theme }) => theme.fontSize[2]};
   color: ${({ theme }) => theme.colors.textPrimary};
 
   input {

@@ -32,7 +32,7 @@ const Breadcrumbs = ({ name }: { name?: string }) => {
 };
 
 const BreadcrumbNav = styled.nav`
-  font-size: 0.9rem;
+  font-size: ${({ theme }) => theme.fontSize[2]};
   margin-bottom: 10px;
 `;
 

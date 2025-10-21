@@ -59,7 +59,7 @@ input[type="checkbox"] {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: ${({ theme }) => theme.fontSize[7]};
   line-height: 1.1;
 }
 

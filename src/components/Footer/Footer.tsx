@@ -35,17 +35,17 @@ const Wrapper = styled.footer`
   border-radius: ${({ theme }) => theme.radius.md};
   padding: ${({ theme }) => theme.space[6]}px;
   color: ${({ theme }) => theme.colors.textPrimary};
-  font-size: 0.9rem;
+  font-size: ${({ theme }) => theme.fontSize[1]};
 `;
 
 const Attributes = styled.p`
   margin-top: 24px;
-  font-size: 0.875rem;
+  font-size: ${({ theme }) => theme.fontSize[1]};
   max-width: 18rem;
 `;
 
 const LinksHeading = styled.h2`
-  font-size: 1.25rem;
+  font-size: ${({ theme }) => theme.fontSize[3]};
 `;
 
 const LinksList = styled.ul`
@@ -59,7 +59,7 @@ const LinksList = styled.ul`
 
   & a {
     text-decoration: none;
-    font-size: 1rem;
+    font-size: ${({ theme }) => theme.fontSize[2]};
   }
 `;
 

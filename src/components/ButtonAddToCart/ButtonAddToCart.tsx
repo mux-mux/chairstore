@@ -47,7 +47,7 @@ const CartQuantity = styled.span`
   bottom: -15px;
   transform: translateX(-50%);
   width: 100%;
-  font-size: 0.7rem;
+  font-size: ${({ theme }) => theme.fontSize[0]};
   color: ${({ theme }) => theme.colors.textPrimary};
 `;
 
