@@ -57,6 +57,8 @@ const CartDropdownContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: ${({ theme }) => theme.space[4]};
+  padding-top: ${({ theme }) => theme.space[6]};
+  padding-right: 0;
   border: none;
   border-radius: ${({ theme }) => theme.radius.md};
   box-shadow: ${({ theme }) => theme.shadows.low};
@@ -83,6 +85,7 @@ const CartItems = styled.div`
   display: flex;
   flex-direction: column;
   overflow: auto;
+  scrollbar-width: thin;
 `;
 
 const EmptyMessage = styled.span`
