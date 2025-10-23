@@ -112,7 +112,7 @@ const SidebarFilters = ({
   );
 };
 
-const Sidebar = styled.div<{ $isOpen: boolean }>`
+const Sidebar = styled.aside<{ $isOpen: boolean }>`
   background: ${({ theme }) => theme.colors.surface};
   border-radius: ${({ theme }) => theme.radius.md};
   box-shadow: ${({ theme }) => theme.shadows.low};

@@ -26,7 +26,6 @@ const CategoriesContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   gap: ${({ theme }) => theme.space[5]};
-  padding: ${({ theme }) => theme.space[5]} 0;
   margin: ${({ theme }) => theme.space[0]} auto;
   max-width: 1200px;
 `;

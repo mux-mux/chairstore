@@ -48,7 +48,7 @@ const Search = () => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
-      {debouncedSearch.trim() && filteredProducts.length > 0 && (
+      {query.trim() && filteredProducts.length > 0 && (
         <ResultsList>
           {filteredProducts.map(({ id, name, imageSrc, price }) => {
             const categoryPath = findCategoryByProductId(id, categories);
@@ -67,7 +67,7 @@ const Search = () => {
           })}
         </ResultsList>
       )}
-      {debouncedSearch.trim() && filteredProducts.length === 0 && (
+      {query.trim() && filteredProducts.length === 0 && (
         <EmptyMessage>No products found.</EmptyMessage>
       )}
     </SearchContainer>

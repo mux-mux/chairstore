@@ -96,19 +96,20 @@ const Navigation = () => {
           <MobileMenuOverlay />
         </>
       )}
-
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       <Footer />
     </>
   );
 };
 
-const NavContainer = styled.div`
+const NavContainer = styled.header`
   height: 70px;
   width: 100%;
   display: flex;
   align-items: center;
-  margin-bottom: ${({ theme }) => theme.space[4]};
+  margin-bottom: ${({ theme }) => theme.space[6]};
   background: ${({ theme }) => theme.colors.surface};
   box-shadow: ${({ theme }) => theme.shadows.low};
   padding: ${({ theme }) => theme.space[3]} ${({ theme }) => theme.space[4]};

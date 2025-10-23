@@ -76,25 +76,27 @@ const Products = () => {
           <FilterIcon size={24} />
         </FilterButton>
       </BreadcrumbsWrapper>
-      <Title>{categoryData?.title}</Title>
-      {!categories || categories.length === 0 ? (
-        <Spinner />
-      ) : (
-        <MainContainer>
-          <SidebarFilters
-            products={products}
-            handleFilterChange={handleFilterChange}
-            isOpen={isFilterOpen}
-            onClose={() => setFilterOpen(false)}
-          />
+      <section>
+        <Title>{categoryData?.title}</Title>
+        {!categories || categories.length === 0 ? (
+          <Spinner />
+        ) : (
+          <MainContainer>
+            <SidebarFilters
+              products={products}
+              handleFilterChange={handleFilterChange}
+              isOpen={isFilterOpen}
+              onClose={() => setFilterOpen(false)}
+            />
 
-          <ProductsContainer>
-            {filtered.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </ProductsContainer>
-        </MainContainer>
-      )}
+            <ProductsContainer>
+              {filtered.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </ProductsContainer>
+          </MainContainer>
+        )}
+      </section>
     </>
   );
 };
