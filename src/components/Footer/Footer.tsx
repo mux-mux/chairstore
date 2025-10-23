@@ -7,20 +7,22 @@ const Footer = () => {
       <div>
         <Attributes>&copy; 2025 All rights reserved</Attributes>
       </div>
-      <nav>
+      <div>
         <LinksHeading>Links</LinksHeading>
-        <LinksList>
-          <li>
-            <NavLink to="/contact">Contact Us</NavLink>
-          </li>
-          <li>
-            <NavLink to="/termsOfUse">Terms of Use</NavLink>
-          </li>
-          <li>
-            <NavLink to="/privacyPolicy">Privacy Policy</NavLink>
-          </li>
-        </LinksList>
-      </nav>
+        <nav>
+          <LinksList>
+            <li>
+              <NavLink to="/contact">Contact Us</NavLink>
+            </li>
+            <li>
+              <NavLink to="/termsOfUse">Terms of Use</NavLink>
+            </li>
+            <li>
+              <NavLink to="/privacyPolicy">Privacy Policy</NavLink>
+            </li>
+          </LinksList>
+        </nav>
+      </div>
     </Wrapper>
   );
 };

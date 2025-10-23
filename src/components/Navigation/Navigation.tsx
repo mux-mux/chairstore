@@ -96,14 +96,15 @@ const Navigation = () => {
           <MobileMenuOverlay />
         </>
       )}
-
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       <Footer />
     </>
   );
 };
 
-const NavContainer = styled.div`
+const NavContainer = styled.header`
   height: 70px;
   width: 100%;
   display: flex;

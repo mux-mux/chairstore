@@ -53,7 +53,7 @@ const PageWrapper = styled.div`
   margin: ${({ theme }) => theme.space[0]} auto;
 `;
 
-const ProductContainer = styled.div`
+const ProductContainer = styled.section`
   display: flex;
   gap: ${({ theme }) => theme.space[7]};
   margin-top: ${({ theme }) => theme.space[5]};
