@@ -6,7 +6,7 @@ const Category = ({ title, path, imageSrc }: CategoryType) => {
   return (
     <CategoryLink to={path}>
       <ImageWrapper>
-        <Image src={`/${imageSrc}`}></Image>
+        <Image src={`/${imageSrc}`} fetchPriority="high" />
         <Name>{title}</Name>
       </ImageWrapper>
     </CategoryLink>
