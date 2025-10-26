@@ -95,6 +95,7 @@ const EmptyMessage = styled.span`
 
 const CartButton = styled(Button)`
   margin-top: auto;
+  margin-right: ${({ theme }) => theme.space[4]};
 `;
 
 export default CartDropdown;
