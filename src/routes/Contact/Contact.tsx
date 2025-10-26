@@ -101,7 +101,7 @@ const Contact = () => {
 const ContactContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 480px;
+  max-width: 380px;
   margin: auto;
 `;
 
