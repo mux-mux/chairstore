@@ -1,0 +1,83 @@
+import { useDispatch } from 'react-redux';
+import styled, { css } from 'styled-components';
+import {
+  addItemToCart,
+  removeItemFromCart,
+  clearItemFromCart,
+} from '../../store/cart/reducer';
+import type { CartItemProps } from '../../types/cart';
+
+const CheckoutItem = ({ cartItem }: CartItemProps) => {
+  const dispatch = useDispatch();
+  const { name, imageSrc, price, quantity } = cartItem;
+
+  const clearItemHandler = () => dispatch(clearItemFromCart(cartItem));
+  const addItemHandler = () => dispatch(addItemToCart(cartItem));
+  const removeItemHandler = () => dispatch(removeItemFromCart(cartItem));
+
+  return (
+    <CheckoutItemContainer>
+      <ImageContainer>
+        <Image src={`/${imageSrc}`} alt={name} />
+      </ImageContainer>
+      <Name>{name}</Name>
+      <QuantityContainer>
+        <BaseButton onClick={removeItemHandler}>&#10094;</BaseButton>
+        <Quantity>{quantity}</Quantity>
+        <BaseButton onClick={addItemHandler}>&#10095;</BaseButton>
+      </QuantityContainer>
+      <Price>{price}</Price>
+      <RemoveButton onClick={clearItemHandler}>&#10006;</RemoveButton>
+    </CheckoutItemContainer>
+  );
+};
+
+const CheckoutItemContainer = styled.div`
+  width: 100%;
+  display: flex;
+  min-height: 100px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+  font-size: ${({ theme }) => theme.fontSize[3]};
+  align-items: center;
+`;
+
+export const BaseButton = styled.button`
+  padding: ${({ theme }) => theme.space[3]} ${({ theme }) => theme.space[4]};
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+`;
+
+const commonWidth = css`
+  width: 23%;
+`;
+
+const ImageContainer = styled.div`
+  ${commonWidth}
+`;
+
+const Image = styled.img`
+  display: block;
+`;
+
+const Name = styled.span`
+  ${commonWidth}
+`;
+const QuantityContainer = styled.span`
+  ${commonWidth}
+  display: flex;
+  justify-content: center;
+  align-items: anchor-center;
+`;
+const Quantity = styled.span`
+  flex-basis: 30px;
+`;
+const Price = styled.span`
+  ${commonWidth}
+`;
+
+const RemoveButton = styled(BaseButton)`
+  margin: ${({ theme }) => theme.space[0]} auto;
+`;
+
+export default CheckoutItem;
