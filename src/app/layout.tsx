@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { Oswald } from 'next/font/google';
 import StoreProvider from '@/lib/redux/StoreProvider';
-import './globals.css';
+import StyledComponentsRegistry from './registry';
+import GlobalStyle from '@/styles/GlobalStyle';
 
 const oswald = Oswald({ subsets: ['latin'] });
 
@@ -18,7 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={oswald.className}>
-        <StoreProvider>{children}</StoreProvider>
+        <StoreProvider>
+          <StyledComponentsRegistry>
+            <GlobalStyle />
+            {children}
+          </StyledComponentsRegistry>
+        </StoreProvider>
       </body>
     </html>
   );
