@@ -60,8 +60,7 @@ const TermsOfUse = () => {
       </p>
       <p>
         9. Contact Information For any questions regarding these Terms, please
-        contact us at{' '}
-        <a href="mailto:kobylyukh@gmail.com">kobylyukh@gmail.com</a>.
+        contact us at <a href="mailto:sample@gmail.com">sample@gmail.com</a>.
       </p>
     </Wrapper>
   );

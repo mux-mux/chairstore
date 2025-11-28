@@ -82,7 +82,7 @@ const PrivacyPolicy = () => {
       <p>
         8. Contact Us If you have any questions about this Privacy Policy,
         please contact us at{' '}
-        <a href="mailto:kobylyukh@gmail.com">kobylyukh@gmail.com</a>.
+        <a href="mailto:sample@gmail.com">sample@gmail.com</a>.
       </p>
     </Wrapper>
   );
